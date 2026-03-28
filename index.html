@@ -133,6 +133,38 @@
             display: inline-block;
         }
 
+        /* Beliefs / Manifesto */
+        .beliefs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .belief-item {
+            background: rgba(125, 211, 252, 0.06);
+            border-left: 3px solid #7dd3fc;
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .belief-item:hover {
+            background: rgba(125, 211, 252, 0.1);
+        }
+
+        .belief-item .belief-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .belief-item .belief-sub {
+            font-size: 13px;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
         /* Cards */
         .cards {
             display: grid;
@@ -166,6 +198,15 @@
             font-size: 14px;
             color: #d1d5db;
             margin-bottom: 12px;
+        }
+
+        .card-links {
+            margin-top: 12px;
+        }
+
+        .card-links a {
+            font-size: 13px;
+            margin-right: 16px;
         }
 
         .card-tags {
@@ -289,6 +330,110 @@
             margin-top: 4px;
         }
 
+        /* Now Section */
+        .now-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .now-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .now-card:hover {
+            border-color: rgba(125, 211, 252, 0.4);
+        }
+
+        .now-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #7dd3fc;
+            margin-bottom: 8px;
+        }
+
+        .now-card p {
+            font-size: 14px;
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        /* Reading & Interests */
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .reading-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .reading-card:hover {
+            border-color: rgba(125, 211, 252, 0.4);
+            background: rgba(125, 211, 252, 0.05);
+        }
+
+        .reading-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #7dd3fc;
+            margin-bottom: 12px;
+        }
+
+        .reading-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reading-card li {
+            font-size: 14px;
+            color: #d1d5db;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.6;
+        }
+
+        .reading-card li:last-child {
+            border-bottom: none;
+        }
+
+        .reading-card li strong {
+            color: #fff;
+        }
+
+        /* Research Section */
+        .research-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .research-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .research-links a:hover {
+            border-color: #7dd3fc;
+            background: rgba(125, 211, 252, 0.1);
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -306,6 +451,7 @@
             display: flex;
             gap: 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -351,7 +497,19 @@
                 grid-template-columns: 1fr;
             }
 
+            .beliefs-grid {
+                grid-template-columns: 1fr;
+            }
+
             .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .now-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -382,8 +540,11 @@
             <div class="header-content">
                 <div class="logo">HS</div>
                 <nav>
+                    <a href="#believe">Believe</a>
                     <a href="#build">Build</a>
                     <a href="#write">Write</a>
+                    <a href="#now">Now</a>
+                    <a href="#read">Read</a>
                     <a href="#tech">Tech</a>
                 </nav>
             </div>
@@ -397,10 +558,44 @@
             <p class="tagline">AI Product Manager. Builder. Writer.</p>
             <p class="subtitle">Chennai-born. Dallas-based. 20 years building systems. Now building AI products.</p>
             <div class="hero-links">
-                <a href="https://github.com/brettleehari" target="_blank">→ GitHub</a>
-                <a href="https://linkedin.com/in/haripm4ai" target="_blank">→ LinkedIn</a>
-                <a href="https://substack.com/@brettleehari" target="_blank">→ Substack</a>
-                <a href="https://medium.com/@brettleehari" target="_blank">→ Medium</a>
+                <a href="https://github.com/brettleehari" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/haripm4ai" target="_blank">LinkedIn</a>
+                <a href="https://substack.com/@brettleehari" target="_blank">Substack</a>
+                <a href="https://medium.com/@brettleehari" target="_blank">Medium</a>
+                <a href="https://huggingface.co/brettleehari" target="_blank">Hugging Face</a>
+                <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank">Google Scholar</a>
+                <a href="https://www.researchgate.net/profile/Hariprasad-Sudharsan" target="_blank">ResearchGate</a>
+            </div>
+        </section>
+
+        <!-- What I Believe -->
+        <section id="believe">
+            <h2>What I Believe</h2>
+            <div class="beliefs-grid">
+                <div class="belief-item">
+                    <div class="belief-text">Builders have more credibility than commentators.</div>
+                    <div class="belief-sub">Ship it. Then talk about it. The order matters.</div>
+                </div>
+                <div class="belief-item">
+                    <div class="belief-text">Quality is a platform problem, not a testing problem.</div>
+                    <div class="belief-sub">18 years of IDP taught me that quality is designed into systems, not inspected into products.</div>
+                </div>
+                <div class="belief-item">
+                    <div class="belief-text">AI needs engineering discipline from day one.</div>
+                    <div class="belief-sub">Every integration problem I solved in developer platforms showed up again when AI arrived. The scars transfer.</div>
+                </div>
+                <div class="belief-item">
+                    <div class="belief-text">Create your own frameworks. Don't just use others'.</div>
+                    <div class="belief-sub">TAQi for test automation. HMF for career navigation. CricketBench for model evaluation. Original thinking compounds.</div>
+                </div>
+                <div class="belief-item">
+                    <div class="belief-text">Connection is the one thing AI can't replicate.</div>
+                    <div class="belief-sub">I coined "Connecticate" &mdash; the ability to connect while you communicate. That's the human edge.</div>
+                </div>
+                <div class="belief-item">
+                    <div class="belief-text">Accidents, luck, and detours deserve gratitude.</div>
+                    <div class="belief-sub">The path from Chennai to Dallas, from telecom to AI, was never a straight line. Every detour built something.</div>
+                </div>
             </div>
         </section>
 
@@ -410,11 +605,16 @@
             <div class="cards">
                 <div class="card">
                     <h3>CricketMind</h3>
-                    <p>Fine-tuned NVIDIA Nemotron-Mini-4B for cricket domain expertise. QLoRA training with response distillation. Custom CricketBench evaluation suite. Runs on $4 worth of RunPod A100.</p>
+                    <p>Fine-tuned NVIDIA Nemotron-Mini-4B for cricket domain expertise. QLoRA training with response distillation using Claude as teacher model. Custom CricketBench evaluation suite (25 questions, 4 categories). 67.5% vs 30.2% baseline. Runs on $5 worth of RunPod A100.</p>
+                    <div class="card-links">
+                        <a href="https://huggingface.co/brettleehari/cricketmind-nemotron-mini" target="_blank">Model</a>
+                        <a href="https://huggingface.co/datasets/brettleehari/cricketbench-v1" target="_blank">Dataset</a>
+                    </div>
                     <div class="card-tags">
                         <span class="tag">LLM Fine-tuning</span>
                         <span class="tag">QLoRA</span>
                         <span class="tag">Evaluation</span>
+                        <span class="tag">Response Distillation</span>
                     </div>
                 </div>
 
@@ -495,6 +695,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="research-links">
+                <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank">Google Scholar Profile</a>
+                <a href="https://www.researchgate.net/profile/Hariprasad-Sudharsan" target="_blank">ResearchGate Profile</a>
+            </div>
         </section>
 
         <!-- Writing Section -->
@@ -507,7 +712,7 @@
                 </div>
 
                 <div class="writing-item">
-                    <h3>"From M×N to MCP" (3-part series)</h3>
+                    <h3>"From M&times;N to MCP" (3-part series)</h3>
                     <p>How integration scars from platform work led to understanding Model Context Protocol.</p>
                 </div>
 
@@ -539,6 +744,71 @@
                 <div class="writing-item">
                     <h3>Published in Towards Dev (Medium)</h3>
                     <p>Multiple articles on testing, quality, and building platforms at scale.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What I'm Learning / Now -->
+        <section id="now">
+            <h2>Now</h2>
+            <p style="font-size: 15px; color: #9ca3af; margin-bottom: 32px; margin-top: -24px;">Where my head is at right now.</p>
+            <div class="now-grid">
+                <div class="now-card">
+                    <h3>Model Context Protocol (MCP)</h3>
+                    <p>Deep-diving into how MCP solves the M&times;N integration problem I fought for 18 years. Writing a 3-part series connecting my LlamaIndex PR experience to the MCP philosophy.</p>
+                </div>
+                <div class="now-card">
+                    <h3>Fine-Tuning at Low Cost</h3>
+                    <p>Proving that domain-adapted LLMs don't need massive budgets. CricketMind runs on $5 of compute. Exploring QLoRA, response distillation, and evaluation-driven training loops.</p>
+                </div>
+                <div class="now-card">
+                    <h3>Causal Discovery in Health Data</h3>
+                    <p>Moving beyond correlations with PCMCI and STUMPY. Building GlucoLens to find real causal relationships, not just patterns that look convincing.</p>
+                </div>
+                <div class="now-card">
+                    <h3>The Full AI Value Chain</h3>
+                    <p>Mapping the 8 layers from data to deployment to observability. Most teams only see 2-3 layers. Writing to make the full stack visible.</p>
+                </div>
+                <div class="now-card">
+                    <h3>RAG Done Right</h3>
+                    <p>Upstream intervention over retrieval tuning. Preprocessing and source quality matter more than the retrieval algorithm. Building Code-RAG to prove it.</p>
+                </div>
+                <div class="now-card">
+                    <h3>Writing as Thinking</h3>
+                    <p>Publishing consistently across Substack and Medium. Turning 24+ drafts into finished pieces. The act of writing is how I learn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What I Read & Interests -->
+        <section id="read">
+            <h2>What I Read & What Moves Me</h2>
+            <div class="reading-grid">
+                <div class="reading-card">
+                    <h3>Thinkers Who Shaped Me</h3>
+                    <ul>
+                        <li><strong>J. Krishnamurti</strong> &mdash; On observation without judgment. Changed how I think about decision-making and leadership.</li>
+                        <li><strong>Systems thinkers</strong> &mdash; Platform engineering taught me to think in systems. I read anything that connects parts to wholes.</li>
+                        <li><strong>Builder narratives</strong> &mdash; Engineering blogs, build logs, post-mortems. I learn more from how things failed than how they succeeded.</li>
+                    </ul>
+                </div>
+
+                <div class="reading-card">
+                    <h3>What I Follow</h3>
+                    <ul>
+                        <li><strong>AI research</strong> &mdash; NVIDIA Nemotron papers, fine-tuning techniques, evaluation methodology, RAG architectures</li>
+                        <li><strong>Platform engineering</strong> &mdash; IDP evolution, developer experience, CI/CD pipelines, observability</li>
+                        <li><strong>Technical writing</strong> &mdash; Deep dives from practitioners who build and then write about what they learned</li>
+                    </ul>
+                </div>
+
+                <div class="reading-card">
+                    <h3>Interests Beyond Code</h3>
+                    <ul>
+                        <li><strong>Cricket</strong> &mdash; Deep enough to fine-tune an LLM on it. I study the Laws, the strategy, the edge cases. Built CricketMind because I couldn't find an AI that understood the game.</li>
+                        <li><strong>Music</strong> &mdash; Exploring the intersection of AI and music. How generative models handle something as human as sound.</li>
+                        <li><strong>Leadership philosophy</strong> &mdash; What makes teams work. Why happier teams build better products. The role of productive conflict.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -587,6 +857,10 @@
                 <a href="https://github.com/brettleehari" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/haripm4ai" target="_blank">LinkedIn</a>
                 <a href="https://substack.com/@brettleehari" target="_blank">Substack</a>
+                <a href="https://medium.com/@brettleehari" target="_blank">Medium</a>
+                <a href="https://huggingface.co/brettleehari" target="_blank">Hugging Face</a>
+                <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank">Scholar</a>
+                <a href="https://www.researchgate.net/profile/Hariprasad-Sudharsan" target="_blank">ResearchGate</a>
             </div>
         </div>
     </footer>
