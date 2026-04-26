@@ -34,7 +34,7 @@
   "about": {
     "thesis": "I build the full stack around the model, not the model alone. The customer interacts with the product, not the model. The product compensates for the model's weaknesses. Prompt design as defensive programming. Context management as infrastructure. Evaluation as a first-class concern, not an afterthought.",
     "arc": "I started as an engineer (protocol stacks, Python frameworks, AST-based tooling) and moved into product. I write PRDs. I also read the code behind them. Intrapreneur inside the enterprise: built Fujitsu's first GenAI product from nothing and deployed it across 6 Tier-1 customers globally. Entrepreneur outside: published Smart-Review on the GitHub Marketplace in 2019, ran an Uber fleet management venture in Chennai (2015-2017), built overlay tools for real users with real money on the line. What you see here is what is available in the open. The enterprise work, 6 Tier-1 deployments, EU AI Act compliance, 20% autonomous issue resolution, sits behind NDA.",
-    "looking_for": "AI product management and strategy roles where AI is the core business, not a bolt-on feature. Teams that need someone who understands both the model's capabilities and the enterprise constraints that determine whether it actually ships."
+    "looking_for": ""
   },
 
   "beliefs": [

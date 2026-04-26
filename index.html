@@ -388,10 +388,7 @@
                     <p>${esc(d.about.thesis)}</p>
                     <p>${esc(d.about.arc)}</p>
                 </div>
-                <div class="callout-box">
-                    <h3>What I'm Looking For</h3>
-                    <p>${esc(d.about.looking_for)}</p>
-                </div>
+                ${d.about.looking_for ? `<div class="callout-box"><h3>What I'm Looking For</h3><p>${esc(d.about.looking_for)}</p></div>` : ''}
             </div>`;
 
         // Timeline - interactive expandable
