@@ -33,7 +33,7 @@
 
   "about": {
     "thesis": "I build the full stack around the model, not the model alone. The customer interacts with the product, not the model. The product compensates for the model's weaknesses. Prompt design as defensive programming. Context management as infrastructure. Evaluation as a first-class concern, not an afterthought.",
-    "arc": "I started as an engineer (protocol stacks, Python frameworks, AST-based tooling) and moved into product. I write PRDs. I also read the code behind them. From open source contributions in 2016 to research and patents in 2017, to first AI products in 2019, to building Fujitsu's first GenAI product deployed across 6 Tier-1 enterprise customers globally. Before AI, 18 years designing internal developer platforms at scale. Every integration problem I solved in platform engineering showed up again when AI arrived. The scars transferred.",
+    "arc": "I started as an engineer (protocol stacks, Python frameworks, AST-based tooling) and moved into product. I write PRDs. I also read the code behind them. Intrapreneur inside the enterprise: built Fujitsu's first GenAI product from nothing and deployed it across 6 Tier-1 customers globally. Entrepreneur outside: published Smart-Review on the GitHub Marketplace in 2019, ran an Uber fleet management venture in Chennai (2015-2017), built overlay tools for real users with real money on the line. What you see here is what is available in the open. The enterprise work, 6 Tier-1 deployments, EU AI Act compliance, 20% autonomous issue resolution, sits behind NDA.",
     "looking_for": "AI product management and strategy roles where AI is the core business, not a bolt-on feature. Teams that need someone who understands both the model's capabilities and the enterprise constraints that determine whether it actually ships."
   },
 
@@ -77,79 +77,135 @@
       "year": 2007,
       "label": "Television news presenter at Makkal TV, Chennai",
       "description": "Learned to communicate technical ideas to non-technical audiences. Direct line to how I write product narratives today.",
-      "category": "career"
+      "category": "career",
+      "links": []
     },
     {
       "year": 2008,
       "label": "Project Engineer at Wipro Technologies",
       "description": "First engineering role. Built foundation in enterprise software.",
-      "category": "career"
+      "category": "career",
+      "links": []
     },
     {
       "year": 2010,
       "label": "Senior Engineer, IP Stack and AAA at Dell",
       "description": "Deep protocol engineering. IP stack development and AAA authentication systems.",
-      "category": "career"
+      "category": "career",
+      "links": []
     },
     {
       "year": 2011,
       "label": "Joined Fujitsu, Lead Networking Protocols",
-      "description": "Started the 14-year arc at Fujitsu. Protocol innovation leading to 3 US patents (G.8032, MSTP, loop prevention). Chennai to Tampa to Dallas.",
-      "category": "career"
+      "description": "Started the 14-year arc at Fujitsu. Protocol innovation leading to 3 US patents (G.8032, MSTP, loop prevention). Chennai to Tampa to Dallas. This is where the intrapreneur journey began: identifying whitespace inside the org, pitching for resources, building products from concept to deployment within the enterprise.",
+      "category": "career",
+      "links": [
+        { "label": "Google Scholar (patents + papers)", "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" }
+      ]
     },
     {
       "year": 2015,
-      "label": "Led open-source transition of Warrior Python framework",
-      "description": "Designed adoption strategy, built community engagement, drove developer onboarding. Turned complex networking domain logic into reusable abstractions. Became the org's engineering standard.",
-      "category": "opensource"
+      "label": "Led open-source transition of Warrior Python framework + Uber fleet entrepreneur venture",
+      "description": "Two parallel tracks. Inside Fujitsu: designed the adoption strategy for open-sourcing the Warrior Python test framework. Built community engagement, drove developer onboarding. Turned complex networking domain logic into reusable abstractions. Became the org's engineering standard. Outside: ran an entrepreneur venture in Chennai managing a taxi fleet with Uber, building overlay tools for fleet coordination, driver scheduling, and earnings optimization. First taste of building a product for real users with real money on the line.",
+      "category": "opensource",
+      "links": [
+        { "label": "Warrior Framework on GitHub", "url": "https://github.com/warriorframework/warriorframework" },
+        { "label": "First merged PR (#149): Error handling for malformed test files", "url": "https://github.com/warriorframework/warriorframework/pull/149" }
+      ]
     },
     {
       "year": 2016,
-      "label": "First open source contributions",
-      "description": "Began contributing to established open source projects. Warrior Framework PRs merged. Arctic Code Vault Contributor.",
-      "category": "opensource"
+      "label": "First open source contributions merged",
+      "description": "5 PRs merged into the Warrior Framework: error handling for malformed test files, RMT suite iteration fix, RUNMODE interval at testcase level, author contributions, Selenium browser fixes. Arctic Code Vault Contributor. These are the public contributions. Inside the org, the intrapreneur work continued: building tools, pitching improvements, earning trust to take on bigger scope.",
+      "category": "opensource",
+      "links": [
+        { "label": "PR #149: Error handling", "url": "https://github.com/warriorframework/warriorframework/pull/149" },
+        { "label": "PR #272: RMT suite iteration fix", "url": "https://github.com/warriorframework/warriorframework/pull/272" },
+        { "label": "PR #291: RUNMODE interval", "url": "https://github.com/warriorframework/warriorframework/pull/291" },
+        { "label": "PR #297: Author contributions", "url": "https://github.com/warriorframework/warriorframework/pull/297" },
+        { "label": "All Warrior Framework PRs", "url": "https://github.com/warriorframework/warriorframework/pulls?q=is%3Apr+author%3Abrettleehari" }
+      ]
     },
     {
       "year": 2017,
       "label": "3 US patents granted + research published",
-      "description": "G.8032 ring protection, MSTP migration, loop prevention. 6+ published papers, 45+ citations across published work.",
-      "category": "research"
+      "description": "G.8032 ring protection, MSTP migration, loop prevention. 6+ published papers, 45+ citations across published work. These patents came from the protocol engineering work at Fujitsu, solving real problems in production telecom networks.",
+      "category": "research",
+      "links": [
+        { "label": "Google Scholar profile (all papers + citations)", "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" },
+        { "label": "ResearchGate profile", "url": "https://www.researchgate.net/profile/Hariprasad-Sudharsan" }
+      ]
     },
     {
       "year": 2018,
       "label": "Sr. Program Lead, Developer Experience and Platform Excellence",
-      "description": "Built the Internal Developer Platform. 13-person team, 250+ developers, 24 teams, 2 business units. Monthly to daily releases. 99.99% uptime. Created TAQi, DDF, Merge Conflict Coefficient, adopted by 50+ teams.",
-      "category": "career"
+      "description": "Built the Internal Developer Platform from R&D to production. 13-person cross-functional team. Scaled to 250+ developers, 24 teams, 2 business units. Release cadence: monthly to daily. 99.99% uptime. Created TAQi (Test Automation Quality Index), DDF, and Merge Conflict Coefficient, adopted by 50+ teams as benchmarks. Invited speaker at InfluxDays. This platform became the foundation for all AI tool deployment across the org.",
+      "category": "career",
+      "links": []
     },
     {
       "year": 2019,
-      "label": "First AI products shipped",
-      "description": "Smart-Review (Probot app in GitHub Marketplace, PyDriller scoring) and Metabolistic Storyteller. First experience taking a model from notebook to product.",
-      "category": "product"
+      "label": "First AI products shipped: entrepreneur attempt with Smart-Review",
+      "description": "Smart-Review was my entrepreneur attempt: a Probot app published in the GitHub Marketplace, with a PyDriller-based reviewer suggestion engine. Built outside of work hours, published publicly, wrote about it on Medium. This was the first time I took an AI product idea, built it end-to-end, and put it in front of real users in a marketplace. Also built Metabolistic Storyteller (traditional ML). First experience taking a model from notebook to product.",
+      "category": "product",
+      "links": [
+        { "label": "Smart-Review: original repo (2019)", "url": "https://github.com/pitchdarkdata/MVP1" },
+        { "label": "Smart-Review: 2026 full-stack rebuild", "url": "https://github.com/brettleehari/reviewbuddy" },
+        { "label": "Medium article: Are You Adding the Best Code Reviewer?", "url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7" },
+        { "label": "Live demo", "url": "https://brettleehari.github.io/reviewbuddy/" }
+      ]
     },
     {
       "year": 2020,
       "label": "Started writing publicly",
-      "description": "Published 'Are You Adding the Best Code Reviewer for Each Pull Request?' on Towards Dev. Began Substack and Medium.",
-      "category": "writing"
+      "description": "Published 'Are You Adding the Best Code Reviewer for Each Pull Request?' on Towards Dev (Medium). Began Substack and Medium as regular publishing channels. Writing as thinking, not marketing.",
+      "category": "writing",
+      "links": [
+        { "label": "Medium article on code review", "url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7" },
+        { "label": "Substack", "url": "https://substack.com/@brettleehari" },
+        { "label": "Medium", "url": "https://medium.com/@brettleehari" }
+      ]
     },
     {
       "year": 2024,
-      "label": "Product Manager, AI and API at Fujitsu + GraspRepo + Visual Learning started",
-      "description": "AI PR Reviewer default-on in IDP: 85% actionable rate, 1,000+ weekly PRs, 20+ teams. Started GraspRepo (AST + PageRank codebase analysis) and Visual Learning (context management explainer). LlamaIndex PR #15311 merged.",
-      "category": "product"
+      "label": "Product Manager, AI and API at Fujitsu. LlamaIndex merged. GraspRepo + Visual Learning started.",
+      "description": "Intrapreneur track: AI PR Reviewer default-on in IDP, 85% actionable rate, 1,000+ weekly PRs, 20+ teams, 2 years sustained adoption. Customer Zero philosophy: deployed AI tools into my own team first, validated before shipping to enterprise. Builder track: started GraspRepo (AST + PageRank codebase analysis) and Visual Learning (context management explainer). Open source: LlamaIndex PR #15311 merged, fixing file path loading issues in core RAG infrastructure used by thousands of implementations.",
+      "category": "product",
+      "links": [
+        { "label": "LlamaIndex PR #15311 (merged)", "url": "https://github.com/run-llama/llama_index/pull/15311" },
+        { "label": "GraspRepo: live demo", "url": "https://grasprepo.onrender.com" },
+        { "label": "GraspRepo: GitHub", "url": "https://github.com/brettleehari/grasprepo" },
+        { "label": "Visual Learning: live demo", "url": "https://brettleehari.github.io/Visuallearning/" },
+        { "label": "Visual Learning: GitHub", "url": "https://github.com/brettleehari/Visuallearning" }
+      ]
     },
     {
       "year": 2025,
-      "label": "Promoted to Senior PM. CIAL platform. Aider contribution.",
-      "description": "Built Fujitsu's first GenAI product, deployed across 6 Tier-1 customers globally. CIAL crypto intelligence platform. Aider PR #2100. MCP learning tools. Multi-factor failure analysis: 20% autonomous resolution, EU AI Act compliant.",
-      "category": "product"
+      "label": "Promoted to Senior PM. Built Fujitsu's first GenAI product. Aider contribution.",
+      "description": "Intrapreneur at scale: built Fujitsu's first GenAI product from concept to deployment across 6 Tier-1 enterprise customers globally. Transitioned pricing from perpetual license to ARR. Shipped multi-factor failure analysis agent: 20% autonomous resolution, EU AI Act compliant with 0.8 confidence threshold. Builder track: CIAL crypto intelligence platform, MCP interactive learning tools. Open source: Aider PR #2100 merged.",
+      "category": "product",
+      "links": [
+        { "label": "Aider PR #2100 (enhancement #1936)", "url": "https://github.com/Aider-AI/aider/pull/2100" },
+        { "label": "CIAL platform: GitHub", "url": "https://github.com/brettleehari/BTCExpert" },
+        { "label": "MCP Learning: GitHub", "url": "https://github.com/brettleehari/mcp" }
+      ]
     },
     {
       "year": 2026,
-      "label": "Shipped 6 projects in 4 months. Book published.",
-      "description": "CricketMind (fine-tuned LLM), Visual Learning (context management), Smart-Review v2, GraspRepo dashboard, IntelliYANG, Metabolistic Storyteller. Published 'Thinking in Analogies' 2nd edition. Dallas AI Meetup speaker (April 9).",
-      "category": "product"
+      "label": "Shipped 6 projects in 4 months. Book published. Dallas AI Meetup speaker.",
+      "description": "CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
+      "category": "product",
+      "links": [
+        { "label": "CricketMind: model on Hugging Face", "url": "https://huggingface.co/brettleehari/cricketmind-nemotron-mini" },
+        { "label": "CricketBench: dataset on Hugging Face", "url": "https://huggingface.co/datasets/brettleehari/cricketbench-v1" },
+        { "label": "CricketMind: GitHub", "url": "https://github.com/brettleehari/cricketmind" },
+        { "label": "Smart-Review v2: live demo", "url": "https://brettleehari.github.io/reviewbuddy/" },
+        { "label": "GraspRepo: live demo", "url": "https://grasprepo.onrender.com" },
+        { "label": "Metabolistic Storyteller: live demo", "url": "https://your-metabolic-story-teller.onrender.com" },
+        { "label": "IntelliYANG: GitHub", "url": "https://github.com/brettleehari/intelliyang" },
+        { "label": "Visual Learning: live demo", "url": "https://brettleehari.github.io/Visuallearning/" },
+        { "label": "All repos", "url": "https://github.com/brettleehari?tab=repositories" }
+      ]
     }
   ],
 
@@ -332,7 +388,7 @@
       "project": "LlamaIndex",
       "contribution": "PR #15311 (Merged): Fixed file path loading issues in core RAG infrastructure",
       "year": 2024,
-      "url": "",
+      "url": "https://github.com/run-llama/llama_index/pull/15311",
       "significance": "Contributed to infrastructure used by thousands of RAG implementations worldwide"
     },
     {

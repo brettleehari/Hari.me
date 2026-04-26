@@ -124,8 +124,15 @@
             max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease;
             padding: 0 16px;
         }
-        .tl-node.open .tl-body { max-height: 400px; padding: 8px 16px 16px; }
+        .tl-node.open .tl-body { max-height: 800px; padding: 8px 16px 16px; }
         .tl-body p { font-size: 13px; color: #9ca3af; line-height: 1.7; margin-left: 52px; }
+        .tl-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; margin-left: 52px; }
+        .tl-links a {
+            font-size: 11px; padding: 3px 10px; border-radius: 4px;
+            border: 1px solid rgba(125,211,252,0.2); color: #7dd3fc;
+            transition: all 0.2s; white-space: nowrap;
+        }
+        .tl-links a:hover { background: rgba(125,211,252,0.1); border-color: rgba(125,211,252,0.4); }
 
         /* Category colors */
         [data-cat="career"] { --cat-color: #a78bfa; --cat-bg: rgba(167,139,250,0.1); }
@@ -305,6 +312,7 @@
             .book-card { flex-direction: column; text-align: center; }
             .tl-head { padding: 8px 8px; }
             .tl-body p { margin-left: 0; }
+            .tl-links { margin-left: 0; }
         }
     </style>
 </head>
@@ -401,7 +409,10 @@
                     <span class="tl-cat-badge">${esc(catLabels[t.category]||t.category)}</span>
                     <span class="tl-expand-icon">&#9654;</span>
                 </div>
-                <div class="tl-body"><p>${esc(t.description)}</p></div>
+                <div class="tl-body">
+                    <p>${esc(t.description)}</p>
+                    ${t.links && t.links.length ? `<div class="tl-links">${t.links.map(l => `<a href="${esc(l.url)}" target="_blank" onclick="event.stopPropagation()">${esc(l.label)}</a>`).join('')}</div>` : ''}
+                </div>
             </div>
         `).join('');
 
@@ -460,9 +471,10 @@
 
         const ossHtml = d.open_source.map(o => `
             <div class="oss-card">
-                <h4>${esc(o.project)}</h4>
+                <h4>${o.url ? `<a href="${esc(o.url)}" target="_blank">${esc(o.project)}</a>` : esc(o.project)}</h4>
                 ${o.year ? `<div class="oss-year">${esc(String(o.year))}</div>` : ''}
                 <p>${esc(o.contribution)}</p>
+                ${o.significance ? `<p style="margin-top:6px;font-size:11px;color:#6b7280;">${esc(o.significance)}</p>` : ''}
             </div>`).join('');
 
         document.getElementById('build').innerHTML = `
