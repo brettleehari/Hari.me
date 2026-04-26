@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hari's Corner | AI Product Manager & Builder</title>
+    <title>Hari's Corner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -19,518 +15,203 @@
             line-height: 1.6;
         }
 
-        a {
-            color: #7dd3fc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+        a { color: #7dd3fc; text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: #38bdf8; }
 
-        a:hover {
-            color: #38bdf8;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header / Navigation */
         header {
             padding: 24px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            position: sticky;
-            top: 0;
-            background: rgba(15, 20, 25, 0.95);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            position: sticky; top: 0;
+            background: rgba(15,20,25,0.95);
             backdrop-filter: blur(8px);
             z-index: 100;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 20px; font-weight: 600; letter-spacing: -0.5px; }
+        nav a { margin-left: 32px; font-size: 14px; color: #a0aec0; }
+        nav a:hover { color: #7dd3fc; }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
+        .hero { padding: 80px 0 60px; text-align: center; }
+        .hero h1 { font-size: clamp(36px,5vw,52px); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.8px; }
+        .hero .tagline { font-size: clamp(14px,1.5vw,16px); color: #9ca3af; max-width: 700px; margin: 0 auto 24px; line-height: 1.7; }
+        .hero .location { font-size: 14px; color: #7dd3fc; font-weight: 500; margin-bottom: 32px; }
 
-        nav a {
-            margin-left: 32px;
-            font-size: 14px;
-            color: #a0aec0;
-        }
-
-        nav a:hover {
-            color: #7dd3fc;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 120px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(36px, 5vw, 52px);
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.8px;
-        }
-
-        .hero .tagline {
-            font-size: clamp(16px, 2vw, 20px);
-            color: #7dd3fc;
-            font-weight: 500;
-            margin-bottom: 24px;
-        }
-
-        .hero .subtitle {
-            font-size: clamp(14px, 1.5vw, 16px);
-            color: #9ca3af;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-
-        .hero-links {
-            display: flex;
-            gap: 24px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        .hero-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
         .hero-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            border: 1px solid rgba(125, 211, 252, 0.3);
-            border-radius: 6px;
-            font-size: 14px;
-            transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 14px; border: 1px solid rgba(125,211,252,0.3);
+            border-radius: 6px; font-size: 13px; transition: all 0.3s ease;
         }
+        .hero-links a:hover { border-color: #7dd3fc; background: rgba(125,211,252,0.1); }
 
-        .hero-links a:hover {
-            border-color: #7dd3fc;
-            background: rgba(125, 211, 252, 0.1);
-        }
-
-        /* Section */
-        section {
-            margin-bottom: 100px;
-        }
-
+        section { margin-bottom: 80px; }
         h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid rgba(125, 211, 252, 0.3);
+            font-size: 28px; font-weight: 700; margin-bottom: 40px;
+            padding-bottom: 12px; border-bottom: 2px solid rgba(125,211,252,0.3);
             display: inline-block;
         }
+        .section-sub { font-size: 15px; color: #9ca3af; margin-bottom: 32px; margin-top: -24px; line-height: 1.7; }
 
-        /* Beliefs / Manifesto */
-        .beliefs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        /* About */
+        .about-block { margin-bottom: 24px; }
+        .about-block p { font-size: 15px; color: #d1d5db; line-height: 1.8; margin-bottom: 16px; }
+        .about-block .looking-for {
+            background: rgba(125,211,252,0.08); border: 1px solid rgba(125,211,252,0.2);
+            border-radius: 8px; padding: 24px; margin-top: 24px;
         }
+        .about-block .looking-for h3 { font-size: 16px; font-weight: 600; color: #7dd3fc; margin-bottom: 8px; }
+        .about-block .looking-for p { font-size: 14px; color: #d1d5db; margin-bottom: 0; }
 
+        /* Timeline */
+        .timeline-container { position: relative; padding-left: 32px; }
+        .timeline-container::before {
+            content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+            width: 2px; background: rgba(125,211,252,0.3);
+        }
+        .timeline-item { position: relative; margin-bottom: 32px; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -28px; top: 6px;
+            width: 12px; height: 12px; border-radius: 50%;
+            background: #7dd3fc; border: 2px solid #0f1419;
+        }
+        .timeline-year { font-size: 13px; font-weight: 600; color: #7dd3fc; margin-bottom: 4px; }
+        .timeline-label { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+        .timeline-desc { font-size: 14px; color: #9ca3af; line-height: 1.6; }
+
+        /* Beliefs */
+        .beliefs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .belief-item {
-            background: rgba(125, 211, 252, 0.06);
-            border-left: 3px solid #7dd3fc;
-            padding: 20px 24px;
-            border-radius: 0 8px 8px 0;
-            transition: all 0.3s ease;
+            background: rgba(125,211,252,0.06); border-left: 3px solid #7dd3fc;
+            padding: 20px 24px; border-radius: 0 8px 8px 0; transition: all 0.3s ease;
         }
-
-        .belief-item:hover {
-            background: rgba(125, 211, 252, 0.1);
-        }
-
-        .belief-item .belief-text {
-            font-size: 15px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-
-        .belief-item .belief-sub {
-            font-size: 13px;
-            color: #9ca3af;
-            line-height: 1.6;
-        }
+        .belief-item:hover { background: rgba(125,211,252,0.1); }
+        .belief-item .belief-text { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+        .belief-item .belief-sub { font-size: 13px; color: #9ca3af; line-height: 1.6; }
 
         /* Cards */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 28px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; padding: 28px; transition: all 0.3s ease; backdrop-filter: blur(4px);
         }
-
-        .card:hover {
-            border-color: rgba(125, 211, 252, 0.4);
-            background: rgba(125, 211, 252, 0.05);
-            transform: translateY(-4px);
-        }
-
-        .card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #fff;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #d1d5db;
-            margin-bottom: 12px;
-        }
-
-        .card-links {
-            margin-top: 12px;
-        }
-
-        .card-links a {
-            font-size: 13px;
-            margin-right: 16px;
-        }
-
-        .card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
+        .card:hover { border-color: rgba(125,211,252,0.4); background: rgba(125,211,252,0.05); transform: translateY(-4px); }
+        .card .card-year { font-size: 12px; color: #7dd3fc; font-weight: 500; margin-bottom: 8px; }
+        .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #fff; }
+        .card .card-oneliner { font-size: 14px; color: #7dd3fc; margin-bottom: 12px; font-weight: 500; }
+        .card p { font-size: 14px; color: #d1d5db; margin-bottom: 8px; line-height: 1.6; }
+        .card .card-insight { font-size: 13px; color: #9ca3af; font-style: italic; margin-top: 12px; line-height: 1.6; }
+        .card-links { margin-top: 12px; }
+        .card-links a { font-size: 13px; margin-right: 16px; }
+        .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
         .tag {
-            display: inline-block;
-            background: rgba(125, 211, 252, 0.15);
-            color: #7dd3fc;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
+            display: inline-block; background: rgba(125,211,252,0.15); color: #7dd3fc;
+            padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 500;
         }
+        .card .card-results { font-size: 13px; color: #7dd3fc; font-weight: 500; margin-top: 8px; }
 
-        /* Writing Section */
-        .writing-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        /* Open Source */
+        .oss-list { display: flex; flex-direction: column; gap: 16px; }
+        .oss-item {
+            border-left: 3px solid rgba(125,211,252,0.3); padding-left: 20px;
+            padding-top: 4px; padding-bottom: 4px;
         }
+        .oss-item h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+        .oss-item p { font-size: 14px; color: #9ca3af; }
 
-        .writing-item {
-            border-left: 3px solid rgba(125, 211, 252, 0.3);
-            padding-left: 20px;
-            padding-top: 4px;
-            padding-bottom: 4px;
-            transition: border-color 0.3s ease;
-        }
-
-        .writing-item:hover {
-            border-left-color: #7dd3fc;
-        }
-
-        .writing-item h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: #fff;
-        }
-
-        .writing-item p {
-            font-size: 14px;
-            color: #9ca3af;
-        }
-
-        /* Tech Stack */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .tech-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 24px;
-            backdrop-filter: blur(4px);
-        }
-
-        .tech-category h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #7dd3fc;
-            margin-bottom: 12px;
-        }
-
-        .tech-category p {
-            font-size: 14px;
-            color: #d1d5db;
-            line-height: 1.8;
-        }
-
-        /* Background Section */
+        /* Background */
         .background-section {
-            background: rgba(125, 211, 252, 0.08);
-            border: 1px solid rgba(125, 211, 252, 0.2);
-            border-radius: 8px;
-            padding: 36px;
-            margin-bottom: 40px;
+            background: rgba(125,211,252,0.08); border: 1px solid rgba(125,211,252,0.2);
+            border-radius: 8px; padding: 36px; margin-bottom: 40px;
         }
-
-        .background-section h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #fff;
-        }
-
-        .background-section p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #d1d5db;
-        }
-
-        .background-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 24px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 28px;
-            font-weight: 700;
-            color: #7dd3fc;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            color: #9ca3af;
-            margin-top: 4px;
-        }
-
-        /* Now Section */
-        .now-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .now-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 24px;
-            transition: all 0.3s ease;
-        }
-
-        .now-card:hover {
-            border-color: rgba(125, 211, 252, 0.4);
-        }
-
-        .now-card h3 {
-            font-size: 15px;
-            font-weight: 600;
-            color: #7dd3fc;
-            margin-bottom: 8px;
-        }
-
-        .now-card p {
-            font-size: 14px;
-            color: #d1d5db;
-            line-height: 1.7;
-        }
-
-        /* Reading & Interests */
-        .reading-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .reading-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 28px;
-            transition: all 0.3s ease;
-        }
-
-        .reading-card:hover {
-            border-color: rgba(125, 211, 252, 0.4);
-            background: rgba(125, 211, 252, 0.05);
-        }
-
-        .reading-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #7dd3fc;
-            margin-bottom: 12px;
-        }
-
-        .reading-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .reading-card li {
-            font-size: 14px;
-            color: #d1d5db;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            line-height: 1.6;
-        }
-
-        .reading-card li:last-child {
-            border-bottom: none;
-        }
-
-        .reading-card li strong {
-            color: #fff;
-        }
-
-        /* Research Section */
-        .research-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 24px;
-        }
-
+        .background-section p { font-size: 15px; line-height: 1.8; color: #d1d5db; }
+        .background-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 24px; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 28px; font-weight: 700; color: #7dd3fc; }
+        .stat-label { font-size: 13px; color: #9ca3af; margin-top: 4px; }
+        .research-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
         .research-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border: 1px solid rgba(125, 211, 252, 0.3);
-            border-radius: 6px;
-            font-size: 14px;
-            transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border: 1px solid rgba(125,211,252,0.3);
+            border-radius: 6px; font-size: 14px; transition: all 0.3s ease;
         }
+        .research-links a:hover { border-color: #7dd3fc; background: rgba(125,211,252,0.1); }
 
-        .research-links a:hover {
-            border-color: #7dd3fc;
-            background: rgba(125, 211, 252, 0.1);
+        /* Frameworks */
+        .frameworks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 24px; }
+        .framework-item {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; padding: 24px;
         }
+        .framework-item h4 { font-size: 15px; font-weight: 600; color: #7dd3fc; margin-bottom: 8px; }
+        .framework-item p { font-size: 13px; color: #d1d5db; line-height: 1.6; }
+
+        /* Writing */
+        .writing-list { display: flex; flex-direction: column; gap: 20px; }
+        .writing-item {
+            border-left: 3px solid rgba(125,211,252,0.3); padding-left: 20px;
+            padding-top: 4px; padding-bottom: 4px; transition: border-color 0.3s ease;
+        }
+        .writing-item:hover { border-left-color: #7dd3fc; }
+        .writing-item h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; color: #fff; }
+        .writing-item .writing-meta { font-size: 12px; color: #7dd3fc; margin-bottom: 4px; }
+        .writing-item p { font-size: 14px; color: #9ca3af; }
+
+        /* Now */
+        .now-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .now-card {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; padding: 24px; transition: all 0.3s ease;
+        }
+        .now-card:hover { border-color: rgba(125,211,252,0.4); }
+        .now-card h3 { font-size: 15px; font-weight: 600; color: #7dd3fc; margin-bottom: 8px; }
+        .now-card p { font-size: 14px; color: #d1d5db; line-height: 1.7; }
+
+        /* Reading */
+        .reading-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .reading-card {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; padding: 28px; transition: all 0.3s ease;
+        }
+        .reading-card:hover { border-color: rgba(125,211,252,0.4); background: rgba(125,211,252,0.05); }
+        .reading-card h3 { font-size: 16px; font-weight: 600; color: #7dd3fc; margin-bottom: 12px; }
+        .reading-card ul { list-style: none; padding: 0; }
+        .reading-card li {
+            font-size: 14px; color: #d1d5db; padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.6;
+        }
+        .reading-card li:last-child { border-bottom: none; }
+        .reading-card li strong { color: #fff; }
+
+        /* Tech */
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .tech-category {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; padding: 24px; backdrop-filter: blur(4px);
+        }
+        .tech-category h3 { font-size: 16px; font-weight: 600; color: #7dd3fc; margin-bottom: 12px; }
+        .tech-category p { font-size: 14px; color: #d1d5db; line-height: 1.8; }
 
         /* Footer */
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 60px 0 40px;
-            text-align: center;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: #9ca3af;
-            margin-bottom: 16px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-        }
+        footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 0 40px; text-align: center; }
+        .footer-text { font-size: 14px; color: #9ca3af; margin-bottom: 16px; }
+        .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .footer-links a { font-size: 14px; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            nav a {
-                margin-left: 0;
-                display: block;
-                padding: 8px 0;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .hero {
-                padding: 60px 0 80px;
-            }
-
-            .hero-links {
-                gap: 12px;
-            }
-
-            .hero-links a {
-                font-size: 13px;
-                padding: 8px 12px;
-            }
-
-            h2 {
-                font-size: 24px;
-                margin-bottom: 32px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .beliefs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tech-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .now-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reading-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .background-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .background-section {
-                padding: 24px;
-            }
-
-            footer {
-                padding: 40px 0 30px;
-            }
-        }
-
-        /* Utility */
-        .icon {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
+            nav { display: none; }
+            .header-content { flex-direction: column; gap: 16px; }
+            .hero { padding: 60px 0 40px; }
+            .hero-links { gap: 10px; }
+            .hero-links a { font-size: 12px; padding: 6px 10px; }
+            h2 { font-size: 24px; margin-bottom: 32px; }
+            .cards, .beliefs-grid, .tech-grid, .now-grid, .reading-grid, .frameworks-grid { grid-template-columns: 1fr; }
+            .background-stats { grid-template-columns: repeat(2, 1fr); }
+            .background-section { padding: 24px; }
+            footer { padding: 40px 0 30px; }
         }
     </style>
 </head>
@@ -538,331 +219,257 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Hari's Corner</div>
-                <nav>
-                    <a href="#believe">Believe</a>
-                    <a href="#build">Build</a>
-                    <a href="#write">Write</a>
-                    <a href="#now">Now</a>
-                    <a href="#read">Read</a>
-                    <a href="#tech">Tech</a>
-                </nav>
+                <div class="logo" id="site-name"></div>
+                <nav id="nav-links"></nav>
             </div>
         </div>
     </header>
 
     <main class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Hariprasad Sudharshan</h1>
-            <p class="tagline">AI Product Manager. Builder. Writer.</p>
-            <p class="subtitle">Chennai-born. Dallas-based. 20 years building systems. Now building AI products.</p>
-            <div class="hero-links">
-                <a href="https://github.com/brettleehari" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/haripm4ai" target="_blank">LinkedIn</a>
-                <a href="https://substack.com/@brettleehari" target="_blank">Substack</a>
-                <a href="https://medium.com/@brettleehari" target="_blank">Medium</a>
-                <a href="https://huggingface.co/brettleehari" target="_blank">Hugging Face</a>
-                <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank">Google Scholar</a>
-                <a href="https://www.researchgate.net/profile/Hariprasad-Sudharsan" target="_blank">ResearchGate</a>
-            </div>
-        </section>
+        <section class="hero" id="hero"></section>
+        <section id="about"></section>
+        <section id="timeline-section"></section>
+        <section id="believe"></section>
+        <section id="build"></section>
+        <section id="background"></section>
+        <section id="write"></section>
+        <section id="now"></section>
+        <section id="read"></section>
+        <section id="tech"></section>
+    </main>
 
-        <!-- What I Believe -->
-        <section id="believe">
+    <footer>
+        <div class="container" id="footer-content"></div>
+    </footer>
+
+    <script>
+    fetch('data/portfolio.json')
+        .then(r => r.json())
+        .then(data => render(data))
+        .catch(err => {
+            document.querySelector('main').innerHTML = '<p style="text-align:center;padding:80px 20px;color:#9ca3af;">Failed to load portfolio data.</p>';
+        });
+
+    function esc(str) {
+        if (!str) return '';
+        const d = document.createElement('div');
+        d.textContent = str;
+        return d.innerHTML;
+    }
+
+    function render(d) {
+        // Site name
+        document.getElementById('site-name').textContent = d.site.name;
+        document.title = d.site.name;
+
+        // Nav
+        const navSections = [
+            { id: 'about', label: 'About' },
+            { id: 'timeline-section', label: 'Timeline' },
+            { id: 'believe', label: 'Believe' },
+            { id: 'build', label: 'Build' },
+            { id: 'write', label: 'Write' },
+            { id: 'now', label: 'Now' },
+            { id: 'read', label: 'Read' },
+            { id: 'tech', label: 'Tech' }
+        ];
+        document.getElementById('nav-links').innerHTML = navSections
+            .map(s => `<a href="#${esc(s.id)}">${esc(s.label)}</a>`).join('');
+
+        // Hero
+        document.getElementById('hero').innerHTML = `
+            <h1>${esc(d.person.full_name)}</h1>
+            <p class="tagline">${esc(d.person.headline)}</p>
+            <p class="location">${esc(d.person.origin)} ${esc(d.person.current_location)}.</p>
+            <div class="hero-links">
+                ${d.profiles.map(p => `<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`).join('')}
+            </div>
+        `;
+
+        // About
+        document.getElementById('about').innerHTML = `
+            <h2>About</h2>
+            <div class="about-block">
+                <p>${esc(d.about.thesis)}</p>
+                <p>${esc(d.about.arc)}</p>
+                <div class="looking-for">
+                    <h3>What I'm Looking For</h3>
+                    <p>${esc(d.about.looking_for)}</p>
+                </div>
+            </div>
+        `;
+
+        // Timeline
+        document.getElementById('timeline-section').innerHTML = `
+            <h2>Timeline</h2>
+            <div class="timeline-container">
+                ${d.timeline.map(t => `
+                    <div class="timeline-item">
+                        <div class="timeline-year">${esc(String(t.year))}</div>
+                        <div class="timeline-label">${esc(t.label)}</div>
+                        <div class="timeline-desc">${esc(t.description)}</div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        // Beliefs
+        document.getElementById('believe').innerHTML = `
             <h2>What I Believe</h2>
             <div class="beliefs-grid">
-                <div class="belief-item">
-                    <div class="belief-text">Builders have more credibility than commentators.</div>
-                    <div class="belief-sub">Ship it. Then talk about it. The order matters.</div>
-                </div>
-                <div class="belief-item">
-                    <div class="belief-text">Quality is a platform problem, not a testing problem.</div>
-                    <div class="belief-sub">18 years of IDP taught me that quality is designed into systems, not inspected into products.</div>
-                </div>
-                <div class="belief-item">
-                    <div class="belief-text">AI needs engineering discipline from day one.</div>
-                    <div class="belief-sub">Every integration problem I solved in developer platforms showed up again when AI arrived. The scars transfer.</div>
-                </div>
-                <div class="belief-item">
-                    <div class="belief-text">Create your own frameworks. Don't just use others'.</div>
-                    <div class="belief-sub">TAQi for test automation. HMF for career navigation. CricketBench for model evaluation. Original thinking compounds.</div>
-                </div>
-                <div class="belief-item">
-                    <div class="belief-text">Connection is the one thing AI can't replicate.</div>
-                    <div class="belief-sub">I coined "Connecticate" &mdash; the ability to connect while you communicate. That's the human edge.</div>
-                </div>
-                <div class="belief-item">
-                    <div class="belief-text">Accidents, luck, and detours deserve gratitude.</div>
-                    <div class="belief-sub">The path from Chennai to Dallas, from telecom to AI, was never a straight line. Every detour built something.</div>
-                </div>
+                ${d.beliefs.map(b => `
+                    <div class="belief-item">
+                        <div class="belief-text">${esc(b.statement)}</div>
+                        <div class="belief-sub">${esc(b.detail)}</div>
+                    </div>
+                `).join('')}
             </div>
-        </section>
+        `;
 
-        <!-- AI Products Section -->
-        <section id="build">
+        // Projects
+        const projectCards = d.projects.map(p => {
+            const links = [];
+            if (p.repo_url) links.push(`<a href="${esc(p.repo_url)}" target="_blank">Repo</a>`);
+            if (p.demo_url) links.push(`<a href="${esc(p.demo_url)}" target="_blank">Demo</a>`);
+            if (p.writeup_url) links.push(`<a href="${esc(p.writeup_url)}" target="_blank">Write-up</a>`);
+            if (p.model_url) links.push(`<a href="${esc(p.model_url)}" target="_blank">Model</a>`);
+            if (p.dataset_url) links.push(`<a href="${esc(p.dataset_url)}" target="_blank">Dataset</a>`);
+
+            return `
+                <div class="card">
+                    ${p.year_started ? `<div class="card-year">${esc(p.year_started)}${p.year_ended ? ' – ' + esc(p.year_ended) : ''}</div>` : ''}
+                    <h3>${esc(p.name)}</h3>
+                    ${p.one_liner ? `<div class="card-oneliner">${esc(p.one_liner)}</div>` : ''}
+                    ${p.what_it_does ? `<p>${esc(p.what_it_does)}</p>` : ''}
+                    ${p.results ? `<div class="card-results">${esc(p.results)}</div>` : ''}
+                    ${p.what_i_learned ? `<div class="card-insight">${esc(p.what_i_learned)}</div>` : ''}
+                    ${links.length ? `<div class="card-links">${links.join('')}</div>` : ''}
+                    ${p.tech_stack && p.tech_stack.length ? `<div class="card-tags">${p.tech_stack.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+
+        const ossHtml = d.open_source.map(o => `
+            <div class="oss-item">
+                <h3>${esc(o.project)}${o.year ? ' (' + esc(String(o.year)) + ')' : ''}</h3>
+                <p>${esc(o.contribution)}${o.significance ? ' — ' + esc(o.significance) : ''}</p>
+            </div>
+        `).join('');
+
+        document.getElementById('build').innerHTML = `
             <h2>What I Build</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>CricketMind</h3>
-                    <p>Fine-tuned NVIDIA Nemotron-Mini-4B for cricket domain expertise. QLoRA training with response distillation using Claude as teacher model. Custom CricketBench evaluation suite (25 questions, 4 categories). 67.5% vs 30.2% baseline. Runs on $5 worth of RunPod A100.</p>
-                    <div class="card-links">
-                        <a href="https://huggingface.co/brettleehari/cricketmind-nemotron-mini" target="_blank">Model</a>
-                        <a href="https://huggingface.co/datasets/brettleehari/cricketbench-v1" target="_blank">Dataset</a>
-                    </div>
-                    <div class="card-tags">
-                        <span class="tag">LLM Fine-tuning</span>
-                        <span class="tag">QLoRA</span>
-                        <span class="tag">Evaluation</span>
-                        <span class="tag">Response Distillation</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>BTCExpert / CIAL</h3>
-                    <p>Crypto intelligence platform built on FastAPI, TimescaleDB, and Kafka. pgvector for semantic search. Redis caching. WebSocket streaming to handle 10K+ concurrent connections. Full observability stack.</p>
-                    <div class="card-tags">
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">Kafka</span>
-                        <span class="tag">pgvector</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>GlucoLens</h3>
-                    <p>Health monitoring system using causal discovery (PCMCI) and STUMPY pattern detection. Not just correlations. Identifies actual causal relationships in health data.</p>
-                    <div class="card-tags">
-                        <span class="tag">Causal Discovery</span>
-                        <span class="tag">Time Series</span>
-                        <span class="tag">Health Analytics</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Code-RAG</h3>
-                    <p>Local RAG-based code assistant built from scratch. Vector indexing, semantic search, and retrieval tuning without external APIs. Runs fully offline.</p>
-                    <div class="card-tags">
-                        <span class="tag">RAG</span>
-                        <span class="tag">Vector Search</span>
-                        <span class="tag">Code Intelligence</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Kafka Stream Transformer</h3>
-                    <p>Real-time Kafka microservice with live WebSocket dashboard. Event streaming and transformation at scale. Real-time observability built in.</p>
-                    <div class="card-tags">
-                        <span class="tag">Kafka</span>
-                        <span class="tag">Streaming</span>
-                        <span class="tag">Real-time</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Review Buddy</h3>
-                    <p>GitHub App that intelligently assigns code reviewers based on file ownership history. Open source.</p>
-                    <div class="card-tags">
-                        <span class="tag">GitHub Apps</span>
-                        <span class="tag">DevTools</span>
-                    </div>
-                </div>
+            <div class="cards">${projectCards}</div>
+            <div style="margin-top:48px;">
+                <h3 style="font-size:18px;font-weight:600;color:#fff;margin-bottom:16px;">Open Source</h3>
+                <div class="oss-list">${ossHtml}</div>
             </div>
+        `;
 
-            <div style="margin-top: 40px;">
-                <h3 style="font-size: 16px; color: #7dd3fc; margin-bottom: 12px;">Open Source Contributions</h3>
-                <p style="font-size: 14px; color: #9ca3af;">LlamaIndex PR #15311 (Merged): Fixed file path loading issues. Arctic Code Vault Contributor.</p>
+        // Background + Research
+        const frameworksHtml = d.research.frameworks_created.map(f => `
+            <div class="framework-item">
+                <h4>${esc(f.name)}</h4>
+                <p>${esc(f.description)}</p>
             </div>
-        </section>
+        `).join('');
 
-        <!-- Platform & Quality Background -->
-        <section>
+        document.getElementById('background').innerHTML = `
             <h2>Before AI: 18 Years in Platform & Quality</h2>
             <div class="background-section">
-                <p>I spent 18 years designing and managing Internal Developer Platforms at Fujitsu Network Communications. I integrated every tool in the SDLC pipeline: SCM, CI/CD, test automation, defect tracking. I built centralized test automation teams, created measurement frameworks (TAQi), and managed delivery pipelines for telecom network products.</p>
-                <p style="margin-top: 16px;">The quality piece was one part of a much larger platform management role. Every integration problem I solved in IDP showed up again when AI arrived. The scars from building platforms became the foundation for building AI products.</p>
+                <p>${esc(d.career_background.summary)}</p>
+                <p style="margin-top:16px;">${esc(d.career_background.key_insight)}</p>
                 <div class="background-stats">
-                    <div class="stat">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">US Patents</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">45+</div>
-                        <div class="stat-label">Citations</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">18</div>
-                        <div class="stat-label">Years IDP</div>
-                    </div>
+                    <div class="stat"><div class="stat-number">${esc(d.research.stats.patents)}</div><div class="stat-label">US Patents</div></div>
+                    <div class="stat"><div class="stat-number">${esc(d.research.stats.citations)}</div><div class="stat-label">Citations</div></div>
+                    <div class="stat"><div class="stat-number">${esc(String(d.research.stats.years_in_idp))}</div><div class="stat-label">Years IDP</div></div>
                 </div>
             </div>
-
+            <h3 style="font-size:18px;font-weight:600;color:#fff;margin-bottom:16px;">Original Frameworks</h3>
+            <div class="frameworks-grid">${frameworksHtml}</div>
             <div class="research-links">
-                <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank">Google Scholar Profile</a>
-                <a href="https://www.researchgate.net/profile/Hariprasad-Sudharsan" target="_blank">ResearchGate Profile</a>
+                ${d.profiles.filter(p => p.platform === 'Google Scholar' || p.platform === 'ResearchGate')
+                    .map(p => `<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`).join('')}
             </div>
-        </section>
+        `;
 
-        <!-- Writing Section -->
-        <section id="write">
+        // Writing
+        document.getElementById('write').innerHTML = `
             <h2>What I Write</h2>
             <div class="writing-list">
-                <div class="writing-item">
-                    <h3>"The AI Full Stack Nobody Is Talking" (6-part series)</h3>
-                    <p>Walks through 8 layers of the AI value chain from data to deployment to observability.</p>
-                </div>
-
-                <div class="writing-item">
-                    <h3>"From M&times;N to MCP" (3-part series)</h3>
-                    <p>How integration scars from platform work led to understanding Model Context Protocol.</p>
-                </div>
-
-                <div class="writing-item">
-                    <h3>"Failure Taxonomy Must Come Before AI in Troubleshooting Systems"</h3>
-                    <p>Why LLMs need structured fault models before they can be useful in observability.</p>
-                </div>
-
-                <div class="writing-item">
-                    <h3>"RAG Upstream Intervention" (5-part series)</h3>
-                    <p>Why preprocessing and source quality beats retrieval tuning in RAG systems.</p>
-                </div>
-
-                <div class="writing-item">
-                    <h3>"NVIDIA Nemotron LTM Deep Dive" (3-part series)</h3>
-                    <p>Technical breakdown of Nemotron's long-context approach and how it changed fine-tuning strategy.</p>
-                </div>
-
-                <div class="writing-item">
-                    <h3>"Human Market Fit (HMF)"</h3>
-                    <p>Original framework for professionals navigating the AI age. How to stay relevant when tools move fast.</p>
-                </div>
-
-                <div class="writing-item">
-                    <h3>"TAQi: Test Automation Quality Index"</h3>
-                    <p>Original composite index for measuring what automation is actually doing. Published on LinkedIn.</p>
-                </div>
-
-                <div class="writing-item">
-                    <h3>Published in Towards Dev (Medium)</h3>
-                    <p>Multiple articles on testing, quality, and building platforms at scale.</p>
-                </div>
+                ${d.writing.map(w => {
+                    const meta = [];
+                    if (w.type === 'series' && w.parts) meta.push(w.parts + '-part series');
+                    if (w.platform) meta.push(w.platform);
+                    const title = w.url
+                        ? `<a href="${esc(w.url)}" target="_blank">${esc(w.title)}</a>`
+                        : esc(w.title);
+                    return `
+                        <div class="writing-item">
+                            <h3>${title}</h3>
+                            ${meta.length ? `<div class="writing-meta">${esc(meta.join(' · '))}</div>` : ''}
+                            <p>${esc(w.summary)}</p>
+                        </div>
+                    `;
+                }).join('')}
             </div>
-        </section>
+        `;
 
-        <!-- What I'm Learning / Now -->
-        <section id="now">
+        // Now
+        document.getElementById('now').innerHTML = `
             <h2>Now</h2>
-            <p style="font-size: 15px; color: #9ca3af; margin-bottom: 32px; margin-top: -24px;">Where my head is at right now.</p>
+            <p class="section-sub">Where my head is at right now.</p>
             <div class="now-grid">
-                <div class="now-card">
-                    <h3>Model Context Protocol (MCP)</h3>
-                    <p>Deep-diving into how MCP solves the M&times;N integration problem I fought for 18 years. Writing a 3-part series connecting my LlamaIndex PR experience to the MCP philosophy.</p>
-                </div>
-                <div class="now-card">
-                    <h3>Fine-Tuning at Low Cost</h3>
-                    <p>Proving that domain-adapted LLMs don't need massive budgets. CricketMind runs on $5 of compute. Exploring QLoRA, response distillation, and evaluation-driven training loops.</p>
-                </div>
-                <div class="now-card">
-                    <h3>Causal Discovery in Health Data</h3>
-                    <p>Moving beyond correlations with PCMCI and STUMPY. Building GlucoLens to find real causal relationships, not just patterns that look convincing.</p>
-                </div>
-                <div class="now-card">
-                    <h3>The Full AI Value Chain</h3>
-                    <p>Mapping the 8 layers from data to deployment to observability. Most teams only see 2-3 layers. Writing to make the full stack visible.</p>
-                </div>
-                <div class="now-card">
-                    <h3>RAG Done Right</h3>
-                    <p>Upstream intervention over retrieval tuning. Preprocessing and source quality matter more than the retrieval algorithm. Building Code-RAG to prove it.</p>
-                </div>
-                <div class="now-card">
-                    <h3>Writing as Thinking</h3>
-                    <p>Publishing consistently across Substack and Medium. Turning 24+ drafts into finished pieces. The act of writing is how I learn.</p>
-                </div>
+                ${d.now.items.map(n => `
+                    <div class="now-card">
+                        <h3>${esc(n.topic)}</h3>
+                        <p>${esc(n.detail)}</p>
+                    </div>
+                `).join('')}
             </div>
-        </section>
+        `;
 
-        <!-- What I Read & Interests -->
-        <section id="read">
+        // Reading & Interests
+        const ri = d.reading_and_interests;
+        document.getElementById('read').innerHTML = `
             <h2>What I Read & What Moves Me</h2>
             <div class="reading-grid">
                 <div class="reading-card">
                     <h3>Thinkers Who Shaped Me</h3>
-                    <ul>
-                        <li><strong>J. Krishnamurti</strong> &mdash; On observation without judgment. Changed how I think about decision-making and leadership.</li>
-                        <li><strong>Systems thinkers</strong> &mdash; Platform engineering taught me to think in systems. I read anything that connects parts to wholes.</li>
-                        <li><strong>Builder narratives</strong> &mdash; Engineering blogs, build logs, post-mortems. I learn more from how things failed than how they succeeded.</li>
-                    </ul>
+                    <ul>${ri.thinkers.map(t => `<li><strong>${esc(t.name)}</strong> &mdash; ${esc(t.influence)}</li>`).join('')}</ul>
                 </div>
-
                 <div class="reading-card">
                     <h3>What I Follow</h3>
-                    <ul>
-                        <li><strong>AI research</strong> &mdash; NVIDIA Nemotron papers, fine-tuning techniques, evaluation methodology, RAG architectures</li>
-                        <li><strong>Platform engineering</strong> &mdash; IDP evolution, developer experience, CI/CD pipelines, observability</li>
-                        <li><strong>Technical writing</strong> &mdash; Deep dives from practitioners who build and then write about what they learned</li>
-                    </ul>
+                    <ul>${ri.topics_i_follow.map(t => `<li><strong>${esc(t.area)}</strong> &mdash; ${esc(t.specifics)}</li>`).join('')}</ul>
                 </div>
-
                 <div class="reading-card">
                     <h3>Interests Beyond Code</h3>
-                    <ul>
-                        <li><strong>Cricket</strong> &mdash; Deep enough to fine-tune an LLM on it. I study the Laws, the strategy, the edge cases. Built CricketMind because I couldn't find an AI that understood the game.</li>
-                        <li><strong>Music</strong> &mdash; Exploring the intersection of AI and music. How generative models handle something as human as sound.</li>
-                        <li><strong>Leadership philosophy</strong> &mdash; What makes teams work. Why happier teams build better products. The role of productive conflict.</li>
-                    </ul>
+                    <ul>${ri.interests.map(i => `<li><strong>${esc(i.name)}</strong> &mdash; ${esc(i.depth)}</li>`).join('')}</ul>
                 </div>
             </div>
-        </section>
+        `;
 
-        <!-- Tech Stack Section -->
-        <section id="tech">
+        // Tech Stack
+        document.getElementById('tech').innerHTML = `
             <h2>Tech Stack</h2>
             <div class="tech-grid">
-                <div class="tech-category">
-                    <h3>AI / ML</h3>
-                    <p>Fine-tuning (QLoRA, LoRA), RAG, LLM evaluation, Causal discovery, pgvector, LlamaIndex, Hugging Face, NVIDIA Nemotron</p>
-                </div>
-
-                <div class="tech-category">
-                    <h3>Backend</h3>
-                    <p>Python, FastAPI, Celery, Kafka, Redis, TimescaleDB, PostgreSQL, Docker, SQLAlchemy</p>
-                </div>
-
-                <div class="tech-category">
-                    <h3>Frontend</h3>
-                    <p>React, TypeScript, Tailwind CSS, WebSocket dashboards, D3.js for analytics</p>
-                </div>
-
-                <div class="tech-category">
-                    <h3>Infrastructure</h3>
-                    <p>AWS (EC2, S3, Lambda), GitHub Actions, Prometheus, OpenTelemetry, Sentry, Grafana</p>
-                </div>
-
-                <div class="tech-category">
-                    <h3>DevTools</h3>
-                    <p>Git, VS Code, Jupyter, DuckDB, Pandas, NumPy, Scikit-learn</p>
-                </div>
-
-                <div class="tech-category">
-                    <h3>Databases</h3>
-                    <p>PostgreSQL, TimescaleDB, Redis, DuckDB, Pinecone, pgvector</p>
-                </div>
+                ${d.tech_stack.map(t => `
+                    <div class="tech-category">
+                        <h3>${esc(t.category)}</h3>
+                        <p>${t.tools.map(tool => esc(tool)).join(', ')}</p>
+                    </div>
+                `).join('')}
             </div>
-        </section>
-    </main>
+        `;
 
-    <footer>
-        <div class="container">
-            <p class="footer-text">Building since 2016. Writing since 2020. From Chennai. In Dallas.</p>
-            <div class="footer-links">
-                <a href="https://github.com/brettleehari" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/haripm4ai" target="_blank">LinkedIn</a>
-                <a href="https://substack.com/@brettleehari" target="_blank">Substack</a>
-                <a href="https://medium.com/@brettleehari" target="_blank">Medium</a>
-                <a href="https://huggingface.co/brettleehari" target="_blank">Hugging Face</a>
-                <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank">Scholar</a>
-                <a href="https://www.researchgate.net/profile/Hariprasad-Sudharsan" target="_blank">ResearchGate</a>
-            </div>
-        </div>
-    </footer>
+        // Footer
+        const footerProfiles = d.profiles.map(p =>
+            `<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`
+        ).join('');
+        document.getElementById('footer-content').innerHTML = `
+            <p class="footer-text">${esc(d.footer.tagline)}</p>
+            <div class="footer-links">${footerProfiles}</div>
+        `;
+    }
+    </script>
 </body>
 </html>
