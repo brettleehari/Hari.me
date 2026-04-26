@@ -1,5 +1,5 @@
 {
-  "_readme": "This is the single source of truth for Hari's Corner. Edit this file to update the site. Empty strings mean 'needs to be filled in'. The frontend reads this directly.",
+  "_readme": "Single source of truth for Hari's Corner. Edit this file to update the site. Empty strings mean needs to be filled in. The frontend reads this directly.",
 
   "site": {
     "name": "Hari's Corner",
@@ -10,29 +10,31 @@
   "person": {
     "full_name": "Hariprasad Sudharshan",
     "display_name": "Hari",
-    "headline": "Building AI products that work in production. Open source since 2016, research since 2017, shipping since 2019.",
+    "headline": "Building AI products that work in production. Open source since 2016, research since 2017, shipping AI in production since 2019.",
     "origin": "Chennai, India",
     "current_location": "Dallas, Texas",
     "years_in_tech": 20,
-    "years_in_product": 10,
-    "email": "",
-    "resume_url": ""
+    "years_in_product": 12,
+    "email": "hariprasadsudharsan@gmail.com",
+    "resume_url": "",
+    "linktree": "https://linktr.ee/brettleehari"
   },
 
   "profiles": [
-    { "platform": "GitHub",        "handle": "brettleehari",         "url": "https://github.com/brettleehari" },
-    { "platform": "LinkedIn",      "handle": "haripm4ai",            "url": "https://linkedin.com/in/haripm4ai" },
-    { "platform": "Substack",      "handle": "brettleehari",         "url": "https://substack.com/@brettleehari" },
-    { "platform": "Medium",        "handle": "brettleehari",         "url": "https://medium.com/@brettleehari" },
-    { "platform": "Hugging Face",  "handle": "brettleehari",         "url": "https://huggingface.co/brettleehari" },
-    { "platform": "Google Scholar", "handle": "Hariprasad Sudharsan", "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" },
-    { "platform": "ResearchGate",  "handle": "Hariprasad-Sudharsan", "url": "https://www.researchgate.net/profile/Hariprasad-Sudharsan" }
+    { "platform": "GitHub",         "handle": "brettleehari",         "url": "https://github.com/brettleehari" },
+    { "platform": "LinkedIn",       "handle": "haripm4ai",            "url": "https://linkedin.com/in/haripm4ai" },
+    { "platform": "Linktree",       "handle": "brettleehari",         "url": "https://linktr.ee/brettleehari" },
+    { "platform": "Substack",       "handle": "brettleehari",         "url": "https://substack.com/@brettleehari" },
+    { "platform": "Medium",         "handle": "brettleehari",         "url": "https://medium.com/@brettleehari" },
+    { "platform": "Hugging Face",   "handle": "brettleehari",         "url": "https://huggingface.co/brettleehari" },
+    { "platform": "Google Scholar",  "handle": "Hariprasad Sudharsan", "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" },
+    { "platform": "ResearchGate",   "handle": "Hariprasad-Sudharsan", "url": "https://www.researchgate.net/profile/Hariprasad-Sudharsan" }
   ],
 
   "about": {
-    "thesis": "I build the full stack around the model — the product layer that compensates for what the model can't do on its own. Prompt design as defensive programming. Context management as infrastructure. Evaluation as a first-class concern, not an afterthought. The customer interacts with the product, not the model, and that distinction drives every design decision I make.",
-    "arc": "I started contributing to open source in 2016, published research and filed patents starting in 2017, built my first ML product in 2019, and have been shipping enterprise AI products since. Before AI, I spent 18 years designing internal developer platforms at scale — CI/CD, test automation, defect tracking, measurement frameworks. Every integration problem I solved in platform engineering showed up again when AI arrived. The scars transferred.",
-    "looking_for": "AI product management and strategy roles where AI is the core business, not a bolt-on feature — teams that need someone who understands both the model's capabilities and the enterprise constraints that determine whether it actually ships."
+    "thesis": "I build the full stack around the model, not the model alone. The customer interacts with the product, not the model. The product compensates for the model's weaknesses. Prompt design as defensive programming. Context management as infrastructure. Evaluation as a first-class concern, not an afterthought.",
+    "arc": "I started as an engineer (protocol stacks, Python frameworks, AST-based tooling) and moved into product. I write PRDs. I also read the code behind them. From open source contributions in 2016 to research and patents in 2017, to first AI products in 2019, to building Fujitsu's first GenAI product deployed across 6 Tier-1 enterprise customers globally. Before AI, 18 years designing internal developer platforms at scale. Every integration problem I solved in platform engineering showed up again when AI arrived. The scars transferred.",
+    "looking_for": "AI product management and strategy roles where AI is the core business, not a bolt-on feature. Teams that need someone who understands both the model's capabilities and the enterprise constraints that determine whether it actually ships."
   },
 
   "beliefs": [
@@ -58,11 +60,11 @@
     },
     {
       "statement": "Create your own frameworks. Don't just use others'.",
-      "detail": "TAQi for test automation. HMF for career navigation. CricketBench for model evaluation. Original thinking compounds."
+      "detail": "TAQi for test automation. HMF for career navigation. CricketBench for model evaluation. Document Quality Ceiling for RAG. Original thinking compounds."
     },
     {
       "statement": "Connection is the one thing AI can't replicate.",
-      "detail": "I coined 'Connecticate' — the ability to connect while you communicate. That's the human edge."
+      "detail": "I coined 'Connecticate', the ability to connect while you communicate. That's the human edge."
     },
     {
       "statement": "Accidents, luck, and detours deserve gratitude.",
@@ -72,88 +74,190 @@
 
   "timeline": [
     {
-      "year": 2006,
-      "label": "Joined Fujitsu Network Communications",
-      "description": "Started building internal developer platforms — CI/CD, SCM, test automation, defect tracking.",
+      "year": 2007,
+      "label": "Television news presenter at Makkal TV, Chennai",
+      "description": "Learned to communicate technical ideas to non-technical audiences. Direct line to how I write product narratives today.",
       "category": "career"
     },
     {
+      "year": 2008,
+      "label": "Project Engineer at Wipro Technologies",
+      "description": "First engineering role. Built foundation in enterprise software.",
+      "category": "career"
+    },
+    {
+      "year": 2010,
+      "label": "Senior Engineer, IP Stack and AAA at Dell",
+      "description": "Deep protocol engineering. IP stack development and AAA authentication systems.",
+      "category": "career"
+    },
+    {
+      "year": 2011,
+      "label": "Joined Fujitsu, Lead Networking Protocols",
+      "description": "Started the 14-year arc at Fujitsu. Protocol innovation leading to 3 US patents (G.8032, MSTP, loop prevention). Chennai to Tampa to Dallas.",
+      "category": "career"
+    },
+    {
+      "year": 2015,
+      "label": "Led open-source transition of Warrior Python framework",
+      "description": "Designed adoption strategy, built community engagement, drove developer onboarding. Turned complex networking domain logic into reusable abstractions. Became the org's engineering standard.",
+      "category": "opensource"
+    },
+    {
       "year": 2016,
-      "label": "First open source contribution",
-      "description": "Began contributing to established open source projects. Arctic Code Vault Contributor.",
+      "label": "First open source contributions",
+      "description": "Began contributing to established open source projects. Warrior Framework PRs merged. Arctic Code Vault Contributor.",
       "category": "opensource"
     },
     {
       "year": 2017,
-      "label": "First research paper + patent filings",
-      "description": "Published first paper. Filed first US patents. 5+ patents total, 45+ citations.",
+      "label": "3 US patents granted + research published",
+      "description": "G.8032 ring protection, MSTP migration, loop prevention. 6+ published papers, 45+ citations across published work.",
       "category": "research"
     },
     {
+      "year": 2018,
+      "label": "Sr. Program Lead, Developer Experience and Platform Excellence",
+      "description": "Built the Internal Developer Platform. 13-person team, 250+ developers, 24 teams, 2 business units. Monthly to daily releases. 99.99% uptime. Created TAQi, DDF, Merge Conflict Coefficient, adopted by 50+ teams.",
+      "category": "career"
+    },
+    {
       "year": 2019,
-      "label": "First ML products",
-      "description": "Built Metabolistic Storyteller (traditional ML) and Code Review Bot (pre-LLM automation). First experience taking a model from notebook to product.",
+      "label": "First AI products shipped",
+      "description": "Smart-Review (Probot app in GitHub Marketplace, PyDriller scoring) and Metabolistic Storyteller. First experience taking a model from notebook to product.",
       "category": "product"
     },
     {
       "year": 2020,
       "label": "Started writing publicly",
-      "description": "Began publishing on Substack and Medium. Technical writing as a thinking tool.",
+      "description": "Published 'Are You Adding the Best Code Reviewer for Each Pull Request?' on Towards Dev. Began Substack and Medium.",
       "category": "writing"
     },
     {
-      "year": 2022,
-      "label": "Enterprise AI products in production",
-      "description": "Moved from prototypes to production AI in enterprise environments. Agent interpretability, context management systems.",
+      "year": 2024,
+      "label": "Product Manager, AI and API at Fujitsu + GraspRepo + Visual Learning started",
+      "description": "AI PR Reviewer default-on in IDP: 85% actionable rate, 1,000+ weekly PRs, 20+ teams. Started GraspRepo (AST + PageRank codebase analysis) and Visual Learning (context management explainer). LlamaIndex PR #15311 merged.",
       "category": "product"
     },
     {
-      "year": 2024,
-      "label": "LlamaIndex contribution merged",
-      "description": "PR #15311 merged into LlamaIndex — fixed file path loading issues in core RAG infrastructure.",
-      "category": "opensource"
+      "year": 2025,
+      "label": "Promoted to Senior PM. CIAL platform. Aider contribution.",
+      "description": "Built Fujitsu's first GenAI product, deployed across 6 Tier-1 customers globally. CIAL crypto intelligence platform. Aider PR #2100. MCP learning tools. Multi-factor failure analysis: 20% autonomous resolution, EU AI Act compliant.",
+      "category": "product"
+    },
+    {
+      "year": 2026,
+      "label": "Shipped 6 projects in 4 months. Book published.",
+      "description": "CricketMind (fine-tuned LLM), Visual Learning (context management), Smart-Review v2, GraspRepo dashboard, IntelliYANG, Metabolistic Storyteller. Published 'Thinking in Analogies' 2nd edition. Dallas AI Meetup speaker (April 9).",
+      "category": "product"
     }
   ],
 
   "projects": [
     {
-      "id": "agent-interpretability",
-      "name": "Agent Interpretability Tool",
-      "year_started": "",
+      "id": "grasprepo",
+      "name": "GraspRepo",
+      "year_started": "2024",
       "year_ended": "",
-      "status": "prototype",
+      "status": "production",
       "pinned": true,
       "featured_order": 1,
-      "one_liner": "What's actually happening under the hood in a coding agent — made visible.",
-      "problem": "Coding agents make dozens of decisions per session: which files to read, which tools to call, how to decompose a task, when to backtrack. By default, all of that is invisible. You see the output and hope it's right.",
-      "what_it_does": "Surfaces the agent's decision trace — tool calls, context selection, branching decisions, failure points — as a legible product feature, not a research artifact.",
-      "why_it_matters": "If you can't explain what an agent did and why, you can't debug it, trust it, or improve it. Enterprise buyers won't adopt what they can't audit.",
-      "what_i_learned": "Interpretability isn't a research luxury — it's a product requirement. The target user is a team lead deciding whether to trust an agent's output, not an ML researcher.",
-      "tech_stack": [],
-      "architecture_notes": "",
-      "results": "",
-      "repo_url": "",
-      "demo_url": "",
-      "writeup_url": "",
+      "one_liner": "Reverse-engineers how coding agents understand your codebase. Zero AI APIs, pure algorithmic analysis.",
+      "problem": "Coding agents like Cursor and Copilot analyze codebases using AST parsing and graph algorithms, but that process is invisible. Developers can't see what the agent sees, can't verify its understanding, and can't identify blind spots.",
+      "what_it_does": "Parses ASTs with Tree-sitter across 20+ languages, builds dependency graphs, runs PageRank to rank file importance, computes code churn via git history, and visualizes everything in a 4-quadrant prioritization matrix. Interactive web dashboard with vis.js graph visualization.",
+      "why_it_matters": "Makes the invisible visible. The same interpretability problem that exists in LLMs exists in coding agents. If you can't see what it sees, you can't trust it. This tool solves that.",
+      "what_i_learned": "Interpretability is a product requirement, not a research luxury. Built the scoring from scratch: PageRank for structural importance, churn for change frequency, hotspot detection where the two intersect.",
+      "tech_stack": ["Tree-sitter", "NetworkX PageRank", "PyDriller", "FastAPI", "vis.js", "SQLite", "GitHub OAuth"],
+      "architecture_notes": "5 analysis stages: AST parsing, dependency graph, PageRank ranking, code churn (6-month lookback), prioritization matrix. Hotspot score = normalized PageRank * normalized commits.",
+      "results": "5 analysis stages. 20+ languages supported. Pre-cached example repos. GitHub OAuth for custom repos. Deployed on Render.",
+      "repo_url": "https://github.com/brettleehari/grasprepo",
+      "demo_url": "https://grasprepo.onrender.com",
+      "writeup_url": "https://medium.com/@brettleehari/how-will-you-design-a-code-assist-8cbc085a08cd",
       "related_writing": ""
     },
     {
-      "id": "context-management",
-      "name": "Context Management System",
-      "year_started": "",
+      "id": "visual-learning",
+      "name": "Visual Learning: Context Management in AI Apps",
+      "year_started": "2024",
       "year_ended": "",
-      "status": "prototype",
+      "status": "production",
       "pinned": true,
       "featured_order": 2,
-      "one_liner": "General-purpose infrastructure for managing what an AI system knows, keeps, and forgets — and why.",
-      "problem": "Context is the scarcest resource in any LLM-based system. Every token in the window has a cost, and most systems waste it — stuffing irrelevant history, losing critical state, or treating context as a FIFO queue when the problem demands something smarter.",
-      "what_it_does": "Infrastructure for managing context across AI system interactions — what goes in, what stays, what gets evicted, and why. Built as general-purpose, not tied to a single application.",
-      "why_it_matters": "Most teams bolt on context management after the prototype works. By then, the architecture fights you. This treats context as first-class infrastructure from the start.",
-      "what_i_learned": "Context management is where product intuition and systems engineering intersect. Get it wrong and the model looks broken — hallucinations, lost threads, repeated questions. Get it right and nobody notices, which is the point.",
-      "tech_stack": [],
-      "architecture_notes": "",
-      "results": "",
-      "repo_url": "",
+      "one_liner": "Interactive visual explainer for how AI apps manage context around stateless LLMs.",
+      "problem": "LLMs are stateless. They remember nothing between API calls. The application layer (not the model) maintains conversation history, manages context windows, and creates the illusion of memory. Most developers don't understand this.",
+      "what_it_does": "5-tab interactive SPA: The Problem (context rot, Lost in the Middle), Context Window Visualizer (toggle between ChatGPT, Claude, Perplexity, Cursor, Aider allocations), 5 Strategies (full replay, sliding window, summarization, RAG, hybrid), Aider Deep Dive (Tree-sitter + PageRank verified architecture), and an Interactive Chat Simulator with scripted conversation showing live token allocation.",
+      "why_it_matters": "Building with LLMs is 95% traditional software engineering and 5% AI-specific. Context management IS the product differentiation. This tool makes that visible and teachable.",
+      "what_i_learned": "The 'Alice layer', the application around the model, is where all the product decisions live. Teaching this required building it interactively, not writing about it.",
+      "tech_stack": ["Vanilla JavaScript", "HTML/CSS", "GitHub Pages"],
+      "architecture_notes": "Single-page app, no frameworks. Token estimation: max(50, round(text.length / 3.5)). Simulator tracks system tokens, history, RAG, and current turn in real-time. 7-step scripted conversation with 3 options per turn.",
+      "results": "Covers 5 major AI apps (ChatGPT, Claude, Perplexity, Cursor, Aider) with real architectural details. Interactive simulator with live context window visualization.",
+      "repo_url": "https://github.com/brettleehari/Visuallearning",
+      "demo_url": "https://brettleehari.github.io/Visuallearning/",
+      "writeup_url": "",
+      "related_writing": "Based on concepts from Thinking in Analogies: A Generative AI Playbook for Tech Professionals"
+    },
+    {
+      "id": "smart-review",
+      "name": "Smart-Review",
+      "year_started": "2019",
+      "year_ended": "",
+      "status": "production",
+      "pinned": true,
+      "featured_order": 3,
+      "one_liner": "Intelligent code reviewer recommendation. Probot app in GitHub Marketplace (2019), full-stack rebuild (2026).",
+      "problem": "Code review relies on static hierarchies or CODEOWNERS files, missing engineers with actual hands-on experience of the code being modified. 4 out of 5 real PRs analyzed showed expertise gaps, with regressions within 12-25 days proving the point.",
+      "what_it_does": "Analyzes git history for affected files to compute expertise and seniority scores. Expertise: ownership 40%, commits 25%, lines 15%, recency 20%. Seniority: tenure 45%, commits 30%, consistency 25%. 5 real PRs analyzed from rails, react, huggingface/transformers, prometheus. Original 2019 version was a Probot app published in GitHub Marketplace with PyDriller-based reviewer.py engine.",
+      "why_it_matters": "A 7-year arc on the same problem. Built pre-LLM in 2019 with pattern matching and heuristics, rebuilt in 2026 as full-stack with real data proving the thesis. 4 out of 5 PRs show the assigned reviewer wasn't the best choice.",
+      "what_i_learned": "The constraints of pre-LLM automation made the value of LLMs concrete later. But this problem doesn't even need an LLM. Just smart use of git history data already in the repo.",
+      "tech_stack": ["React 19", "TypeScript", "Tailwind CSS", "FastAPI", "PyDriller", "GitHub OAuth", "Probot (original)"],
+      "architecture_notes": "Monorepo: apps/web (React frontend), apps/api (FastAPI backend), packages/analysis (reusable scoring + mining). PyDriller walks git history of affected files, extracts per-author metrics, computes weighted scores. GitHub handle resolution via commit search API.",
+      "results": "5 real PRs analyzed. 4 show expertise gaps (regressions within 12-25 days). ~30-100 contributors scored per PR. Phase 2 backend ready: OAuth, live PR analysis, rate limiting, caching.",
+      "repo_url": "https://github.com/brettleehari/reviewbuddy",
+      "demo_url": "https://brettleehari.github.io/reviewbuddy/",
+      "writeup_url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7",
+      "related_writing": "",
+      "original_repo_url": "https://github.com/pitchdarkdata/MVP1"
+    },
+    {
+      "id": "cricketmind",
+      "name": "CricketMind",
+      "year_started": "2026",
+      "year_ended": "",
+      "status": "production",
+      "pinned": true,
+      "featured_order": 4,
+      "one_liner": "Fine-tuned NVIDIA Nemotron-Mini-4B for cricket domain expertise. 67.5% vs 30.2% baseline. $5 compute.",
+      "problem": "No existing LLM understood cricket deeply enough, the Laws, the strategy, the edge cases. Domain adaptation shouldn't need massive budgets.",
+      "what_it_does": "LoRA fine-tuning (rank 16, alpha 32) with response distillation using Claude as teacher model. 170 training examples (laws QA + match situation analysis). Custom CricketBench evaluation suite: 20 questions across 4 weighted categories (Laws Recall 30%, Conditional Reasoning 35%, Match Situation 25%, Edge Case 10%), scored by Claude Sonnet as LLM-as-judge.",
+      "why_it_matters": "Proves that domain-adapted LLMs don't need massive budgets. Evaluation-driven training: built CricketBench first, then trained to beat it. The benchmark defined the goal, not the other way around.",
+      "what_i_learned": "Largest gains in conditional reasoning (+45pp) and match situation analysis (+50pp). Distillation teaches decomposition skills, not just memorization. Data quality gates (~10% rejection rate) matter more than data quantity. Published a 6-part Substack series documenting the entire journey.",
+      "tech_stack": ["LoRA/QLoRA", "Hugging Face Transformers", "PEFT", "TRL", "NVIDIA Nemotron-Mini-4B", "RunPod A100", "Anthropic Claude (teacher + judge)"],
+      "architecture_notes": "Pipeline: MCC Laws text, Claude distillation, quality gates, LoRA fine-tuning (3 epochs, 35 min on A100), merge adapters, GGUF export, CricketBench evaluation. Runs locally via Ollama.",
+      "results": "67.5% weighted accuracy vs 30.2% baseline (+37.3pp). Conditional reasoning: +45pp. Match situation: +50pp. $5 total compute. 170 training examples. 35 minutes training time.",
+      "repo_url": "https://github.com/brettleehari/cricketmind",
+      "demo_url": "",
+      "writeup_url": "",
+      "related_writing": "Building CricketMind: An AI Product Manager's Journey Through the Model Layer (6-part Substack series)",
+      "model_url": "https://huggingface.co/brettleehari/cricketmind-nemotron-mini",
+      "dataset_url": "https://huggingface.co/datasets/brettleehari/cricketbench-v1"
+    },
+    {
+      "id": "cial",
+      "name": "CIAL: Crypto Intelligence Abstraction Layer",
+      "year_started": "2025",
+      "year_ended": "",
+      "status": "production",
+      "pinned": false,
+      "featured_order": 5,
+      "one_liner": "Enterprise-grade crypto intelligence platform. Real-time streaming, multi-tier caching, full observability.",
+      "problem": "Crypto intelligence requires real-time data aggregation from multiple sources, low-latency delivery to thousands of concurrent clients, and enterprise-grade reliability. Most crypto tools are either toy demos or closed-source platforms.",
+      "what_it_does": "Intelligence Broker pattern for routing data to AI agents. Agent Registry for coordination. Dual Memory System: Redis (short-term) + PostgreSQL (long-term). Multi-tier caching (L1 Memory + L2 Redis = 96% faster). WebSocket streaming to 10K+ concurrent clients. JWT auth + API keys + per-endpoint rate limiting. Full observability: Prometheus metrics, Grafana dashboards, Sentry errors, structured logging.",
+      "why_it_matters": "Enterprise AI infrastructure built from scratch, not a wrapper around an API. Shows the full stack: data ingestion, caching, streaming, security, observability. One-click deploy to Render.",
+      "what_i_learned": "The infrastructure around AI agents, memory, routing, caching, observability, is where most teams fail. The agent itself is the easy part. Building the reliable delivery layer is the real engineering.",
+      "tech_stack": ["FastAPI", "TimescaleDB", "Kafka", "pgvector", "Redis", "WebSocket", "PostgreSQL", "Prometheus", "Grafana", "Sentry", "Docker", "JWT"],
+      "architecture_notes": "3-tier: Application (FastAPI + WebSocket + Security), Infrastructure (PostgreSQL + pgvector + Redis + Kafka + TimescaleDB), Observability (Prometheus + Grafana + Sentry + Structlog). Phase 1: Foundation. Phase 2: Scale. Phase 3 planned: ML anomaly detection, LSTM prediction, sentiment analysis.",
+      "results": "10K+ concurrent WebSocket connections. 96% cache hit improvement with multi-tier caching. 100x faster time-series queries with TimescaleDB. One-click Render deploy.",
+      "repo_url": "https://github.com/brettleehari/BTCExpert",
       "demo_url": "",
       "writeup_url": "",
       "related_writing": ""
@@ -161,172 +265,65 @@
     {
       "id": "metabolistic-storyteller",
       "name": "Metabolistic Storyteller",
-      "year_started": "2019",
+      "year_started": "2026",
       "year_ended": "",
-      "status": "",
-      "pinned": true,
-      "featured_order": 3,
-      "one_liner": "Traditional ML product — where the AI product journey started.",
-      "problem": "",
-      "what_it_does": "",
-      "why_it_matters": "First experience taking a model from notebook to product. The lesson that stuck: the model is 20% of the work. Data pipelines, evaluation, edge case handling, and the interface the user actually touches — that's the other 80%.",
-      "what_i_learned": "Built in 2019, before LLMs were accessible. The constraints of traditional ML — feature engineering by hand, smaller models, no pretrained language understanding — made the product layer do more work. That discipline carries forward.",
-      "tech_stack": [],
-      "architecture_notes": "",
-      "results": "",
-      "repo_url": "",
-      "demo_url": "",
-      "writeup_url": "",
-      "related_writing": ""
-    },
-    {
-      "id": "code-review-bot",
-      "name": "Code Review Bot",
-      "year_started": "2019",
-      "year_ended": "",
-      "status": "",
-      "pinned": false,
-      "featured_order": 4,
-      "one_liner": "Automated code review tool built in the pre-LLM era.",
-      "problem": "Code review was a bottleneck. Needed automation using the tools available at the time — no transformers, no API calls.",
-      "what_it_does": "Pattern matching, heuristics, and a deep understanding of what reviewers actually look for. Solved a real workflow problem without modern LLM capabilities.",
-      "why_it_matters": "Solved a real workflow problem using the tools available at the time. Proved that automation doesn't need the latest model — it needs the right constraints.",
-      "what_i_learned": "The constraints of pre-LLM automation made the value of LLMs concrete later. Knowing what was hard before makes you a better judge of what's easy now.",
-      "tech_stack": [],
-      "architecture_notes": "",
-      "results": "",
-      "repo_url": "",
-      "demo_url": "",
-      "writeup_url": "",
-      "related_writing": ""
-    },
-    {
-      "id": "cricketmind",
-      "name": "CricketMind",
-      "year_started": "",
-      "year_ended": "",
-      "status": "",
-      "pinned": false,
-      "featured_order": 5,
-      "one_liner": "Fine-tuned NVIDIA Nemotron-Mini-4B for cricket domain expertise. 67.5% vs 30.2% baseline.",
-      "problem": "No existing LLM understood cricket deeply enough — the Laws, the strategy, the edge cases. Domain adaptation shouldn't need massive budgets.",
-      "what_it_does": "QLoRA fine-tuning with response distillation using Claude as teacher model. Custom CricketBench evaluation suite with 25 questions across 4 categories. Runs on $5 of RunPod A100 compute.",
-      "why_it_matters": "Proves that domain-adapted LLMs don't need massive budgets. Evaluation-driven training: built the benchmark first, then trained to beat it.",
-      "what_i_learned": "The benchmark defined the goal, not the other way around. Evaluation-first is how you avoid fooling yourself that the model improved.",
-      "tech_stack": ["QLoRA", "Response Distillation", "Hugging Face Transformers", "NVIDIA Nemotron-Mini-4B", "RunPod A100"],
-      "architecture_notes": "Teacher model (Claude) generates reference answers -> QLoRA fine-tuning on Nemotron-Mini-4B -> CricketBench evaluation loop",
-      "results": "67.5% accuracy on CricketBench vs 30.2% baseline. $5 total compute cost.",
-      "repo_url": "",
-      "demo_url": "",
-      "writeup_url": "",
-      "related_writing": "",
-      "model_url": "https://huggingface.co/brettleehari/cricketmind-nemotron-mini",
-      "dataset_url": "https://huggingface.co/datasets/brettleehari/cricketbench-v1"
-    },
-    {
-      "id": "btcexpert",
-      "name": "BTCExpert / CIAL",
-      "year_started": "",
-      "year_ended": "",
-      "status": "",
+      "status": "production",
       "pinned": false,
       "featured_order": 6,
-      "one_liner": "Crypto intelligence platform with real-time streaming and semantic search.",
-      "problem": "",
-      "what_it_does": "FastAPI backend, TimescaleDB for time-series, Kafka for event streaming, pgvector for semantic search, Redis caching, WebSocket streaming handling 10K+ concurrent connections. Full observability stack.",
-      "why_it_matters": "",
-      "what_i_learned": "",
-      "tech_stack": ["FastAPI", "TimescaleDB", "Kafka", "pgvector", "Redis", "WebSocket", "Docker"],
-      "architecture_notes": "Kafka ingestion -> TimescaleDB storage -> pgvector semantic index -> FastAPI serving -> WebSocket real-time push",
-      "results": "10K+ concurrent WebSocket connections",
-      "repo_url": "",
-      "demo_url": "",
+      "one_liner": "Full-stack metabolic analytics platform with glucose-migraine causal chain visualization backed by 6 peer-reviewed citations.",
+      "problem": "Most health analytics show correlations and call them insights. The glucose-migraine connection, nocturnal hypoglycemia triggering hormonal cascade leading to morning migraine, is a documented causal chain that no consumer tool visualizes.",
+      "what_it_does": "React + FastAPI + TimescaleDB platform. 3 demo profiles with 90 days of pre-computed insights each. Multi-layer metabolic overlay (CGM + sleep + exercise + nutrition on one chart with auto-detected pattern callouts). Migraine timeline with hourly glucose curves, event strips, and per-day narratives. 15-day time-series views. ML pipeline: PCMCI causal discovery, STUMPY pattern detection, association rules. JWT auth, CSV/Excel upload wizard, background Celery tasks.",
+      "why_it_matters": "The first consumer tool showing the nocturnal hypo to hormonal cascade to morning migraine causal chain, backed by 6 peer-reviewed citations. Moves beyond correlation dashboards to actual causal explanation.",
+      "what_i_learned": "Health data requires causal reasoning, not just pattern matching. PCMCI for causal discovery and STUMPY for time-series pattern detection are underused in consumer health tools. The narrative layer, turning statistics into a personal story, is what makes data actionable.",
+      "tech_stack": ["React", "FastAPI", "TimescaleDB", "Celery", "Redis", "PCMCI", "STUMPY", "JWT", "Render"],
+      "architecture_notes": "React frontend, FastAPI backend, TimescaleDB (time-series), Celery + Redis (background jobs), ML pipeline (PCMCI causal discovery + STUMPY pattern detection + association rules). 19 end-to-end tests.",
+      "results": "3 demo profiles with 90 days of insights. Glucose-migraine causal chain backed by 6 citations. 19 end-to-end tests. Deployed on Render.",
+      "repo_url": "https://github.com/brettleehari/metabolic-story-teller",
+      "demo_url": "https://your-metabolic-story-teller.onrender.com",
       "writeup_url": "",
       "related_writing": ""
     },
     {
-      "id": "glucolens",
-      "name": "GlucoLens",
-      "year_started": "",
+      "id": "intelliyang",
+      "name": "IntelliYANG",
+      "year_started": "2026",
       "year_ended": "",
-      "status": "",
+      "status": "production",
       "pinned": false,
       "featured_order": 7,
-      "one_liner": "Health monitoring using causal discovery — not just correlations, actual causal relationships.",
-      "problem": "Most health analytics find correlations and present them as insights. Correlation is not causation, and in health data the distinction matters.",
-      "what_it_does": "Uses PCMCI for causal discovery and STUMPY for pattern detection in health time-series data. Identifies actual causal relationships between variables.",
-      "why_it_matters": "Moving beyond correlations in health data. Finding what actually causes what, not just what co-occurs.",
-      "what_i_learned": "",
-      "tech_stack": ["PCMCI", "STUMPY", "Python", "Time Series Analysis"],
-      "architecture_notes": "Health data ingestion -> STUMPY pattern detection -> PCMCI causal graph construction -> causal relationship reporting",
-      "results": "",
-      "repo_url": "",
+      "one_liner": "AI-powered chatbot for querying OpenROADM YANG network models. Hybrid RAG with multi-stage validation.",
+      "problem": "OpenROADM YANG models are complex, deeply nested, and hard to navigate. Network engineers need fast answers about model structure, constraints, and relationships without reading thousands of lines of YANG.",
+      "what_it_does": "Parses .yang files and extracts semantic chunks (containers, groupings, identities). Hybrid retrieval: vector search + BM25 keyword search. Multi-stage validation pipeline (syntax, semantics, optical constraints, confidence threshold at 0.90). Rich CLI interface with session management.",
+      "why_it_matters": "Bridges the gap between AI capabilities and domain-specific network modeling. RAG applied to a structured, hierarchical data format, not just flat text. Validation pipeline ensures answers are grounded in actual YANG model definitions.",
+      "what_i_learned": "RAG on structured data (YANG models) requires semantic chunking, not naive text splitting. The validation pipeline is the product. Without it, the chatbot hallucinates plausible-sounding but incorrect network configurations.",
+      "tech_stack": ["Python", "OpenAI API", "Vector DB", "BM25", "Rich CLI"],
+      "architecture_notes": "YANG processor (semantic chunking), dual retrieval (vector + BM25), LLM generation, multi-stage validation (syntax, semantics, optical constraints, confidence gate at 0.90), Rich CLI output.",
+      "results": "Processes full OpenROADM YANG model suite. 0.90 confidence threshold for answer escalation.",
+      "repo_url": "https://github.com/brettleehari/intelliyang",
       "demo_url": "",
       "writeup_url": "",
       "related_writing": ""
     },
     {
-      "id": "code-rag",
-      "name": "Code-RAG",
-      "year_started": "",
+      "id": "mcp-learning",
+      "name": "MCP Learning Resources",
+      "year_started": "2025",
       "year_ended": "",
-      "status": "",
+      "status": "production",
       "pinned": false,
       "featured_order": 8,
-      "one_liner": "Local RAG-based code assistant that runs fully offline.",
-      "problem": "Code search and assistance shouldn't require sending proprietary code to external APIs.",
-      "what_it_does": "Vector indexing of codebases, semantic search, retrieval tuning — all local. No external API calls. Built from scratch to prove upstream intervention matters more than retrieval algorithm choice.",
-      "why_it_matters": "Proves that preprocessing and source quality beats retrieval tuning. The RAG Upstream Intervention thesis in practice.",
-      "what_i_learned": "",
-      "tech_stack": ["RAG", "Vector Search", "Python"],
-      "architecture_notes": "Local codebase indexing -> vector embedding -> semantic retrieval -> context assembly -> local LLM generation",
-      "results": "",
-      "repo_url": "",
+      "one_liner": "Interactive visualizations for understanding Model Context Protocol. JSON-RPC message flows and architecture state machines.",
+      "problem": "MCP is a new protocol and most developers learn it by reading specs. Interactive visualization makes the protocol's message exchanges and lifecycle tangible.",
+      "what_it_does": "Two interactive HTML tools: (1) JSON-RPC Message Visualization with 5 complete scenarios (initialization, tools, execution, resources, prompts), live message flow animation, color-coded request/response. (2) MCP Architecture State Machine with client-server diagrams, connection lifecycle, capability negotiation, protocol versioning.",
+      "why_it_matters": "Connects 18 years of MxN integration experience to the MCP philosophy. Built to support the From MxN to MCP article series.",
+      "what_i_learned": "The MxN integration problem I fought in platform engineering is exactly what MCP solves for AI. The protocol patterns are familiar. The context is new.",
+      "tech_stack": ["HTML", "JavaScript", "CSS"],
+      "architecture_notes": "Static HTML files, no server required. Open in any browser.",
+      "results": "5 complete protocol scenarios. Interactive state machine visualization.",
+      "repo_url": "https://github.com/brettleehari/mcp",
       "demo_url": "",
       "writeup_url": "",
-      "related_writing": "RAG Upstream Intervention (5-part series)"
-    },
-    {
-      "id": "kafka-stream-transformer",
-      "name": "Kafka Stream Transformer",
-      "year_started": "",
-      "year_ended": "",
-      "status": "",
-      "pinned": false,
-      "featured_order": 9,
-      "one_liner": "Real-time Kafka microservice with live WebSocket dashboard.",
-      "problem": "",
-      "what_it_does": "Event streaming and transformation at scale with built-in real-time observability via WebSocket dashboard.",
-      "why_it_matters": "",
-      "what_i_learned": "",
-      "tech_stack": ["Kafka", "WebSocket", "Python"],
-      "architecture_notes": "Kafka consumer -> stream transformation -> WebSocket push -> live dashboard",
-      "results": "",
-      "repo_url": "",
-      "demo_url": "",
-      "writeup_url": "",
-      "related_writing": ""
-    },
-    {
-      "id": "review-buddy",
-      "name": "Review Buddy",
-      "year_started": "",
-      "year_ended": "",
-      "status": "",
-      "pinned": false,
-      "featured_order": 10,
-      "one_liner": "GitHub App that assigns code reviewers based on file ownership history.",
-      "problem": "Manual reviewer assignment is slow and often misses the person who actually knows the code.",
-      "what_it_does": "Analyzes git blame and file ownership patterns to intelligently assign the right reviewer for each PR.",
-      "why_it_matters": "Developer experience problem solved with data already in the repo. No ML needed — just smart use of git history.",
-      "what_i_learned": "",
-      "tech_stack": ["GitHub Apps", "Node.js"],
-      "architecture_notes": "",
-      "results": "",
-      "repo_url": "",
-      "demo_url": "",
-      "writeup_url": "",
-      "related_writing": ""
+      "related_writing": "From MxN to MCP (3-part series)"
     }
   ],
 
@@ -339,8 +336,22 @@
       "significance": "Contributed to infrastructure used by thousands of RAG implementations worldwide"
     },
     {
+      "project": "Aider",
+      "contribution": "PR #2100: Enhancement #1936, prompt the user before exiting with confirmation and assurance messaging",
+      "year": 2025,
+      "url": "https://github.com/Aider-AI/aider/pull/2100",
+      "significance": "Code-level contribution to the leading open-source AI coding assistant"
+    },
+    {
+      "project": "Warrior Framework",
+      "contribution": "5 merged PRs (#149, #272, #291, #297, #317): Error handling for malformed test files, RMT suite iteration fix, RUNMODE interval at testcase level, author contributions, Selenium browser fixes",
+      "year": 2016,
+      "url": "https://github.com/warriorframework/warriorframework",
+      "significance": "Led the open-source transition of Fujitsu's Python testing framework. Turned complex networking domain logic into reusable abstractions. Became the org's engineering standard."
+    },
+    {
       "project": "Arctic Code Vault",
-      "contribution": "Arctic Code Vault Contributor — code preserved in GitHub's Arctic vault for 1,000 years",
+      "contribution": "Arctic Code Vault Contributor. Code preserved in GitHub's Arctic vault for 1,000 years.",
       "year": "",
       "url": "",
       "significance": ""
@@ -348,23 +359,40 @@
   ],
 
   "research": {
-    "summary": "5+ US patents, 45+ citations across published work. Research spans test automation measurement, developer platforms, and AI systems.",
+    "summary": "3 granted U.S. patents, 6+ published papers, 45+ citations across published work. Research spans protocol innovation, test automation measurement, RAG pipeline optimization, and AI product governance.",
     "stats": {
-      "patents": "5+",
+      "patents": "3",
       "citations": "45+",
+      "papers": "6+",
       "years_in_idp": 18
     },
     "papers": [
       {
-        "title": "",
+        "title": "Upstream Intervention for RAG Accuracy",
         "venue": "",
         "year": "",
-        "one_line_summary": "",
+        "one_line_summary": "Document Quality Ceiling framework. RAG accuracy lifted to 92% by switching ingestion from PDF to raw source.",
         "url": "",
         "citations": ""
       },
       {
-        "title": "",
+        "title": "The Hidden Cost of Early Branching",
+        "venue": "",
+        "year": "",
+        "one_line_summary": "Quantified the cost of early branching strategies. R-squared = 0.87.",
+        "url": "",
+        "citations": ""
+      },
+      {
+        "title": "CIAL",
+        "venue": "",
+        "year": "",
+        "one_line_summary": "Crypto Intelligence Abstraction Layer architecture and design.",
+        "url": "",
+        "citations": ""
+      },
+      {
+        "title": "Bayesian Framework for Software Evolution",
         "venue": "",
         "year": "",
         "one_line_summary": "",
@@ -374,25 +402,38 @@
     ],
     "patents": [
       {
-        "title": "",
+        "title": "G.8032 Ring Protection",
         "patent_number": "",
         "year_filed": "",
-        "year_granted": "",
-        "one_line_summary": ""
+        "year_granted": "2017",
+        "one_line_summary": "Network protocol innovation for Ethernet ring protection switching."
       },
       {
-        "title": "",
+        "title": "MSTP Migration",
         "patent_number": "",
         "year_filed": "",
-        "year_granted": "",
-        "one_line_summary": ""
+        "year_granted": "2018",
+        "one_line_summary": "Multiple Spanning Tree Protocol migration methodology."
+      },
+      {
+        "title": "Loop Prevention",
+        "patent_number": "",
+        "year_filed": "",
+        "year_granted": "2018",
+        "one_line_summary": "Network loop detection and prevention mechanism."
       }
     ],
     "frameworks_created": [
       {
         "name": "TAQi (Test Automation Quality Index)",
-        "description": "Original composite index for measuring what test automation is actually doing. Not pass/fail rates — the quality and effectiveness of the automation itself.",
+        "description": "Original composite index for measuring what test automation is actually doing. Not pass/fail rates, the quality and effectiveness of the automation itself. Adopted by 50+ engineering teams.",
         "published_on": "LinkedIn",
+        "url": ""
+      },
+      {
+        "name": "Document Quality Ceiling",
+        "description": "Framework for RAG pipeline optimization. Accuracy is capped by source document quality, not retrieval algorithm. Lifted RAG accuracy to 92% by switching from PDF to raw source ingestion.",
+        "published_on": "",
         "url": ""
       },
       {
@@ -403,14 +444,29 @@
       },
       {
         "name": "CricketBench",
-        "description": "25-question evaluation suite across 4 categories for measuring cricket domain expertise in LLMs.",
+        "description": "20-question evaluation suite across 4 weighted categories for measuring cricket domain expertise in LLMs. Scored by Claude Sonnet as LLM-as-judge.",
         "published_on": "Hugging Face",
         "url": "https://huggingface.co/datasets/brettleehari/cricketbench-v1"
+      },
+      {
+        "name": "Branch Cost Model",
+        "description": "Quantifies the hidden cost of early branching strategies in software development. R-squared = 0.87.",
+        "published_on": "",
+        "url": ""
       }
     ]
   },
 
   "writing": [
+    {
+      "title": "Building CricketMind: An AI Product Manager's Journey Through the Model Layer",
+      "type": "series",
+      "parts": 6,
+      "platform": "Substack",
+      "summary": "End-to-end documentation of fine-tuning a domain-specific LLM: why PMs should fine-tune, model selection, dataset as product, what breaks, evaluation as strategy, weights to product.",
+      "url": "",
+      "date": "2026"
+    },
     {
       "title": "The AI Full Stack Nobody Is Talking",
       "type": "series",
@@ -423,9 +479,18 @@
     {
       "title": "From MxN to MCP",
       "type": "series",
-      "parts": 3,
-      "platform": "",
+      "parts": 6,
+      "platform": "Substack",
       "summary": "How integration scars from 18 years of platform work led to understanding Model Context Protocol.",
+      "url": "",
+      "date": ""
+    },
+    {
+      "title": "RAG Upstream Intervention",
+      "type": "series",
+      "parts": 5,
+      "platform": "Substack",
+      "summary": "Why preprocessing and source quality beats retrieval tuning in RAG systems. Document Quality Ceiling framework.",
       "url": "",
       "date": ""
     },
@@ -439,15 +504,6 @@
       "date": ""
     },
     {
-      "title": "RAG Upstream Intervention",
-      "type": "series",
-      "parts": 5,
-      "platform": "",
-      "summary": "Why preprocessing and source quality beats retrieval tuning in RAG systems.",
-      "url": "",
-      "date": ""
-    },
-    {
       "title": "NVIDIA Nemotron LTM Deep Dive",
       "type": "series",
       "parts": 3,
@@ -455,6 +511,15 @@
       "summary": "Technical breakdown of Nemotron's long-context approach and how it changed fine-tuning strategy.",
       "url": "",
       "date": ""
+    },
+    {
+      "title": "Are You Adding the Best Code Reviewer for Each Pull Request?",
+      "type": "article",
+      "parts": 1,
+      "platform": "Medium / Towards Dev",
+      "summary": "The thesis behind Smart-Review: why git history is a better signal for reviewer assignment than org charts.",
+      "url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7",
+      "date": "2020"
     },
     {
       "title": "Human Market Fit (HMF)",
@@ -473,45 +538,66 @@
       "summary": "Original composite index for measuring what automation is actually doing.",
       "url": "",
       "date": ""
+    }
+  ],
+
+  "book": {
+    "title": "Thinking in Analogies: A Generative AI Playbook for Tech Professionals",
+    "edition": "2nd edition",
+    "year": "2026",
+    "description": "Frameworks for navigating the AI landscape. Core metaphor: we are a wooden plank adrift in the ocean. Honest about uncertainty, mapping anchors instead of making bold predictions."
+  },
+
+  "speaking": [
+    {
+      "event": "Dallas AI Meetup (dallas-ai.org)",
+      "date": "April 9, 2026",
+      "topic": "Sneak peek of in-progress book on the AI landscape, plus live demos."
     },
     {
-      "title": "Published in Towards Dev (Medium)",
-      "type": "collection",
-      "parts": null,
-      "platform": "Medium / Towards Dev",
-      "summary": "Multiple articles on testing, quality, and building platforms at scale.",
-      "url": "https://medium.com/@brettleehari",
-      "date": ""
+      "event": "InfluxDays",
+      "date": "",
+      "topic": "Invited speaker. TAQi and developer platform metrics."
+    },
+    {
+      "event": "Dallas Python Users Group",
+      "date": "",
+      "topic": "Applied AI talk."
+    },
+    {
+      "event": "Trade shows",
+      "date": "",
+      "topic": "Representing Fujitsu AI products. Customer demos."
     }
   ],
 
   "now": {
     "_description": "Where my head is at right now. Updated periodically.",
-    "_last_updated": "",
+    "_last_updated": "2026-04-26",
     "items": [
       {
         "topic": "Model Context Protocol (MCP)",
-        "detail": "Deep-diving into how MCP solves the MxN integration problem I fought for 18 years. Writing a 3-part series connecting my LlamaIndex PR experience to the MCP philosophy."
+        "detail": "Deep-diving into how MCP solves the MxN integration problem I fought for 18 years. 6-part series on Substack. Built interactive learning tools for the protocol."
       },
       {
         "topic": "Fine-Tuning at Low Cost",
-        "detail": "Proving that domain-adapted LLMs don't need massive budgets. CricketMind runs on $5 of compute. Exploring QLoRA, response distillation, and evaluation-driven training loops."
+        "detail": "Proved it with CricketMind: domain-adapted LLM on $5 of compute, 67.5% vs 30.2% baseline. Published a 6-part series documenting the full journey from data to deployment."
+      },
+      {
+        "topic": "Codebase Interpretability",
+        "detail": "GraspRepo: reverse-engineering how coding agents understand codebases using Tree-sitter AST parsing, PageRank, and code churn analysis. Live at grasprepo.onrender.com."
+      },
+      {
+        "topic": "Context Management as Product",
+        "detail": "Built Visual Learning, an interactive explainer showing how ChatGPT, Claude, Cursor, and Aider each solve the context window problem differently. The Alice layer thesis in action."
       },
       {
         "topic": "Causal Discovery in Health Data",
-        "detail": "Moving beyond correlations with PCMCI and STUMPY. Building GlucoLens to find real causal relationships, not just patterns that look convincing."
-      },
-      {
-        "topic": "The Full AI Value Chain",
-        "detail": "Mapping the 8 layers from data to deployment to observability. Most teams only see 2-3 layers. Writing to make the full stack visible."
-      },
-      {
-        "topic": "RAG Done Right",
-        "detail": "Upstream intervention over retrieval tuning. Preprocessing and source quality matter more than the retrieval algorithm. Building Code-RAG to prove it."
+        "detail": "Metabolistic Storyteller: glucose-migraine causal chain backed by 6 citations. PCMCI for causal discovery, STUMPY for pattern detection. Deployed on Render."
       },
       {
         "topic": "Writing as Thinking",
-        "detail": "Publishing consistently across Substack and Medium. Turning 24+ drafts into finished pieces. The act of writing is how I learn."
+        "detail": "Publishing consistently across Substack and Medium. 6-part CricketMind series, 6-part MCP series, 5-part RAG series. Thinking in Analogies 2nd edition published March 2026."
       }
     ]
   },
@@ -548,7 +634,7 @@
     "interests": [
       {
         "name": "Cricket",
-        "depth": "Deep enough to fine-tune an LLM on it. I study the Laws, the strategy, the edge cases. Built CricketMind because I couldn't find an AI that understood the game."
+        "depth": "Deep enough to fine-tune an LLM on it. Captain, Warriors Cricket Club, Dallas. Built CricketMind because I couldn't find an AI that understood the game."
       },
       {
         "name": "Music",
@@ -564,7 +650,7 @@
   "tech_stack": [
     {
       "category": "AI / ML",
-      "tools": ["QLoRA", "LoRA", "RAG", "LLM Evaluation", "Causal Discovery", "pgvector", "LlamaIndex", "Hugging Face", "NVIDIA Nemotron"]
+      "tools": ["LoRA/QLoRA", "RAG", "LLM Evaluation", "Causal Discovery (PCMCI)", "Pattern Detection (STUMPY)", "pgvector", "LlamaIndex", "LangChain", "Hugging Face", "NVIDIA Nemotron", "Tree-sitter AST", "MCP Servers"]
     },
     {
       "category": "Backend",
@@ -572,19 +658,32 @@
     },
     {
       "category": "Frontend",
-      "tools": ["React", "TypeScript", "Tailwind CSS", "WebSocket", "D3.js"]
+      "tools": ["React", "TypeScript", "Tailwind CSS", "WebSocket", "D3.js", "vis.js"]
     },
     {
       "category": "Infrastructure",
-      "tools": ["AWS (EC2, S3, Lambda)", "GitHub Actions", "Prometheus", "OpenTelemetry", "Sentry", "Grafana"]
+      "tools": ["AWS (EC2, S3, Lambda)", "Render", "GitHub Actions", "Prometheus", "OpenTelemetry", "Sentry", "Grafana"]
     },
     {
       "category": "DevTools",
-      "tools": ["Git", "VS Code", "Jupyter", "DuckDB", "Pandas", "NumPy", "Scikit-learn"]
+      "tools": ["Git", "VS Code", "Jupyter", "DuckDB", "Pandas", "NumPy", "Scikit-learn", "NetworkX"]
     },
     {
       "category": "Databases",
-      "tools": ["PostgreSQL", "TimescaleDB", "Redis", "DuckDB", "Pinecone", "pgvector"]
+      "tools": ["PostgreSQL", "TimescaleDB", "Redis", "DuckDB", "SQLite", "pgvector"]
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Master of Technology Management",
+      "institution": "Bharathiar University",
+      "location": "India"
+    },
+    {
+      "degree": "B.E., Electronics and Communications Engineering",
+      "institution": "Anna University",
+      "location": "India"
     }
   ],
 
@@ -597,8 +696,10 @@
       "Internal Developer Platform design and management",
       "CI/CD pipeline integration",
       "Centralized test automation teams",
-      "Measurement frameworks (TAQi)",
-      "Delivery pipeline management for telecom products"
+      "Measurement frameworks (TAQi, DDF, Merge Conflict Coefficient)",
+      "Delivery pipeline management for telecom products",
+      "13-person cross-functional team, 250+ developers, 24 teams, 2 business units",
+      "99.99% uptime, monthly to daily release cadence"
     ]
   },
 
