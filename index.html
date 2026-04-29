@@ -97,7 +97,12 @@
         .lc .lc-year { font-size: 10px; font-weight: 700; color: var(--lane-color, #7dd3fc); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
         .lc h4 { font-size: 14px; font-weight: 600; color: #e0e6ed; margin-bottom: 4px; }
         .lc .lc-oneliner { font-size: 12px; color: #9ca3af; line-height: 1.5; }
-        .lc .lc-hint { font-size: 10px; color: #4b5563; margin-top: 6px; }
+        .lc .lc-primary-link {
+            display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600;
+            color: var(--lane-color, #7dd3fc); transition: opacity 0.2s;
+        }
+        .lc .lc-primary-link:hover { opacity: 0.8; }
+        .lc .lc-hint { font-size: 10px; color: #4b5563; margin-top: 4px; }
         .lc.open .lc-hint { display: none; }
         .lc .lc-detail {
             max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
@@ -296,16 +301,24 @@
                 year: w.date || '', title: w.title,
                 oneliner: w.summary,
                 desc: w.type === 'series' ? w.parts + '-part series' + (w.platform ? ' on ' + w.platform : '') : (w.platform || ''),
-                links: w.url ? [{label:'Read', url:w.url}] : [], tags: []
+                links: w.url ? [{label:'Read', url:w.url}] :
+                    w.platform && w.platform.includes('Substack') ? [{label:'Substack', url:'https://substack.com/@brettleehari'}] :
+                    w.platform && w.platform.includes('Medium') ? [{label:'Medium', url:'https://medium.com/@brettleehari'}] :
+                    w.platform && w.platform.includes('LinkedIn') ? [{label:'LinkedIn', url:'https://linkedin.com/in/haripm4ai'}] :
+                    [{label:'Substack', url:'https://substack.com/@brettleehari'}],
+                tags: []
             }))),
             ...(d.book ? [{
                 year: d.book.year, title: d.book.title,
                 oneliner: d.book.edition + '. ' + d.book.description,
-                desc: '', links: [], tags: []
+                desc: '', links: [{label:'Linktree', url:'https://linktr.ee/brettleehari'}], tags: []
             }] : []),
             ...(d.speaking ? d.speaking.map(s => ({
                 year: s.date || '', title: s.event,
-                oneliner: s.topic, desc: '', links: [], tags: []
+                oneliner: s.topic, desc: '',
+                links: s.event.includes('dallas-ai') ? [{label:'dallas-ai.org', url:'https://dallas-ai.org'}] :
+                    [{label:'LinkedIn', url:'https://linkedin.com/in/haripm4ai'}],
+                tags: []
             })) : [])
         ];
 
@@ -323,7 +336,9 @@
         });
 
         function laneCard(item) {
-            const linksHtml = item.links && item.links.length
+            const primary = item.links && item.links.length ? item.links[0] : null;
+            const restLinks = item.links && item.links.length > 1 ? item.links.slice(1) : [];
+            const allLinksHtml = item.links && item.links.length
                 ? `<div class="lc-links">${item.links.map(l=>`<a href="${esc(l.url)}" target="_blank" onclick="event.stopPropagation()">${esc(l.label)}</a>`).join('')}</div>` : '';
             const tagsHtml = item.tags && item.tags.length
                 ? `<div class="lc-tags">${item.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>` : '';
@@ -332,12 +347,13 @@
                     ${item.year ? `<div class="lc-year">${esc(String(item.year))}</div>` : ''}
                     <h4>${esc(item.title)}</h4>
                     <div class="lc-oneliner">${esc(item.oneliner)}</div>
-                    <div class="lc-hint">click to expand</div>
+                    ${primary ? `<a class="lc-primary-link" href="${esc(primary.url)}" target="_blank" onclick="event.stopPropagation()">${esc(primary.label)} &rarr;</a>` : ''}
+                    <div class="lc-hint">${item.desc || restLinks.length ? 'click for details' : ''}</div>
                     <div class="lc-detail">
                         ${item.desc ? `<p>${esc(item.desc)}</p>` : ''}
                         ${item.results ? `<div class="lc-results">${esc(item.results)}</div>` : ''}
                         ${item.insight ? `<div class="lc-insight">${esc(item.insight)}</div>` : ''}
-                        ${linksHtml}
+                        ${restLinks.length ? `<div class="lc-links">${restLinks.map(l=>`<a href="${esc(l.url)}" target="_blank" onclick="event.stopPropagation()">${esc(l.label)}</a>`).join('')}</div>` : ''}
                         ${tagsHtml}
                     </div>
                 </div>`;
@@ -362,7 +378,10 @@
                 year: '', title: f.name,
                 oneliner: f.description,
                 desc: f.published_on ? 'Published on ' + f.published_on : '',
-                links: f.url ? [{label:'View', url:f.url}] : [],
+                links: f.url ? [{label:'View', url:f.url}] :
+                    f.published_on === 'LinkedIn' ? [{label:'LinkedIn', url:'https://linkedin.com/in/haripm4ai'}] :
+                    f.published_on === 'Substack' ? [{label:'Substack', url:'https://substack.com/@brettleehari'}] :
+                    [{label:'Google Scholar', url:'https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ'}],
                 tags: []
             }))
         ];
@@ -386,7 +405,7 @@
         ).join('');
 
         document.getElementById('journey').innerHTML = `
-            ${sh('The Journey','4 lanes. ${d.person.years_in_tech} years. Click any card to expand.')}
+            ${sh('The Journey','Every card links to a real artifact: a live project, a merged PR, a published paper, a patent filing. This is not a document. It is a map of evidence.')}
             <div class="lane-tabs">${tabsHtml}</div>
             ${panelsHtml}
         `;
