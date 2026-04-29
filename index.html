@@ -93,7 +93,7 @@
 
         /* Featured strip */
         .feat-label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-        .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
         .feat-card {
             background: rgba(125,211,252,0.04); border: 1px solid rgba(125,211,252,0.12);
             border-radius: 8px; padding: 18px;
@@ -338,10 +338,22 @@
             </div>`;
         }).join('');
 
+        const ossCard = `<div class="feat-card" style="border-color:rgba(52,211,153,0.2);background:rgba(52,211,153,0.04);">
+            <div class="feat-year" style="color:#34d399;">Since 2016</div>
+            <h4>Open Source Contributor</h4>
+            <p>LlamaIndex, Aider, Warrior Framework. Arctic Code Vault. ${d.open_source.length} contributions across ${d.open_source.filter(o=>o.url).length} projects.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;">
+                <img src="https://img.shields.io/github/stars/brettleehari?style=flat&logo=github&label=Stars&color=1a1f2e&labelColor=0f1419" alt="stars" style="height:20px;">
+                <img src="https://img.shields.io/badge/PRs_Merged-LlamaIndex%2C_Aider%2C_Warrior-34d399?style=flat&logo=github&labelColor=0f1419" alt="PRs" style="height:20px;">
+                <img src="https://img.shields.io/badge/Arctic_Code_Vault-Contributor-7dd3fc?style=flat&logo=github&labelColor=0f1419" alt="Arctic" style="height:20px;">
+            </div>
+            <a href="https://github.com/brettleehari" target="_blank" class="feat-link" style="color:#34d399;">GitHub Profile &rarr;</a>
+        </div>`;
+
         document.getElementById('journey').insertAdjacentHTML('beforebegin',
             `<div class="featured-strip" style="margin-bottom:32px;">
                 <div class="feat-label">Featured Work</div>
-                <div class="feat-grid">${featuredHtml}</div>
+                <div class="feat-grid">${featuredHtml}${ossCard}</div>
             </div>`);
 
         // ===== 5-LANE JOURNEY =====
