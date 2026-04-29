@@ -32,7 +32,7 @@
   ],
 
   "about": {
-    "thesis": "I build the full stack around the model, not the model alone. The customer interacts with the product, not the model. The product compensates for the model's weaknesses. Prompt design as defensive programming. Context management as infrastructure. Evaluation as a first-class concern, not an afterthought.",
+    "thesis": "I hands-on build the full stack around the model in addition to the SLM and fine-tuning work. The customer interacts with the product, not the model. The product compensates for the model's weaknesses. Building mission-critical applications with AI stack since 2020. Gen AI context management as infrastructure. Evaluation and explainability as first-class concerns, not afterthoughts.",
     "arc": "I started as an engineer (protocol stacks, Python frameworks, AST-based tooling) and moved into product. I write PRDs. I also read the code behind them. Intrapreneur inside the enterprise: built Fujitsu's first GenAI product from nothing and deployed it across 6 Tier-1 customers globally. Entrepreneur outside: published Smart-Review on the GitHub Marketplace in 2019, ran an Uber fleet management venture in Chennai (2015-2017), built overlay tools for real users with real money on the line. What you see here is what is available in the open. The enterprise work, 6 Tier-1 deployments, EU AI Act compliance, 20% autonomous issue resolution, sits behind NDA.",
     "looking_for": ""
   },
