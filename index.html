@@ -3,7 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hari's Corner</title>
+    <title>Hariprasad Sudharshan — Builder, Writer, AI Product</title>
+    <meta name="description" content="Hariprasad Sudharshan. Builder PM. 3 patents, 6+ papers, 8 live projects. Writing on AI, platforms, and applied product thinking.">
+    <meta property="og:title" content="Hariprasad Sudharshan — Hari's Corner">
+    <meta property="og:description" content="Builder PM. 3 patents. 8 live projects. Writing on AI, platforms, and applied product thinking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brettleehari.github.io/Hari.me/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hariprasad Sudharshan — Hari's Corner">
+    <meta name="twitter:description" content="Builder PM. 3 patents. 8 live projects.">
+    <link rel="canonical" href="https://brettleehari.github.io/Hari.me/">
+    <link rel="icon" type="image/svg+xml" href="/Hari.me/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/Hari.me/assets/apple-touch-icon.png">
+    <link rel="me" href="https://github.com/brettleehari">
+    <link rel="me" href="https://linkedin.com/in/haripm4ai">
+    <link rel="me" href="https://substack.com/@brettleehari">
+    <link rel="me" href="https://medium.com/@brettleehari">
+    <link rel="me" href="https://huggingface.co/brettleehari">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hariprasad Sudharshan",
+      "alternateName": ["Hari", "Hariprasad Sudharsan"],
+      "url": "https://brettleehari.github.io/Hari.me/",
+      "sameAs": [
+        "https://github.com/brettleehari",
+        "https://linkedin.com/in/haripm4ai",
+        "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ",
+        "https://huggingface.co/brettleehari",
+        "https://medium.com/@brettleehari",
+        "https://substack.com/@brettleehari",
+        "https://www.researchgate.net/profile/Hariprasad-Sudharsan"
+      ],
+      "jobTitle": "Builder, AI Product",
+      "homeLocation": "Dallas, Texas"
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,7 +71,7 @@
         }
         .hero-main h1 { font-size: clamp(28px,4vw,40px); font-weight: 700; letter-spacing: -0.8px; color: #fff; margin-bottom: 8px; }
         .hero-main .tagline { font-size: 14px; color: #9ca3af; line-height: 1.7; margin-bottom: 12px; }
-        .hero-main .location { font-size: 12px; color: #6b7280; margin-bottom: 16px; }
+        .hero-main .location { font-size: 12px; color: #9ca3af; margin-bottom: 16px; }
         .hero-links { display: flex; gap: 8px; flex-wrap: wrap; }
         .hero-links a {
             padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);
@@ -53,7 +89,20 @@
         .about-stats { display: flex; gap: 16px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
         .about-stat { text-align: center; flex: 1; }
         .about-stat .num { font-size: 18px; font-weight: 700; color: #7dd3fc; }
-        .about-stat .lbl { font-size: 9px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; }
+        .about-stat .lbl { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Featured strip */
+        .feat-label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .feat-card {
+            background: rgba(125,211,252,0.04); border: 1px solid rgba(125,211,252,0.12);
+            border-radius: 8px; padding: 18px;
+        }
+        .feat-card .feat-year { font-size: 10px; font-weight: 700; color: #7dd3fc; margin-bottom: 4px; }
+        .feat-card h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+        .feat-card p { font-size: 12px; color: #9ca3af; line-height: 1.5; margin-bottom: 6px; }
+        .feat-card .feat-results { font-size: 11px; font-weight: 600; color: #7dd3fc; font-family: 'SF Mono', 'Menlo', monospace; margin-bottom: 6px; }
+        .feat-card .feat-link { font-size: 11px; font-weight: 600; color: #7dd3fc; }
 
         /* Section basics */
         section { margin-bottom: 64px; }
@@ -63,14 +112,14 @@
             display: flex; align-items: center; gap: 10px;
         }
         .section-header h2 .section-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
-        .section-sub { font-size: 13px; color: #6b7280; margin-top: 6px; }
+        .section-sub { font-size: 13px; color: #9ca3af; margin-top: 6px; }
 
         /* ===== 4-LANE JOURNEY ===== */
         .journey-intro { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
         .lane-tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
         .lane-tab {
             flex: 1; padding: 12px 8px; text-align: center; cursor: pointer;
-            font-size: 12px; font-weight: 600; color: #6b7280;
+            font-size: 13px; font-weight: 600; color: #9ca3af;
             border-bottom: 2px solid transparent; transition: all 0.2s;
             background: none; border-top: none; border-left: none; border-right: none;
             font-family: inherit;
@@ -96,7 +145,7 @@
         .lc:hover { border-color: rgba(255,255,255,0.12); border-left-color: var(--lane-color, #7dd3fc); background: rgba(255,255,255,0.05); }
         .lc .lc-year { font-size: 10px; font-weight: 700; color: var(--lane-color, #7dd3fc); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
         .lc h4 { font-size: 14px; font-weight: 600; color: #e0e6ed; margin-bottom: 4px; }
-        .lc .lc-oneliner { font-size: 12px; color: #9ca3af; line-height: 1.5; }
+        .lc .lc-oneliner { font-size: 13px; color: #9ca3af; line-height: 1.5; }
         .lc .lc-primary-link {
             display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600;
             color: var(--lane-color, #7dd3fc); transition: opacity 0.2s;
@@ -110,7 +159,7 @@
         .lc.open .lc-detail { max-height: 600px; }
         .lc .lc-detail p { font-size: 12px; color: #d1d5db; line-height: 1.6; margin-top: 10px; }
         .lc .lc-detail .lc-insight { font-size: 11px; color: #9ca3af; font-style: italic; margin-top: 6px; }
-        .lc .lc-detail .lc-results { font-size: 11px; color: var(--lane-color, #7dd3fc); font-weight: 500; margin-top: 6px; }
+        .lc .lc-results { font-size: 11px; color: var(--lane-color, #7dd3fc); font-weight: 500; margin-top: 6px; font-family: 'SF Mono', 'Menlo', monospace; }
         .lc .lc-links { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
         .lc .lc-links a {
             font-size: 10px; padding: 2px 8px; border-radius: 3px;
@@ -180,16 +229,36 @@
         .footer-links a:hover { color: #7dd3fc; }
 
         @media (max-width: 860px) {
-            .hero-row { grid-template-columns: 1fr; gap: 20px; }
+            .hero-row { grid-template-columns: 1fr; gap: 16px; }
+            .about-sidebar { margin-top: 0; }
+            .feat-grid { grid-template-columns: 1fr; }
             .lane-tabs { overflow-x: auto; flex-wrap: nowrap; }
             .lane-tab { white-space: nowrap; flex: none; padding: 10px 14px; }
             .lane-cards { grid-template-columns: 1fr; }
-            nav { display: none; }
+            nav { gap: 4px; }
+            nav a { font-size: 11px; padding: 2px 6px; }
             .book-card { flex-direction: column; text-align: center; }
+        }
+        /* Skip link */
+        .skip-link { position: absolute; left: -9999px; }
+        .skip-link:focus { left: 12px; top: 12px; background: #fff; color: #000; padding: 6px 10px; border-radius: 4px; z-index: 200; font-size: 13px; }
+
+        /* Print */
+        @media print {
+            body { background: #fff; color: #111; }
+            header, footer, nav, .lane-tabs, .skip-link, .hero-links, .lc-hint, .feat-label { display: none; }
+            .hero-row { grid-template-columns: 1fr; }
+            .about-sidebar { border: 1px solid #ccc; }
+            .lane-panel { display: block !important; margin-bottom: 24px; }
+            .lc, .feat-card, .small-card, .belief-item, .fw-item, .bg-card { border: 1px solid #ddd; break-inside: avoid; }
+            .lc .lc-detail { max-height: none !important; }
+            a { color: #111; text-decoration: underline; }
+            .stat-number { color: #111; }
         }
     </style>
 </head>
 <body>
+    <a href="#journey" class="skip-link">Skip to content</a>
     <header><div class="header-content">
         <div class="logo" id="site-name"></div>
         <nav id="nav-links"></nav>
@@ -226,7 +295,7 @@
 
     function render(d) {
         document.getElementById('site-name').textContent = d.site.name;
-        document.title = d.site.name;
+        document.title = `${d.person.full_name} — ${d.person.headline.split('.')[0]}`;
 
         const nav=[['journey','Journey'],['believe','Beliefs'],['background','Research'],['book-speak','Book'],['write','Write'],['now','Now'],['tech','Stack']];
         document.getElementById('nav-links').innerHTML=nav.map(([id,l])=>`<a href="#${id}">${l}</a>`).join('');
@@ -242,27 +311,47 @@
                 </div>
             </div>
             <div class="about-sidebar">
+                <p style="font-size:13px;color:#d1d5db;line-height:1.6;margin-bottom:10px;">${esc(d.about.thesis)}</p>
                 <div class="about-stats">
                     <div class="about-stat"><div class="num">${esc(d.research.stats.patents)}</div><div class="lbl">Patents</div></div>
                     <div class="about-stat"><div class="num">${esc(d.research.stats.papers)}</div><div class="lbl">Papers</div></div>
                     <div class="about-stat"><div class="num">${esc(d.research.stats.citations)}</div><div class="lbl">Citations</div></div>
                     <div class="about-stat"><div class="num">${esc(String(d.person.years_in_tech))}</div><div class="lbl">Years</div></div>
                 </div>
-                <details style="margin-top:12px;">
-                    <summary style="font-size:11px;font-weight:600;color:#7dd3fc;cursor:pointer;">About me</summary>
-                    <p style="margin-top:8px;font-size:12px;color:#9ca3af;line-height:1.6;">${esc(d.about.thesis)}</p>
-                    <p style="margin-top:6px;font-size:11px;color:#6b7280;line-height:1.6;">${esc(d.about.arc)}</p>
+                <details style="margin-top:10px;">
+                    <summary style="font-size:11px;font-weight:600;color:#7dd3fc;cursor:pointer;">Full background</summary>
+                    <p style="margin-top:8px;font-size:11px;color:#9ca3af;line-height:1.6;">${esc(d.about.arc)}</p>
                 </details>
             </div>`;
 
-        // ===== 4-LANE JOURNEY =====
+        // C2: Featured strip
+        const featured = d.projects.filter(p=>p.pinned).sort((a,b)=>a.featured_order-b.featured_order).slice(0,3);
+        const featuredHtml = featured.map(p => {
+            const link = p.demo_url || p.model_url || p.repo_url || '';
+            const linkLabel = p.demo_url ? 'Live Demo' : p.model_url ? 'Model' : 'GitHub';
+            return `<div class="feat-card">
+                <div class="feat-year">${esc(p.year_started)}</div>
+                <h4>${esc(p.name)}</h4>
+                <p>${esc(p.one_liner)}</p>
+                ${p.results ? `<div class="feat-results">${esc(p.results.split('.')[0])}</div>` : ''}
+                ${link ? `<a href="${esc(link)}" target="_blank" class="feat-link">${esc(linkLabel)} &rarr;</a>` : ''}
+            </div>`;
+        }).join('');
+
+        document.getElementById('journey').insertAdjacentHTML('beforebegin',
+            `<div class="featured-strip" style="margin-bottom:32px;">
+                <div class="feat-label">Featured Work</div>
+                <div class="feat-grid">${featuredHtml}</div>
+            </div>`);
+
+        // ===== 5-LANE JOURNEY =====
         // Categorize projects + timeline into 4 lanes
         const ossItems = d.open_source.map(o => ({
             year: o.year || '', title: o.project, oneliner: o.contribution,
             desc: o.significance || '', links: o.url ? [{label:'View PR / Repo', url:o.url}] : [], tags: []
         }));
 
-        const liveItems = d.projects.filter(p => p.demo_url).map(p => ({
+        const liveItems = d.projects.filter(p => p.demo_url || p.model_url || p.dataset_url).map(p => ({
             year: p.year_started, title: p.name, oneliner: p.one_liner,
             desc: p.what_it_does, insight: p.what_i_learned, results: p.results,
             links: [
@@ -297,7 +386,7 @@
         ];
 
         const publicItems = [
-            ...(d.writing.filter(w => w.url || w.parts > 1).map(w => ({
+            ...(d.writing.filter(w => w.url).map(w => ({
                 year: w.date || '', title: w.title,
                 oneliner: w.summary,
                 desc: w.type === 'series' ? w.parts + '-part series' + (w.platform ? ' on ' + w.platform : '') : (w.platform || ''),
@@ -323,7 +412,7 @@
         ];
 
         // Add projects without live demos to public track (they have repos)
-        d.projects.filter(p => !p.demo_url && p.repo_url).forEach(p => {
+        d.projects.filter(p => !p.demo_url && !p.model_url && !p.dataset_url && p.repo_url).forEach(p => {
             publicItems.push({
                 year: p.year_started, title: p.name, oneliner: p.one_liner,
                 desc: p.what_it_does, insight: p.what_i_learned, results: p.results,
@@ -347,11 +436,11 @@
                     ${item.year ? `<div class="lc-year">${esc(String(item.year))}</div>` : ''}
                     <h4>${esc(item.title)}</h4>
                     <div class="lc-oneliner">${esc(item.oneliner)}</div>
+                    ${item.results ? `<div class="lc-results">${esc(item.results)}</div>` : ''}
                     ${primary ? `<a class="lc-primary-link" href="${esc(primary.url)}" target="_blank" onclick="event.stopPropagation()">${esc(primary.label)} &rarr;</a>` : ''}
                     <div class="lc-hint">${item.desc || restLinks.length ? 'click for details' : ''}</div>
                     <div class="lc-detail">
                         ${item.desc ? `<p>${esc(item.desc)}</p>` : ''}
-                        ${item.results ? `<div class="lc-results">${esc(item.results)}</div>` : ''}
                         ${item.insight ? `<div class="lc-insight">${esc(item.insight)}</div>` : ''}
                         ${restLinks.length ? `<div class="lc-links">${restLinks.map(l=>`<a href="${esc(l.url)}" target="_blank" onclick="event.stopPropagation()">${esc(l.label)}</a>`).join('')}</div>` : ''}
                         ${tagsHtml}
@@ -420,12 +509,15 @@
             });
         });
 
-        // Beliefs
+        // Beliefs (C4: show 3 featured, toggle for rest)
+        const featBeliefs = d.beliefs.filter(b=>b.featured);
+        const restBeliefs = d.beliefs.filter(b=>!b.featured);
+        const beliefCard = b => `<div class="belief-item"><div class="belief-text">${esc(b.statement)}</div><div class="belief-sub">${esc(b.detail)}</div></div>`;
         document.getElementById('believe').innerHTML = `
             ${sh('What I Believe')}
-            <div class="beliefs-grid">
-                ${d.beliefs.map(b=>`<div class="belief-item"><div class="belief-text">${esc(b.statement)}</div><div class="belief-sub">${esc(b.detail)}</div></div>`).join('')}
-            </div>`;
+            <div class="beliefs-grid">${featBeliefs.map(beliefCard).join('')}</div>
+            ${restBeliefs.length ? `<div id="beliefs-rest" style="display:none;margin-top:12px;"><div class="beliefs-grid">${restBeliefs.map(beliefCard).join('')}</div></div>
+            <button onclick="const el=document.getElementById('beliefs-rest');const s=el.style.display==='none';el.style.display=s?'block':'none';this.textContent=s?'Show fewer':'Show all (${d.beliefs.length})';" style="margin-top:12px;background:none;border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#7dd3fc;font-size:12px;padding:4px 12px;cursor:pointer;font-family:inherit;">Show all (${d.beliefs.length})</button>` : ''}`;
 
         // Research
         const fwHtml = d.research.frameworks_created.map(f=>`<div class="fw-item"><h4>${esc(f.name)}</h4><p>${esc(f.description)}</p></div>`).join('');
@@ -441,6 +533,13 @@
                     <div class="stat"><div class="stat-number">${esc(d.research.stats.papers)}</div><div class="stat-label">Papers</div></div>
                     <div class="stat"><div class="stat-number">${esc(d.research.stats.citations)}</div><div class="stat-label">Citations</div></div>
                 </div>
+                ${d.enterprise_stats ? `
+                <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">
+                    <div class="stats-row">
+                        ${d.enterprise_stats.map(s=>`<div class="stat"><div class="stat-number">${esc(s.num)}</div><div class="stat-label">${esc(s.label)}</div></div>`).join('')}
+                    </div>
+                    <p style="font-size:10px;color:#4b5563;margin-top:8px;">Behind NDA. Numbers from Fujitsu engagements.</p>
+                </div>` : ''}
             </div>
             <h3 style="font-size:13px;font-weight:600;color:#fbbf24;margin-bottom:6px;">Patents</h3>
             <div class="fw-grid">${patHtml}</div>
@@ -452,14 +551,17 @@
 
         // Book + Speaking
         const bookHtml = d.book ? `<div class="book-card"><div class="book-icon">&#128214;</div><div class="book-info"><h3>${esc(d.book.title)}</h3><div class="book-meta">${esc(d.book.edition)}, ${esc(d.book.year)}</div><p>${esc(d.book.description)}</p></div></div>` : '';
-        const speakHtml = d.speaking ? d.speaking.map(s=>`<div class="small-card"><h4>${esc(s.event)}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p></div>`).join('') : '';
+        const tenseChip = t => t === 'upcoming' ? '<span style="font-size:10px;background:rgba(52,211,153,0.15);color:#34d399;padding:1px 6px;border-radius:3px;margin-left:6px;">upcoming</span>' :
+            t === 'recurring' ? '<span style="font-size:10px;background:rgba(251,191,36,0.15);color:#fbbf24;padding:1px 6px;border-radius:3px;margin-left:6px;">recurring</span>' :
+            '<span style="font-size:10px;background:rgba(255,255,255,0.06);color:#6b7280;padding:1px 6px;border-radius:3px;margin-left:6px;">past</span>';
+        const speakHtml = d.speaking ? d.speaking.map(s=>`<div class="small-card"><h4>${esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p></div>`).join('') : '';
         document.getElementById('book-speak').innerHTML = `${sh('Book and Speaking')}${bookHtml}<div class="small-grid">${speakHtml}</div>`;
 
         // Writing
         document.getElementById('write').innerHTML = `
             ${sh('What I Write')}
             <div class="writing-grid">
-                ${d.writing.map(w=>{
+                ${d.writing.filter(w=>w.url).map(w=>{
                     const m=[];if(w.type==='series'&&w.parts)m.push(w.parts+'-part series');if(w.platform)m.push(w.platform);if(w.date)m.push(w.date);
                     const t=w.url?`<a href="${esc(w.url)}" target="_blank">${esc(w.title)}</a>`:esc(w.title);
                     return `<div class="small-card"><h4>${t}</h4>${m.length?`<div class="meta">${esc(m.join(' / '))}</div>`:''}<p>${esc(w.summary)}</p></div>`;
@@ -499,8 +601,8 @@
 
         // Footer
         document.getElementById('footer-content').innerHTML = `
-            <p class="footer-text">${esc(d.footer.tagline)}</p>
-            <div class="footer-links">${d.profiles.map(p=>`<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`).join('')}</div>`;
+            <p class="footer-text">${esc(d.footer.tagline)} ${esc(d.research.stats.patents)} patents. ${esc(d.research.stats.citations)} citations.</p>
+            <div class="footer-links">${d.profiles.filter(p=>p.platform!=='Linktree').map(p=>`<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`).join('')}</div>`;
     }
     </script>
     <script data-goatcounter="https://brettleehari.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

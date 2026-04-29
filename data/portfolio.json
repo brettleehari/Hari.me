@@ -40,35 +40,43 @@
   "beliefs": [
     {
       "statement": "Builders have more credibility than commentators.",
-      "detail": "Ship it. Then talk about it. The order matters."
+      "detail": "Ship it. Then talk about it. The order matters.",
+      "featured": true
     },
     {
       "statement": "The customer interacts with the product, not the model.",
-      "detail": "The product exists to compensate for the model's weaknesses. I build the full stack around the model."
+      "detail": "The product exists to compensate for the model's weaknesses. I build the full stack around the model.",
+      "featured": true
     },
     {
       "statement": "Prompts are interfaces to stochastic functions.",
-      "detail": "Defensive programming for AI. Account for what the model might get wrong, not just what it should get right."
+      "detail": "Defensive programming for AI. Account for what the model might get wrong, not just what it should get right.",
+      "featured": false
     },
     {
       "statement": "Quality is a platform problem, not a testing problem.",
-      "detail": "18 years of IDP taught me that quality is designed into systems, not inspected into products."
+      "detail": "18 years of IDP taught me that quality is designed into systems, not inspected into products.",
+      "featured": false
     },
     {
       "statement": "Cautious deployment beats fast deployment.",
-      "detail": "Prove it works at limited scope with measurable targets first, then scale. Trust is earned incrementally."
+      "detail": "Prove it works at limited scope with measurable targets first, then scale. Trust is earned incrementally.",
+      "featured": false
     },
     {
       "statement": "Create your own frameworks. Don't just use others'.",
-      "detail": "TAQi for test automation. HMF for career navigation. CricketBench for model evaluation. Document Quality Ceiling for RAG. Original thinking compounds."
+      "detail": "TAQi for test automation. HMF for career navigation. CricketBench for model evaluation. Document Quality Ceiling for RAG. Original thinking compounds.",
+      "featured": true
     },
     {
       "statement": "Connection is the one thing AI can't replicate.",
-      "detail": "I coined 'Connecticate', the ability to connect while you communicate. That's the human edge."
+      "detail": "I coined 'Connecticate', the ability to connect while you communicate. That's the human edge.",
+      "featured": false
     },
     {
       "statement": "Accidents, luck, and detours deserve gratitude.",
-      "detail": "The path from Chennai to Dallas, from telecom to AI, was never a straight line. Every detour built something."
+      "detail": "The path from Chennai to Dallas, from telecom to AI, was never a straight line. Every detour built something.",
+      "featured": false
     }
   ],
 
@@ -335,7 +343,7 @@
       "architecture_notes": "React frontend, FastAPI backend, TimescaleDB (time-series), Celery + Redis (background jobs), ML pipeline (PCMCI causal discovery + STUMPY pattern detection + association rules). 19 end-to-end tests.",
       "results": "3 demo profiles with 90 days of insights. Glucose-migraine causal chain backed by 6 citations. 19 end-to-end tests. Deployed on Render.",
       "repo_url": "https://github.com/brettleehari/metabolic-story-teller",
-      "demo_url": "https://your-metabolic-story-teller.onrender.com",
+      "demo_url": "",
       "writeup_url": "",
       "related_writing": ""
     },
@@ -408,9 +416,9 @@
     {
       "project": "Arctic Code Vault",
       "contribution": "Arctic Code Vault Contributor. Code preserved in GitHub's Arctic vault for 1,000 years.",
-      "year": "",
-      "url": "",
-      "significance": ""
+      "year": 2020,
+      "url": "https://archiveprogram.github.com/",
+      "significance": "GitHub Arctic Code Vault preserves open source code for future generations."
     }
   ],
 
@@ -608,23 +616,33 @@
     {
       "event": "Dallas AI Meetup (dallas-ai.org)",
       "date": "April 9, 2026",
-      "topic": "Sneak peek of in-progress book on the AI landscape, plus live demos."
+      "topic": "Sneak peek of in-progress book on the AI landscape, plus live demos.",
+      "tense": "past"
     },
     {
       "event": "InfluxDays",
-      "date": "",
-      "topic": "Invited speaker. TAQi and developer platform metrics."
+      "date": "2022",
+      "topic": "Invited speaker. TAQi and developer platform metrics.",
+      "tense": "past"
     },
     {
       "event": "Dallas Python Users Group",
-      "date": "",
-      "topic": "Applied AI talk."
+      "date": "2023",
+      "topic": "Applied AI talk.",
+      "tense": "past"
     },
     {
       "event": "Trade shows",
-      "date": "",
-      "topic": "Representing Fujitsu AI products. Customer demos."
+      "date": "2024-2026",
+      "topic": "Representing Fujitsu AI products. Customer demos.",
+      "tense": "recurring"
     }
+  ],
+
+  "enterprise_stats": [
+    {"num": "6", "label": "Tier-1 deployments"},
+    {"num": "20%", "label": "Autonomous issue resolution"},
+    {"num": "EU AI Act", "label": "Compliance scope"}
   ],
 
   "now": {
