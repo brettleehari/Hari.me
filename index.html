@@ -30,8 +30,8 @@
 
         /* Compact Hero with About sidebar */
         .hero-row {
-            display: grid; grid-template-columns: 1fr 320px; gap: 40px;
-            padding: 48px 0 40px; align-items: start;
+            display: grid; grid-template-columns: 1fr 260px; gap: 32px;
+            padding: 32px 0 24px; align-items: start;
         }
         .hero-main h1 { font-size: clamp(28px,4vw,40px); font-weight: 700; letter-spacing: -0.8px; color: #fff; margin-bottom: 8px; }
         .hero-main .tagline { font-size: 14px; color: #9ca3af; line-height: 1.7; margin-bottom: 12px; }
@@ -237,15 +237,17 @@
                 </div>
             </div>
             <div class="about-sidebar">
-                <h3>About</h3>
-                <p>${esc(d.about.thesis)}</p>
-                <p style="font-size:12px;color:#6b7280;">${esc(d.about.arc)}</p>
                 <div class="about-stats">
                     <div class="about-stat"><div class="num">${esc(d.research.stats.patents)}</div><div class="lbl">Patents</div></div>
                     <div class="about-stat"><div class="num">${esc(d.research.stats.papers)}</div><div class="lbl">Papers</div></div>
                     <div class="about-stat"><div class="num">${esc(d.research.stats.citations)}</div><div class="lbl">Citations</div></div>
                     <div class="about-stat"><div class="num">${esc(String(d.person.years_in_tech))}</div><div class="lbl">Years</div></div>
                 </div>
+                <details style="margin-top:12px;">
+                    <summary style="font-size:11px;font-weight:600;color:#7dd3fc;cursor:pointer;">About me</summary>
+                    <p style="margin-top:8px;font-size:12px;color:#9ca3af;line-height:1.6;">${esc(d.about.thesis)}</p>
+                    <p style="margin-top:6px;font-size:11px;color:#6b7280;line-height:1.6;">${esc(d.about.arc)}</p>
+                </details>
             </div>`;
 
         // ===== 4-LANE JOURNEY =====
