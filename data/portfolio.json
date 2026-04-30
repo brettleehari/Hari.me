@@ -621,8 +621,10 @@
     },
     {
       "event": "InfluxDays",
-      "date": "2022",
+      "date": "2021",
       "topic": "Invited speaker. TAQi and developer platform metrics.",
+      "url": "https://www.influxdays.com/speakers/hari-prasad-sudharshan/",
+      "announcement_url": "https://www.influxdata.com/blog/see-you-in-october-influxdays-north-america-2021/",
       "tense": "past"
     },
     {

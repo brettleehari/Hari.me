@@ -560,7 +560,7 @@
         const tenseChip = t => t === 'upcoming' ? '<span style="font-size:10px;background:rgba(52,211,153,0.15);color:#34d399;padding:1px 6px;border-radius:3px;margin-left:6px;">upcoming</span>' :
             t === 'recurring' ? '<span style="font-size:10px;background:rgba(251,191,36,0.15);color:#fbbf24;padding:1px 6px;border-radius:3px;margin-left:6px;">recurring</span>' :
             '<span style="font-size:10px;background:rgba(255,255,255,0.06);color:#6b7280;padding:1px 6px;border-radius:3px;margin-left:6px;">past</span>';
-        const speakHtml = d.speaking ? d.speaking.map(s=>`<div class="small-card"><h4>${esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p></div>`).join('') : '';
+        const speakHtml = d.speaking ? d.speaking.map(s=>`<div class="small-card"><h4>${s.url ? `<a href="${esc(s.url)}" target="_blank">${esc(s.event)}</a>` : esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p></div>`).join('') : '';
         document.getElementById('book-speak').innerHTML = `${sh('Book and Speaking')}${bookHtml}<div class="small-grid">${speakHtml}</div>`;
 
         // Writing
