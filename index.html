@@ -86,7 +86,7 @@
         .about-sidebar h3 { font-size: 12px; font-weight: 700; color: #7dd3fc; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
         .about-sidebar p { margin-bottom: 10px; }
         .about-sidebar p:last-child { margin-bottom: 0; }
-        .about-stats { display: flex; gap: 16px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+        .about-stats { display: flex; gap: 16px; }
         .about-stat { text-align: center; flex: 1; }
         .about-stat .num { font-size: 18px; font-weight: 700; color: #7dd3fc; }
         .about-stat .lbl { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -311,7 +311,6 @@
                 </div>
             </div>
             <div class="about-sidebar">
-                <p style="font-size:13px;color:#d1d5db;line-height:1.6;margin-bottom:10px;">${esc(d.about.thesis)}</p>
                 <div class="about-stats">
                     <div class="about-stat"><div class="num">${esc(d.research.stats.patents)}</div><div class="lbl">Patents</div></div>
                     <div class="about-stat"><div class="num">${esc(d.research.stats.papers)}</div><div class="lbl">Papers</div></div>
@@ -320,6 +319,7 @@
                 </div>
                 <details style="margin-top:10px;">
                     <summary style="font-size:11px;font-weight:600;color:#7dd3fc;cursor:pointer;">Full background</summary>
+                    <p style="margin-top:8px;font-size:12px;color:#d1d5db;line-height:1.6;">${esc(d.about.thesis)}</p>
                     <p style="margin-top:8px;font-size:11px;color:#9ca3af;line-height:1.6;">${esc(d.about.arc)}</p>
                 </details>
             </div>`;
