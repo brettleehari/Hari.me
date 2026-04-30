@@ -328,7 +328,7 @@
         const featured = d.projects.filter(p=>p.pinned).sort((a,b)=>a.featured_order-b.featured_order).slice(0,3);
         const featuredHtml = featured.map(p => {
             const link = p.demo_url || p.model_url || p.repo_url || '';
-            const linkLabel = p.demo_url ? 'Live Demo' : p.model_url ? 'Model' : 'GitHub';
+            const linkLabel = p.demo_url ? 'Live Application' : p.model_url ? 'Model' : 'GitHub';
             return `<div class="feat-card">
                 <div class="feat-year">${esc(p.year_started)}</div>
                 <h4>${esc(p.name)}</h4>
@@ -366,7 +366,7 @@
             year: p.year_started, title: p.name, oneliner: p.one_liner,
             desc: p.what_it_does, insight: p.what_i_learned, results: p.results,
             links: [
-                p.demo_url ? {label:'Live Demo',url:p.demo_url} : null,
+                p.demo_url ? {label:'Live Application',url:p.demo_url} : null,
                 p.repo_url ? {label:'GitHub',url:p.repo_url} : null,
                 p.writeup_url ? {label:'Write-up',url:p.writeup_url} : null,
                 p.model_url ? {label:'Model',url:p.model_url} : null,
