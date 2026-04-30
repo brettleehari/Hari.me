@@ -290,14 +290,14 @@
       "status": "production",
       "pinned": true,
       "featured_order": 2,
-      "one_liner": "Fine-tuned NVIDIA Nemotron-Mini-4B for cricket domain expertise. 67.5% vs 30.2% baseline. $5 compute.",
+      "one_liner": "Fine-tuned NVIDIA Nemotron-Mini-4B for cricket domain expertise. Improved model performance on a subset of cricket knowledge from 30.2% to 67.5%.",
       "problem": "No existing LLM understood cricket deeply enough, the Laws, the strategy, the edge cases. Domain adaptation shouldn't need massive budgets.",
       "what_it_does": "LoRA fine-tuning (rank 16, alpha 32) with response distillation using Claude as teacher model. 170 training examples (laws QA + match situation analysis). Custom CricketBench evaluation suite: 20 questions across 4 weighted categories (Laws Recall 30%, Conditional Reasoning 35%, Match Situation 25%, Edge Case 10%), scored by Claude Sonnet as LLM-as-judge.",
       "why_it_matters": "Proves that domain-adapted LLMs don't need massive budgets. Evaluation-driven training: built CricketBench first, then trained to beat it. The benchmark defined the goal, not the other way around.",
       "what_i_learned": "Largest gains in conditional reasoning (+45pp) and match situation analysis (+50pp). Distillation teaches decomposition skills, not just memorization. Data quality gates (~10% rejection rate) matter more than data quantity. Published a 6-part Substack series documenting the entire journey.",
       "tech_stack": ["LoRA/QLoRA", "Hugging Face Transformers", "PEFT", "TRL", "NVIDIA Nemotron-Mini-4B", "RunPod A100", "Anthropic Claude (teacher + judge)"],
       "architecture_notes": "Pipeline: MCC Laws text, Claude distillation, quality gates, LoRA fine-tuning (3 epochs, 35 min on A100), merge adapters, GGUF export, CricketBench evaluation. Runs locally via Ollama.",
-      "results": "67.5% weighted accuracy vs 30.2% baseline (+37.3pp). Conditional reasoning: +45pp. Match situation: +50pp. $5 total compute. 170 training examples. 35 minutes training time.",
+      "results": "67.5% weighted accuracy vs 30.2% baseline (+37.3pp). Conditional reasoning: +45pp. Match situation: +50pp. 170 training examples. 35 minutes training time.",
       "repo_url": "https://github.com/brettleehari/cricketmind",
       "demo_url": "",
       "writeup_url": "",
@@ -655,7 +655,7 @@
       },
       {
         "topic": "Fine-Tuning at Low Cost",
-        "detail": "Proved it with CricketMind: domain-adapted LLM on $5 of compute, 67.5% vs 30.2% baseline. Published a 6-part series documenting the full journey from data to deployment."
+        "detail": "Proved it with CricketMind: domain-adapted LLM, improved performance from 30.2% to 67.5% on cricket knowledge. Published a 6-part series documenting the full journey from data to deployment."
       },
       {
         "topic": "Codebase Interpretability",
