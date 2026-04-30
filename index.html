@@ -539,13 +539,6 @@
                     <div class="stat"><div class="stat-number">${esc(d.research.stats.papers)}</div><div class="stat-label">Papers</div></div>
                     <div class="stat"><div class="stat-number">${esc(d.research.stats.citations)}</div><div class="stat-label">Citations</div></div>
                 </div>
-                ${d.enterprise_stats ? `
-                <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">
-                    <div class="stats-row">
-                        ${d.enterprise_stats.map(s=>`<div class="stat"><div class="stat-number">${esc(s.num)}</div><div class="stat-label">${esc(s.label)}</div></div>`).join('')}
-                    </div>
-                    <p style="font-size:10px;color:#4b5563;margin-top:8px;">Behind NDA. Numbers from Fujitsu engagements.</p>
-                </div>` : ''}
             </div>
             <h3 style="font-size:13px;font-weight:600;color:#fbbf24;margin-bottom:6px;">Patents</h3>
             <div class="fw-grid">${patHtml}</div>
