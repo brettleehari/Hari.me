@@ -402,15 +402,22 @@
     {
       "project": "Warrior Framework",
       "contribution": "5 merged PRs (#149, #272, #291, #297, #317): Error handling for malformed test files, RMT suite iteration fix, RUNMODE interval at testcase level, author contributions, Selenium browser fixes",
-      "year": 2016,
-      "url": "https://github.com/warriorframework/warriorframework",
+      "year": "2017-2020",
+      "url": "https://github.com/warriorframework/warriorframework/pulls?q=is%3Apr+author%3Abrettleehari+is%3Aclosed",
       "significance": "Led the open-source transition of Fujitsu's Python testing framework. Turned complex networking domain logic into reusable abstractions. Became the org's engineering standard."
+    },
+    {
+      "project": "Pull Shark",
+      "contribution": "GitHub Pull Shark achievement for merged pull requests.",
+      "year": 2020,
+      "url": "https://github.com/brettleehari?tab=achievements&achievement=pull-shark",
+      "significance": "Recognized by GitHub for consistent open source contributions via merged PRs."
     },
     {
       "project": "Arctic Code Vault",
       "contribution": "Arctic Code Vault Contributor. Code preserved in GitHub's Arctic vault for 1,000 years.",
       "year": 2020,
-      "url": "https://archiveprogram.github.com/",
+      "url": "https://github.com/brettleehari?tab=achievements&achievement=arctic-code-vault-contributor",
       "significance": "GitHub Arctic Code Vault preserves open source code for future generations."
     }
   ],
