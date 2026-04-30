@@ -268,7 +268,7 @@
       "status": "production",
       "pinned": true,
       "featured_order": 1,
-      "one_liner": "Intelligent code reviewer recommendation. Probot app in GitHub Marketplace (2019), full-stack rebuild (2026).",
+      "one_liner": "Intelligently add code reviewer. GitHub Marketplace launch (2019-2020). Opensourced the entire stack.",
       "problem": "Code review relies on static hierarchies or CODEOWNERS files, missing engineers with actual hands-on experience of the code being modified. 4 out of 5 real PRs analyzed showed expertise gaps, with regressions within 12-25 days proving the point.",
       "what_it_does": "Analyzes git history for affected files to compute expertise and seniority scores. Expertise: ownership 40%, commits 25%, lines 15%, recency 20%. Seniority: tenure 45%, commits 30%, consistency 25%. 5 real PRs analyzed from rails, react, huggingface/transformers, prometheus. Original 2019 version was a Probot app published in GitHub Marketplace with PyDriller-based reviewer.py engine.",
       "why_it_matters": "A 7-year arc on the same problem. Built pre-LLM in 2019 with pattern matching and heuristics, rebuilt in 2026 as full-stack with real data proving the thesis. 4 out of 5 PRs show the assigned reviewer wasn't the best choice.",
