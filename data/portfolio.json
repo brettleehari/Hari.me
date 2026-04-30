@@ -400,13 +400,6 @@
       "significance": "Contributed to infrastructure used by thousands of RAG implementations worldwide"
     },
     {
-      "project": "Aider",
-      "contribution": "PR #2100: Enhancement #1936, prompt the user before exiting with confirmation and assurance messaging",
-      "year": 2025,
-      "url": "https://github.com/Aider-AI/aider/pull/2100",
-      "significance": "Code-level contribution to the leading open-source AI coding assistant"
-    },
-    {
       "project": "Warrior Framework",
       "contribution": "5 merged PRs (#149, #272, #291, #297, #317): Error handling for malformed test files, RMT suite iteration fix, RUNMODE interval at testcase level, author contributions, Selenium browser fixes",
       "year": 2016,
