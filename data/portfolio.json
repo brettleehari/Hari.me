@@ -275,7 +275,7 @@
       "what_i_learned": "The constraints of pre-LLM automation made the value of LLMs concrete later. But this problem doesn't even need an LLM. Just smart use of git history data already in the repo.",
       "tech_stack": ["React 19", "TypeScript", "Tailwind CSS", "FastAPI", "PyDriller", "GitHub OAuth", "Probot (original)"],
       "architecture_notes": "Monorepo: apps/web (React frontend), apps/api (FastAPI backend), packages/analysis (reusable scoring + mining). PyDriller walks git history of affected files, extracts per-author metrics, computes weighted scores. GitHub handle resolution via commit search API.",
-      "results": "5 real PRs analyzed. 4 show expertise gaps (regressions within 12-25 days). ~30-100 contributors scored per PR. Phase 2 backend ready: OAuth, live PR analysis, rate limiting, caching.",
+      "results": "DevTool Entrepreneurship. 4 show expertise gaps (regressions within 12-25 days). ~30-100 contributors scored per PR. Phase 2 backend ready: OAuth, live PR analysis, rate limiting, caching.",
       "repo_url": "https://github.com/brettleehari/reviewbuddy",
       "demo_url": "https://brettleehari.github.io/reviewbuddy/",
       "writeup_url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7",
