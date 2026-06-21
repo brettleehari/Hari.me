@@ -86,7 +86,7 @@
         .about-sidebar h3 { font-size: 12px; font-weight: 700; color: #7dd3fc; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
         .about-sidebar p { margin-bottom: 10px; }
         .about-sidebar p:last-child { margin-bottom: 0; }
-        .about-stats { display: flex; gap: 16px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+        .about-stats { display: flex; gap: 16px; }
         .about-stat { text-align: center; flex: 1; }
         .about-stat .num { font-size: 18px; font-weight: 700; color: #7dd3fc; }
         .about-stat .lbl { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -311,24 +311,19 @@
                 </div>
             </div>
             <div class="about-sidebar">
-                <p style="font-size:13px;color:#d1d5db;line-height:1.6;margin-bottom:10px;">${esc(d.about.thesis)}</p>
                 <div class="about-stats">
-                    <div class="about-stat"><div class="num">${esc(d.research.stats.patents)}</div><div class="lbl">Patents</div></div>
+                    <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank" class="about-stat" style="text-decoration:none;color:inherit;"><div class="num">${esc(d.research.stats.patents)}</div><div class="lbl">Patents</div></a>
                     <div class="about-stat"><div class="num">${esc(d.research.stats.papers)}</div><div class="lbl">Papers</div></div>
-                    <div class="about-stat"><div class="num">${esc(d.research.stats.citations)}</div><div class="lbl">Citations</div></div>
+                    <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank" class="about-stat" style="text-decoration:none;color:inherit;"><div class="num">${esc(d.research.stats.citations)}</div><div class="lbl">Citations</div></a>
                     <div class="about-stat"><div class="num">${esc(String(d.person.years_in_tech))}</div><div class="lbl">Years</div></div>
                 </div>
-                <details style="margin-top:10px;">
-                    <summary style="font-size:11px;font-weight:600;color:#7dd3fc;cursor:pointer;">Full background</summary>
-                    <p style="margin-top:8px;font-size:11px;color:#9ca3af;line-height:1.6;">${esc(d.about.arc)}</p>
-                </details>
             </div>`;
 
         // C2: Featured strip
         const featured = d.projects.filter(p=>p.pinned).sort((a,b)=>a.featured_order-b.featured_order).slice(0,3);
         const featuredHtml = featured.map(p => {
             const link = p.demo_url || p.model_url || p.repo_url || '';
-            const linkLabel = p.demo_url ? 'Live Demo' : p.model_url ? 'Model' : 'GitHub';
+            const linkLabel = p.demo_url ? 'Live Application' : p.model_url ? 'Model' : 'GitHub';
             return `<div class="feat-card">
                 <div class="feat-year">${esc(p.year_started)}</div>
                 <h4>${esc(p.name)}</h4>
@@ -341,10 +336,9 @@
         const ossCard = `<div class="feat-card" style="border-color:rgba(52,211,153,0.2);background:rgba(52,211,153,0.04);">
             <div class="feat-year" style="color:#34d399;">Since 2016</div>
             <h4>Open Source Contributor</h4>
-            <p>LlamaIndex, Aider, Warrior Framework. Arctic Code Vault. ${d.open_source.length} contributions across ${d.open_source.filter(o=>o.url).length} projects.</p>
+            <p>LlamaIndex, Warrior Framework. Arctic Code Vault.</p>
             <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;">
-                <img src="https://img.shields.io/github/stars/brettleehari?style=flat&logo=github&label=Stars&color=1a1f2e&labelColor=0f1419" alt="stars" style="height:20px;">
-                <img src="https://img.shields.io/badge/PRs_Merged-LlamaIndex%2C_Aider%2C_Warrior-34d399?style=flat&logo=github&labelColor=0f1419" alt="PRs" style="height:20px;">
+                <a href="https://github.com/run-llama/llama_index/pull/15311" target="_blank"><img src="https://img.shields.io/badge/PRs_Merged-LlamaIndex%2C_Warrior-34d399?style=flat&logo=github&labelColor=0f1419" alt="PRs" style="height:20px;"></a>
                 <img src="https://img.shields.io/badge/Arctic_Code_Vault-Contributor-7dd3fc?style=flat&logo=github&labelColor=0f1419" alt="Arctic" style="height:20px;">
             </div>
             <a href="https://github.com/brettleehari" target="_blank" class="feat-link" style="color:#34d399;">GitHub Profile &rarr;</a>
@@ -353,7 +347,7 @@
         document.getElementById('journey').insertAdjacentHTML('beforebegin',
             `<div class="featured-strip" style="margin-bottom:32px;">
                 <div class="feat-label">Featured Work</div>
-                <div class="feat-grid">${featuredHtml}${ossCard}</div>
+                <div class="feat-grid">${ossCard}${featuredHtml}</div>
             </div>`);
 
         // ===== 5-LANE JOURNEY =====
@@ -367,7 +361,7 @@
             year: p.year_started, title: p.name, oneliner: p.one_liner,
             desc: p.what_it_does, insight: p.what_i_learned, results: p.results,
             links: [
-                p.demo_url ? {label:'Live Demo',url:p.demo_url} : null,
+                p.demo_url ? {label:'Live Application',url:p.demo_url} : null,
                 p.repo_url ? {label:'GitHub',url:p.repo_url} : null,
                 p.writeup_url ? {label:'Write-up',url:p.writeup_url} : null,
                 p.model_url ? {label:'Model',url:p.model_url} : null,
@@ -379,19 +373,19 @@
         const entrepreneurItems = [
             {
                 year: '2015', title: 'Uber Fleet Management Venture, Chennai',
-                oneliner: 'Built overlay tools for fleet coordination, driver scheduling, and earnings optimization. First product for real users with real money on the line.',
-                desc: 'Ran a taxi fleet business on the Uber platform in Chennai (2015-2017). Built custom tools on top of Uber\'s driver ecosystem for fleet coordination, shift scheduling, and earnings tracking. This was not a tech demo. Real drivers, real fares, real operational complexity.',
+                oneliner: 'Developed an overlay application for fleet management, coordination, driver scheduling, and earnings optimization.',
+                desc: 'Actively used the application and shared with others managing a fleet with GPS for coordination, fuel, maintenance, depreciation providing a clear P&L per car per driver based on changing Uber incentive systems.',
                 links: [], tags: []
             },
             {
                 year: '2019', title: 'Smart-Review on GitHub Marketplace',
-                oneliner: 'Probot app published in the GitHub Marketplace. PyDriller-based reviewer scoring engine. Built outside of work hours, published publicly.',
-                desc: 'First entrepreneur attempt in tech. Identified the code review bottleneck, built a Probot app with a PyDriller scoring engine, published it on the GitHub Marketplace, wrote about it on Medium. 7-year arc: rebuilt in 2026 as a full-stack demo with real data from rails, react, transformers, prometheus proving the thesis.',
-                insight: '4 out of 5 PRs show the assigned reviewer was not the best choice. Regressions within 12-25 days proved the point.',
+                oneliner: 'Developed a suite of DevTools to be launched in GitHub Marketplace.',
+                desc: 'Presented multiple apps in local conferences and international ones such as InfluxDays. Identified the code review bottleneck, built a Probot app with a PyDriller scoring engine, published it on the GitHub Marketplace, wrote about it on Medium.',
                 links: [
                     {label:'Original repo (2019)', url:'https://github.com/pitchdarkdata/MVP1'},
+                    {label:'Pitchdarkdata (business account)', url:'https://github.com/pitchdarkdata'},
                     {label:'2026 rebuild', url:'https://github.com/brettleehari/reviewbuddy'},
-                    {label:'Live demo', url:'https://brettleehari.github.io/reviewbuddy/'},
+                    {label:'Live Application', url:'https://brettleehari.github.io/reviewbuddy/'},
                     {label:'Medium article', url:'https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7'}
                 ], tags: ['Probot','PyDriller','React','FastAPI']
             }
@@ -465,7 +459,7 @@
                 year: p.year_granted, title: p.title,
                 oneliner: p.one_line_summary,
                 desc: 'US Patent. Granted ' + p.year_granted + '.',
-                links: [{label:'Google Scholar', url:'https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ'}],
+                links: [{label:'Google Scholar', url:p.url || 'https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ'}],
                 tags: []
             })),
             ...d.research.papers.filter(p=>p.title).map(p=>({
@@ -488,9 +482,9 @@
         ];
 
         const lanes = [
-            { id:'live', label:'Live Projects', items: liveItems, count: liveItems.length },
             { id:'oss', label:'Open Source', items: ossItems, count: ossItems.length },
-            { id:'entrepreneur', label:'Entrepreneurship', items: entrepreneurItems, count: entrepreneurItems.length },
+            { id:'entrepreneur', label:'Entrepreneurship Attempts', items: entrepreneurItems, count: entrepreneurItems.length },
+            { id:'live', label:'Live Projects', items: liveItems, count: liveItems.length },
             { id:'research', label:'Research & Patents', items: researchItems, count: researchItems.length },
             { id:'public', label:'Building in Public', items: publicItems, count: publicItems.length },
         ];
@@ -506,7 +500,7 @@
         ).join('');
 
         document.getElementById('journey').innerHTML = `
-            ${sh('The Journey','Every card links to a real artifact: a live project, a merged PR, a published paper, a patent filing. This is not a document. It is a map of evidence.')}
+            ${sh('The Journey','Every card links to a real artifact: a live project, a merged PR, a published paper, a patent filing. Fraction of my work available in public domain.')}
             <div class="lane-tabs">${tabsHtml}</div>
             ${panelsHtml}
         `;
@@ -545,13 +539,6 @@
                     <div class="stat"><div class="stat-number">${esc(d.research.stats.papers)}</div><div class="stat-label">Papers</div></div>
                     <div class="stat"><div class="stat-number">${esc(d.research.stats.citations)}</div><div class="stat-label">Citations</div></div>
                 </div>
-                ${d.enterprise_stats ? `
-                <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">
-                    <div class="stats-row">
-                        ${d.enterprise_stats.map(s=>`<div class="stat"><div class="stat-number">${esc(s.num)}</div><div class="stat-label">${esc(s.label)}</div></div>`).join('')}
-                    </div>
-                    <p style="font-size:10px;color:#4b5563;margin-top:8px;">Behind NDA. Numbers from Fujitsu engagements.</p>
-                </div>` : ''}
             </div>
             <h3 style="font-size:13px;font-weight:600;color:#fbbf24;margin-bottom:6px;">Patents</h3>
             <div class="fw-grid">${patHtml}</div>
@@ -566,7 +553,7 @@
         const tenseChip = t => t === 'upcoming' ? '<span style="font-size:10px;background:rgba(52,211,153,0.15);color:#34d399;padding:1px 6px;border-radius:3px;margin-left:6px;">upcoming</span>' :
             t === 'recurring' ? '<span style="font-size:10px;background:rgba(251,191,36,0.15);color:#fbbf24;padding:1px 6px;border-radius:3px;margin-left:6px;">recurring</span>' :
             '<span style="font-size:10px;background:rgba(255,255,255,0.06);color:#6b7280;padding:1px 6px;border-radius:3px;margin-left:6px;">past</span>';
-        const speakHtml = d.speaking ? d.speaking.map(s=>`<div class="small-card"><h4>${esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p></div>`).join('') : '';
+        const speakHtml = d.speaking ? d.speaking.map(s=>`<div class="small-card"><h4>${s.url ? `<a href="${esc(s.url)}" target="_blank">${esc(s.event)}</a>` : esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p></div>`).join('') : '';
         document.getElementById('book-speak').innerHTML = `${sh('Book and Speaking')}${bookHtml}<div class="small-grid">${speakHtml}</div>`;
 
         // Writing
