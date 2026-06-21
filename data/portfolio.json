@@ -292,10 +292,6 @@
         {
           "label": "CIAL platform: GitHub",
           "url": "https://github.com/brettleehari/BTCExpert"
-        },
-        {
-          "label": "MCP Learning: GitHub",
-          "url": "https://github.com/brettleehari/mcp"
         }
       ]
     },
@@ -520,7 +516,7 @@
       ],
       "architecture_notes": "React frontend, FastAPI backend, TimescaleDB (time-series), Celery + Redis (background jobs), ML pipeline (PCMCI causal discovery + STUMPY pattern detection + association rules). 19 end-to-end tests.",
       "results": "3 demo profiles with 90 days of insights. Glucose-migraine causal chain backed by 6 citations. 19 end-to-end tests. Deployed on Render.",
-      "repo_url": "https://github.com/brettleehari/metabolic-story-teller",
+      "repo_url": "",
       "demo_url": "https://your-metabolic-story-teller.onrender.com",
       "writeup_url": "",
       "related_writing": ""
@@ -551,31 +547,6 @@
       "demo_url": "",
       "writeup_url": "",
       "related_writing": ""
-    },
-    {
-      "id": "mcp-learning",
-      "name": "MCP Learning Resources",
-      "year_started": "2025",
-      "year_ended": "",
-      "status": "production",
-      "pinned": false,
-      "featured_order": 8,
-      "one_liner": "Interactive visualizations for understanding Model Context Protocol. JSON-RPC message flows and architecture state machines.",
-      "problem": "MCP is a new protocol and most developers learn it by reading specs. Interactive visualization makes the protocol's message exchanges and lifecycle tangible.",
-      "what_it_does": "Two interactive HTML tools: (1) JSON-RPC Message Visualization with 5 complete scenarios (initialization, tools, execution, resources, prompts), live message flow animation, color-coded request/response. (2) MCP Architecture State Machine with client-server diagrams, connection lifecycle, capability negotiation, protocol versioning.",
-      "why_it_matters": "Connects 18 years of MxN integration experience to the MCP philosophy. Built to support the From MxN to MCP article series.",
-      "what_i_learned": "The MxN integration problem I fought in platform engineering is exactly what MCP solves for AI. The protocol patterns are familiar. The context is new.",
-      "tech_stack": [
-        "HTML",
-        "JavaScript",
-        "CSS"
-      ],
-      "architecture_notes": "Static HTML files, no server required. Open in any browser.",
-      "results": "5 complete protocol scenarios. Interactive state machine visualization.",
-      "repo_url": "https://github.com/brettleehari/mcp",
-      "demo_url": "",
-      "writeup_url": "",
-      "related_writing": "From MxN to MCP (3-part series)"
     }
   ],
   "open_source": [
