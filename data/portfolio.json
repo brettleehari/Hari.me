@@ -1,12 +1,10 @@
 {
   "_readme": "Single source of truth for Hari's Corner. Edit this file to update the site. Empty strings mean needs to be filled in. The frontend reads this directly.",
-
   "site": {
     "name": "Hari's Corner",
     "url": "https://brettleehari.github.io/Hari.me/",
     "github_repo": "https://github.com/brettleehari/Hari.me"
   },
-
   "person": {
     "full_name": "Hariprasad Sudharshan",
     "display_name": "Hari",
@@ -19,24 +17,53 @@
     "resume_url": "",
     "linktree": "https://linktr.ee/brettleehari"
   },
-
   "profiles": [
-    { "platform": "GitHub",         "handle": "brettleehari",         "url": "https://github.com/brettleehari" },
-    { "platform": "LinkedIn",       "handle": "haripm4ai",            "url": "https://linkedin.com/in/haripm4ai" },
-    { "platform": "Linktree",       "handle": "brettleehari",         "url": "https://linktr.ee/brettleehari" },
-    { "platform": "Substack",       "handle": "brettleehari",         "url": "https://substack.com/home/post/p-193289853" },
-    { "platform": "Medium",         "handle": "brettleehari",         "url": "https://towardsdev.com/from-m-n-to-mcp-how-i-turned-a-decade-of-api-wrappers-into-mcp-servers-75d23c9f3d59" },
-    { "platform": "Hugging Face",   "handle": "brettleehari",         "url": "https://huggingface.co/brettleehari" },
-    { "platform": "Google Scholar",  "handle": "Hariprasad Sudharsan", "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" },
-    { "platform": "ResearchGate",   "handle": "Hariprasad-Sudharsan", "url": "https://www.researchgate.net/profile/Hariprasad-Sudharsan" }
+    {
+      "platform": "GitHub",
+      "handle": "brettleehari",
+      "url": "https://github.com/brettleehari"
+    },
+    {
+      "platform": "LinkedIn",
+      "handle": "haripm4ai",
+      "url": "https://linkedin.com/in/haripm4ai"
+    },
+    {
+      "platform": "Linktree",
+      "handle": "brettleehari",
+      "url": "https://linktr.ee/brettleehari"
+    },
+    {
+      "platform": "Substack",
+      "handle": "brettleehari",
+      "url": "https://substack.com/home/post/p-193289853"
+    },
+    {
+      "platform": "Medium",
+      "handle": "brettleehari",
+      "url": "https://towardsdev.com/from-m-n-to-mcp-how-i-turned-a-decade-of-api-wrappers-into-mcp-servers-75d23c9f3d59"
+    },
+    {
+      "platform": "Hugging Face",
+      "handle": "brettleehari",
+      "url": "https://huggingface.co/brettleehari"
+    },
+    {
+      "platform": "Google Scholar",
+      "handle": "Hariprasad Sudharsan",
+      "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ"
+    },
+    {
+      "platform": "ResearchGate",
+      "handle": "Hariprasad-Sudharsan",
+      "url": "https://www.researchgate.net/profile/Hariprasad-Sudharsan"
+    }
   ],
-
   "about": {
     "thesis": "I hands-on build the full stack around the model in addition to the SLM and fine-tuning work. The customer interacts with the product, not the model. The product compensates for the model's weaknesses. Building mission-critical applications with AI stack since 2020. Gen AI context management as infrastructure. Evaluation and explainability as first-class concerns, not afterthoughts.",
     "arc": "I started as an engineer (protocol stacks, Python frameworks, AST-based tooling) and moved into product. I write PRDs. I also read the code behind them. Intrapreneur inside the enterprise: built Fujitsu's first GenAI product from nothing and deployed it across 6 Tier-1 customers globally. Entrepreneur outside: published Smart-Review on the GitHub Marketplace in 2019, ran an Uber fleet management venture in Chennai (2015-2017), built overlay tools for real users with real money on the line. What you see here is what is available in the open. The enterprise work, 6 Tier-1 deployments, EU AI Act compliance, 20% autonomous issue resolution, sits behind NDA.",
     "looking_for": ""
   },
-
   "beliefs": [
     {
       "statement": "Builders have more credibility than commentators.",
@@ -79,7 +106,6 @@
       "featured": false
     }
   ],
-
   "timeline": [
     {
       "year": 2007,
@@ -108,7 +134,10 @@
       "description": "Started the 14-year arc at Fujitsu. Protocol innovation leading to 3 US patents (G.8032, MSTP, loop prevention). Chennai to Tampa to Dallas. This is where the intrapreneur journey began: identifying whitespace inside the org, pitching for resources, building products from concept to deployment within the enterprise.",
       "category": "career",
       "links": [
-        { "label": "Google Scholar (patents + papers)", "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" }
+        {
+          "label": "Google Scholar (patents + papers)",
+          "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ"
+        }
       ]
     },
     {
@@ -117,8 +146,14 @@
       "description": "Two parallel tracks. Inside Fujitsu: designed the adoption strategy for open-sourcing the Warrior Python test framework. Built community engagement, drove developer onboarding. Turned complex networking domain logic into reusable abstractions. Became the org's engineering standard. Outside: ran an entrepreneur venture in Chennai managing a taxi fleet with Uber, building overlay tools for fleet coordination, driver scheduling, and earnings optimization. First taste of building a product for real users with real money on the line.",
       "category": "opensource",
       "links": [
-        { "label": "Warrior Framework on GitHub", "url": "https://github.com/warriorframework/warriorframework" },
-        { "label": "First merged PR (#149): Error handling for malformed test files", "url": "https://github.com/warriorframework/warriorframework/pull/149" }
+        {
+          "label": "Warrior Framework on GitHub",
+          "url": "https://github.com/warriorframework/warriorframework"
+        },
+        {
+          "label": "First merged PR (#149): Error handling for malformed test files",
+          "url": "https://github.com/warriorframework/warriorframework/pull/149"
+        }
       ]
     },
     {
@@ -127,11 +162,26 @@
       "description": "5 PRs merged into the Warrior Framework: error handling for malformed test files, RMT suite iteration fix, RUNMODE interval at testcase level, author contributions, Selenium browser fixes. Arctic Code Vault Contributor. These are the public contributions. Inside the org, the intrapreneur work continued: building tools, pitching improvements, earning trust to take on bigger scope.",
       "category": "opensource",
       "links": [
-        { "label": "PR #149: Error handling", "url": "https://github.com/warriorframework/warriorframework/pull/149" },
-        { "label": "PR #272: RMT suite iteration fix", "url": "https://github.com/warriorframework/warriorframework/pull/272" },
-        { "label": "PR #291: RUNMODE interval", "url": "https://github.com/warriorframework/warriorframework/pull/291" },
-        { "label": "PR #297: Author contributions", "url": "https://github.com/warriorframework/warriorframework/pull/297" },
-        { "label": "All Warrior Framework PRs", "url": "https://github.com/warriorframework/warriorframework/pulls?q=is%3Apr+author%3Abrettleehari" }
+        {
+          "label": "PR #149: Error handling",
+          "url": "https://github.com/warriorframework/warriorframework/pull/149"
+        },
+        {
+          "label": "PR #272: RMT suite iteration fix",
+          "url": "https://github.com/warriorframework/warriorframework/pull/272"
+        },
+        {
+          "label": "PR #291: RUNMODE interval",
+          "url": "https://github.com/warriorframework/warriorframework/pull/291"
+        },
+        {
+          "label": "PR #297: Author contributions",
+          "url": "https://github.com/warriorframework/warriorframework/pull/297"
+        },
+        {
+          "label": "All Warrior Framework PRs",
+          "url": "https://github.com/warriorframework/warriorframework/pulls?q=is%3Apr+author%3Abrettleehari"
+        }
       ]
     },
     {
@@ -140,8 +190,14 @@
       "description": "G.8032 ring protection, MSTP migration, loop prevention. 6+ published papers, 45+ citations across published work. These patents came from the protocol engineering work at Fujitsu, solving real problems in production telecom networks.",
       "category": "research",
       "links": [
-        { "label": "Google Scholar profile (all papers + citations)", "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" },
-        { "label": "ResearchGate profile", "url": "https://www.researchgate.net/profile/Hariprasad-Sudharsan" }
+        {
+          "label": "Google Scholar profile (all papers + citations)",
+          "url": "https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ"
+        },
+        {
+          "label": "ResearchGate profile",
+          "url": "https://www.researchgate.net/profile/Hariprasad-Sudharsan"
+        }
       ]
     },
     {
@@ -157,10 +213,22 @@
       "description": "Smart-Review was my entrepreneur attempt: a Probot app published in the GitHub Marketplace, with a PyDriller-based reviewer suggestion engine. Built outside of work hours, published publicly, wrote about it on Medium. This was the first time I took an AI product idea, built it end-to-end, and put it in front of real users in a marketplace. Also built Metabolistic Storyteller (traditional ML). First experience taking a model from notebook to product.",
       "category": "product",
       "links": [
-        { "label": "Smart-Review: original repo (2019)", "url": "https://github.com/pitchdarkdata/MVP1" },
-        { "label": "Smart-Review: 2026 full-stack rebuild", "url": "https://github.com/brettleehari/reviewbuddy" },
-        { "label": "Medium article: Are You Adding the Best Code Reviewer?", "url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7" },
-        { "label": "Live demo", "url": "https://brettleehari.github.io/reviewbuddy/" }
+        {
+          "label": "Smart-Review: original repo (2019)",
+          "url": "https://github.com/pitchdarkdata/MVP1"
+        },
+        {
+          "label": "Smart-Review: 2026 full-stack rebuild",
+          "url": "https://github.com/brettleehari/reviewbuddy"
+        },
+        {
+          "label": "Medium article: Are You Adding the Best Code Reviewer?",
+          "url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7"
+        },
+        {
+          "label": "Live demo",
+          "url": "https://brettleehari.github.io/reviewbuddy/"
+        }
       ]
     },
     {
@@ -169,9 +237,18 @@
       "description": "Published 'Are You Adding the Best Code Reviewer for Each Pull Request?' on Towards Dev (Medium). Began Substack and Medium as regular publishing channels. Writing as thinking, not marketing.",
       "category": "writing",
       "links": [
-        { "label": "Medium article on code review", "url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7" },
-        { "label": "Substack", "url": "https://substack.com/@brettleehari" },
-        { "label": "Medium", "url": "https://medium.com/@brettleehari" }
+        {
+          "label": "Medium article on code review",
+          "url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7"
+        },
+        {
+          "label": "Substack",
+          "url": "https://substack.com/@brettleehari"
+        },
+        {
+          "label": "Medium",
+          "url": "https://medium.com/@brettleehari"
+        }
       ]
     },
     {
@@ -180,11 +257,26 @@
       "description": "Intrapreneur track: AI PR Reviewer default-on in IDP, 85% actionable rate, 1,000+ weekly PRs, 20+ teams, 2 years sustained adoption. Customer Zero philosophy: deployed AI tools into my own team first, validated before shipping to enterprise. Builder track: started GraspRepo (AST + PageRank codebase analysis) and Visual Learning (context management explainer). Open source: LlamaIndex PR #15311 merged, fixing file path loading issues in core RAG infrastructure used by thousands of implementations.",
       "category": "product",
       "links": [
-        { "label": "LlamaIndex PR #15311 (merged)", "url": "https://github.com/run-llama/llama_index/pull/15311" },
-        { "label": "GraspRepo: live demo", "url": "https://grasprepo.onrender.com" },
-        { "label": "GraspRepo: GitHub", "url": "https://github.com/brettleehari/grasprepo" },
-        { "label": "Visual Learning: live demo", "url": "https://brettleehari.github.io/Visuallearning/" },
-        { "label": "Visual Learning: GitHub", "url": "https://github.com/brettleehari/Visuallearning" }
+        {
+          "label": "LlamaIndex PR #15311 (merged)",
+          "url": "https://github.com/run-llama/llama_index/pull/15311"
+        },
+        {
+          "label": "GraspRepo: live demo",
+          "url": "https://grasprepo.onrender.com"
+        },
+        {
+          "label": "GraspRepo: GitHub",
+          "url": "https://github.com/brettleehari/grasprepo"
+        },
+        {
+          "label": "Visual Learning: live demo",
+          "url": "https://brettleehari.github.io/Visuallearning/"
+        },
+        {
+          "label": "Visual Learning: GitHub",
+          "url": "https://github.com/brettleehari/Visuallearning"
+        }
       ]
     },
     {
@@ -193,9 +285,18 @@
       "description": "Intrapreneur at scale: built Fujitsu's first GenAI product from concept to deployment across 6 Tier-1 enterprise customers globally. Transitioned pricing from perpetual license to ARR. Shipped multi-factor failure analysis agent: 20% autonomous resolution, EU AI Act compliant with 0.8 confidence threshold. Builder track: CIAL crypto intelligence platform, MCP interactive learning tools. Open source: Aider PR #2100 merged.",
       "category": "product",
       "links": [
-        { "label": "Aider PR #2100 (enhancement #1936)", "url": "https://github.com/Aider-AI/aider/pull/2100" },
-        { "label": "CIAL platform: GitHub", "url": "https://github.com/brettleehari/BTCExpert" },
-        { "label": "MCP Learning: GitHub", "url": "https://github.com/brettleehari/mcp" }
+        {
+          "label": "Aider PR #2100 (enhancement #1936)",
+          "url": "https://github.com/Aider-AI/aider/pull/2100"
+        },
+        {
+          "label": "CIAL platform: GitHub",
+          "url": "https://github.com/brettleehari/BTCExpert"
+        },
+        {
+          "label": "MCP Learning: GitHub",
+          "url": "https://github.com/brettleehari/mcp"
+        }
       ]
     },
     {
@@ -204,19 +305,45 @@
       "description": "CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
       "category": "product",
       "links": [
-        { "label": "CricketMind: model on Hugging Face", "url": "https://huggingface.co/brettleehari/cricketmind-nemotron-mini" },
-        { "label": "CricketBench: dataset on Hugging Face", "url": "https://huggingface.co/datasets/brettleehari/cricketbench-v1" },
-        { "label": "CricketMind: GitHub", "url": "https://github.com/brettleehari/cricketmind" },
-        { "label": "Smart-Review v2: live demo", "url": "https://brettleehari.github.io/reviewbuddy/" },
-        { "label": "GraspRepo: live demo", "url": "https://grasprepo.onrender.com" },
-        { "label": "Metabolistic Storyteller: live demo", "url": "https://your-metabolic-story-teller.onrender.com" },
-        { "label": "IntelliYANG: GitHub", "url": "https://github.com/brettleehari/intelliyang" },
-        { "label": "Visual Learning: live demo", "url": "https://brettleehari.github.io/Visuallearning/" },
-        { "label": "All repos", "url": "https://github.com/brettleehari?tab=repositories" }
+        {
+          "label": "CricketMind: model on Hugging Face",
+          "url": "https://huggingface.co/brettleehari/cricketmind-nemotron-mini"
+        },
+        {
+          "label": "CricketBench: dataset on Hugging Face",
+          "url": "https://huggingface.co/datasets/brettleehari/cricketbench-v1"
+        },
+        {
+          "label": "CricketMind: GitHub",
+          "url": "https://github.com/brettleehari/cricketmind"
+        },
+        {
+          "label": "Smart-Review v2: live demo",
+          "url": "https://brettleehari.github.io/reviewbuddy/"
+        },
+        {
+          "label": "GraspRepo: live demo",
+          "url": "https://grasprepo.onrender.com"
+        },
+        {
+          "label": "Metabolistic Storyteller: live demo",
+          "url": "https://your-metabolic-story-teller.onrender.com"
+        },
+        {
+          "label": "IntelliYANG: GitHub",
+          "url": "https://github.com/brettleehari/intelliyang"
+        },
+        {
+          "label": "Visual Learning: live demo",
+          "url": "https://brettleehari.github.io/Visuallearning/"
+        },
+        {
+          "label": "All repos",
+          "url": "https://github.com/brettleehari?tab=repositories"
+        }
       ]
     }
   ],
-
   "projects": [
     {
       "id": "grasprepo",
@@ -231,7 +358,15 @@
       "what_it_does": "Parses ASTs with Tree-sitter across 20+ languages, builds dependency graphs, runs PageRank to rank file importance, computes code churn via git history, and visualizes everything in a 4-quadrant prioritization matrix. Interactive web dashboard with vis.js graph visualization.",
       "why_it_matters": "Makes the invisible visible. The same interpretability problem that exists in LLMs exists in coding agents. If you can't see what it sees, you can't trust it. This tool solves that.",
       "what_i_learned": "Interpretability is a product requirement, not a research luxury. Built the scoring from scratch: PageRank for structural importance, churn for change frequency, hotspot detection where the two intersect.",
-      "tech_stack": ["Tree-sitter", "NetworkX PageRank", "PyDriller", "FastAPI", "vis.js", "SQLite", "GitHub OAuth"],
+      "tech_stack": [
+        "Tree-sitter",
+        "NetworkX PageRank",
+        "PyDriller",
+        "FastAPI",
+        "vis.js",
+        "SQLite",
+        "GitHub OAuth"
+      ],
       "architecture_notes": "5 analysis stages: AST parsing, dependency graph, PageRank ranking, code churn (6-month lookback), prioritization matrix. Hotspot score = normalized PageRank * normalized commits.",
       "results": "5 analysis stages. 20+ languages supported. Pre-cached example repos. GitHub OAuth for custom repos. Deployed on Render.",
       "repo_url": "https://github.com/brettleehari/grasprepo",
@@ -252,7 +387,11 @@
       "what_it_does": "5-tab interactive SPA: The Problem (context rot, Lost in the Middle), Context Window Visualizer (toggle between ChatGPT, Claude, Perplexity, Cursor, Aider allocations), 5 Strategies (full replay, sliding window, summarization, RAG, hybrid), Aider Deep Dive (Tree-sitter + PageRank verified architecture), and an Interactive Chat Simulator with scripted conversation showing live token allocation.",
       "why_it_matters": "Building with LLMs is 95% traditional software engineering and 5% AI-specific. Context management IS the product differentiation. This tool makes that visible and teachable.",
       "what_i_learned": "The 'Alice layer', the application around the model, is where all the product decisions live. Teaching this required building it interactively, not writing about it.",
-      "tech_stack": ["Vanilla JavaScript", "HTML/CSS", "GitHub Pages"],
+      "tech_stack": [
+        "Vanilla JavaScript",
+        "HTML/CSS",
+        "GitHub Pages"
+      ],
       "architecture_notes": "Single-page app, no frameworks. Token estimation: max(50, round(text.length / 3.5)). Simulator tracks system tokens, history, RAG, and current turn in real-time. 7-step scripted conversation with 3 options per turn.",
       "results": "Covers 5 major AI apps (ChatGPT, Claude, Perplexity, Cursor, Aider) with real architectural details. Interactive simulator with live context window visualization.",
       "repo_url": "https://github.com/brettleehari/Visuallearning",
@@ -273,7 +412,15 @@
       "what_it_does": "Analyzes git history for affected files to compute expertise and seniority scores. Expertise: ownership 40%, commits 25%, lines 15%, recency 20%. Seniority: tenure 45%, commits 30%, consistency 25%. 5 real PRs analyzed from rails, react, huggingface/transformers, prometheus. Original 2019 version was a Probot app published in GitHub Marketplace with PyDriller-based reviewer.py engine.",
       "why_it_matters": "A 7-year arc on the same problem. Built pre-LLM in 2019 with pattern matching and heuristics, rebuilt in 2026 as full-stack with real data proving the thesis. 4 out of 5 PRs show the assigned reviewer wasn't the best choice.",
       "what_i_learned": "The constraints of pre-LLM automation made the value of LLMs concrete later. But this problem doesn't even need an LLM. Just smart use of git history data already in the repo.",
-      "tech_stack": ["React 19", "TypeScript", "Tailwind CSS", "FastAPI", "PyDriller", "GitHub OAuth", "Probot (original)"],
+      "tech_stack": [
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "FastAPI",
+        "PyDriller",
+        "GitHub OAuth",
+        "Probot (original)"
+      ],
       "architecture_notes": "Monorepo: apps/web (React frontend), apps/api (FastAPI backend), packages/analysis (reusable scoring + mining). PyDriller walks git history of affected files, extracts per-author metrics, computes weighted scores. GitHub handle resolution via commit search API.",
       "results": "DevTool Entrepreneurship. 4 show expertise gaps (regressions within 12-25 days). ~30-100 contributors scored per PR. Phase 2 backend ready: OAuth, live PR analysis, rate limiting, caching.",
       "repo_url": "https://github.com/brettleehari/reviewbuddy",
@@ -295,7 +442,15 @@
       "what_it_does": "LoRA fine-tuning (rank 16, alpha 32) with response distillation using Claude as teacher model. 170 training examples (laws QA + match situation analysis). Custom CricketBench evaluation suite: 20 questions across 4 weighted categories (Laws Recall 30%, Conditional Reasoning 35%, Match Situation 25%, Edge Case 10%), scored by Claude Sonnet as LLM-as-judge.",
       "why_it_matters": "Proves that domain-adapted LLMs don't need massive budgets. Evaluation-driven training: built CricketBench first, then trained to beat it. The benchmark defined the goal, not the other way around.",
       "what_i_learned": "Largest gains in conditional reasoning (+45pp) and match situation analysis (+50pp). Distillation teaches decomposition skills, not just memorization. Data quality gates (~10% rejection rate) matter more than data quantity. Published a 6-part Substack series documenting the entire journey.",
-      "tech_stack": ["LoRA/QLoRA", "Hugging Face Transformers", "PEFT", "TRL", "NVIDIA Nemotron-Mini-4B", "RunPod A100", "Anthropic Claude (teacher + judge)"],
+      "tech_stack": [
+        "LoRA/QLoRA",
+        "Hugging Face Transformers",
+        "PEFT",
+        "TRL",
+        "NVIDIA Nemotron-Mini-4B",
+        "RunPod A100",
+        "Anthropic Claude (teacher + judge)"
+      ],
       "architecture_notes": "Pipeline: MCC Laws text, Claude distillation, quality gates, LoRA fine-tuning (3 epochs, 35 min on A100), merge adapters, GGUF export, CricketBench evaluation. Runs locally via Ollama.",
       "results": "67.5% weighted accuracy vs 30.2% baseline (+37.3pp). Conditional reasoning: +45pp. Match situation: +50pp. 170 training examples. 35 minutes training time.",
       "repo_url": "https://github.com/brettleehari/cricketmind",
@@ -318,7 +473,20 @@
       "what_it_does": "Intelligence Broker pattern for routing data to AI agents. Agent Registry for coordination. Dual Memory System: Redis (short-term) + PostgreSQL (long-term). Multi-tier caching (L1 Memory + L2 Redis = 96% faster). WebSocket streaming to 10K+ concurrent clients. JWT auth + API keys + per-endpoint rate limiting. Full observability: Prometheus metrics, Grafana dashboards, Sentry errors, structured logging.",
       "why_it_matters": "Enterprise AI infrastructure built from scratch, not a wrapper around an API. Shows the full stack: data ingestion, caching, streaming, security, observability. One-click deploy to Render.",
       "what_i_learned": "The infrastructure around AI agents, memory, routing, caching, observability, is where most teams fail. The agent itself is the easy part. Building the reliable delivery layer is the real engineering.",
-      "tech_stack": ["FastAPI", "TimescaleDB", "Kafka", "pgvector", "Redis", "WebSocket", "PostgreSQL", "Prometheus", "Grafana", "Sentry", "Docker", "JWT"],
+      "tech_stack": [
+        "FastAPI",
+        "TimescaleDB",
+        "Kafka",
+        "pgvector",
+        "Redis",
+        "WebSocket",
+        "PostgreSQL",
+        "Prometheus",
+        "Grafana",
+        "Sentry",
+        "Docker",
+        "JWT"
+      ],
       "architecture_notes": "3-tier: Application (FastAPI + WebSocket + Security), Infrastructure (PostgreSQL + pgvector + Redis + Kafka + TimescaleDB), Observability (Prometheus + Grafana + Sentry + Structlog). Phase 1: Foundation. Phase 2: Scale. Phase 3 planned: ML anomaly detection, LSTM prediction, sentiment analysis.",
       "results": "10K+ concurrent WebSocket connections. 96% cache hit improvement with multi-tier caching. 100x faster time-series queries with TimescaleDB. One-click Render deploy.",
       "repo_url": "https://github.com/brettleehari/BTCExpert",
@@ -339,7 +507,17 @@
       "what_it_does": "React + FastAPI + TimescaleDB platform. 3 demo profiles with 90 days of pre-computed insights each. Multi-layer metabolic overlay (CGM + sleep + exercise + nutrition on one chart with auto-detected pattern callouts). Migraine timeline with hourly glucose curves, event strips, and per-day narratives. 15-day time-series views. ML pipeline: PCMCI causal discovery, STUMPY pattern detection, association rules. JWT auth, CSV/Excel upload wizard, background Celery tasks.",
       "why_it_matters": "The first consumer tool showing the nocturnal hypo to hormonal cascade to morning migraine causal chain, backed by 6 peer-reviewed citations. Moves beyond correlation dashboards to actual causal explanation.",
       "what_i_learned": "Health data requires causal reasoning, not just pattern matching. PCMCI for causal discovery and STUMPY for time-series pattern detection are underused in consumer health tools. The narrative layer, turning statistics into a personal story, is what makes data actionable.",
-      "tech_stack": ["React", "FastAPI", "TimescaleDB", "Celery", "Redis", "PCMCI", "STUMPY", "JWT", "Render"],
+      "tech_stack": [
+        "React",
+        "FastAPI",
+        "TimescaleDB",
+        "Celery",
+        "Redis",
+        "PCMCI",
+        "STUMPY",
+        "JWT",
+        "Render"
+      ],
       "architecture_notes": "React frontend, FastAPI backend, TimescaleDB (time-series), Celery + Redis (background jobs), ML pipeline (PCMCI causal discovery + STUMPY pattern detection + association rules). 19 end-to-end tests.",
       "results": "3 demo profiles with 90 days of insights. Glucose-migraine causal chain backed by 6 citations. 19 end-to-end tests. Deployed on Render.",
       "repo_url": "https://github.com/brettleehari/metabolic-story-teller",
@@ -360,7 +538,13 @@
       "what_it_does": "Parses .yang files and extracts semantic chunks (containers, groupings, identities). Hybrid retrieval: vector search + BM25 keyword search. Multi-stage validation pipeline (syntax, semantics, optical constraints, confidence threshold at 0.90). Rich CLI interface with session management.",
       "why_it_matters": "Bridges the gap between AI capabilities and domain-specific network modeling. RAG applied to a structured, hierarchical data format, not just flat text. Validation pipeline ensures answers are grounded in actual YANG model definitions.",
       "what_i_learned": "RAG on structured data (YANG models) requires semantic chunking, not naive text splitting. The validation pipeline is the product. Without it, the chatbot hallucinates plausible-sounding but incorrect network configurations.",
-      "tech_stack": ["Python", "OpenAI API", "Vector DB", "BM25", "Rich CLI"],
+      "tech_stack": [
+        "Python",
+        "OpenAI API",
+        "Vector DB",
+        "BM25",
+        "Rich CLI"
+      ],
       "architecture_notes": "YANG processor (semantic chunking), dual retrieval (vector + BM25), LLM generation, multi-stage validation (syntax, semantics, optical constraints, confidence gate at 0.90), Rich CLI output.",
       "results": "Processes full OpenROADM YANG model suite. 0.90 confidence threshold for answer escalation.",
       "repo_url": "https://github.com/brettleehari/intelliyang",
@@ -381,7 +565,11 @@
       "what_it_does": "Two interactive HTML tools: (1) JSON-RPC Message Visualization with 5 complete scenarios (initialization, tools, execution, resources, prompts), live message flow animation, color-coded request/response. (2) MCP Architecture State Machine with client-server diagrams, connection lifecycle, capability negotiation, protocol versioning.",
       "why_it_matters": "Connects 18 years of MxN integration experience to the MCP philosophy. Built to support the From MxN to MCP article series.",
       "what_i_learned": "The MxN integration problem I fought in platform engineering is exactly what MCP solves for AI. The protocol patterns are familiar. The context is new.",
-      "tech_stack": ["HTML", "JavaScript", "CSS"],
+      "tech_stack": [
+        "HTML",
+        "JavaScript",
+        "CSS"
+      ],
       "architecture_notes": "Static HTML files, no server required. Open in any browser.",
       "results": "5 complete protocol scenarios. Interactive state machine visualization.",
       "repo_url": "https://github.com/brettleehari/mcp",
@@ -390,7 +578,6 @@
       "related_writing": "From MxN to MCP (3-part series)"
     }
   ],
-
   "open_source": [
     {
       "project": "LlamaIndex",
@@ -421,7 +608,6 @@
       "significance": "GitHub Arctic Code Vault preserves open source code for future generations."
     }
   ],
-
   "research": {
     "summary": "3 granted U.S. patents, 6+ published papers, 45+ citations across published work. Research spans protocol innovation, test automation measurement, RAG pipeline optimization, and AI product governance.",
     "stats": {
@@ -441,10 +627,10 @@
       },
       {
         "title": "The Hidden Cost of Early Branching",
-        "venue": "",
+        "venue": "ResearchGate",
         "year": "",
         "one_line_summary": "Quantified the cost of early branching strategies. R-squared = 0.87.",
-        "url": "",
+        "url": "https://www.researchgate.net/publication/391274585_The_Hidden_Cost_of_Early_Branching_A_Quantitative_Model_of_Complexity_Effort_and_Risk_in_Parallel_Development",
         "citations": ""
       },
       {
@@ -462,6 +648,22 @@
         "one_line_summary": "",
         "url": "",
         "citations": ""
+      },
+      {
+        "title": "Growing Populations, Not Growing Selection",
+        "one_line_summary": "Birth-cohort-controlled anthropometric analysis of elite cricket across five decades (1975-2026).",
+        "venue": "ResearchGate",
+        "year": "2026",
+        "citations": "",
+        "url": "https://www.researchgate.net/publication/401692947_Growing_Populations_Not_Growing_Selection_Birth-Cohort-Controlled_Anthropometric_Analysis_of_Elite_Cricket_Across_Five_Decades_1975-2026"
+      },
+      {
+        "title": "Synchronous Forward Propagation of Commits in N Parallel Git Branches",
+        "one_line_summary": "Method for synchronously propagating commits forward across N parallel Git branches.",
+        "venue": "ResearchGate",
+        "year": "",
+        "citations": "",
+        "url": "https://www.researchgate.net/publication/378006432_Synchronous_Forward_Propagation_of_Commits_in_N_parallel_Git_Branches"
       }
     ],
     "patents": [
@@ -470,21 +672,24 @@
         "patent_number": "",
         "year_filed": "",
         "year_granted": "2017",
-        "one_line_summary": "Network protocol innovation for Ethernet ring protection switching."
+        "one_line_summary": "Network protocol innovation for Ethernet ring protection switching.",
+        "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=0ifJK1sAAAAJ&citation_for_view=0ifJK1sAAAAJ:d1gkVwhDpl0C"
       },
       {
         "title": "MSTP Migration",
         "patent_number": "",
         "year_filed": "",
         "year_granted": "2018",
-        "one_line_summary": "Multiple Spanning Tree Protocol migration methodology."
+        "one_line_summary": "Multiple Spanning Tree Protocol migration methodology.",
+        "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=0ifJK1sAAAAJ&citation_for_view=0ifJK1sAAAAJ:u-x6o8ySG0sC"
       },
       {
         "title": "Loop Prevention",
         "patent_number": "",
         "year_filed": "",
         "year_granted": "2018",
-        "one_line_summary": "Network loop detection and prevention mechanism."
+        "one_line_summary": "Network loop detection and prevention mechanism.",
+        "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=0ifJK1sAAAAJ&citation_for_view=0ifJK1sAAAAJ:u5HHmVD_uO8C"
       }
     ],
     "frameworks_created": [
@@ -520,7 +725,6 @@
       }
     ]
   },
-
   "writing": [
     {
       "title": "Building CricketMind: An AI Product Manager's Journey Through the Model Layer",
@@ -604,14 +808,12 @@
       "date": ""
     }
   ],
-
   "book": {
     "title": "Thinking in Analogies: A Generative AI Playbook for Tech Professionals",
     "edition": "2nd edition",
     "year": "2026",
     "description": "Frameworks for navigating the AI landscape. Core metaphor: we are a wooden plank adrift in the ocean. Honest about uncertainty, mapping anchors instead of making bold predictions."
   },
-
   "speaking": [
     {
       "event": "Dallas AI Meetup (dallas-ai.org)",
@@ -640,13 +842,20 @@
       "tense": "recurring"
     }
   ],
-
   "enterprise_stats": [
-    {"num": "6", "label": "Tier-1 deployments"},
-    {"num": "20%", "label": "Autonomous issue resolution"},
-    {"num": "EU AI Act", "label": "Compliance scope"}
+    {
+      "num": "6",
+      "label": "Tier-1 deployments"
+    },
+    {
+      "num": "20%",
+      "label": "Autonomous issue resolution"
+    },
+    {
+      "num": "EU AI Act",
+      "label": "Compliance scope"
+    }
   ],
-
   "now": {
     "_description": "Where my head is at right now. Updated periodically.",
     "_last_updated": "2026-04-26",
@@ -677,7 +886,6 @@
       }
     ]
   },
-
   "reading_and_interests": {
     "thinkers": [
       {
@@ -722,34 +930,86 @@
       }
     ]
   },
-
   "tech_stack": [
     {
       "category": "AI / ML",
-      "tools": ["LoRA/QLoRA", "RAG", "LLM Evaluation", "Causal Discovery (PCMCI)", "Pattern Detection (STUMPY)", "pgvector", "LlamaIndex", "LangChain", "Hugging Face", "NVIDIA Nemotron", "Tree-sitter AST", "MCP Servers"]
+      "tools": [
+        "LoRA/QLoRA",
+        "RAG",
+        "LLM Evaluation",
+        "Causal Discovery (PCMCI)",
+        "Pattern Detection (STUMPY)",
+        "pgvector",
+        "LlamaIndex",
+        "LangChain",
+        "Hugging Face",
+        "NVIDIA Nemotron",
+        "Tree-sitter AST",
+        "MCP Servers"
+      ]
     },
     {
       "category": "Backend",
-      "tools": ["Python", "FastAPI", "Celery", "Kafka", "Redis", "TimescaleDB", "PostgreSQL", "Docker", "SQLAlchemy"]
+      "tools": [
+        "Python",
+        "FastAPI",
+        "Celery",
+        "Kafka",
+        "Redis",
+        "TimescaleDB",
+        "PostgreSQL",
+        "Docker",
+        "SQLAlchemy"
+      ]
     },
     {
       "category": "Frontend",
-      "tools": ["React", "TypeScript", "Tailwind CSS", "WebSocket", "D3.js", "vis.js"]
+      "tools": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "WebSocket",
+        "D3.js",
+        "vis.js"
+      ]
     },
     {
       "category": "Infrastructure",
-      "tools": ["AWS (EC2, S3, Lambda)", "Render", "GitHub Actions", "Prometheus", "OpenTelemetry", "Sentry", "Grafana"]
+      "tools": [
+        "AWS (EC2, S3, Lambda)",
+        "Render",
+        "GitHub Actions",
+        "Prometheus",
+        "OpenTelemetry",
+        "Sentry",
+        "Grafana"
+      ]
     },
     {
       "category": "DevTools",
-      "tools": ["Git", "VS Code", "Jupyter", "DuckDB", "Pandas", "NumPy", "Scikit-learn", "NetworkX"]
+      "tools": [
+        "Git",
+        "VS Code",
+        "Jupyter",
+        "DuckDB",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "NetworkX"
+      ]
     },
     {
       "category": "Databases",
-      "tools": ["PostgreSQL", "TimescaleDB", "Redis", "DuckDB", "SQLite", "pgvector"]
+      "tools": [
+        "PostgreSQL",
+        "TimescaleDB",
+        "Redis",
+        "DuckDB",
+        "SQLite",
+        "pgvector"
+      ]
     }
   ],
-
   "education": [
     {
       "degree": "Master of Technology Management",
@@ -762,7 +1022,6 @@
       "location": "India"
     }
   ],
-
   "career_background": {
     "summary": "18 years designing and managing Internal Developer Platforms at Fujitsu Network Communications. Integrated every tool in the SDLC pipeline: SCM, CI/CD, test automation, defect tracking. Built centralized test automation teams, created measurement frameworks, managed delivery pipelines for telecom network products.",
     "key_insight": "Every integration problem I solved in IDP showed up again when AI arrived. The scars from building platforms became the foundation for building AI products.",
@@ -778,7 +1037,6 @@
       "99.99% uptime, monthly to daily release cadence"
     ]
   },
-
   "footer": {
     "tagline": "Building since 2016. Writing since 2020. From Chennai. In Dallas."
   }

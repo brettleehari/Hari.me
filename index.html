@@ -459,7 +459,7 @@
                 year: p.year_granted, title: p.title,
                 oneliner: p.one_line_summary,
                 desc: 'US Patent. Granted ' + p.year_granted + '.',
-                links: [{label:'Google Scholar', url:'https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ'}],
+                links: [{label:'Google Scholar', url:p.url || 'https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ'}],
                 tags: []
             })),
             ...d.research.papers.filter(p=>p.title).map(p=>({
