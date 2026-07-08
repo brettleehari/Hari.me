@@ -70,6 +70,7 @@
             padding: 32px 0 24px; align-items: start;
         }
         .hero-main h1 { font-size: clamp(28px,4vw,40px); font-weight: 700; letter-spacing: -0.8px; color: #fff; margin-bottom: 8px; }
+        .hero-main .hero-headline { font-size: clamp(17px,2.2vw,22px); font-weight: 600; line-height: 1.4; color: #7dd3fc; letter-spacing: -0.3px; margin-bottom: 10px; }
         .hero-main .tagline { font-size: 14px; color: #9ca3af; line-height: 1.7; margin-bottom: 12px; }
         .hero-main .location { font-size: 12px; color: #9ca3af; margin-bottom: 16px; }
         .hero-links { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -276,6 +277,7 @@
         <section id="believe"></section>
         <section id="background"></section>
         <section id="book-speak"></section>
+        <section id="speaking"></section>
         <section id="write"></section>
         <section id="now"></section>
         <section id="read"></section>
@@ -297,13 +299,14 @@
         document.getElementById('site-name').textContent = d.site.name;
         document.title = `${d.person.full_name} — ${d.person.headline.split('.')[0]}`;
 
-        const nav=[['journey','Journey'],['believe','Beliefs'],['background','Research'],['book-speak','Book'],['write','Write'],['now','Now'],['tech','Stack']];
+        const nav=[['journey','Journey'],['believe','Beliefs'],['background','Research'],['book-speak','Book'],['speaking','Speaking'],['write','Write'],['now','Now'],['tech','Stack']];
         document.getElementById('nav-links').innerHTML=nav.map(([id,l])=>`<a href="#${id}">${l}</a>`).join('');
 
         // Hero + About sidebar
         document.getElementById('hero-row').innerHTML = `
             <div class="hero-main">
                 <h1>${esc(d.person.full_name)}</h1>
+                ${d.person.hero_headline ? `<p class="hero-headline">${esc(d.person.hero_headline)}</p>` : ''}
                 <p class="tagline">${esc(d.person.headline)}</p>
                 <p class="location">${esc(d.person.current_location)}</p>
                 <div class="hero-links">
@@ -548,13 +551,22 @@
                 ${d.profiles.filter(p=>p.platform==='Google Scholar'||p.platform==='ResearchGate').map(p=>`<a href="${esc(p.url)}" target="_blank" style="font-size:12px;padding:4px 12px;border:1px solid rgba(255,255,255,0.08);border-radius:5px;color:#6b7280;">${esc(p.platform)}</a>`).join('')}
             </div>`;
 
-        // Book + Speaking
+        // Book
         const bookHtml = d.book ? `<div class="book-card"><div class="book-icon">&#128214;</div><div class="book-info"><h3>${esc(d.book.title)}</h3><div class="book-meta">${esc(d.book.edition)}, ${esc(d.book.year)}</div><p>${esc(d.book.description)}</p></div></div>` : '';
+        document.getElementById('book-speak').innerHTML = `${sh('Book')}${bookHtml}`;
+
+        // Speaking & Roadshows
         const tenseChip = t => t === 'upcoming' ? '<span style="font-size:10px;background:rgba(52,211,153,0.15);color:#34d399;padding:1px 6px;border-radius:3px;margin-left:6px;">upcoming</span>' :
             t === 'recurring' ? '<span style="font-size:10px;background:rgba(251,191,36,0.15);color:#fbbf24;padding:1px 6px;border-radius:3px;margin-left:6px;">recurring</span>' :
             '<span style="font-size:10px;background:rgba(255,255,255,0.06);color:#6b7280;padding:1px 6px;border-radius:3px;margin-left:6px;">past</span>';
-        const speakHtml = d.speaking ? d.speaking.map(s=>`<div class="small-card"><h4>${s.url ? `<a href="${esc(s.url)}" target="_blank">${esc(s.event)}</a>` : esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p></div>`).join('') : '';
-        document.getElementById('book-speak').innerHTML = `${sh('Book and Speaking')}${bookHtml}<div class="small-grid">${speakHtml}</div>`;
+        const speakHtml = d.speaking ? d.speaking.map(s=>{
+            const links = [
+                s.url ? `<a href="${esc(s.url)}" target="_blank">Speaker page</a>` : '',
+                s.announcement_url ? `<a href="${esc(s.announcement_url)}" target="_blank">Announcement</a>` : ''
+            ].filter(Boolean).join(' &middot; ');
+            return `<div class="small-card"><h4>${esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p>${links?`<div class="meta" style="margin-top:6px;">${links}</div>`:''}</div>`;
+        }).join('') : '';
+        document.getElementById('speaking').innerHTML = `${sh('Speaking & Roadshows')}<div class="small-grid">${speakHtml}</div>`;
 
         // Writing
         document.getElementById('write').innerHTML = `

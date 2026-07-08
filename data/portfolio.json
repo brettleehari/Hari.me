@@ -15,7 +15,8 @@
     "years_in_product": 12,
     "email": "hariprasadsudharsan@gmail.com",
     "resume_url": "",
-    "linktree": "https://linktr.ee/brettleehari"
+    "linktree": "https://linktr.ee/brettleehari",
+    "hero_headline": "Patents, papers, and live demos — I'd rather show than tell."
   },
   "profiles": [
     {
@@ -786,6 +787,12 @@
     "description": "Frameworks for navigating the AI landscape. Core metaphor: we are a wooden plank adrift in the ocean. Honest about uncertainty, mapping anchors instead of making bold predictions."
   },
   "speaking": [
+    {
+      "event": "OFC 2026 (Optical Fiber Communication Conference)",
+      "date": "March 2026",
+      "topic": "Representing Fujitsu AI products. Live customer demos on the show floor.",
+      "tense": "past"
+    },
     {
       "event": "Dallas AI Meetup (dallas-ai.org)",
       "date": "April 9, 2026",
