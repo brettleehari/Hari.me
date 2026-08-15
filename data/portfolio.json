@@ -299,7 +299,7 @@
     {
       "year": 2026,
       "label": "Runner-Up at MIT Media Lab's NANDAHack, entered solo. Shipped 6 projects in 4 months. Book published. Dallas AI Meetup speaker.",
-      "description": "Runner-Up at NANDAHack, the Agentic AI Hackathon hosted by MIT Media Lab and HCLTech (June 13 to July 11), with '2036 Agentic Town - AI Constitution (Civil Ledger)'. Entered solo against 230+ submissions from 400+ builders who registered globally. Went in to exercise the full PM loop in one place, build it, package it, market the right problem, and make it runnable for a stranger, and to feel how time shrinks in the open source world. Shipped CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
+      "description": "Runner-Up at NANDAHack, the Agentic AI Hackathon hosted by MIT Media Lab (June 13 to July 11), with '2036 Agentic Town - AI Constitution (Civil Ledger)'. Entered solo against 230+ submissions from 400+ builders who registered globally. Went in to exercise the full PM loop in one place, build it, package it, market the right problem, and make it runnable for a stranger, and to feel how time shrinks in the open source world. Shipped CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
       "category": "product",
       "links": [
         {
@@ -354,8 +354,8 @@
       "status": "production",
       "pinned": true,
       "featured_order": 1,
-      "award": "Runner-Up — NANDAHack, an Agentic AI Hackathon (MIT Media Lab + HCLTech, June–July 2026). Solo entry.",
-      "one_liner": "Runner-Up at NANDAHack, the MIT Media Lab and HCLTech Agentic AI Hackathon. Entered solo against 230+ submissions. A constitution and civil ledger for agent societies.",
+      "award": "Runner-Up — NANDAHack, an Agentic AI Hackathon (MIT Media Lab, June–July 2026). Solo entry.",
+      "one_liner": "Runner-Up at NANDAHack, the MIT Media Lab Agentic AI Hackathon. Entered solo against 230+ submissions. A constitution and civil ledger for agent societies.",
       "problem": "Once autonomous agents act on behalf of people in a civic setting, there is no shared record of what they did or which rules they were bound by. Accountability is asserted, not evidenced.",
       "what_it_does": "Defines a machine-readable AI constitution for a town of autonomous agents, then records every consequential agent action to an append-only civil ledger checked against those rules, so behaviour can be audited after the fact rather than trusted in advance.",
       "why_it_matters": "Agent governance is usually treated as a prompt-level concern. Treating it as infrastructure, rules plus an immutable record, is what makes agent autonomy defensible to a regulator or a citizen.",
@@ -857,8 +857,8 @@
       "title": "2036 Agentic Town — AI Constitution (Civil Ledger)",
       "placement": "Runner-Up",
       "format": "Solo entry",
-      "event": "NANDAHack, an Agentic AI Hackathon",
-      "host": "MIT Media Lab and HCLTech",
+      "event": "MIT Agentic AI Hackathon",
+      "host": "NANDAHack · MIT Media Lab",
       "date": "June 13 – July 11, 2026",
       "location": "Global, hybrid. Demos and awards at MIT Media Lab, July 11.",
       "one_liner": "A governance layer for agent societies: a civil ledger that records agent actions against a machine-readable constitution, so autonomous agents in a civic setting can be held to rules that are auditable after the fact.",

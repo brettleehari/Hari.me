@@ -35,7 +35,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 
 | URL | Explanation |
 | --- | --- |
-| https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/ | NANDAHack (MIT Media Lab + HCLTech, June–July 2026) — announcement listing "2036 Agentic Town - AI Constitution (Civil Ledger)" as Second Prize |
+| https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/ | NANDAHack (MIT Media Lab, June–July 2026) — announcement listing "2036 Agentic Town - AI Constitution (Civil Ledger)" among the top projects |
 
 ## Live Projects & Demos
 
