@@ -31,6 +31,12 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://www.researchgate.net/publication/401692947_Growing_Populations_Not_Growing_Selection_Birth-Cohort-Controlled_Anthropometric_Analysis_of_Elite_Cricket_Across_Five_Decades_1975-2026 | Paper — Growing Populations, Not Growing Selection (birth-cohort anthropometric analysis of elite cricket, 1975–2026) |
 | https://www.researchgate.net/publication/378006432_Synchronous_Forward_Propagation_of_Commits_in_N_parallel_Git_Branches | Paper — Synchronous Forward Propagation of Commits in N Parallel Git Branches |
 
+## Awards
+
+| URL | Explanation |
+| --- | --- |
+| https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/ | NANDAHack (MIT Media Lab + HCLTech, June–July 2026) — announcement listing "2036 Agentic Town - AI Constitution (Civil Ledger)" as Second Prize |
+
 ## Live Projects & Demos
 
 | URL | Explanation |

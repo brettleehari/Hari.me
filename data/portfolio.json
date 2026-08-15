@@ -298,10 +298,14 @@
     },
     {
       "year": 2026,
-      "label": "Shipped 6 projects in 4 months. Book published. Dallas AI Meetup speaker.",
-      "description": "CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
+      "label": "Runner-Up at MIT Media Lab's NANDAHack, entered solo. Shipped 6 projects in 4 months. Book published. Dallas AI Meetup speaker.",
+      "description": "Runner-Up at NANDAHack, the Agentic AI Hackathon hosted by MIT Media Lab and HCLTech (June 13 to July 11), with '2036 Agentic Town - AI Constitution (Civil Ledger)'. Entered solo against 230+ submissions from 400+ builders who registered globally. Went in to exercise the full PM loop in one place, build it, package it, market the right problem, and make it runnable for a stranger, and to feel how time shrinks in the open source world. Shipped CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
       "category": "product",
       "links": [
+        {
+          "label": "NANDAHack: MIT Media Lab announcement",
+          "url": "https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/"
+        },
         {
           "label": "CricketMind: model on Hugging Face",
           "url": "https://huggingface.co/brettleehari/cricketmind-nemotron-mini"
@@ -342,6 +346,33 @@
     }
   ],
   "projects": [
+    {
+      "id": "agentic-town",
+      "name": "2036 Agentic Town — AI Constitution (Civil Ledger)",
+      "year_started": "2026",
+      "year_ended": "",
+      "status": "production",
+      "pinned": true,
+      "featured_order": 1,
+      "award": "Runner-Up — NANDAHack, an Agentic AI Hackathon (MIT Media Lab + HCLTech, June–July 2026). Solo entry.",
+      "one_liner": "Runner-Up at NANDAHack, the MIT Media Lab and HCLTech Agentic AI Hackathon. Entered solo against 230+ submissions. A constitution and civil ledger for agent societies.",
+      "problem": "Once autonomous agents act on behalf of people in a civic setting, there is no shared record of what they did or which rules they were bound by. Accountability is asserted, not evidenced.",
+      "what_it_does": "Defines a machine-readable AI constitution for a town of autonomous agents, then records every consequential agent action to an append-only civil ledger checked against those rules, so behaviour can be audited after the fact rather than trusted in advance.",
+      "why_it_matters": "Agent governance is usually treated as a prompt-level concern. Treating it as infrastructure, rules plus an immutable record, is what makes agent autonomy defensible to a regulator or a citizen.",
+      "what_i_learned": "Entered solo to exercise the full loop in one place: build it, package it, name it, market the right problem, and above all make it runnable for a stranger. That last part is where most hackathon entries die and it is the part nobody claps for. The entries that placed were the ones that made agent behaviour inspectable, not the ones that made agents more capable.",
+      "tech_stack": [
+        "NANDA protocol",
+        "Multi-agent orchestration",
+        "Append-only ledger",
+        "Policy evaluation"
+      ],
+      "architecture_notes": "Constitution layer (machine-readable rules) + civil ledger (append-only action record) + evaluation pass that scores each recorded action against the applicable rule.",
+      "results": "Runner-Up of 230+ submissions, solo entry. Demoed at MIT Media Lab, July 11, 2026.",
+      "repo_url": "",
+      "demo_url": "",
+      "writeup_url": "https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/",
+      "related_writing": ""
+    },
     {
       "id": "grasprepo",
       "name": "GraspRepo",
@@ -403,7 +434,7 @@
       "year_ended": "",
       "status": "production",
       "pinned": true,
-      "featured_order": 1,
+      "featured_order": 2,
       "one_liner": "Intelligently add code reviewer. GitHub Marketplace launch (2019-2020). Opensourced the entire stack.",
       "problem": "Code review relies on static hierarchies or CODEOWNERS files, missing engineers with actual hands-on experience of the code being modified. 4 out of 5 real PRs analyzed showed expertise gaps, with regressions within 12-25 days proving the point.",
       "what_it_does": "Analyzes git history for affected files to compute expertise and seniority scores. Expertise: ownership 40%, commits 25%, lines 15%, recency 20%. Seniority: tenure 45%, commits 30%, consistency 25%. 5 real PRs analyzed from rails, react, huggingface/transformers, prometheus. Original 2019 version was a Probot app published in GitHub Marketplace with PyDriller-based reviewer.py engine.",
@@ -433,7 +464,7 @@
       "year_ended": "",
       "status": "production",
       "pinned": true,
-      "featured_order": 2,
+      "featured_order": 3,
       "one_liner": "Fine-tuned NVIDIA Nemotron-Mini-4B for cricket domain expertise. Improved model performance on a subset of cricket knowledge from 30.2% to 67.5%.",
       "problem": "No existing LLM understood cricket deeply enough, the Laws, the strategy, the edge cases. Domain adaptation shouldn't need massive budgets.",
       "what_it_does": "LoRA fine-tuning (rank 16, alpha 32) with response distillation using Claude as teacher model. 170 training examples (laws QA + match situation analysis). Custom CricketBench evaluation suite: 20 questions across 4 weighted categories (Laws Recall 30%, Conditional Reasoning 35%, Match Situation 25%, Edge Case 10%), scored by Claude Sonnet as LLM-as-judge.",
@@ -498,7 +529,7 @@
       "year_ended": "",
       "status": "production",
       "pinned": true,
-      "featured_order": 3,
+      "featured_order": 4,
       "one_liner": "Full-stack metabolic analytics platform with glucose-migraine causal chain visualization backed by 6 peer-reviewed citations.",
       "problem": "Most health analytics show correlations and call them insights. The glucose-migraine connection, nocturnal hypoglycemia triggering hormonal cascade leading to morning migraine, is a documented causal chain that no consumer tool visualizes.",
       "what_it_does": "React + FastAPI + TimescaleDB platform. 3 demo profiles with 90 days of pre-computed insights each. Multi-layer metabolic overlay (CGM + sleep + exercise + nutrition on one chart with auto-detected pattern callouts). Migraine timeline with hourly glucose curves, event strips, and per-day narratives. 15-day time-series views. ML pipeline: PCMCI causal discovery, STUMPY pattern detection, association rules. JWT auth, CSV/Excel upload wizard, background Celery tasks.",
@@ -818,6 +849,25 @@
       "date": "2024-2026",
       "topic": "Representing Fujitsu AI products. Customer demos.",
       "tense": "recurring"
+    }
+  ],
+  "awards": [
+    {
+      "id": "nandahack-2026",
+      "title": "2036 Agentic Town — AI Constitution (Civil Ledger)",
+      "placement": "Runner-Up",
+      "format": "Solo entry",
+      "event": "NANDAHack, an Agentic AI Hackathon",
+      "host": "MIT Media Lab and HCLTech",
+      "date": "June 13 – July 11, 2026",
+      "location": "Global, hybrid. Demos and awards at MIT Media Lab, July 11.",
+      "one_liner": "A governance layer for agent societies: a civil ledger that records agent actions against a machine-readable constitution, so autonomous agents in a civic setting can be held to rules that are auditable after the fact.",
+      "scale": "Runner-Up out of 230+ submissions. 400+ builders registered from across the globe. Entered solo, no team.",
+      "why_i_entered": "I entered alone, on purpose. Not to win. To exercise the whole muscle in one place. You build the thing, then you package it, name it, worry about how a stranger feels in the first thirty seconds, market the right problem and not the clever one, and at the end of it the thing has to actually run on someone else's machine or none of the rest counted. That full loop is the seasoned PM job. Inside the Organization you practice it in pieces, spread across quarters, with a team to hand parts off to. Four weeks, one person, no handoffs. Different ball game.",
+      "what_i_learned": "Time shrinks in the open source world. 164 pull requests landed on the NandaTown repo while this ran, people in every timezone shipping against each other and with each other. I wanted to feel that clock, not read about it. The other reason is simpler. I keep telling my team a hackathon is the fastest way to immerse yourself in a problem. Hard to preach that without entering one myself.",
+      "url": "https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/",
+      "repo_url": "",
+      "demo_url": ""
     }
   ],
   "enterprise_stats": [

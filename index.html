@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hariprasad Sudharshan — Builder, Writer, AI Product</title>
-    <meta name="description" content="Hariprasad Sudharshan. Builder PM. 3 patents, 6+ papers, 8 live projects. Writing on AI, platforms, and applied product thinking.">
+    <meta name="description" content="Hariprasad Sudharshan. Builder PM. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. 3 patents, 6+ papers, 8 live projects. Writing on AI, platforms, and applied product thinking.">
     <meta property="og:title" content="Hariprasad Sudharshan — Hari's Corner">
-    <meta property="og:description" content="Builder PM. 3 patents. 8 live projects. Writing on AI, platforms, and applied product thinking.">
+    <meta property="og:description" content="Builder PM. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. 3 patents. 8 live projects. Writing on AI, platforms, and applied product thinking.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brettleehari.github.io/Hari.me/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Hariprasad Sudharshan — Hari's Corner">
-    <meta name="twitter:description" content="Builder PM. 3 patents. 8 live projects.">
+    <meta name="twitter:description" content="Builder PM. NANDAHack (MIT Media Lab) Runner-Up, solo. 3 patents. 8 live projects.">
     <link rel="canonical" href="https://brettleehari.github.io/Hari.me/">
     <link rel="icon" type="image/svg+xml" href="/Hari.me/assets/favicon.svg">
     <link rel="apple-touch-icon" href="/Hari.me/assets/apple-touch-icon.png">
@@ -94,7 +94,7 @@
 
         /* Featured strip */
         .feat-label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-        .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
         .feat-card {
             background: rgba(125,211,252,0.04); border: 1px solid rgba(125,211,252,0.12);
             border-radius: 8px; padding: 18px;
@@ -104,6 +104,43 @@
         .feat-card p { font-size: 12px; color: #9ca3af; line-height: 1.5; margin-bottom: 6px; }
         .feat-card .feat-results { font-size: 11px; font-weight: 600; color: #7dd3fc; font-family: 'SF Mono', 'Menlo', monospace; margin-bottom: 6px; }
         .feat-card .feat-link { font-size: 11px; font-weight: 600; color: #7dd3fc; }
+        .feat-card .feat-award {
+            display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+            text-transform: uppercase; color: #fbbf24; background: rgba(251,191,36,0.1);
+            border: 1px solid rgba(251,191,36,0.25); border-radius: 4px; padding: 2px 6px; margin-bottom: 6px;
+        }
+
+        /* Award banner */
+        .award-banner {
+            display: flex; gap: 16px; align-items: flex-start;
+            background: linear-gradient(90deg, rgba(251,191,36,0.08), rgba(251,191,36,0.02));
+            border: 1px solid rgba(251,191,36,0.22); border-left: 3px solid #fbbf24;
+            border-radius: 8px; padding: 18px 20px; margin-bottom: 32px;
+        }
+        .award-banner .award-medal { font-size: 24px; line-height: 1; flex: none; }
+        .award-banner .award-placement {
+            font-size: 10px; font-weight: 700; color: #fbbf24; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 4px;
+        }
+        .award-banner h3 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+        .award-banner .award-meta { font-size: 12px; color: #d1d5db; margin-bottom: 6px; }
+        .award-banner p { font-size: 12px; color: #9ca3af; line-height: 1.55; margin-bottom: 8px; }
+        .award-banner .award-scale {
+            font-size: 11px; color: #fbbf24; font-weight: 500;
+            font-family: 'SF Mono', 'Menlo', monospace; margin-bottom: 8px;
+        }
+        .award-banner .award-solo {
+            display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+            color: #0f1419; background: #fbbf24; border-radius: 3px; padding: 2px 6px; margin-left: 6px;
+            vertical-align: middle;
+        }
+        .award-banner .award-note {
+            font-size: 12px; color: #9ca3af; line-height: 1.6; margin-bottom: 8px;
+            padding-left: 12px; border-left: 1px solid rgba(251,191,36,0.25);
+        }
+        .award-banner .award-note span { color: #d1d5db; font-weight: 600; }
+        .award-banner .award-links { display: flex; gap: 14px; flex-wrap: wrap; }
+        .award-banner .award-links a { font-size: 11px; font-weight: 600; color: #fbbf24; }
 
         /* Section basics */
         section { margin-bottom: 64px; }
@@ -323,12 +360,13 @@
             </div>`;
 
         // C2: Featured strip
-        const featured = d.projects.filter(p=>p.pinned).sort((a,b)=>a.featured_order-b.featured_order).slice(0,3);
+        const featured = d.projects.filter(p=>p.pinned).sort((a,b)=>a.featured_order-b.featured_order).slice(0,4);
         const featuredHtml = featured.map(p => {
-            const link = p.demo_url || p.model_url || p.repo_url || '';
-            const linkLabel = p.demo_url ? 'Live Application' : p.model_url ? 'Model' : 'GitHub';
-            return `<div class="feat-card">
+            const link = p.demo_url || p.model_url || p.repo_url || p.writeup_url || '';
+            const linkLabel = p.demo_url ? 'Live Application' : p.model_url ? 'Model' : p.repo_url ? 'GitHub' : 'Announcement';
+            return `<div class="feat-card"${p.award ? ' style="border-color:rgba(251,191,36,0.25);background:rgba(251,191,36,0.05);"' : ''}>
                 <div class="feat-year">${esc(p.year_started)}</div>
+                ${p.award ? `<div class="feat-award">Award</div>` : ''}
                 <h4>${esc(p.name)}</h4>
                 <p>${esc(p.one_liner)}</p>
                 ${p.results ? `<div class="feat-results">${esc(p.results.split('.')[0])}</div>` : ''}
@@ -347,8 +385,31 @@
             <a href="https://github.com/brettleehari" target="_blank" class="feat-link" style="color:#34d399;">GitHub Profile &rarr;</a>
         </div>`;
 
+        // Awards banner (above Featured Work)
+        const awardsHtml = (d.awards || []).map(a => {
+            const links = [
+                a.url ? {label:'Announcement (MIT Media Lab)', url:a.url} : null,
+                a.demo_url ? {label:'Live Application', url:a.demo_url} : null,
+                a.repo_url ? {label:'GitHub', url:a.repo_url} : null,
+            ].filter(Boolean);
+            return `<div class="award-banner">
+                <div class="award-medal" aria-hidden="true">&#127942;</div>
+                <div>
+                    <div class="award-placement">${esc(a.placement)} &middot; ${esc(a.event)}${a.format ? ` <span class="award-solo">${esc(a.format)}</span>` : ''}</div>
+                    <h3>${esc(a.title)}</h3>
+                    <div class="award-meta">${esc(a.host)} &middot; ${esc(a.date)}${a.location ? ' &middot; ' + esc(a.location) : ''}</div>
+                    ${a.one_liner ? `<p>${esc(a.one_liner)}</p>` : ''}
+                    ${a.scale ? `<div class="award-scale">${esc(a.scale)}</div>` : ''}
+                    ${a.why_i_entered ? `<p class="award-note"><span>Why I entered.</span> ${esc(a.why_i_entered)}</p>` : ''}
+                    ${a.what_i_learned ? `<p class="award-note"><span>What I took from it.</span> ${esc(a.what_i_learned)}</p>` : ''}
+                    ${links.length ? `<div class="award-links">${links.map(l=>`<a href="${esc(l.url)}" target="_blank">${esc(l.label)} &rarr;</a>`).join('')}</div>` : ''}
+                </div>
+            </div>`;
+        }).join('');
+
         document.getElementById('journey').insertAdjacentHTML('beforebegin',
-            `<div class="featured-strip" style="margin-bottom:32px;">
+            `${awardsHtml}
+            <div class="featured-strip" style="margin-bottom:32px;">
                 <div class="feat-label">Featured Work</div>
                 <div class="feat-grid">${ossCard}${featuredHtml}</div>
             </div>`);
@@ -421,12 +482,13 @@
         ];
 
         // Add projects without live demos to public track (they have repos)
-        d.projects.filter(p => !p.demo_url && !p.model_url && !p.dataset_url && p.repo_url).forEach(p => {
+        d.projects.filter(p => !p.demo_url && !p.model_url && !p.dataset_url && (p.repo_url || p.writeup_url)).forEach(p => {
             publicItems.push({
                 year: p.year_started, title: p.name, oneliner: p.one_liner,
                 desc: p.what_it_does, insight: p.what_i_learned, results: p.results,
                 links: [
                     p.repo_url ? {label:'GitHub',url:p.repo_url} : null,
+                    p.writeup_url ? {label:'Write-up',url:p.writeup_url} : null,
                     p.model_url ? {label:'Model',url:p.model_url} : null,
                 ].filter(Boolean),
                 tags: p.tech_stack || []
