@@ -298,10 +298,14 @@
     },
     {
       "year": 2026,
-      "label": "Runner-Up at MIT Media Lab's NANDAHack, entered solo. Shipped 6 projects in 4 months. Book published. Dallas AI Meetup speaker.",
-      "description": "Runner-Up at NANDAHack, the Agentic AI Hackathon hosted by MIT Media Lab (June 13 to July 11), with '2036 Agentic Town - AI Constitution (Civil Ledger)'. Entered solo against 230+ submissions from 400+ builders who registered globally. Went in to exercise the full PM loop in one place, build it, package it, market the right problem, and make it runnable for a stranger, and to feel how time shrinks in the open source world. Shipped CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
+      "label": "Runner-Up at MIT Media Lab's NANDAHack, entered solo. Shipped 7 projects in 4 months. Book published. Dallas AI Meetup speaker.",
+      "description": "Runner-Up at NANDAHack, the Agentic AI Hackathon hosted by MIT Media Lab (June 13 to July 11), with '2036 Agentic Town - AI Constitution (Civil Ledger)'. Entered solo against 230+ submissions from 400+ builders who registered globally. Went in to exercise the full PM loop in one place, build it, package it, market the right problem, and make it runnable for a stranger, and to feel how time shrinks in the open source world. Shipped CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery), TokenCalci (self-host vs neocloud TCO planner with a live price feed and a public API). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
       "category": "product",
       "links": [
+        {
+          "label": "TokenCalci: live demo",
+          "url": "https://tokencalci.onrender.com/"
+        },
         {
           "label": "NANDAHack: MIT Media Lab announcement",
           "url": "https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/"
@@ -371,6 +375,33 @@
       "repo_url": "",
       "demo_url": "",
       "writeup_url": "https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/",
+      "related_writing": ""
+    },
+    {
+      "id": "tokencalci",
+      "name": "TokenCalci: Should I Self-Host?",
+      "year_started": "2026",
+      "year_ended": "",
+      "status": "beta",
+      "pinned": false,
+      "featured_order": 99,
+      "one_liner": "Turns a workload goal into a recommended model mix and a local-vs-cloud TCO comparison with break-even, priced off a live feed.",
+      "problem": "Every team asking 'should we self-host this model' answers it with a spreadsheet that lies. The calculators out there do one column each: pick a model, or price the API, or price a GPU. None of them connect the three, and none of them count the parts that actually decide it, ops labor, HA, and the idle cliff where you pay for a GPU that is busy 20% of the day.",
+      "what_it_does": "Four steps. Define the workload (daily requests, input/output tokens, task type, quality bar, and for the advanced case agentic calls-per-task, caching %, batch %). Get a mix, a cheap bulk model for the easy majority plus a stronger model for the hard minority, with a blended $/month and a split slider. Compare API cost against self-host TCO per tier (rent or own GPU, power, utilization, overhead, ops labor, HA) with break-even in tokens/day. Then run the LLMflation scenario, projecting falling API prices against fixed self-host opex to see if the hardware still pays off.",
+      "why_it_matters": "The self-host decision is usually made on sticker price and regretted on the operating bill. Showing the math, with the labor and idle cost included, turns an argument into an arithmetic problem. Every number traces back to an input or to a dated price feed, and the feed date is on screen so nobody quotes a stale answer six months later.",
+      "what_i_learned": "The honest number is the unflattering one. Idle cliff is the whole ballgame, $/token at your real volume against $/token at full load, and it is the line every vendor calculator leaves out. Also built it API-first: the same economics engine is exposed as a public read-only JSON API with a SKILL.md, so an agent can ask the question instead of a human clicking through four steps. Prices move roughly 10x a year, so the feed is the product, a snapshot fallback ships with it so the tool never shows a blank.",
+      "tech_stack": [
+        "React",
+        "Vite",
+        "Express",
+        "LiteLLM price feed",
+        "Render"
+      ],
+      "architecture_notes": "One Render web service serves the API and the built frontend. Prices come from the LiteLLM model_prices_and_context_window.json feed fetched server-side (no CORS), cached 6h, normalized to $/1M tokens, with a bundled dated snapshot as fallback. Public read-only endpoints: /api/decide, /api/compare, /api/models, /api/providers, /api/gpus, /api/precisions, /api/prices.",
+      "results": "50-model catalog with size, context, license, modality, cutoff and price. Live pricing feed with a visible prices-as-of date. Public no-auth JSON API plus an agent-facing SKILL.md.",
+      "repo_url": "https://github.com/brettleehari/tokencalci",
+      "demo_url": "https://tokencalci.onrender.com/",
+      "writeup_url": "",
       "related_writing": ""
     },
     {

@@ -45,6 +45,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://brettleehari.github.io/Visuallearning/ | Visual Learning — live application |
 | https://brettleehari.github.io/reviewbuddy/ | ReviewBuddy — live application |
 | https://grasprepo.onrender.com | GraspRepo — live application |
+| https://tokencalci.onrender.com/ | TokenCalci (Should I Self-Host?) — live application |
 | https://your-metabolic-story-teller.onrender.com | Metabolistic Storyteller — live application |
 | https://huggingface.co/brettleehari/cricketmind-nemotron-mini | CricketMind — fine-tuned model on Hugging Face |
 | https://huggingface.co/datasets/brettleehari/cricketbench-v1 | CricketBench v1 — evaluation dataset on Hugging Face |
@@ -57,6 +58,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://github.com/brettleehari/Visuallearning | Visual Learning — source repo |
 | https://github.com/brettleehari/reviewbuddy | ReviewBuddy — source repo |
 | https://github.com/brettleehari/grasprepo | GraspRepo — source repo |
+| https://github.com/brettleehari/tokencalci | TokenCalci — source repo |
 | https://github.com/brettleehari/cricketmind | CricketMind — source repo |
 | https://github.com/brettleehari/intelliyang | IntelliYang — source repo |
 | https://github.com/brettleehari/BTCExpert | BTCExpert / CIAL platform — source repo |
