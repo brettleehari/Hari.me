@@ -9,6 +9,7 @@
     <meta property="og:description" content="Builder PM. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. 3 patents. 8 live projects. Writing on AI, platforms, and applied product thinking.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brettleehari.github.io/Hari.me/">
+    <meta property="og:image" content="https://brettleehari.github.io/Hari.me/assets/profile.jpg">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Hariprasad Sudharshan — Hari's Corner">
     <meta name="twitter:description" content="Builder PM. NANDAHack (MIT Media Lab) Runner-Up, solo. 3 patents. 8 live projects.">
@@ -68,6 +69,11 @@
         .hero-row {
             display: grid; grid-template-columns: 1fr 260px; gap: 32px;
             padding: 32px 0 24px; align-items: start;
+        }
+        .hero-main { display: flex; gap: 24px; align-items: flex-start; }
+        .hero-photo {
+            width: 104px; height: 104px; border-radius: 50%; object-fit: cover; object-position: 50% 30%;
+            border: 2px solid rgba(125,211,252,0.35); flex-shrink: 0; margin-top: 4px;
         }
         .hero-main h1 { font-size: clamp(28px,4vw,40px); font-weight: 700; letter-spacing: -0.8px; color: #fff; margin-bottom: 8px; }
         .hero-main .hero-headline { font-size: clamp(17px,2.2vw,22px); font-weight: 600; line-height: 1.4; color: #7dd3fc; letter-spacing: -0.3px; margin-bottom: 10px; }
@@ -268,6 +274,8 @@
 
         @media (max-width: 860px) {
             .hero-row { grid-template-columns: 1fr; gap: 16px; }
+            .hero-main { gap: 16px; }
+            .hero-photo { width: 80px; height: 80px; }
             .about-sidebar { margin-top: 0; }
             .feat-grid { grid-template-columns: 1fr; }
             .lane-tabs { overflow-x: auto; flex-wrap: nowrap; }
@@ -342,12 +350,15 @@
         // Hero + About sidebar
         document.getElementById('hero-row').innerHTML = `
             <div class="hero-main">
-                <h1>${esc(d.person.full_name)}</h1>
-                ${d.person.hero_headline ? `<p class="hero-headline">${esc(d.person.hero_headline)}</p>` : ''}
-                <p class="tagline">${esc(d.person.headline)}</p>
-                <p class="location">${esc(d.person.current_location)}</p>
-                <div class="hero-links">
-                    ${d.profiles.map(p=>`<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`).join('')}
+                <img class="hero-photo" src="/Hari.me/assets/profile.jpg" alt="${esc(d.person.full_name)}">
+                <div>
+                    <h1>${esc(d.person.full_name)}</h1>
+                    ${d.person.hero_headline ? `<p class="hero-headline">${esc(d.person.hero_headline)}</p>` : ''}
+                    <p class="tagline">${esc(d.person.headline)}</p>
+                    <p class="location">${esc(d.person.current_location)}</p>
+                    <div class="hero-links">
+                        ${d.profiles.map(p=>`<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`).join('')}
+                    </div>
                 </div>
             </div>
             <div class="about-sidebar">
