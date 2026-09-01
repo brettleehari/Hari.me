@@ -945,6 +945,36 @@
       }
     ]
   },
+  "bookshelf": {
+    "intro": "Books I have actually read and would hand to someone working in the same space, grouped by what they are good for.",
+    "categories": [
+      {
+        "category": "AI and Generative AI",
+        "why": "For people going from using models to shipping products on top of them.",
+        "books": []
+      },
+      {
+        "category": "Platform Engineering and Systems",
+        "why": "Platform engineering taught me to think in systems. These connect parts to wholes.",
+        "books": []
+      },
+      {
+        "category": "Product and Leadership",
+        "why": "What makes teams work, why happier teams build better products, and the role of productive conflict.",
+        "books": []
+      },
+      {
+        "category": "Philosophy and Thinking",
+        "why": "Observation without judgment. This is the shelf that changed how I make decisions, not how I code.",
+        "books": []
+      },
+      {
+        "category": "Cricket and Data",
+        "why": "Deep enough to fine-tune an LLM on it and to publish anthropometric analysis across five decades.",
+        "books": []
+      }
+    ]
+  },
   "reading_and_interests": {
     "thinkers": [
       {

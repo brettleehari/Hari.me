@@ -70,9 +70,9 @@
             display: grid; grid-template-columns: 1fr 260px; gap: 32px;
             padding: 32px 0 24px; align-items: start;
         }
-        .hero-main { display: flex; gap: 24px; align-items: flex-start; }
+        .hero-main { display: flex; gap: 28px; align-items: flex-start; }
         .hero-photo {
-            width: 104px; height: 104px; border-radius: 50%; object-fit: cover; object-position: 50% 30%;
+            width: 168px; height: 168px; border-radius: 50%; object-fit: cover; object-position: 50% 28%;
             border: 2px solid rgba(125,211,252,0.35); flex-shrink: 0; margin-top: 4px;
         }
         .hero-main h1 { font-size: clamp(28px,4vw,40px); font-weight: 700; letter-spacing: -0.8px; color: #fff; margin-bottom: 8px; }
@@ -160,6 +160,25 @@
 
         /* ===== 4-LANE JOURNEY ===== */
         .journey-intro { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
+        /* Bookshelf */
+        .shelf-tabs { display: flex; gap: 0; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 14px; }
+        .shelf-tab {
+            background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer;
+            font-family: inherit; font-size: 12px; color: #6b7280; padding: 8px 12px; transition: all 0.2s;
+        }
+        .shelf-tab:hover { color: #d1d5db; }
+        .shelf-tab.active { color: #7dd3fc; border-bottom-color: #7dd3fc; }
+        .shelf-panel { display: none; }
+        .shelf-panel.active { display: block; }
+        .shelf-why { font-size: 12px; color: #6b7280; font-style: italic; margin-bottom: 10px; }
+        .shelf-note {
+            font-size: 12px; color: #9ca3af; line-height: 1.7; background: rgba(255,255,255,0.03);
+            border: 1px dashed rgba(255,255,255,0.1); border-radius: 6px; padding: 14px;
+        }
+        .shelf-book .author { font-size: 11px; color: #7dd3fc; margin-bottom: 4px; }
+        .subhead { font-size: 12px; font-weight: 700; color: #7dd3fc; text-transform: uppercase; letter-spacing: 0.5px; margin: 22px 0 10px; }
+        .subhead:first-of-type { margin-top: 0; }
+
         .lane-tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
         .lane-tab {
             flex: 1; padding: 12px 8px; text-align: center; cursor: pointer;
@@ -274,8 +293,8 @@
 
         @media (max-width: 860px) {
             .hero-row { grid-template-columns: 1fr; gap: 16px; }
-            .hero-main { gap: 16px; }
-            .hero-photo { width: 80px; height: 80px; }
+            .hero-main { gap: 18px; }
+            .hero-photo { width: 112px; height: 112px; }
             .about-sidebar { margin-top: 0; }
             .feat-grid { grid-template-columns: 1fr; }
             .lane-tabs { overflow-x: auto; flex-wrap: nowrap; }
@@ -321,7 +340,7 @@
     <div class="narrow">
         <section id="believe"></section>
         <section id="background"></section>
-        <section id="book-speak"></section>
+        <section id="books"></section>
         <section id="speaking"></section>
         <section id="write"></section>
         <section id="now"></section>
@@ -344,7 +363,7 @@
         document.getElementById('site-name').textContent = d.site.name;
         document.title = `${d.person.full_name} — ${d.person.headline.split('.')[0]}`;
 
-        const nav=[['journey','Journey'],['believe','Beliefs'],['background','Research'],['book-speak','Book'],['speaking','Speaking'],['write','Write'],['now','Now'],['tech','Stack']];
+        const nav=[['journey','Journey'],['believe','Beliefs'],['background','Research'],['books','Bookshelf'],['speaking','Speaking'],['write','Write'],['now','Now'],['tech','Stack']];
         document.getElementById('nav-links').innerHTML=nav.map(([id,l])=>`<a href="#${id}">${l}</a>`).join('');
 
         // Hero + About sidebar
@@ -627,7 +646,56 @@
 
         // Book
         const bookHtml = d.book ? `<div class="book-card"><div class="book-icon">&#128214;</div><div class="book-info"><h3>${esc(d.book.title)}</h3><div class="book-meta">${esc(d.book.edition)}, ${esc(d.book.year)}</div><p>${esc(d.book.description)}</p></div></div>` : '';
-        document.getElementById('book-speak').innerHTML = `${sh('Book')}${bookHtml}`;
+
+        // Bookshelf, Articles and Research
+        if (d.bookshelf) {
+            const bs = d.bookshelf;
+            const cats = (bs.categories||[]).filter(c => c.books && c.books.length);
+
+            const shelfTabs = cats.map((c,i)=>
+                `<button class="shelf-tab${i===0?' active':''}" data-target="shelf-${i}">${esc(c.category)} <span class="tab-count">${c.books.length}</span></button>`
+            ).join('');
+            const shelfPanels = cats.map((c,i)=>`
+                <div class="shelf-panel${i===0?' active':''}" id="shelf-${i}">
+                    ${c.why?`<p class="shelf-why">${esc(c.why)}</p>`:''}
+                    <div class="small-grid">
+                        ${c.books.map(b=>{
+                            const t = b.url?`<a href="${esc(b.url)}" target="_blank">${esc(b.title)}</a>`:esc(b.title);
+                            return `<div class="small-card shelf-book"><h4>${t}</h4>${b.author?`<div class="author">${esc(b.author)}</div>`:''}${b.note?`<p>${esc(b.note)}</p>`:''}</div>`;
+                        }).join('')}
+                    </div>
+                </div>`).join('');
+
+            const shelfHtml = cats.length
+                ? `<div class="shelf-tabs">${shelfTabs}</div>${shelfPanels}`
+                : `<p class="shelf-note">Shelf in progress. The categories are set; the titles are going up as I write the notes for each one.</p>`;
+
+            const researchLinks = [
+                ...(d.research.papers||[]).filter(p=>p.url).map(p=>({t:p.title, m:[p.venue,p.year].filter(Boolean).join(' · '), s:p.one_line_summary, u:p.url})),
+                ...(d.research.patents||[]).filter(p=>p.url).map(p=>({t:p.title, m:['Patent',p.year_granted].filter(Boolean).join(' · '), s:p.one_line_summary, u:p.url}))
+            ];
+            const researchHtml = `<div class="small-grid">${researchLinks.map(r=>
+                `<div class="small-card"><h4><a href="${esc(r.u)}" target="_blank">${esc(r.t)}</a></h4>${r.m?`<div class="meta">${esc(r.m)}</div>`:''}${r.s?`<p>${esc(r.s)}</p>`:''}</div>`
+            ).join('')}</div>`;
+
+            document.getElementById('books').innerHTML = `
+                ${sh('Bookshelf, Articles and Research', bs.intro||'')}
+                <div class="subhead">Books I Am Writing</div>
+                ${bookHtml}
+                <div class="subhead">The Shelf &mdash; What I Recommend</div>
+                ${shelfHtml}
+                <div class="subhead">Research Worth Reading</div>
+                ${researchHtml}`;
+
+            document.querySelectorAll('.shelf-tab').forEach(tab=>{
+                tab.addEventListener('click',()=>{
+                    document.querySelectorAll('.shelf-tab').forEach(t=>t.classList.remove('active'));
+                    document.querySelectorAll('.shelf-panel').forEach(p=>p.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.target).classList.add('active');
+                });
+            });
+        }
 
         // Speaking & Roadshows
         const tenseChip = t => t === 'upcoming' ? '<span style="font-size:10px;background:rgba(52,211,153,0.15);color:#34d399;padding:1px 6px;border-radius:3px;margin-left:6px;">upcoming</span>' :
