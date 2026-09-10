@@ -704,6 +704,7 @@
         const speakHtml = d.speaking ? d.speaking.map(s=>{
             const links = [
                 s.url ? `<a href="${esc(s.url)}" target="_blank">Speaker page</a>` : '',
+                s.slides_url ? `<a href="${esc(s.slides_url)}" target="_blank">Slides</a>` : '',
                 s.announcement_url ? `<a href="${esc(s.announcement_url)}" target="_blank">Announcement</a>` : ''
             ].filter(Boolean).join(' &middot; ');
             return `<div class="small-card"><h4>${esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p>${links?`<div class="meta" style="margin-top:6px;">${links}</div>`:''}</div>`;

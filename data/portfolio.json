@@ -850,6 +850,13 @@
   },
   "speaking": [
     {
+      "event": "AWS User Group DFW (Frisco)",
+      "date": "",
+      "topic": "I Have a Model Running on This. One model file, Gemma 3 4B at Q4_K_M, measured across an iPhone, a MacBook, a rented GPU, and Amazon Bedrock. Memory bandwidth divided by file size predicts tokens per second, and the talk finds where that stops being true.",
+      "slides_url": "/Hari.me/talks/aws-dfw-model-running-on-this.html",
+      "tense": "upcoming"
+    },
+    {
       "event": "OFC 2026 (Optical Fiber Communication Conference)",
       "date": "March 2026",
       "topic": "Representing Fujitsu AI products. Live customer demos on the show floor.",

@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>I Have a Model Running on This — Hariprasad Sudharshan</title>
+<meta name="description" content="One model file — Gemma 3 4B — measured across an iPhone, a MacBook, a rented GPU and Amazon Bedrock.">
+<meta name="theme-color" content="#0a0e14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e14;
+  --panel:#111823;
+  --panel-2:#161f2c;
+  --line:#243043;
+  --ink:#dfe7f2;
+  --dim:#8493a8;
+  --dimmer:#5b6878;
+  /* semantic: amber = what you measure, teal = what physics allows */
+  --measured:#ffb454;
+  --ceiling:#4fd3c4;
+  --warn:#ff7a6b;
+  --disp:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--disp);
+  -webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+.deck{scroll-snap-type:y mandatory;overflow-y:scroll;height:100dvh}
+section.slide{
+  scroll-snap-align:start;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 2rem 4.5rem;max-width:1120px;margin:0 auto;position:relative;
+}
+@media(max-width:640px){section.slide{padding:4rem 1.15rem 4.5rem}}
+
+/* ---- type scale ---- */
+h1{font-size:clamp(2.6rem,8vw,5.6rem);line-height:.94;letter-spacing:-.035em;font-weight:700;margin:0 0 1.2rem}
+h2{font-size:clamp(1.75rem,4.4vw,3.1rem);line-height:1.02;letter-spacing:-.03em;font-weight:700;margin:0 0 1.4rem;max-width:20ch}
+h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin:0 0 .5rem}
+p{font-size:clamp(1rem,1.6vw,1.16rem);line-height:1.62;color:var(--ink);max-width:66ch;margin:0 0 1rem}
+p.sub{color:var(--dim)}
+.marker{font-family:var(--mono);font-size:.72rem;color:var(--dimmer);letter-spacing:.06em;margin-bottom:1.6rem}
+.marker b{color:var(--measured);font-weight:500}
+strong{color:#fff;font-weight:700}
+em{color:var(--ceiling);font-style:normal;font-weight:500}
+a{color:var(--ceiling);text-decoration:none;border-bottom:1px solid rgba(79,211,196,.3)}
+a:hover{border-bottom-color:var(--ceiling)}
+:focus-visible{outline:2px solid var(--measured);outline-offset:3px;border-radius:3px}
+
+/* ---- hero equation ---- */
+.eq{font-family:var(--mono);margin:1.2rem 0 2rem;line-height:1.5}
+.eq .num{font-size:clamp(1.4rem,4.4vw,2.6rem);color:var(--ceiling);font-weight:700;
+  border-bottom:2px solid var(--line);padding:0 .6rem .5rem;display:inline-block}
+.eq .den{font-size:clamp(1.4rem,4.4vw,2.6rem);color:var(--ink);font-weight:700;padding:.5rem .6rem 0;display:block}
+.eq .frac{display:inline-block;text-align:center;vertical-align:middle}
+.eq .eqls{font-size:clamp(1.4rem,4.4vw,2.6rem);color:var(--dimmer);padding:0 1rem;vertical-align:middle}
+.eq .out{font-size:clamp(1.8rem,6vw,3.6rem);color:var(--measured);font-weight:700;vertical-align:middle;
+  font-variant-numeric:tabular-nums}
+
+/* ---- panels / grids ---- */
+.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:1.4rem 0}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:720px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.cell{background:var(--panel);padding:1.2rem 1.25rem}
+.cell p{font-size:.95rem;margin:0;color:var(--dim);max-width:none}
+.cell h3{color:var(--ink)}
+.tag{font-family:var(--mono);font-size:.66rem;color:var(--dimmer);letter-spacing:.08em;display:block;margin-bottom:.55rem}
+
+/* ---- tables ---- */
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.86rem;margin:1.1rem 0}
+@media(max-width:640px){table{font-size:.72rem}}
+th{text-align:left;font-weight:500;color:var(--dimmer);padding:.5rem .6rem;border-bottom:1px solid var(--line);
+  font-size:.7rem;letter-spacing:.04em}
+td{padding:.55rem .6rem;border-bottom:1px solid rgba(36,48,67,.55);font-variant-numeric:tabular-nums}
+td.m{color:var(--measured);font-weight:700}
+td.c{color:var(--ceiling)}
+td.no{color:var(--warn)}
+tr.dim td{color:var(--dimmer)}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ---- tabs ---- */
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 .8rem}
+.tab{font-family:var(--mono);font-size:.78rem;padding:.5rem .85rem;background:var(--panel);color:var(--dim);
+  border:1px solid var(--line);cursor:pointer;line-height:1.2}
+.tab[aria-selected="true"]{background:var(--measured);color:#12161c;border-color:var(--measured);font-weight:700}
+.tab .px{display:block;font-size:.64rem;opacity:.75;font-weight:400;margin-top:.15rem}
+.pane{display:none}
+.pane.on{display:block}
+
+/* ---- code ---- */
+pre{font-family:var(--mono);font-size:.8rem;line-height:1.65;background:var(--panel);border:1px solid var(--line);
+  border-left:2px solid var(--measured);padding:1rem 1.1rem;overflow-x:auto;margin:.9rem 0;color:#c9d6e6}
+@media(max-width:640px){pre{font-size:.71rem}}
+pre .c{color:var(--dimmer)}
+pre .s{color:var(--ceiling)}
+code{font-family:var(--mono);font-size:.88em;color:var(--measured);background:rgba(255,180,84,.08);padding:.1rem .3rem}
+
+/* ---- callouts ---- */
+.note{border-left:2px solid var(--ceiling);padding:.15rem 0 .15rem 1rem;margin:1.2rem 0;color:var(--dim);
+  font-size:.95rem;line-height:1.6;max-width:66ch}
+.note b{color:var(--ink)}
+.alarm{border-left-color:var(--warn)}
+.alarm b{color:var(--warn)}
+
+/* ---- checklist ---- */
+ul.check{list-style:none;padding:0;margin:1.1rem 0;max-width:70ch}
+ul.check li{padding:.55rem 0 .55rem 1.6rem;border-bottom:1px solid rgba(36,48,67,.55);position:relative;
+  font-size:.98rem;line-height:1.55;color:var(--dim)}
+ul.check li:before{content:"";position:absolute;left:0;top:1.05rem;width:.5rem;height:.5rem;
+  border:1px solid var(--dimmer)}
+ul.check li b{color:var(--ink)}
+ul.check li.done:before{background:var(--ceiling);border-color:var(--ceiling)}
+
+/* ---- faq ---- */
+details{border-bottom:1px solid var(--line);padding:.7rem 0}
+summary{cursor:pointer;font-weight:500;font-size:1rem;list-style:none;color:var(--ink);line-height:1.45;
+  display:flex;gap:.7rem;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"+";font-family:var(--mono);color:var(--measured);flex:none;font-weight:700}
+details[open] summary:before{content:"−"}
+details p{font-size:.93rem;color:var(--dim);margin:.7rem 0 .2rem 1.4rem;line-height:1.62}
+.faqhead{font-family:var(--mono);font-size:.7rem;color:var(--measured);letter-spacing:.08em;
+  margin:1.6rem 0 .3rem;padding-top:.9rem;border-top:1px solid var(--line)}
+
+/* ---- rail ---- */
+.rail{position:fixed;left:0;right:0;bottom:0;height:2.5rem;background:rgba(10,14,20,.92);
+  backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;align-items:center;
+  justify-content:space-between;padding:0 1rem;font-family:var(--mono);font-size:.68rem;color:var(--dimmer);z-index:50}
+.rail .eqmini{color:var(--dim)}
+.rail .eqmini b{color:var(--ceiling);font-weight:500}
+@media(max-width:640px){.rail .eqmini{display:none}}
+.prog{position:fixed;top:0;left:0;height:2px;background:var(--measured);z-index:60;width:0}
+
+/* ---- calculator ---- */
+.calc{background:var(--panel-2);border:1px solid var(--line);padding:1.2rem;margin:1.2rem 0;
+  display:grid;grid-template-columns:1fr 1fr auto;gap:1rem;align-items:end}
+@media(max-width:720px){.calc{grid-template-columns:1fr 1fr}}
+.calc label{display:block;font-family:var(--mono);font-size:.66rem;color:var(--dimmer);
+  letter-spacing:.06em;margin-bottom:.4rem}
+.calc input{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);
+  font-family:var(--mono);font-size:1rem;padding:.55rem .6rem}
+.calc .res{font-family:var(--mono);font-size:1.9rem;color:var(--measured);font-weight:700;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc .res small{display:block;font-size:.62rem;color:var(--dimmer);font-weight:400;letter-spacing:.06em}
+@media(max-width:720px){.calc .res{grid-column:1/-1}}
+
+/* ================= three-act additions ================= */
+
+/* act dividers */
+.actslide{background:linear-gradient(160deg,#0d1219 0%,#0a0e14 70%)}
+.actno{font-family:var(--mono);font-size:.72rem;color:var(--measured);letter-spacing:.14em;margin-bottom:.9rem}
+.actrule{height:1px;background:var(--line);margin:1.6rem 0}
+.actmeta{font-family:var(--mono);font-size:.78rem;color:var(--dimmer);line-height:1.9}
+.actmeta b{color:var(--ink);font-weight:500}
+
+/* timed beats in act one */
+.beat{display:grid;grid-template-columns:5.2rem 1fr;gap:1.1rem;padding:.85rem 0;
+  border-bottom:1px solid rgba(36,48,67,.55);align-items:start}
+@media(max-width:600px){.beat{grid-template-columns:3.6rem 1fr;gap:.8rem}}
+.beat .t{font-family:var(--mono);font-size:.78rem;color:var(--measured);font-weight:700;padding-top:.15rem;
+  font-variant-numeric:tabular-nums}
+.beat .b h3{margin:0 0 .25rem;font-size:1rem}
+.beat .b p{margin:0;font-size:.92rem;color:var(--dim);max-width:62ch}
+
+/* analogy slot — where Hari drops his own material */
+.slot{border:1px dashed var(--ceiling);background:rgba(79,211,196,.045);padding:1rem 1.15rem;margin:1.1rem 0}
+.slot .lab{font-family:var(--mono);font-size:.64rem;color:var(--ceiling);letter-spacing:.1em;
+  display:block;margin-bottom:.5rem}
+.slot p{margin:0;font-size:.93rem;color:var(--dim)}
+.slot p+p{margin-top:.5rem}
+
+/* the one-line claim, repeated */
+.claim{font-family:var(--disp);font-size:clamp(1.15rem,2.6vw,1.6rem);line-height:1.4;font-weight:500;
+  color:var(--ink);border-left:2px solid var(--measured);padding:.5rem 0 .5rem 1.1rem;margin:1.4rem 0;max-width:44ch}
+
+/* prediction widget */
+.pred{background:var(--panel-2);border:1px solid var(--line);padding:1.3rem;margin:1.3rem 0}
+.predrow{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:end;margin-bottom:.9rem}
+@media(max-width:600px){.predrow{grid-template-columns:1fr}}
+.pred label{display:block;font-family:var(--mono);font-size:.66rem;color:var(--dimmer);
+  letter-spacing:.06em;margin-bottom:.45rem}
+.pred input[type=range]{width:100%;accent-color:var(--measured)}
+.pred .guess{font-family:var(--mono);font-size:2.1rem;color:var(--measured);font-weight:700;
+  font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.pred .guess small{display:block;font-size:.6rem;color:var(--dimmer);font-weight:400;letter-spacing:.06em}
+.btn{font-family:var(--mono);font-size:.8rem;padding:.6rem 1.1rem;background:transparent;color:var(--measured);
+  border:1px solid var(--measured);cursor:pointer;letter-spacing:.04em}
+.btn:hover{background:var(--measured);color:#12161c}
+.btn[disabled]{opacity:.35;cursor:default}
+.reveal{display:none;margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+.reveal.on{display:block}
+.verdict{font-family:var(--mono);font-size:.95rem;line-height:1.7;color:var(--dim)}
+.verdict b{color:var(--ink)}
+.verdict .hit{color:var(--ceiling);font-weight:700}
+.verdict .miss{color:var(--warn);font-weight:700}
+
+/* scorecard */
+.score{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line);margin:1.3rem 0}
+.score .s{background:var(--panel);padding:1.1rem}
+.score .n{font-family:var(--mono);font-size:1.7rem;color:var(--measured);font-weight:700;line-height:1}
+.score .l{font-size:.78rem;color:var(--dim);margin-top:.4rem;line-height:1.45}
+
+/* recording notes */
+.rec{border-left:2px solid var(--warn);padding:.15rem 0 .15rem 1rem;margin:1.2rem 0;color:var(--dim);
+  font-size:.94rem;line-height:1.62;max-width:66ch}
+.rec b{color:var(--warn)}
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+<div class="deck" id="deck">
+
+<!-- 1 -->
+<section class="slide actslide" id="s1">
+  <div class="actno">AWS USER GROUP DFW · FRISCO</div>
+  <h1>I have a model<br>running on this.</h1>
+  <p class="sub" style="max-width:52ch">Run a Large Language Model on your own iPhone. No internet, no account, no server.</p>
+  <div class="actrule"></div>
+  <div class="actmeta"><b>Hariprasad Sudharshan</b></div>
+</section>
+
+<!-- 2 -->
+<section class="slide" id="s2">
+  <h2>Nothing left this device.</h2>
+  <p>Most of us use AI through a website. You type, something happens somewhere, an answer comes back. It feels like a place you send a request to.</p>
+  <p>The next twenty minutes take that apart.</p>
+  <div class="claim">The thing in your pocket is doing the same arithmetic as the rack in the data centre. It just has a smaller budget.</div>
+</section>
+
+<!-- 3 -->
+<section class="slide" id="s3">
+  <h2>It is a file. That is the whole surprise.</h2>
+  <div class="grid two">
+    <div class="cell"><span class="tag">what is running</span><h3>gemma-3-4b-it-Q4_K_M.gguf</h3>
+      <p>2.49 GB. One file. Copy it to a pen drive and it runs on your machine offline, forever. It does not expire or check in with anyone.</p></div>
+    <div class="cell"><span class="tag">what is inside it</span><h3>3.88 billion numbers</h3>
+      <p>Nobody wrote them. They were fitted, by machine, against an enormous amount of text. Nobody can point at any one of them and say what it does.</p></div>
+  </div>
+  <div class="slot">
+    <p>Nobody designed the footpath across the park. Thousands walked the shortest route, the grass wore down, and now there is a path. It is real, it works, and there is no document anywhere specifying it.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide" id="s4">
+  <h2>It guesses the next word. That is it.</h2>
+  <p>Given everything so far, what comes next. Ranked list, one gets picked, it is added to the text, and the whole thing runs again from the top. Guess a word. Add it. Guess again.</p>
+  <div class="slot">
+    <p>Type "I am running" and your phone suggests "late". Same mechanism. Yours read your messages; this one read more text than a person could get through in a thousand lifetimes. Same trick, absurd scale.</p>
+  </div>
+  <div class="claim">It predicts. It does not retrieve.</div>
+  <p>Which is why it makes things up. There is no fact database to check against. There is nothing to look up. There is only the guess.</p>
+</section>
+
+<!-- 5 -->
+<section class="slide" id="s5">
+  <h2>Store the numbers roughly. It still works.</h2>
+  <p>Every weight started at high precision — that file is about 8 GB. Round them off, fewer digits each, and the file quarters. The model is still recognisably itself.</p>
+  <div class="slot">
+    <p>Every photo on your phone is a JPEG. Every song you streamed is compressed. A WhatsApp voice note is nothing like studio audio and nobody has ever complained, because it fits, it sends, and it is good enough.</p>
+  </div>
+  <div class="eq" style="margin:1.5rem 0">
+    <span class="out" style="font-size:clamp(1.3rem,4vw,2.2rem)">3.88 B &times; 0.6 = <span style="color:var(--measured)">2.49 GB</span></span>
+  </div>
+  <p class="sub">Roughly 0.6 GB per billion parameters, at Q4. That is the whole arithmetic.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide" id="s6">
+  <h2>Every word costs one full read of the file.</h2>
+  <p>To produce <strong>one word</strong>, the machine reads <strong>all 2.49 GB</strong> out of memory. Not part of it. There is no relevant section. Then it does the same thing again for the next word.</p>
+  <p>So speed is not really about how clever the chip is — the arithmetic is trivial and the chip spends most of its time waiting. It is about how fast the device pulls bytes out of memory, divided by how big the file is.</p>
+  <div class="eq" style="margin:1.6rem 0">
+    <span class="frac"><span class="num">how fast it reads</span><span class="den">how big the file is</span></span>
+    <span class="eqls">=</span>
+    <span class="out" style="font-size:clamp(1.4rem,4.5vw,2.6rem)">words per second</span>
+  </div>
+  <div class="claim">Want it faster? Faster memory, or a smaller file. That is the entire optimisation space.</div>
+</section>
+
+<!-- 7 -->
+<section class="slide" id="s7">
+  <h2>72 &divide; 2.49 = 29. I measured 22.3.</h2>
+  <div class="grid three">
+    <div class="cell"><span class="tag">the phone</span><h3>~72 GB/s</h3><p>iPhone 17 Pro Max, A19 Pro, 11 GB RAM.</p></div>
+    <div class="cell"><span class="tag">theoretical ceiling</span><h3 style="color:var(--ceiling)">29 tok/s</h3><p>Bandwidth divided by file size. Nothing else.</p></div>
+    <div class="cell"><span class="tag">actually measured</span><h3 style="color:var(--measured)">22.3 tok/s</h3><p>77% of ceiling. 325 ms to first token.</p></div>
+  </div>
+  <p>Real hardware lands at 50&ndash;80% of the ceiling. Kernel overhead, attention over the cache, sampling — all of it costs something. 77% is a good result, not a discrepancy.</p>
+  <p class="sub">A long, sustained generation settled at 20.33 tok/s — about 9% off the cold number. That is heat.</p>
+</section>
+
+<!-- 8 -->
+<section class="slide" id="s8">
+  <h2>The same division works on a $30,000 GPU.</h2>
+  <p>The data-centre card is not doing something different. It reads the whole file for every word, exactly like the phone. It just reads about fifty times faster.</p>
+  <div class="scroller"><table>
+    <tr><th>where</th><th>reads at</th><th>ceiling for this file</th></tr>
+    <tr><td>this iPhone</td><td>~72 GB/s</td><td class="c">29 tok/s</td></tr>
+    <tr><td>a MacBook M5</td><td>153 GB/s</td><td class="c">61 tok/s</td></tr>
+    <tr><td>a rented L40S</td><td>864 GB/s</td><td class="c">347 tok/s</td></tr>
+    <tr><td>an H100</td><td>3350 GB/s</td><td class="c">1345 tok/s</td></tr>
+  </table></div>
+  <div class="claim">The thing in your pocket is doing the same arithmetic as the rack in the data centre. It just has a smaller budget.</div>
+</section>
+
+<!-- 9 -->
+<section class="slide" id="s9">
+  <h2>Hariprasad Sudharshan</h2>
+  <div class="grid two">
+    <div class="cell"><span class="tag">background</span><h3>~20 years</h3>
+      <p>Optical networking, telecom AI, and agentic AI systems. Three granted US patents in network protocol innovation, two AI patents filed.</p></div>
+    <div class="cell"><span class="tag">why this talk</span><h3>I got tired of guessing</h3>
+      <p>Nineteen years shipping software where every behaviour was a rule someone typed. This file has no rules in it. I wanted to know why it runs at the speed it does.</p></div>
+  </div>
+  <div class="grid two">
+    <div class="cell"><span class="tag">tonight</span><h3>Slides, guide, calculator</h3>
+      <p>Everything from this session, including a rough TCO calculator I built for exactly this question. Break it and tell me where it is wrong.</p></div>
+    <div class="cell"><span class="tag">independent</span><h3>Speaking for myself</h3>
+      <p>Nothing here represents any employer. No vendor is paying for this talk.</p></div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide actslide" id="s10">
+  <div class="actno">PART TWO</div>
+  <h1>One file.<br>Four places.</h1>
+  <p class="sub" style="max-width:52ch">Same model, same quantization, same engine — an iPhone, a MacBook, a rented GPU, and Amazon Bedrock. We measure all four and find where the division holds.</p>
+</section>
+
+<!-- 11 -->
+<section class="slide" id="s11">
+  <h2>Open weights is not open source.</h2>
+  <div class="grid three">
+    <div class="cell"><span class="tag">what you get</span><h3>Open weights</h3>
+      <p>The trained parameters, downloadable. Gemma, Qwen, Llama, DeepSeek, gpt-oss. Runs anywhere, offline, no API call.</p></div>
+    <div class="cell"><span class="tag">what you usually don't</span><h3>Open source</h3>
+      <p>Training data, training code, and a license with no use restrictions. Very few models clear that bar.</p></div>
+    <div class="cell"><span class="tag">what changes your risk</span><h3>The license</h3>
+      <p>Apache 2.0 and MIT are permissive. Gemma ships under Google's own terms with an acceptable-use policy. Read it before you ship.</p></div>
+  </div>
+  <div class="claim">The licenses do not line up with the flags.</div>
+  <p>Qwen is Apache 2.0. DeepSeek is MIT. Gemma carries usage restrictions Google can update. On the axis enterprises actually get burned by, country of origin tells you very little — and for local inference, airplane mode is the guarantee anyway.</p>
+</section>
+
+<!-- 12 -->
+<section class="slide" id="s12">
+  <h2>Gemma 3 4B IT, Q4_K_M.</h2>
+  <div class="scroller"><table>
+    <tr><th>field</th><th>value</th><th>what it controls</th></tr>
+    <tr><td>parameters</td><td class="m">3.88 B</td><td>the denominator — bytes read per token</td></tr>
+    <tr><td>quantization</td><td class="m">Q4_K_M → 2.49 GB</td><td>bytes per weight</td></tr>
+    <tr><td>vocab_size</td><td>262,144</td><td>671M params in embeddings alone — 17% of the model</td></tr>
+    <tr><td>num_layers</td><td>34</td><td>KV cache multiplier</td></tr>
+    <tr><td>query / KV heads</td><td>8 / 4</td><td>GQA — halves the cache</td></tr>
+    <tr><td>head_dim</td><td>256</td><td>cache size per head</td></tr>
+    <tr><td>sliding_window</td><td>1,024</td><td>local attention span</td></tr>
+    <tr><td>window pattern</td><td class="c">5 local : 1 global</td><td>the reason this fits on a phone</td></tr>
+    <tr><td>context</td><td>128 K</td><td>maximum, not what your runtime loaded</td></tr>
+  </table></div>
+</section>
+
+<!-- 13 -->
+<section class="slide" id="s13">
+  <h2>Hybrid attention: 17.8 GB of cache down to 3.2.</h2>
+  <p>Five local layers for every one global layer. Local layers attend to a fixed 1,024-token window no matter how long the conversation gets. Only the global layers see everything.</p>
+  <p>Cache per token per layer: <code>2 &times; 4 heads &times; 256 dim &times; 2 bytes = 4 KB</code>.</p>
+  <div class="scroller"><table>
+    <tr><th>at 128K context</th><th>KV cache</th></tr>
+    <tr><td>if all 34 layers were global</td><td class="no">~17.8 GB</td></tr>
+    <tr><td>actual — ~28 local + ~6 global</td><td class="c">~3.2 GB</td></tr>
+    <tr class="dim"><td>local layers alone, any context length</td><td>114 MB, fixed</td></tr>
+  </table></div>
+  <p class="sub">On an 11 GB phone, that is the difference between impossible and comfortable. A design decision, not a benchmark.</p>
+</section>
+
+<!-- 14 -->
+<section class="slide" id="s14">
+  <h2>Your turn. A MacBook M5 reads at 153 GB/s.</h2>
+  <p>Same file. Same 2.49 GB. Same engine. <strong>How many tokens per second?</strong></p>
+  <p style="color:var(--dim);font-size:.92rem">You have everything you need: the bandwidth, the file size, and one measured data point at 77% of ceiling.</p>
+  <div class="pred">
+    <div class="predrow">
+      <div>
+        <label for="predRange">your prediction · tokens per second</label>
+        <input id="predRange" type="range" min="5" max="120" step="1" value="40">
+      </div>
+      <div class="guess"><span id="predVal">40</span><small>tok/s</small></div>
+    </div>
+    <button class="btn" id="predBtn">commit &amp; reveal</button>
+    <div class="reveal" id="predReveal"><div class="verdict" id="predVerdict"></div></div>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="slide" id="s15">
+  <h2>Where the division holds, and where it stops.</h2>
+  <div class="scroller"><table>
+    <tr><th></th><th>tier</th><th>hardware</th><th>bandwidth</th><th>tok/s</th><th>who pays for idle</th></tr>
+    <tr><td>1</td><td>your pocket</td><td>iPhone 17 Pro Max</td><td>~72 GB/s</td><td class="m">22.3 measured</td><td>nobody</td></tr>
+    <tr><td>2</td><td>your desk</td><td>MacBook M5</td><td>153 GB/s</td><td>~45</td><td>you, once</td></tr>
+    <tr><td>3</td><td>rented metal</td><td>L40S</td><td>864 GB/s</td><td>~210</td><td>you, per hour</td></tr>
+    <tr class="dim"><td>4</td><td>someone else's GPU</td><td>Bedrock · Nebius</td><td class="no">unknown</td><td class="no">not yours to know</td><td>nobody — per token</td></tr>
+  </table></div>
+  <div class="claim">The equation governs tiers one to three and is irrelevant to tier four.</div>
+  <p>Rent tokens instead of metal and you no longer control the quantization, the batch size, or the hardware. There is nothing left to divide.</p>
+</section>
+
+<!-- 16 -->
+<section class="slide" id="s16">
+  <h2>Same file, every device.</h2>
+  <div class="tabs" role="tablist" id="hwTabs"></div>
+  <div class="calc" style="margin-top:1.2rem">
+    <div><label>bandwidth</label><div class="res" style="font-size:1.5rem"><span id="hwBw">—</span><small>GB/s</small></div></div>
+    <div><label>ceiling</label><div class="res" style="font-size:1.5rem;color:var(--ceiling)"><span id="hwCeil">—</span><small>tok/s theoretical</small></div></div>
+    <div><label>realistic</label><div class="res" style="font-size:1.9rem"><span id="hwReal">—</span><small>tok/s expected</small></div></div>
+  </div>
+  <p class="sub" id="hwNote" style="font-size:.86rem;min-height:2.4em"></p>
+</section>
+
+<!-- 17 -->
+<section class="slide" id="s17">
+  <h2>Any hardware. Any model. Including ones not announced yet.</h2>
+  <div class="calc">
+    <div><label for="bw">memory bandwidth · GB/s</label><input id="bw" type="number" value="153" min="1" step="10"></div>
+    <div><label for="pc">model size · billions of params</label><input id="pc" type="number" value="3.88" min="0.1" step="0.5"></div>
+    <div class="res"><span id="calcOut">—</span><small>tok/s realistic, at Q4_K_M</small></div>
+  </div>
+  <div class="grid three">
+    <div class="cell"><span class="tag">try it</span><h3>M1 MacBook</h3><p>68 GB/s. Almost exactly the phone. Same silicon family, four years apart.</p></div>
+    <div class="cell"><span class="tag">try it</span><h3>M5 Max</h3><p>614 GB/s. A 4x spread inside one product line.</p></div>
+    <div class="cell"><span class="tag">try it</span><h3>H100</h3><p>3350 GB/s. Predicts 1345 tok/s. You will not get it.</p></div>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide" id="s18">
+  <h2>On an H100 the equation stops binding.</h2>
+  <div class="grid two">
+    <div class="cell"><span class="tag">iPhone</span><h3>77% of ceiling</h3><p>2.49 GB against 72 GB/s. The memory bus is saturated. Bandwidth is genuinely the constraint.</p></div>
+    <div class="cell"><span class="tag">H100</span><h3 class="no">~25% of ceiling</h3><p>The model is too small to keep a 3350 GB/s bus busy. Kernel launch, sampling and scheduling overhead dominate instead.</p></div>
+  </div>
+  <div class="claim">The equation did not fail. The bottleneck moved.</div>
+  <p>A formula that always works teaches you to trust formulas. A formula with a visible edge teaches you to ask which constraint binds. That is the part worth taking home.</p>
+</section>
+
+<!-- 19 -->
+<section class="slide" id="s19">
+  <h2>Batching breaks the constraint.</h2>
+  <p>Read the model once, use it for many users at the same time. The 2.49 GB read gets amortised across the whole batch. This is the answer to "if it's memory-bound, why does anyone buy an H100."</p>
+  <div class="scroller"><table>
+    <tr><th>concurrent streams</th><th>per user</th><th>total throughput</th><th>$ / 1M tokens</th></tr>
+    <tr><td>1</td><td>~210 tok/s</td><td>210</td><td class="no">high</td></tr>
+    <tr><td>8</td><td>~150 tok/s</td><td class="m">1,200</td><td>lower</td></tr>
+    <tr><td>32</td><td>~90 tok/s</td><td class="c">2,880</td><td class="c">lowest</td></tr>
+  </table></div>
+  <p class="sub">Per user falls. Total climbs about eight-fold. This is why hosted APIs are cheap.</p>
+</section>
+
+<!-- 20 -->
+<section class="slide" id="s20">
+  <h2>Prefill is compute-bound. Decode is memory-bound.</h2>
+  <div class="grid two">
+    <div class="cell"><span class="tag">prefill · reading your prompt</span><h3>325 ms on the phone</h3>
+      <p>The whole prompt processes in parallel, saturating the arithmetic units. TFLOPs matter here. This is the wait before the first word.</p></div>
+    <div class="cell"><span class="tag">decode · writing the answer</span><h3>45 ms per token</h3>
+      <p>One token at a time, whole model read each time. Bandwidth decides. For anything generating prose, this is nearly all the wall clock.</p></div>
+  </div>
+  <p>If your workload is enormous prompts and tiny outputs — classification, extraction, reranking — the ranking of hardware reverses, and a compute-heavy card with modest bandwidth becomes the right buy.</p>
+</section>
+
+<!-- 21 -->
+<section class="slide" id="s21">
+  <h2>Same model, someone else's problem.</h2>
+  <pre><span class="c"># Bedrock console → Playground → google.gemma-3-4b-it
+# Type a prompt, hit Run, read Latency off the screen.</span>
+
+<span class="c"># or OpenAI-compatible — the same client works for other providers</span>
+OPENAI_BASE_URL=<span class="s">"https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1"</span>
+
+client.chat.completions.create(
+    model=<span class="s">"google.gemma-3-4b-it"</span>,
+    messages=[{<span class="s">"role"</span>: <span class="s">"user"</span>, <span class="s">"content"</span>: prompt}])</pre>
+  <div class="grid two">
+    <div class="cell"><span class="tag">what you gain</span><h3>Sixty seconds</h3><p>No quota, no instance, no SSH, no key pair, nothing to terminate. 128K context. Thirteen regions.</p></div>
+    <div class="cell"><span class="tag">what you lose</span><h3>The x-axis</h3><p>No bandwidth figure, no known precision, no batch size. This tier cannot go on the chart — and that absence is the point.</p></div>
+  </div>
+</section>
+
+<!-- 22 -->
+<section class="slide" id="s22">
+  <h2>One user cannot fill a GPU.</h2>
+  <p>At low volume a hosted API is cheaper than a GPU you rent by the hour. Self-hosting wins on data residency, latency, no rate limits, and models nobody offers. Price is not on that list until the machine runs hot.</p>
+  <div class="scroller"><table>
+    <tr><th>tier</th><th>marginal cost</th><th>when it wins</th></tr>
+    <tr><td>1 · your phone</td><td class="c">$0</td><td>offline, private, one user</td></tr>
+    <tr><td>2 · your laptop</td><td class="c">$0</td><td>development, no network</td></tr>
+    <tr><td>3 · rented GPU</td><td>per hour, idle or not</td><td>8+ concurrent streams</td></tr>
+    <tr><td>4 · Bedrock / hosted</td><td class="m">per token</td><td class="c">most production, most of the time</td></tr>
+  </table></div>
+  <div class="claim">Most production workloads belong in tier four.</div>
+  <p>The reason to learn tiers one to three is to understand what tier four is doing on your behalf — and to know when it stops being the cheaper answer.</p>
+</section>
+
+<!-- 23 -->
+<section class="slide actslide" id="s23">
+  <div class="actno">PART THREE</div>
+  <h1>Now put it<br>in your pocket.</h1>
+  <p class="sub" style="max-width:52ch">No account, no card, no cloud. Everyone in this room can do this at the same time, on the phone already in their hand.</p>
+</section>
+
+<!-- 24 -->
+<section class="slide" id="s24">
+  <h2>Four steps.</h2>
+  <ul class="check">
+    <li><b>Install PocketPal AI</b> from the App Store. Free, open source, runs GGUF files through llama.cpp — the same engine used on every tier tonight.</li>
+    <li><b>Download Gemma 3 1B, Q4_K_M</b> — about 800 MB. Models tab → search Hugging Face. <em>Start this first; the wifi is the slow part, not the phone.</em></li>
+    <li><b>Check Metal is on</b> in the model settings. Without GPU acceleration you get a CPU number and it looks four times slower than it should.</li>
+    <li><b>Airplane mode, then ask it something.</b> PocketPal reports tokens/sec under each response.</li>
+  </ul>
+  <p>Predict your own number before you read it. Your phone's bandwidth, divided by 0.8 GB, times roughly 0.7. An iPhone 15 and an iPhone 17 in this room will disagree — and the equation explains the gap.</p>
+</section>
+
+<!-- 25 -->
+<section class="slide" id="s25">
+  <h2>Airplane mode, together.</h2>
+  <p>Radios off. Ask it something at the same time. Fifty phones, no network, all generating.</p>
+  <p>It is a stunt, and it is also the honest summary. These things are files. They run on hardware you own. The speed is a division you can do in your head.</p>
+</section>
+
+<!-- 26 -->
+<section class="slide" id="s26">
+  <h2>Three things, one of them in your pocket.</h2>
+  <div class="grid three">
+    <div class="cell"><span class="tag">a method</span><h3>bandwidth &divide; size</h3>
+      <p>Rank any hardware for this workload without renting it, and catch a spec sheet selling you the wrong number.</p></div>
+    <div class="cell"><span class="tag">a habit</span><h3>ask which constraint binds</h3>
+      <p>The same formula that nailed the phone missed the H100 by 4x. Knowing when to stop trusting your own formula is the skill.</p></div>
+    <div class="cell"><span class="tag">an artifact</span><h3>a model, offline</h3>
+      <p>Running on a device you own, no account behind it. Still there next week.</p></div>
+  </div>
+  <div class="claim">The thing in your pocket is doing the same arithmetic as the rack in the data centre. It just has a smaller budget.</div>
+</section>
+
+<!-- 27 -->
+<section class="slide actslide" id="s27">
+  <h1>Questions.</h1>
+  <p class="sub" style="max-width:50ch">Throw all your concerns and queries at me.</p>
+  <div class="actrule"></div>
+  <div class="actmeta"><b>Hariprasad Sudharshan</b><br>slides · guide · calculator — QR on screen</div>
+</section>
+
+</div><!-- /deck -->
+
+<div class="rail">
+  <span id="railPos">01 / 27</span>
+  <span class="eqmini">bandwidth ÷ 2.49 GB = <b>tok/s</b></span>
+  <span>← → navigate</span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var SIZE = 2.49;  /* gemma-3-4b-it Q4_K_M, GB */
+
+  var HW = [
+    {id:'ip',   name:'iPhone 17 Pro Max', px:'A19 Pro · 11 GB RAM', bw:72,
+     note:'Measured 22.3 tok/s — 77% of ceiling. The memory bus is saturated; bandwidth is genuinely the constraint.', measured:22.3},
+    {id:'m5',   name:'MacBook M5',        px:'unified memory',       bw:153,
+     note:'Unified memory means VRAM is just RAM. Roughly double the phone, same silicon family.'},
+    {id:'m5max',name:'M5 Max',            px:'unified memory',       bw:614,
+     note:'A 4x spread inside one product line — a cleaner demonstration than switching vendors.'},
+    {id:'l40s', name:'L40S',              px:'RunPod · ~$0.39/hr',   bw:864,
+     note:'Rented by the second. No quota request, no key pair, running in about five minutes.'},
+    {id:'h100', name:'H100',              px:'neocloud · ~$2.39/hr', bw:3350,
+     note:'Ceiling says 1345. You will measure closer to 350. The model is too small to keep this bus busy — the bottleneck has moved to per-token overhead.', broken:true}
+  ];
+
+  function realized(gb, bw){
+    var r;
+    if(gb < 0.6)      r = 0.30;
+    else if(gb < 1.2) r = 0.45;
+    else if(gb < 2.5) r = 0.72;
+    else if(gb < 6)   r = 0.70;
+    else              r = 0.68;
+    /* small model on very fast silicon: overhead starts to dominate */
+    var ratio = bw / gb;
+    if(ratio > 900)  r *= 0.62;
+    if(ratio > 1300) r *= 0.55;
+    return r;
+  }
+
+  /* ---------- prediction ---------- */
+  var pr = document.getElementById('predRange'),
+      pv = document.getElementById('predVal'),
+      pb = document.getElementById('predBtn'),
+      prv= document.getElementById('predReveal'),
+      pvd= document.getElementById('predVerdict');
+
+  var M5_CEIL = 153 / SIZE;
+  var M5_EXP  = M5_CEIL * realized(SIZE, 153);
+
+  pr.addEventListener('input', function(){ pv.textContent = pr.value; });
+  pb.addEventListener('click', function(){
+    var g = parseFloat(pr.value);
+    var err = Math.abs(g - M5_EXP) / M5_EXP, band, cls;
+    if(err <= 0.25){ band = 'inside 25% — you can predict hardware you have never touched'; cls='hit'; }
+    else if(err <= 0.5){ band = 'right order of magnitude'; cls='hit'; }
+    else { band = 'off by more than half'; cls='miss'; }
+    pvd.innerHTML =
+      'ceiling &nbsp;153 &divide; 2.49 = <b>' + Math.round(M5_CEIL) + ' tok/s</b><br>' +
+      'realistic &nbsp;&times; 0.72 (the phone’s realization) = <b>' + Math.round(M5_EXP) + ' tok/s</b><br>' +
+      'you said &nbsp;<b>' + g + '</b> &mdash; <span class="' + cls + '">' + band + '</span>' +
+      '<br><br><span style="color:var(--dimmer)">Measured on the dry run: ' +
+      '<b style="color:var(--measured)">___ tok/s</b> &mdash; fill this in before you present.</span>';
+    prv.classList.add('on');
+    pb.disabled = true; pb.textContent = 'revealed';
+  });
+
+  /* ---------- hardware picker ---------- */
+  var tabWrap = document.getElementById('hwTabs');
+  var bwEl = document.getElementById('hwBw'),
+      ceEl = document.getElementById('hwCeil'),
+      reEl = document.getElementById('hwReal'),
+      ntEl = document.getElementById('hwNote');
+
+  function showHw(h){
+    var ceil = h.bw / SIZE;
+    var exp  = h.measured ? h.measured : ceil * realized(SIZE, h.bw);
+    bwEl.textContent = h.bw;
+    ceEl.textContent = Math.round(ceil);
+    reEl.textContent = h.measured ? h.measured.toFixed(1) : Math.round(exp);
+    reEl.parentElement.style.color = h.broken ? 'var(--warn)' : 'var(--measured)';
+    var pct = Math.round(exp / ceil * 100);
+    ntEl.innerHTML = '<b style="color:' + (h.broken ? 'var(--warn)' : 'var(--measured)') + '">' +
+      pct + '% of ceiling.</b> ' + h.note;
+  }
+
+  HW.forEach(function(h, i){
+    var b = document.createElement('button');
+    b.className = 'tab'; b.setAttribute('role','tab');
+    b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    b.innerHTML = h.name + '<span class="px">' + h.px + ' · ' + h.bw + ' GB/s</span>';
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call(tabWrap.children, function(c){ c.setAttribute('aria-selected','false'); });
+      b.setAttribute('aria-selected','true');
+      showHw(h);
+    });
+    tabWrap.appendChild(b);
+  });
+  showHw(HW[0]);
+
+  /* ---------- calculator ---------- */
+  var bw = document.getElementById('bw'), pc = document.getElementById('pc'), out = document.getElementById('calcOut');
+  function calc(){
+    var b = parseFloat(bw.value) || 0, p = parseFloat(pc.value) || 0;
+    if(b <= 0 || p <= 0){ out.textContent = '—'; return; }
+    var gb = p * 0.6;
+    var v = (b / gb) * realized(gb, b);
+    out.textContent = v >= 100 ? Math.round(v) : v.toFixed(1);
+  }
+  bw.addEventListener('input', calc); pc.addEventListener('input', calc); calc();
+
+  /* ---------- generic pane tabs ---------- */
+  document.querySelectorAll('[data-tabgroup]').forEach(function(group){
+    group.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        group.querySelectorAll('.tab').forEach(function(b){ b.setAttribute('aria-selected','false'); });
+        btn.setAttribute('aria-selected','true');
+        var host = group.parentElement;
+        host.querySelectorAll('.pane').forEach(function(p){ p.classList.remove('on'); });
+        var pane = document.getElementById(btn.dataset.pane);
+        if(pane) pane.classList.add('on');
+      });
+    });
+  });
+
+  /* ---------- navigation ---------- */
+  var deck = document.getElementById('deck');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var pos = document.getElementById('railPos'), prog = document.getElementById('prog');
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function current(){
+    var best = 0, min = Infinity;
+    slides.forEach(function(s, i){
+      var d = Math.abs(s.getBoundingClientRect().top);
+      if(d < min){ min = d; best = i; }
+    });
+    return best;
+  }
+  function sync(){
+    var i = current();
+    pos.textContent = pad(i + 1) + ' / ' + pad(slides.length);
+    prog.style.width = (i / (slides.length - 1) * 100) + '%';
+  }
+  deck.addEventListener('scroll', function(){
+    window.clearTimeout(deck._t); deck._t = window.setTimeout(sync, 60);
+  });
+  sync();
+  function go(d){
+    var i = Math.max(0, Math.min(slides.length - 1, current() + d));
+    slides[i].scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  }
+  document.addEventListener('keydown', function(e){
+    var tag = (e.target.tagName || '').toLowerCase();
+    if(tag === 'input' || tag === 'textarea') return;
+    if(e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); go(1); }
+    if(e.key === 'ArrowLeft'  || e.key === 'PageUp'){ e.preventDefault(); go(-1); }
+    if(e.key === 'Home'){ e.preventDefault(); slides[0].scrollIntoView(); }
+    if(e.key === 'End'){ e.preventDefault(); slides[slides.length-1].scrollIntoView(); }
+    if(e.key === 'f' || e.key === 'F'){
+      if(document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+    }
+  });
+})();
+</script>
+</body>
+</html>

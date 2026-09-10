@@ -101,6 +101,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | URL | Explanation |
 | --- | --- |
 | https://dallas-ai.org | Dallas AI — community/organization |
+| /Hari.me/talks/aws-dfw-model-running-on-this.html | AWS User Group DFW — "I Have a Model Running on This" slide deck (internal page) |
 | https://www.influxdays.com/speakers/hari-prasad-sudharshan/ | InfluxDays 2021 — speaker profile |
 | https://www.influxdata.com/blog/see-you-in-october-influxdays-north-america-2021/ | InfluxData blog — InfluxDays North America 2021 announcement |
 
