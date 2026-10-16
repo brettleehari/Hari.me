@@ -104,6 +104,9 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | /Hari.me/talks/aws-dfw-model-running-on-this.html | AWS User Group DFW — "I Have a Model Running on This" slide deck (internal page) |
 | https://www.influxdays.com/speakers/hari-prasad-sudharshan/ | InfluxDays 2021 — speaker profile |
 | https://www.influxdata.com/blog/see-you-in-october-influxdays-north-america-2021/ | InfluxData blog — InfluxDays North America 2021 announcement |
+| https://www.youtube.com/watch?v=0JZy5AuuQzc&t=380s | AI Engineer New York talk — "I Spent Two Years Building the Median" (video) |
+| https://i.ytimg.com/vi/0JZy5AuuQzc/hqdefault.jpg | YouTube thumbnail for the AI Engineer talk (poster image, built from `video_id`) |
+| https://www.linkedin.com/posts/gdgindia-gdgchennai-devfest-share-7516372293032488960-Exkr/ | GDG Chennai DevFest — "Opportunities in AI" talk announcement |
 
 ---
 

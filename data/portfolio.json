@@ -16,7 +16,9 @@
     "email": "hariprasadsudharsan@gmail.com",
     "resume_url": "",
     "linktree": "https://linktr.ee/brettleehari",
-    "hero_headline": "Patents, papers, and live demos — I'd rather show than tell."
+    "hero_headline": "Product leader who ships AI, from patent to production.",
+    "hero_proof": "Builder PM with 3 patents, 45+ citations, merged open-source PRs, and a solo runner-up finish at MIT Media Lab's agentic AI hackathon.",
+    "hero_motto": "Patents, papers, and live demos. I'd rather show than tell."
   },
   "profiles": [
     {
@@ -375,7 +377,14 @@
       "repo_url": "",
       "demo_url": "",
       "writeup_url": "https://www.media.mit.edu/posts/mit-media-lab-and-hcltech-host-nandahack-to-advance-agentic-ai-innovation/",
-      "related_writing": ""
+      "related_writing": "",
+      "pitch": {
+        "theme": "AI agents",
+        "problem": "Autonomous agents in civic settings have no auditable rulebook.",
+        "built": "A civil ledger that records agent actions against a machine-readable constitution.",
+        "result": "Runner-Up of 230+ submissions at MIT Media Lab. Entered solo.",
+        "cta": "Announcement"
+      }
     },
     {
       "id": "tokencalci",
@@ -486,7 +495,14 @@
       "demo_url": "https://brettleehari.github.io/reviewbuddy/",
       "writeup_url": "https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7",
       "related_writing": "",
-      "original_repo_url": "https://github.com/pitchdarkdata/MVP1"
+      "original_repo_url": "https://github.com/pitchdarkdata/MVP1",
+      "pitch": {
+        "theme": "Developer tools",
+        "problem": "Picking the right code reviewer slows teams down and misses the people who know the code.",
+        "built": "A reviewer-assignment tool scored from git history, launched on GitHub Marketplace.",
+        "result": "Ran 2019 to 2020, then open-sourced the full stack. Rebuilt in 2026.",
+        "cta": "Live app"
+      }
     },
     {
       "id": "cricketmind",
@@ -517,7 +533,14 @@
       "writeup_url": "",
       "related_writing": "Building CricketMind: An AI Product Manager's Journey Through the Model Layer (6-part Substack series)",
       "model_url": "https://huggingface.co/brettleehari/cricketmind-nemotron-mini",
-      "dataset_url": "https://huggingface.co/datasets/brettleehari/cricketbench-v1"
+      "dataset_url": "https://huggingface.co/datasets/brettleehari/cricketbench-v1",
+      "pitch": {
+        "theme": "AI models",
+        "problem": "Small open models know little about niche domains like cricket.",
+        "built": "Fine-tuned NVIDIA Nemotron-Mini-4B with LoRA, Claude as teacher, and a custom CricketBench eval.",
+        "result": "Weighted accuracy rose from 30.2% to 67.5% on 170 examples and 35 minutes of training.",
+        "cta": "Model"
+      }
     },
     {
       "id": "cial",
@@ -555,7 +578,7 @@
     },
     {
       "id": "metabolistic-storyteller",
-      "name": "Metabolistic Storyteller",
+      "name": "Metabolic Storyteller",
       "year_started": "2026",
       "year_ended": "",
       "status": "production",
@@ -582,7 +605,14 @@
       "repo_url": "",
       "demo_url": "https://your-metabolic-story-teller.onrender.com",
       "writeup_url": "",
-      "related_writing": ""
+      "related_writing": "",
+      "pitch": {
+        "theme": "Health analytics",
+        "problem": "People can't see how glucose swings connect to symptoms like migraines.",
+        "built": "A full-stack analytics app that visualizes the glucose to migraine causal chain.",
+        "result": "Backed by 6 peer-reviewed citations. 3 demo profiles with 90 days of data. Live on Render.",
+        "cta": "Live app"
+      }
     },
     {
       "id": "intelliyang",
@@ -648,7 +678,8 @@
       "patents": "3",
       "citations": "45+",
       "papers": "6+",
-      "years_in_idp": 18
+      "years_in_idp": 18,
+      "merged_prs": "6"
     },
     "papers": [
       {
@@ -761,6 +792,14 @@
   },
   "writing": [
     {
+      "title": "From M×N to MCP: How I Turned a Decade of API Wrappers into MCP Servers",
+      "type": "article",
+      "platform": "Medium / Towards Dev",
+      "summary": "Eighteen years of integrating every tool in the SDLC pipeline, one wrapper at a time. What changes when the protocol does the integration for you.",
+      "url": "https://towardsdev.com/from-m-n-to-mcp-how-i-turned-a-decade-of-api-wrappers-into-mcp-servers-75d23c9f3d59",
+      "date": "2026"
+    },
+    {
       "title": "Building CricketMind: An AI Product Manager's Journey Through the Model Layer",
       "type": "series",
       "parts": 6,
@@ -855,6 +894,24 @@
       "topic": "I Have a Model Running on This. One model file, Gemma 3 4B at Q4_K_M, measured across an iPhone, a MacBook, a rented GPU, and Amazon Bedrock. Memory bandwidth divided by file size predicts tokens per second, and the talk finds where that stops being true.",
       "slides_url": "/Hari.me/talks/aws-dfw-model-running-on-this.html",
       "tense": "upcoming"
+    },
+    {
+      "event": "AI Engineer New York",
+      "date": "",
+      "topic": "I Spent Two Years Building the Median. Stop building the 400th RAG: what the open-source clock taught me about speed and what to build instead.",
+      "url": "https://www.youtube.com/watch?v=0JZy5AuuQzc&t=380s",
+      "video_id": "0JZy5AuuQzc",
+      "title": "I Spent Two Years Building the Median",
+      "tense": "past"
+    },
+    {
+      "event": "GDG Chennai · DevFest",
+      "date": "",
+      "topic": "Opportunities in AI: Personal Observations on the Culture of the Gold Rush in California.",
+      "url": "https://www.linkedin.com/posts/gdgindia-gdgchennai-devfest-share-7516372293032488960-Exkr/",
+      "title": "Opportunities in AI: Personal Observations on the Culture of the Gold Rush in California",
+      "tense": "past",
+      "poster_line": "The Gold Rush, seen up close."
     },
     {
       "event": "OFC 2026 (Optical Fiber Communication Conference)",

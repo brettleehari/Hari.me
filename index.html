@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hariprasad Sudharshan — Builder, Writer, AI Product</title>
-    <meta name="description" content="Hariprasad Sudharshan. Builder PM. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. 3 patents, 6+ papers, 8 live projects. Writing on AI, platforms, and applied product thinking.">
-    <meta property="og:title" content="Hariprasad Sudharshan — Hari's Corner">
-    <meta property="og:description" content="Builder PM. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. 3 patents. 8 live projects. Writing on AI, platforms, and applied product thinking.">
-    <meta property="og:type" content="website">
+    <title>Hariprasad Sudharshan — Product leader who ships AI</title>
+    <meta name="description" content="Hariprasad Sudharshan. Product leader who ships AI, from patent to production. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. 3 patents, 45+ citations, merged open-source PRs, live demos.">
+    <meta property="og:title" content="Hariprasad Sudharshan — Product leader who ships AI">
+    <meta property="og:description" content="Patents, papers, and live demos. I'd rather show than tell. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon.">
+    <meta property="og:type" content="profile">
     <meta property="og:url" content="https://brettleehari.github.io/Hari.me/">
     <meta property="og:image" content="https://brettleehari.github.io/Hari.me/assets/profile.jpg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Hariprasad Sudharshan — Hari's Corner">
-    <meta name="twitter:description" content="Builder PM. NANDAHack (MIT Media Lab) Runner-Up, solo. 3 patents. 8 live projects.">
+    <meta name="twitter:title" content="Hariprasad Sudharshan — Product leader who ships AI">
+    <meta name="twitter:description" content="Patents, papers, and live demos. I'd rather show than tell. NANDAHack (MIT Media Lab) Runner-Up, solo.">
     <link rel="canonical" href="https://brettleehari.github.io/Hari.me/">
     <link rel="icon" type="image/svg+xml" href="/Hari.me/assets/favicon.svg">
     <link rel="apple-touch-icon" href="/Hari.me/assets/apple-touch-icon.png">
@@ -37,303 +37,319 @@
         "https://substack.com/@brettleehari",
         "https://www.researchgate.net/profile/Hariprasad-Sudharsan"
       ],
-      "jobTitle": "Builder, AI Product",
+      "jobTitle": "Product leader, AI",
       "homeLocation": "Dallas, Texas"
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0f1419; color: #e0e6ed; line-height: 1.6;
+        :root {
+            --bg: #FAF6F0;
+            --card: #FEFCF9;
+            --soft: #F1EBE2;
+            --fg: #2B2420;
+            --fg-2: #4A4038;
+            --muted: #6E645C;
+            --faint: #9A8F85;
+            --border: #E3DCD2;
+            --border-strong: #CFC6BA;
+            --accent: #D9481A;
+            --accent-deep: #B23A13;
+            --accent-soft: rgba(217,72,26,0.08);
+            --accent-fg: #FEFCF9;
+            --ink: #2B2420;
+            --ink-fg: #FAF6F0;
+            --amber: #B45309;
+            --amber-soft: rgba(217,119,6,0.10);
+            --amber-border: rgba(217,119,6,0.30);
+            --display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+            --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --mono: 'SF Mono', 'Menlo', ui-monospace, monospace;
+            --radius: 10px;
         }
-        a { color: #7dd3fc; text-decoration: none; transition: color 0.2s; }
-        a:hover { color: #38bdf8; }
-        .wide { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .narrow { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--sans); background: var(--bg); color: var(--fg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: var(--display); letter-spacing: -0.02em; line-height: 1.15; }
+        a { color: var(--accent-deep); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent); }
+        button { font-family: inherit; }
+        .wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .narrow { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
         /* Header */
         header {
-            padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-            position: sticky; top: 0; background: rgba(15,20,25,0.97);
+            padding: 14px 0; border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; background: rgba(250,246,240,0.92);
             backdrop-filter: blur(12px); z-index: 100;
         }
-        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .logo { font-size: 18px; font-weight: 700; color: #fff; cursor: pointer; }
-        nav { display: flex; gap: 6px; flex-wrap: wrap; }
-        nav a { font-size: 12px; color: #6b7280; padding: 3px 8px; border-radius: 4px; transition: all 0.2s; }
-        nav a:hover { color: #e0e6ed; background: rgba(255,255,255,0.06); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .logo { font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--fg); cursor: pointer; }
+        nav { display: flex; gap: 2px; flex-wrap: wrap; }
+        nav a { font-size: 13px; color: var(--muted); padding: 4px 9px; border-radius: 6px; transition: all 0.2s; }
+        nav a:hover { color: var(--fg); background: var(--soft); }
 
-        /* Compact Hero with About sidebar */
-        .hero-row {
-            display: grid; grid-template-columns: 1fr 260px; gap: 32px;
-            padding: 32px 0 24px; align-items: start;
+        /* Hero */
+        .hero {
+            display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center;
+            padding: 72px 0 40px; animation: rise 0.8s cubic-bezier(0.2,0.7,0.2,1) both;
         }
-        .hero-main { display: flex; gap: 28px; align-items: flex-start; }
+        @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+        .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+        .hero .eyebrow-name { font-size: 14px; color: var(--muted); letter-spacing: 0; text-transform: none; font-weight: 500; }
+        .hero h1 { font-size: clamp(38px, 5.4vw, 64px); font-weight: 700; line-height: 1.05; color: var(--fg); margin-top: 14px; max-width: 14ch; }
+        .hero .proof { font-size: clamp(16px, 1.6vw, 19px); color: var(--muted); max-width: 40rem; margin-top: 22px; line-height: 1.55; }
+        .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+        .btn {
+            display: inline-block; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+            border: 1px solid var(--border-strong); color: var(--fg); background: transparent; transition: all 0.2s; cursor: pointer;
+        }
+        .btn:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-primary { background: var(--ink); color: var(--ink-fg); border-color: var(--ink); }
+        .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+        .btn-accent { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+        .btn-accent:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: var(--accent-fg); }
+        .hero-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 24px; }
+        .hero-links a { font-size: 14px; color: var(--fg-2); text-underline-offset: 4px; }
+        .hero-links a:hover { color: var(--accent); text-decoration: underline; }
         .hero-photo {
-            width: 168px; height: 168px; border-radius: 50%; object-fit: cover; object-position: 50% 28%;
-            border: 2px solid rgba(125,211,252,0.35); flex-shrink: 0; margin-top: 4px;
+            width: 240px; height: 320px; border-radius: 12px; object-fit: cover; object-position: 50% 30%;
+            flex-shrink: 0; box-shadow: 0 1px 2px rgba(43,36,32,0.06), 0 12px 32px rgba(43,36,32,0.10);
         }
-        .hero-main h1 { font-size: clamp(28px,4vw,40px); font-weight: 700; letter-spacing: -0.8px; color: #fff; margin-bottom: 8px; }
-        .hero-main .hero-headline { font-size: clamp(17px,2.2vw,22px); font-weight: 600; line-height: 1.4; color: #7dd3fc; letter-spacing: -0.3px; margin-bottom: 10px; }
-        .hero-main .tagline { font-size: 14px; color: #9ca3af; line-height: 1.7; margin-bottom: 12px; }
-        .hero-main .location { font-size: 12px; color: #9ca3af; margin-bottom: 16px; }
-        .hero-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .hero-links a {
-            padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 5px; font-size: 11px; color: #6b7280; transition: all 0.2s;
-        }
-        .hero-links a:hover { border-color: rgba(125,211,252,0.3); color: #7dd3fc; }
 
-        .about-sidebar {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 8px; padding: 20px; font-size: 13px; color: #9ca3af; line-height: 1.7;
+        /* Proof strip */
+        .proof-strip {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 8px 0 0;
         }
-        .about-sidebar h3 { font-size: 12px; font-weight: 700; color: #7dd3fc; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
-        .about-sidebar p { margin-bottom: 10px; }
-        .about-sidebar p:last-child { margin-bottom: 0; }
-        .about-stats { display: flex; gap: 16px; }
-        .about-stat { text-align: center; flex: 1; }
-        .about-stat .num { font-size: 18px; font-weight: 700; color: #7dd3fc; }
-        .about-stat .lbl { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
+        .proof-tile { background: var(--card); padding: 22px 24px; color: inherit; transition: background 0.2s; display: block; }
+        a.proof-tile:hover { background: var(--soft); color: inherit; }
+        .proof-tile .num { font-family: var(--display); font-size: 30px; font-weight: 700; color: var(--fg); line-height: 1.1; }
+        .proof-tile .lbl { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-        /* Featured strip */
-        .feat-label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-        .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+        /* Sections */
+        section { padding: 64px 0 8px; margin-bottom: 24px; }
+        section + section { border-top: 1px solid var(--border); }
+        .section-header { margin-bottom: 28px; }
+        .section-header h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: var(--fg); margin-top: 10px; }
+        .section-sub { font-size: 15px; color: var(--muted); margin-top: 8px; max-width: 48rem; }
+
+        /* Featured work */
+        .feat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .feat-card {
-            background: rgba(125,211,252,0.04); border: 1px solid rgba(125,211,252,0.12);
-            border-radius: 8px; padding: 18px;
+            display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 28px; transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .feat-card .feat-year { font-size: 10px; font-weight: 700; color: #7dd3fc; margin-bottom: 4px; }
-        .feat-card h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-        .feat-card p { font-size: 12px; color: #9ca3af; line-height: 1.5; margin-bottom: 6px; }
-        .feat-card .feat-results { font-size: 11px; font-weight: 600; color: #7dd3fc; font-family: 'SF Mono', 'Menlo', monospace; margin-bottom: 6px; }
-        .feat-card .feat-link { font-size: 11px; font-weight: 600; color: #7dd3fc; }
-        .feat-card .feat-award {
-            display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-            text-transform: uppercase; color: #fbbf24; background: rgba(251,191,36,0.1);
-            border: 1px solid rgba(251,191,36,0.25); border-radius: 4px; padding: 2px 6px; margin-bottom: 6px;
-        }
+        .feat-card:hover { border-color: var(--border-strong); box-shadow: 0 8px 24px rgba(43,36,32,0.06); }
+        .feat-card.award { border-color: var(--amber-border); background: linear-gradient(180deg, rgba(217,119,6,0.05), var(--card) 40%); }
+        .feat-top { display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+        .feat-top .theme { color: var(--accent); }
+        .feat-card h3 { font-size: 23px; font-weight: 700; color: var(--fg); margin-top: 12px; }
+        .feat-award { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); background: var(--amber-soft); border: 1px solid var(--amber-border); border-radius: 4px; padding: 2px 7px; margin-left: 8px; vertical-align: middle; }
+        .feat-card dl { margin-top: 16px; display: grid; gap: 8px; font-size: 14px; line-height: 1.55; }
+        .feat-card dt { display: inline; font-weight: 700; color: var(--fg); }
+        .feat-card dd { display: inline; color: var(--muted); }
+        .feat-card .feat-link { margin-top: auto; padding-top: 22px; font-size: 14px; font-weight: 600; color: var(--fg); }
+        .feat-card .feat-link:hover { color: var(--accent); }
 
-        /* Award banner */
+        /* Award spotlight */
         .award-banner {
-            display: flex; gap: 16px; align-items: flex-start;
-            background: linear-gradient(90deg, rgba(251,191,36,0.08), rgba(251,191,36,0.02));
-            border: 1px solid rgba(251,191,36,0.22); border-left: 3px solid #fbbf24;
-            border-radius: 8px; padding: 18px 20px; margin-bottom: 32px;
+            display: flex; gap: 18px; align-items: flex-start;
+            background: linear-gradient(90deg, rgba(217,119,6,0.09), rgba(217,119,6,0.02));
+            border: 1px solid var(--amber-border); border-left: 3px solid var(--amber);
+            border-radius: var(--radius); padding: 24px 26px;
         }
-        .award-banner .award-medal { font-size: 24px; line-height: 1; flex: none; }
-        .award-banner .award-placement {
-            font-size: 10px; font-weight: 700; color: #fbbf24; text-transform: uppercase;
-            letter-spacing: 1px; margin-bottom: 4px;
-        }
-        .award-banner h3 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-        .award-banner .award-meta { font-size: 12px; color: #d1d5db; margin-bottom: 6px; }
-        .award-banner p { font-size: 12px; color: #9ca3af; line-height: 1.55; margin-bottom: 8px; }
-        .award-banner .award-scale {
-            font-size: 11px; color: #fbbf24; font-weight: 500;
-            font-family: 'SF Mono', 'Menlo', monospace; margin-bottom: 8px;
-        }
-        .award-banner .award-solo {
-            display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
-            color: #0f1419; background: #fbbf24; border-radius: 3px; padding: 2px 6px; margin-left: 6px;
-            vertical-align: middle;
-        }
-        .award-banner .award-note {
-            font-size: 12px; color: #9ca3af; line-height: 1.6; margin-bottom: 8px;
-            padding-left: 12px; border-left: 1px solid rgba(251,191,36,0.25);
-        }
-        .award-banner .award-note span { color: #d1d5db; font-weight: 600; }
-        .award-banner .award-links { display: flex; gap: 14px; flex-wrap: wrap; }
-        .award-banner .award-links a { font-size: 11px; font-weight: 600; color: #fbbf24; }
+        .award-banner .award-medal { font-size: 26px; line-height: 1; flex: none; }
+        .award-banner .award-placement { font-size: 11px; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+        .award-banner h3 { font-size: 20px; font-weight: 700; color: var(--fg); margin-bottom: 4px; }
+        .award-banner .award-meta { font-size: 13px; color: var(--fg-2); margin-bottom: 8px; }
+        .award-banner p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+        .award-banner .award-scale { font-size: 12px; color: var(--amber); font-weight: 600; font-family: var(--mono); margin-bottom: 12px; }
+        .award-banner .award-solo { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; color: var(--ink-fg); background: var(--amber); border-radius: 3px; padding: 2px 7px; margin-left: 6px; vertical-align: middle; }
+        .award-banner .award-note { font-size: 14px; color: var(--fg-2); line-height: 1.65; margin-bottom: 10px; padding-left: 14px; border-left: 2px solid var(--amber-border); }
+        .award-banner .award-note span { color: var(--fg); font-weight: 700; }
+        .award-banner .award-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        .award-banner .award-links a { font-size: 13px; font-weight: 600; color: var(--amber); }
 
-        /* Section basics */
-        section { margin-bottom: 64px; }
-        .section-header { margin-bottom: 24px; }
-        .section-header h2 {
-            font-size: 20px; font-weight: 700; color: #fff;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .section-header h2 .section-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
-        .section-sub { font-size: 13px; color: #9ca3af; margin-top: 6px; }
-
-        /* ===== 4-LANE JOURNEY ===== */
-        .journey-intro { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
-        /* Bookshelf */
-        .shelf-tabs { display: flex; gap: 0; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 14px; }
-        .shelf-tab {
-            background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer;
-            font-family: inherit; font-size: 12px; color: #6b7280; padding: 8px 12px; transition: all 0.2s;
-        }
-        .shelf-tab:hover { color: #d1d5db; }
-        .shelf-tab.active { color: #7dd3fc; border-bottom-color: #7dd3fc; }
-        .shelf-panel { display: none; }
-        .shelf-panel.active { display: block; }
-        .shelf-why { font-size: 12px; color: #6b7280; font-style: italic; margin-bottom: 10px; }
-        .shelf-note {
-            font-size: 12px; color: #9ca3af; line-height: 1.7; background: rgba(255,255,255,0.03);
-            border: 1px dashed rgba(255,255,255,0.1); border-radius: 6px; padding: 14px;
-        }
-        .shelf-book .author { font-size: 11px; color: #7dd3fc; margin-bottom: 4px; }
-        .subhead { font-size: 12px; font-weight: 700; color: #7dd3fc; text-transform: uppercase; letter-spacing: 0.5px; margin: 22px 0 10px; }
-        .subhead:first-of-type { margin-top: 0; }
-
-        .lane-tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        /* Journey */
+        .lane-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
         .lane-tab {
-            flex: 1; padding: 12px 8px; text-align: center; cursor: pointer;
-            font-size: 13px; font-weight: 600; color: #9ca3af;
-            border-bottom: 2px solid transparent; transition: all 0.2s;
-            background: none; border-top: none; border-left: none; border-right: none;
-            font-family: inherit;
+            padding: 8px 16px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--fg-2);
+            border: 1px solid var(--border-strong); border-radius: 999px; background: transparent; transition: all 0.2s;
         }
-        .lane-tab:hover { color: #d1d5db; background: rgba(255,255,255,0.02); }
-        .lane-tab.active { color: var(--lane-color, #7dd3fc); border-bottom-color: var(--lane-color, #7dd3fc); }
-        .lane-tab .tab-count {
-            display: inline-block; font-size: 10px; background: rgba(255,255,255,0.06);
-            color: #6b7280; padding: 1px 6px; border-radius: 8px; margin-left: 4px;
-        }
-        .lane-tab.active .tab-count { background: var(--lane-bg, rgba(125,211,252,0.1)); color: var(--lane-color, #7dd3fc); }
-
+        .lane-tab:hover { border-color: var(--accent); color: var(--accent); }
+        .lane-tab.active { background: var(--ink); color: var(--ink-fg); border-color: var(--ink); }
+        .lane-tab .tab-count { display: inline-block; font-size: 11px; background: var(--soft); color: var(--muted); padding: 1px 7px; border-radius: 8px; margin-left: 6px; }
+        .lane-tab.active .tab-count { background: rgba(255,255,255,0.16); color: var(--ink-fg); }
         .lane-panel { display: none; padding: 20px 0; }
         .lane-panel.active { display: block; }
-
-        .lane-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-
+        .lane-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
         .lc {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 8px; padding: 18px; cursor: pointer; transition: all 0.2s;
-            border-left: 3px solid var(--lane-color, #7dd3fc);
+            background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;
+            cursor: pointer; transition: all 0.2s; border-left: 3px solid var(--lane-color, var(--accent));
         }
-        .lc:hover { border-color: rgba(255,255,255,0.12); border-left-color: var(--lane-color, #7dd3fc); background: rgba(255,255,255,0.05); }
-        .lc .lc-year { font-size: 10px; font-weight: 700; color: var(--lane-color, #7dd3fc); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-        .lc h4 { font-size: 14px; font-weight: 600; color: #e0e6ed; margin-bottom: 4px; }
-        .lc .lc-oneliner { font-size: 13px; color: #9ca3af; line-height: 1.5; }
-        .lc .lc-primary-link {
-            display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600;
-            color: var(--lane-color, #7dd3fc); transition: opacity 0.2s;
-        }
+        .lc:hover { border-color: var(--border-strong); border-left-color: var(--lane-color, var(--accent)); box-shadow: 0 6px 18px rgba(43,36,32,0.05); }
+        .lc .lc-year { font-size: 11px; font-weight: 700; color: var(--lane-color, var(--accent)); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        .lc h4 { font-size: 16px; font-weight: 600; color: var(--fg); margin-bottom: 6px; }
+        .lc .lc-oneliner { font-size: 14px; color: var(--muted); line-height: 1.5; }
+        .lc .lc-primary-link { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--lane-color, var(--accent)); }
         .lc .lc-primary-link:hover { opacity: 0.8; }
-        .lc .lc-hint { font-size: 10px; color: #4b5563; margin-top: 4px; }
+        .lc .lc-hint { font-size: 11px; color: var(--faint); margin-top: 6px; }
         .lc.open .lc-hint { display: none; }
-        .lc .lc-detail {
-            max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
-        }
-        .lc.open .lc-detail { max-height: 600px; }
-        .lc .lc-detail p { font-size: 12px; color: #d1d5db; line-height: 1.6; margin-top: 10px; }
-        .lc .lc-detail .lc-insight { font-size: 11px; color: #9ca3af; font-style: italic; margin-top: 6px; }
-        .lc .lc-results { font-size: 11px; color: var(--lane-color, #7dd3fc); font-weight: 500; margin-top: 6px; font-family: 'SF Mono', 'Menlo', monospace; }
-        .lc .lc-links { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-        .lc .lc-links a {
-            font-size: 10px; padding: 2px 8px; border-radius: 3px;
-            border: 1px solid rgba(125,211,252,0.15); color: #7dd3fc; transition: all 0.2s;
-        }
-        .lc .lc-links a:hover { background: rgba(125,211,252,0.1); border-color: rgba(125,211,252,0.3); }
-        .lc .lc-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-        .lc .lc-tags span {
-            font-size: 10px; background: rgba(255,255,255,0.05); color: #6b7280;
-            padding: 1px 6px; border-radius: 3px;
-        }
+        .lc .lc-detail { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .lc.open .lc-detail { max-height: 700px; }
+        .lc .lc-detail p { font-size: 13px; color: var(--fg-2); line-height: 1.6; margin-top: 12px; }
+        .lc .lc-detail .lc-insight { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 8px; }
+        .lc .lc-results { font-size: 12px; color: var(--lane-color, var(--accent)); font-weight: 600; margin-top: 8px; font-family: var(--mono); }
+        .lc .lc-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .lc .lc-links a { font-size: 12px; padding: 3px 9px; border-radius: 4px; border: 1px solid var(--border-strong); color: var(--fg-2); transition: all 0.2s; }
+        .lc .lc-links a:hover { border-color: var(--accent); color: var(--accent); }
+        .lc .lc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+        .lc .lc-tags span { font-size: 11px; background: var(--soft); color: var(--muted); padding: 2px 7px; border-radius: 4px; }
 
-        /* Lane colors */
-        [data-lane="oss"] { --lane-color: #34d399; --lane-bg: rgba(52,211,153,0.1); }
-        [data-lane="live"] { --lane-color: #60a5fa; --lane-bg: rgba(96,165,250,0.1); }
-        [data-lane="entrepreneur"] { --lane-color: #f87171; --lane-bg: rgba(248,113,113,0.1); }
-        [data-lane="research"] { --lane-color: #c084fc; --lane-bg: rgba(192,132,252,0.1); }
-        [data-lane="public"] { --lane-color: #fbbf24; --lane-bg: rgba(251,191,36,0.1); }
+        [data-lane="oss"] { --lane-color: #15803D; }
+        [data-lane="live"] { --lane-color: #1D4ED8; }
+        [data-lane="entrepreneur"] { --lane-color: #B91C1C; }
+        [data-lane="research"] { --lane-color: #7E22CE; }
+        [data-lane="public"] { --lane-color: #B45309; }
 
-        /* Remaining sections reuse prior styles */
-        .beliefs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
-        .belief-item { background: rgba(255,255,255,0.03); border-left: 2px solid rgba(125,211,252,0.3); padding: 14px 18px; border-radius: 0 6px 6px 0; transition: all 0.2s; }
-        .belief-item:hover { background: rgba(125,211,252,0.05); border-left-color: #7dd3fc; }
-        .belief-text { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px; }
-        .belief-sub { font-size: 11px; color: #9ca3af; line-height: 1.5; }
+        /* Beliefs */
+        .beliefs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px 32px; }
+        .belief-item { padding: 0; }
+        .belief-num { font-family: var(--display); font-size: 13px; color: var(--accent); font-weight: 600; }
+        .belief-text { font-family: var(--display); font-size: 19px; font-weight: 700; color: var(--fg); margin-top: 6px; line-height: 1.25; }
+        .belief-sub { font-size: 14px; color: var(--muted); line-height: 1.55; margin-top: 8px; }
+        .ghost-btn { margin-top: 24px; background: none; border: 1px solid var(--border-strong); border-radius: 999px; color: var(--fg-2); font-size: 13px; padding: 7px 16px; cursor: pointer; transition: all 0.2s; }
+        .ghost-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-        .bg-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 24px; margin-bottom: 20px; }
-        .bg-card p { font-size: 13px; line-height: 1.8; color: #d1d5db; }
-        .stats-row { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 22px; font-weight: 700; color: #7dd3fc; }
-        .stat-label { font-size: 10px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* Research */
+        .bg-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; }
+        .bg-card p { font-size: 15px; line-height: 1.75; color: var(--fg-2); }
+        .bg-card .insight { margin-top: 12px; font-style: italic; color: var(--muted); font-size: 14px; }
+        .stats-row { display: flex; gap: 32px; margin-top: 20px; flex-wrap: wrap; }
+        .stat { text-align: left; }
+        .stat-number { font-family: var(--display); font-size: 26px; font-weight: 700; color: var(--fg); }
+        .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+        .subhead { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.14em; margin: 28px 0 12px; }
+        .subhead:first-of-type { margin-top: 0; }
+        .fw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .fw-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+        .fw-item h4 { font-size: 15px; font-weight: 600; color: var(--fg); margin-bottom: 4px; }
+        .fw-item p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+        .pill-row { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .pill { font-size: 13px; padding: 6px 14px; border: 1px solid var(--border-strong); border-radius: 999px; color: var(--fg-2); }
+        .pill:hover { border-color: var(--accent); color: var(--accent); }
 
-        .fw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 12px; }
-        .fw-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 14px; }
-        .fw-item h4 { font-size: 12px; font-weight: 600; color: #7dd3fc; margin-bottom: 3px; }
-        .fw-item p { font-size: 11px; color: #9ca3af; line-height: 1.5; }
+        /* Book + shelf */
+        .book-card { display: flex; gap: 22px; align-items: center; background: linear-gradient(90deg, rgba(217,119,6,0.07), var(--card)); border: 1px solid var(--amber-border); border-radius: var(--radius); padding: 24px; margin-bottom: 8px; }
+        .book-icon { font-size: 36px; opacity: 0.8; }
+        .book-info h3 { font-size: 19px; font-weight: 700; color: var(--fg); margin-bottom: 3px; }
+        .book-info .book-meta { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+        .book-info p { font-size: 14px; color: var(--fg-2); line-height: 1.6; }
+        .shelf-tabs { display: flex; gap: 0; flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+        .shelf-tab { background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-size: 13px; color: var(--muted); padding: 8px 12px; transition: all 0.2s; }
+        .shelf-tab:hover { color: var(--fg); }
+        .shelf-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .shelf-tab .tab-count { display: inline-block; font-size: 11px; background: var(--soft); color: var(--muted); padding: 1px 7px; border-radius: 8px; margin-left: 4px; }
+        .shelf-panel { display: none; }
+        .shelf-panel.active { display: block; }
+        .shelf-why { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 10px; }
+        .shelf-note { font-size: 14px; color: var(--muted); line-height: 1.7; background: var(--card); border: 1px dashed var(--border-strong); border-radius: 8px; padding: 16px; }
+        .shelf-book .author { font-size: 12px; color: var(--accent); margin-bottom: 4px; }
 
-        .book-card { display: flex; gap: 20px; align-items: center; background: rgba(251,191,36,0.04); border: 1px solid rgba(251,191,36,0.15); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-        .book-icon { font-size: 36px; opacity: 0.7; }
-        .book-info h3 { font-size: 15px; font-weight: 600; color: #fbbf24; margin-bottom: 3px; }
-        .book-info .book-meta { font-size: 11px; color: #6b7280; margin-bottom: 4px; }
-        .book-info p { font-size: 12px; color: #d1d5db; line-height: 1.6; }
+        /* Small cards (speaking, writing, now, reading, tech, education) */
+        .small-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+        .small-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; transition: border-color 0.2s; }
+        .small-card:hover { border-color: var(--border-strong); }
+        .small-card h4 { font-size: 15px; font-weight: 600; color: var(--fg); margin-bottom: 4px; }
+        .small-card h4 a { color: var(--fg); }
+        .small-card h4 a:hover { color: var(--accent); }
+        .small-card .meta { font-size: 12px; color: var(--accent); margin-bottom: 6px; }
+        .small-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+        .small-card .card-head { color: var(--accent); }
+        .chip { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 4px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.04em; text-transform: uppercase; }
+        .chip-upcoming { background: rgba(21,128,61,0.12); color: #15803D; }
+        .chip-recurring { background: var(--amber-soft); color: var(--amber); }
+        .chip-past { background: var(--soft); color: var(--muted); }
 
-        .small-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
-        .small-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 14px; }
-        .small-card h4 { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 2px; }
-        .small-card .meta { font-size: 10px; color: #7dd3fc; margin-bottom: 3px; }
-        .small-card p { font-size: 11px; color: #9ca3af; line-height: 1.5; }
-        .small-card:hover { border-color: rgba(255,255,255,0.1); }
-
-        .writing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
-        .now-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
-        .reading-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+        /* Speaking */
+        .talk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px; }
+        .talk-card { display: flex; flex-direction: column; overflow: hidden; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); color: inherit; transition: border-color 0.2s, box-shadow 0.2s; }
+        .talk-card:hover { border-color: var(--border-strong); box-shadow: 0 8px 24px rgba(43,36,32,0.06); color: inherit; }
+        .talk-card img { aspect-ratio: 16/9; width: 100%; object-fit: cover; display: block; }
+        .talk-poster { aspect-ratio: 16/9; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; background: var(--ink); color: var(--ink-fg); padding: 28px; }
+        .talk-poster .big { font-family: var(--display); font-size: 48px; font-weight: 700; color: var(--accent); line-height: 1; }
+        .talk-poster .sub { font-family: var(--display); font-size: 22px; font-weight: 700; margin-top: 8px; line-height: 1.2; }
+        .talk-body { padding: 20px 22px 22px; }
+        .talk-body .ev { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+        .talk-body h3 { font-size: 20px; font-weight: 700; color: var(--fg); margin-top: 8px; }
+        .talk-card:hover h3 { color: var(--accent); }
+        .reading-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
         .reading-card ul { list-style: none; padding: 0; }
-        .reading-card li { font-size: 12px; color: #d1d5db; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04); line-height: 1.5; }
+        .reading-card li { font-size: 13px; color: var(--fg-2); padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
         .reading-card li:last-child { border-bottom: none; }
-        .reading-card li strong { color: #fff; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
-        .edu-grid { display: flex; gap: 12px; flex-wrap: wrap; }
-        .edu-item { flex: 1; min-width: 220px; }
+        .reading-card li strong { color: var(--fg); }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
 
-        footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 0 28px; text-align: center; }
-        .footer-text { font-size: 12px; color: #6b7280; margin-bottom: 10px; }
-        .footer-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-        .footer-links a { font-size: 11px; color: #6b7280; }
-        .footer-links a:hover { color: #7dd3fc; }
+        /* Contact */
+        #contact h2 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.05; max-width: 16ch; }
+        .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+        .contact-sub { font-size: 15px; color: var(--muted); margin-top: 18px; max-width: 40rem; }
 
-        @media (max-width: 860px) {
-            .hero-row { grid-template-columns: 1fr; gap: 16px; }
-            .hero-main { gap: 18px; }
-            .hero-photo { width: 112px; height: 112px; }
-            .about-sidebar { margin-top: 0; }
-            .feat-grid { grid-template-columns: 1fr; }
-            .lane-tabs { overflow-x: auto; flex-wrap: nowrap; }
-            .lane-tab { white-space: nowrap; flex: none; padding: 10px 14px; }
+        footer { border-top: 1px solid var(--border); padding: 32px 0 40px; margin-top: 40px; }
+        .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .footer-text { font-size: 13px; color: var(--muted); }
+        .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        .footer-links a { font-size: 13px; color: var(--muted); }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; gap: 28px; padding-top: 44px; }
+            .hero-photo { width: 160px; height: 200px; order: -1; }
+            .proof-strip { grid-template-columns: repeat(2, 1fr); }
+            .feat-grid, .talk-grid { grid-template-columns: 1fr; }
             .lane-cards { grid-template-columns: 1fr; }
-            nav { gap: 4px; }
-            nav a { font-size: 11px; padding: 2px 6px; }
-            .book-card { flex-direction: column; text-align: center; }
+            nav a { font-size: 12px; padding: 3px 7px; }
+            .book-card { flex-direction: column; align-items: flex-start; }
+            section { padding-top: 48px; }
+            .wide, .narrow, .header-content { padding: 0 16px; }
         }
-        /* Skip link */
-        .skip-link { position: absolute; left: -9999px; }
-        .skip-link:focus { left: 12px; top: 12px; background: #fff; color: #000; padding: 6px 10px; border-radius: 4px; z-index: 200; font-size: 13px; }
+        @media (max-width: 600px) {
+            .header-content { flex-direction: column; align-items: flex-start; gap: 6px; }
+        }
 
-        /* Print */
+        .skip-link { position: absolute; left: -9999px; }
+        .skip-link:focus { left: 12px; top: 12px; background: var(--ink); color: var(--ink-fg); padding: 6px 10px; border-radius: 4px; z-index: 200; font-size: 13px; }
+
         @media print {
             body { background: #fff; color: #111; }
-            header, footer, nav, .lane-tabs, .skip-link, .hero-links, .lc-hint, .feat-label { display: none; }
-            .hero-row { grid-template-columns: 1fr; }
-            .about-sidebar { border: 1px solid #ccc; }
+            header, footer, nav, .lane-tabs, .skip-link, .hero-links, .hero-cta, .lc-hint, .contact-actions { display: none; }
+            .hero { grid-template-columns: 1fr; }
             .lane-panel { display: block !important; margin-bottom: 24px; }
-            .lc, .feat-card, .small-card, .belief-item, .fw-item, .bg-card { border: 1px solid #ddd; break-inside: avoid; }
+            .lc, .feat-card, .small-card, .fw-item, .bg-card, .talk-card { border: 1px solid #ddd; break-inside: avoid; }
             .lc .lc-detail { max-height: none !important; }
             a { color: #111; text-decoration: underline; }
-            .stat-number { color: #111; }
         }
     </style>
 </head>
 <body>
-    <a href="#journey" class="skip-link">Skip to content</a>
+    <a href="#work" class="skip-link">Skip to content</a>
     <header><div class="header-content">
         <div class="logo" id="site-name"></div>
         <nav id="nav-links"></nav>
     </div></header>
 
     <div class="wide">
-        <section class="hero-row" id="hero-row"></section>
+        <section class="hero" id="hero-row"></section>
+        <div class="proof-strip" id="proof-strip"></div>
     </div>
 
     <div class="wide">
+        <section id="work"></section>
+        <section id="spotlight"></section>
         <section id="journey"></section>
     </div>
 
@@ -347,79 +363,87 @@
         <section id="read"></section>
         <section id="tech"></section>
         <section id="education"></section>
+        <section id="contact"></section>
     </div>
 
-    <footer><div class="narrow" id="footer-content"></div></footer>
+    <footer><div class="narrow footer-row" id="footer-content"></div></footer>
 
     <script>
     fetch('data/portfolio.json').then(r=>r.json()).then(render).catch(()=>{
-        document.querySelector('.wide').innerHTML='<p style="text-align:center;padding:80px 20px;color:#6b7280;">Failed to load portfolio data.</p>';
+        document.querySelector('.wide').innerHTML='<p style="text-align:center;padding:80px 20px;color:#6E645C;">Failed to load portfolio data.</p>';
     });
 
     function esc(s){if(!s)return '';const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
-    function sh(t,sub){return `<div class="section-header"><h2>${esc(t)} <span class="section-line"></span></h2>${sub?`<p class="section-sub">${esc(sub)}</p>`:''}</div>`;}
+    function sh(label,t,sub){return `<div class="section-header"><p class="eyebrow">${esc(label)}</p>${t?`<h2>${esc(t)}</h2>`:''}${sub?`<p class="section-sub">${esc(sub)}</p>`:''}</div>`;}
+    const SCHOLAR='https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ';
 
     function render(d) {
         document.getElementById('site-name').textContent = d.site.name;
-        document.title = `${d.person.full_name} — ${d.person.headline.split('.')[0]}`;
+        document.title = `${d.person.full_name} — ${(d.person.hero_headline || d.person.headline).replace(/\.$/,'')}`;
 
-        const nav=[['journey','Journey'],['believe','Beliefs'],['background','Research'],['books','Bookshelf'],['speaking','Speaking'],['write','Write'],['now','Now'],['tech','Stack']];
+        const nav=[['work','Work'],['journey','Journey'],['believe','Beliefs'],['background','Research'],['books','Bookshelf'],['speaking','Speaking'],['write','Write'],['now','Now'],['tech','Stack'],['contact','Contact']];
         document.getElementById('nav-links').innerHTML=nav.map(([id,l])=>`<a href="#${id}">${l}</a>`).join('');
 
-        // Hero + About sidebar
+        const award = (d.awards || [])[0];
+        const li = d.profiles.find(p=>p.platform==='LinkedIn');
+        const gh = d.profiles.find(p=>p.platform==='GitHub');
+        const contactHref = d.person.email ? `mailto:${d.person.email}` : (li ? li.url : '#');
+
+        // Hero
         document.getElementById('hero-row').innerHTML = `
-            <div class="hero-main">
-                <img class="hero-photo" src="/Hari.me/assets/profile.jpg" alt="${esc(d.person.full_name)}">
-                <div>
-                    <h1>${esc(d.person.full_name)}</h1>
-                    ${d.person.hero_headline ? `<p class="hero-headline">${esc(d.person.hero_headline)}</p>` : ''}
-                    <p class="tagline">${esc(d.person.headline)}</p>
-                    <p class="location">${esc(d.person.current_location)}</p>
-                    <div class="hero-links">
-                        ${d.profiles.map(p=>`<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`).join('')}
-                    </div>
+            <div class="hero-text">
+                <p class="eyebrow-name">${esc(d.person.full_name)} &middot; ${esc(d.person.current_location)}</p>
+                <h1>${esc(d.person.hero_headline || d.person.headline)}</h1>
+                <p class="proof">${esc(d.person.hero_proof || d.person.headline)}</p>
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="#work">See my work</a>
+                    <a class="btn" href="#contact">Get in touch</a>
+                </div>
+                <div class="hero-links">
+                    ${d.profiles.filter(p=>p.platform!=='Linktree').map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.platform)}</a>`).join('')}
                 </div>
             </div>
-            <div class="about-sidebar">
-                <div class="about-stats">
-                    <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank" class="about-stat" style="text-decoration:none;color:inherit;"><div class="num">${esc(d.research.stats.patents)}</div><div class="lbl">Patents</div></a>
-                    <div class="about-stat"><div class="num">${esc(d.research.stats.papers)}</div><div class="lbl">Papers</div></div>
-                    <a href="https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ" target="_blank" class="about-stat" style="text-decoration:none;color:inherit;"><div class="num">${esc(d.research.stats.citations)}</div><div class="lbl">Citations</div></a>
-                    <div class="about-stat"><div class="num">${esc(String(d.person.years_in_tech))}</div><div class="lbl">Years</div></div>
-                </div>
-            </div>`;
+            <img class="hero-photo" src="/Hari.me/assets/profile.jpg" width="240" height="320" alt="${esc(d.person.full_name)}">`;
 
-        // C2: Featured strip
+        // Proof strip
+        const st = d.research.stats;
+        const tiles = [
+            {v:st.patents, l:'Patents granted', h:SCHOLAR},
+            {v:st.citations, l:'Research citations', h:SCHOLAR},
+            award ? {v:award.placement, l:`MIT NANDAHack, solo, of 230+`, h:award.url} : {v:st.papers, l:'Papers published', h:SCHOLAR},
+            {v:st.merged_prs || '6', l:'Merged open-source PRs', h: gh ? gh.url : '#'},
+        ];
+        document.getElementById('proof-strip').innerHTML = tiles.map(t =>
+            `<a class="proof-tile" href="${esc(t.h)}" target="_blank" rel="noreferrer"><div class="num">${esc(t.v)}</div><div class="lbl">${esc(t.l)}</div></a>`
+        ).join('');
+
+        // Featured work: Problem / Built / Result
         const featured = d.projects.filter(p=>p.pinned).sort((a,b)=>a.featured_order-b.featured_order).slice(0,4);
         const featuredHtml = featured.map(p => {
+            const pt = p.pitch || {};
             const link = p.demo_url || p.model_url || p.repo_url || p.writeup_url || '';
-            const linkLabel = p.demo_url ? 'Live Application' : p.model_url ? 'Model' : p.repo_url ? 'GitHub' : 'Announcement';
-            return `<div class="feat-card"${p.award ? ' style="border-color:rgba(251,191,36,0.25);background:rgba(251,191,36,0.05);"' : ''}>
-                <div class="feat-year">${esc(p.year_started)}</div>
-                ${p.award ? `<div class="feat-award">Award</div>` : ''}
-                <h4>${esc(p.name)}</h4>
-                <p>${esc(p.one_liner)}</p>
-                ${p.results ? `<div class="feat-results">${esc(p.results.split('.')[0])}</div>` : ''}
-                ${link ? `<a href="${esc(link)}" target="_blank" class="feat-link">${esc(linkLabel)} &rarr;</a>` : ''}
-            </div>`;
+            const linkLabel = pt.cta || (p.demo_url ? 'Live app' : p.model_url ? 'Model' : p.repo_url ? 'GitHub' : 'Announcement');
+            const title = pt.title || p.name.split(' — ')[0];
+            return `<article class="feat-card${p.award ? ' award' : ''}">
+                <div class="feat-top"><span class="theme">${esc(pt.theme || 'Project')}</span><span>${esc(p.year_started)}</span></div>
+                <h3>${esc(title)}${p.award ? '<span class="feat-award">Award</span>' : ''}</h3>
+                <dl>
+                    <div><dt>Problem. </dt><dd>${esc(pt.problem || p.problem)}</dd></div>
+                    <div><dt>Built. </dt><dd>${esc(pt.built || p.what_it_does)}</dd></div>
+                    <div><dt>Result. </dt><dd>${esc(pt.result || p.results)}</dd></div>
+                </dl>
+                ${link ? `<a href="${esc(link)}" target="_blank" rel="noreferrer" class="feat-link">${esc(linkLabel)} &rarr;</a>` : ''}
+            </article>`;
         }).join('');
+        document.getElementById('work').innerHTML = `
+            ${sh('Featured work', '', d.person.hero_motto || '')}
+            <div class="feat-grid">${featuredHtml}</div>`;
 
-        const ossCard = `<div class="feat-card" style="border-color:rgba(52,211,153,0.2);background:rgba(52,211,153,0.04);">
-            <div class="feat-year" style="color:#34d399;">Since 2016</div>
-            <h4>Open Source Contributor</h4>
-            <p>LlamaIndex, Warrior Framework. Arctic Code Vault.</p>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;">
-                <a href="https://github.com/run-llama/llama_index/pull/15311" target="_blank"><img src="https://img.shields.io/badge/PRs_Merged-LlamaIndex%2C_Warrior-34d399?style=flat&logo=github&labelColor=0f1419" alt="PRs" style="height:20px;"></a>
-                <img src="https://img.shields.io/badge/Arctic_Code_Vault-Contributor-7dd3fc?style=flat&logo=github&labelColor=0f1419" alt="Arctic" style="height:20px;">
-            </div>
-            <a href="https://github.com/brettleehari" target="_blank" class="feat-link" style="color:#34d399;">GitHub Profile &rarr;</a>
-        </div>`;
-
-        // Awards banner (above Featured Work)
+        // Spotlight: award narrative
         const awardsHtml = (d.awards || []).map(a => {
             const links = [
                 a.url ? {label:'Announcement (MIT Media Lab)', url:a.url} : null,
-                a.demo_url ? {label:'Live Application', url:a.demo_url} : null,
+                a.demo_url ? {label:'Live application', url:a.demo_url} : null,
                 a.repo_url ? {label:'GitHub', url:a.repo_url} : null,
             ].filter(Boolean);
             return `<div class="award-banner">
@@ -432,20 +456,14 @@
                     ${a.scale ? `<div class="award-scale">${esc(a.scale)}</div>` : ''}
                     ${a.why_i_entered ? `<p class="award-note"><span>Why I entered.</span> ${esc(a.why_i_entered)}</p>` : ''}
                     ${a.what_i_learned ? `<p class="award-note"><span>What I took from it.</span> ${esc(a.what_i_learned)}</p>` : ''}
-                    ${links.length ? `<div class="award-links">${links.map(l=>`<a href="${esc(l.url)}" target="_blank">${esc(l.label)} &rarr;</a>`).join('')}</div>` : ''}
+                    ${links.length ? `<div class="award-links">${links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noreferrer">${esc(l.label)} &rarr;</a>`).join('')}</div>` : ''}
                 </div>
             </div>`;
         }).join('');
-
-        document.getElementById('journey').insertAdjacentHTML('beforebegin',
-            `${awardsHtml}
-            <div class="featured-strip" style="margin-bottom:32px;">
-                <div class="feat-label">Featured Work</div>
-                <div class="feat-grid">${ossCard}${featuredHtml}</div>
-            </div>`);
+        const spot = document.getElementById('spotlight');
+        if (awardsHtml) spot.innerHTML = `${sh('Spotlight')}${awardsHtml}`; else spot.remove();
 
         // ===== 5-LANE JOURNEY =====
-        // Categorize projects + timeline into 4 lanes
         const ossItems = d.open_source.map(o => ({
             year: o.year || '', title: o.project, oneliner: o.contribution,
             desc: o.significance || '', links: o.url ? [{label:'View PR / Repo', url:o.url}] : [], tags: []
@@ -455,7 +473,7 @@
             year: p.year_started, title: p.name, oneliner: p.one_liner,
             desc: p.what_it_does, insight: p.what_i_learned, results: p.results,
             links: [
-                p.demo_url ? {label:'Live Application',url:p.demo_url} : null,
+                p.demo_url ? {label:'Live application',url:p.demo_url} : null,
                 p.repo_url ? {label:'GitHub',url:p.repo_url} : null,
                 p.writeup_url ? {label:'Write-up',url:p.writeup_url} : null,
                 p.model_url ? {label:'Model',url:p.model_url} : null,
@@ -480,7 +498,7 @@
                     {label:'Original repo (2019)', url:'https://github.com/pitchdarkdata/MVP1'},
                     {label:'Pitchdarkdata (business account)', url:'https://github.com/pitchdarkdata'},
                     {label:'2026 rebuild', url:'https://github.com/brettleehari/reviewbuddy'},
-                    {label:'Live Application', url:'https://brettleehari.github.io/reviewbuddy/'},
+                    {label:'Live application', url:'https://brettleehari.github.io/reviewbuddy/'},
                     {label:'Medium article', url:'https://medium.com/towardsdev/are-you-adding-the-best-code-reviewer-for-each-pull-request-59706275acc7'}
                 ], tags: ['Probot','PyDriller','React','FastAPI']
             }
@@ -506,13 +524,13 @@
             ...(d.speaking ? d.speaking.map(s => ({
                 year: s.date || '', title: s.event,
                 oneliner: s.topic, desc: '',
-                links: s.event.includes('dallas-ai') ? [{label:'dallas-ai.org', url:'https://dallas-ai.org'}] :
+                links: s.url ? [{label: s.video_id ? 'Watch' : 'Event page', url:s.url}] :
+                    s.event.includes('dallas-ai') ? [{label:'dallas-ai.org', url:'https://dallas-ai.org'}] :
                     [{label:'LinkedIn', url:'https://linkedin.com/in/haripm4ai'}],
                 tags: []
             })) : [])
         ];
 
-        // Add projects without live demos to public track (they have repos)
         d.projects.filter(p => !p.demo_url && !p.model_url && !p.dataset_url && (p.repo_url || p.writeup_url)).forEach(p => {
             publicItems.push({
                 year: p.year_started, title: p.name, oneliner: p.one_liner,
@@ -529,8 +547,6 @@
         function laneCard(item) {
             const primary = item.links && item.links.length ? item.links[0] : null;
             const restLinks = item.links && item.links.length > 1 ? item.links.slice(1) : [];
-            const allLinksHtml = item.links && item.links.length
-                ? `<div class="lc-links">${item.links.map(l=>`<a href="${esc(l.url)}" target="_blank" onclick="event.stopPropagation()">${esc(l.label)}</a>`).join('')}</div>` : '';
             const tagsHtml = item.tags && item.tags.length
                 ? `<div class="lc-tags">${item.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>` : '';
             return `
@@ -539,12 +555,12 @@
                     <h4>${esc(item.title)}</h4>
                     <div class="lc-oneliner">${esc(item.oneliner)}</div>
                     ${item.results ? `<div class="lc-results">${esc(item.results)}</div>` : ''}
-                    ${primary ? `<a class="lc-primary-link" href="${esc(primary.url)}" target="_blank" onclick="event.stopPropagation()">${esc(primary.label)} &rarr;</a>` : ''}
+                    ${primary ? `<a class="lc-primary-link" href="${esc(primary.url)}" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">${esc(primary.label)} &rarr;</a>` : ''}
                     <div class="lc-hint">${item.desc || restLinks.length ? 'click for details' : ''}</div>
                     <div class="lc-detail">
                         ${item.desc ? `<p>${esc(item.desc)}</p>` : ''}
                         ${item.insight ? `<div class="lc-insight">${esc(item.insight)}</div>` : ''}
-                        ${restLinks.length ? `<div class="lc-links">${restLinks.map(l=>`<a href="${esc(l.url)}" target="_blank" onclick="event.stopPropagation()">${esc(l.label)}</a>`).join('')}</div>` : ''}
+                        ${restLinks.length ? `<div class="lc-links">${restLinks.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">${esc(l.label)}</a>`).join('')}</div>` : ''}
                         ${tagsHtml}
                     </div>
                 </div>`;
@@ -555,14 +571,14 @@
                 year: p.year_granted, title: p.title,
                 oneliner: p.one_line_summary,
                 desc: 'US Patent. Granted ' + p.year_granted + '.',
-                links: [{label:'Google Scholar', url:p.url || 'https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ'}],
+                links: [{label:'Google Scholar', url:p.url || SCHOLAR}],
                 tags: []
             })),
             ...d.research.papers.filter(p=>p.title).map(p=>({
                 year: p.year || '', title: p.title,
                 oneliner: p.one_line_summary,
                 desc: p.venue ? 'Published in ' + p.venue : '',
-                links: p.url ? [{label:'Read paper', url:p.url}] : [{label:'Google Scholar', url:'https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ'}],
+                links: p.url ? [{label:'Read paper', url:p.url}] : [{label:'Google Scholar', url:SCHOLAR}],
                 tags: []
             })),
             ...d.research.frameworks_created.map(f=>({
@@ -572,23 +588,22 @@
                 links: f.url ? [{label:'View', url:f.url}] :
                     f.published_on === 'LinkedIn' ? [{label:'LinkedIn', url:'https://linkedin.com/in/haripm4ai'}] :
                     f.published_on === 'Substack' ? [{label:'Substack', url:'https://substack.com/@brettleehari'}] :
-                    [{label:'Google Scholar', url:'https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ'}],
+                    [{label:'Google Scholar', url:SCHOLAR}],
                 tags: []
             }))
         ];
 
         const lanes = [
-            { id:'oss', label:'Open Source', items: ossItems, count: ossItems.length },
-            { id:'entrepreneur', label:'Entrepreneurship Attempts', items: entrepreneurItems, count: entrepreneurItems.length },
-            { id:'live', label:'Live Projects', items: liveItems, count: liveItems.length },
-            { id:'research', label:'Research & Patents', items: researchItems, count: researchItems.length },
-            { id:'public', label:'Building in Public', items: publicItems, count: publicItems.length },
+            { id:'oss', label:'Open Source', items: ossItems },
+            { id:'entrepreneur', label:'Entrepreneurship Attempts', items: entrepreneurItems },
+            { id:'live', label:'Live Projects', items: liveItems },
+            { id:'research', label:'Research & Patents', items: researchItems },
+            { id:'public', label:'Building in Public', items: publicItems },
         ];
 
         const tabsHtml = lanes.map((l,i) =>
-            `<button class="lane-tab${i===0?' active':''}" data-lane="${l.id}" data-target="lane-${l.id}">${l.label} <span class="tab-count">${l.count}</span></button>`
+            `<button class="lane-tab${i===0?' active':''}" data-lane="${l.id}" data-target="lane-${l.id}">${l.label} <span class="tab-count">${l.items.length}</span></button>`
         ).join('');
-
         const panelsHtml = lanes.map((l,i) =>
             `<div class="lane-panel${i===0?' active':''}" id="lane-${l.id}" data-lane="${l.id}">
                 <div class="lane-cards">${l.items.map(laneCard).join('')}</div>
@@ -596,12 +611,10 @@
         ).join('');
 
         document.getElementById('journey').innerHTML = `
-            ${sh('The Journey','Every card links to a real artifact: a live project, a merged PR, a published paper, a patent filing. Fraction of my work available in public domain.')}
+            ${sh('Journey','The Journey','Every card links to a real artifact: a live project, a merged PR, a published paper, a patent filing. A fraction of my work is in the public domain.')}
             <div class="lane-tabs">${tabsHtml}</div>
-            ${panelsHtml}
-        `;
+            ${panelsHtml}`;
 
-        // Tab switching
         document.querySelectorAll('.lane-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.lane-tab').forEach(t=>t.classList.remove('active'));
@@ -611,47 +624,44 @@
             });
         });
 
-        // Beliefs (C4: show 3 featured, toggle for rest)
+        // Beliefs: 3 featured, toggle for the rest
         const featBeliefs = d.beliefs.filter(b=>b.featured);
         const restBeliefs = d.beliefs.filter(b=>!b.featured);
-        const beliefCard = b => `<div class="belief-item"><div class="belief-text">${esc(b.statement)}</div><div class="belief-sub">${esc(b.detail)}</div></div>`;
+        const beliefCard = (b,i) => `<div class="belief-item"><div class="belief-num">${String(i+1).padStart(2,'0')}</div><div class="belief-text">${esc(b.statement)}</div><div class="belief-sub">${esc(b.detail)}</div></div>`;
         document.getElementById('believe').innerHTML = `
-            ${sh('What I Believe')}
+            ${sh('How I work','What I Believe')}
             <div class="beliefs-grid">${featBeliefs.map(beliefCard).join('')}</div>
-            ${restBeliefs.length ? `<div id="beliefs-rest" style="display:none;margin-top:12px;"><div class="beliefs-grid">${restBeliefs.map(beliefCard).join('')}</div></div>
-            <button onclick="const el=document.getElementById('beliefs-rest');const s=el.style.display==='none';el.style.display=s?'block':'none';this.textContent=s?'Show fewer':'Show all (${d.beliefs.length})';" style="margin-top:12px;background:none;border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#7dd3fc;font-size:12px;padding:4px 12px;cursor:pointer;font-family:inherit;">Show all (${d.beliefs.length})</button>` : ''}`;
+            ${restBeliefs.length ? `<div id="beliefs-rest" style="display:none;margin-top:28px;"><div class="beliefs-grid">${restBeliefs.map((b,i)=>beliefCard(b,i+featBeliefs.length)).join('')}</div></div>
+            <button class="ghost-btn" onclick="const el=document.getElementById('beliefs-rest');const s=el.style.display==='none';el.style.display=s?'block':'none';this.textContent=s?'Show fewer':'Show all (${d.beliefs.length})';">Show all (${d.beliefs.length})</button>` : ''}`;
 
         // Research
         const fwHtml = d.research.frameworks_created.map(f=>`<div class="fw-item"><h4>${esc(f.name)}</h4><p>${esc(f.description)}</p></div>`).join('');
         const patHtml = d.research.patents.filter(p=>p.title).map(p=>`<div class="fw-item"><h4>${esc(p.title)}</h4><p>Granted ${esc(p.year_granted)}. ${esc(p.one_line_summary)}</p></div>`).join('');
-
         document.getElementById('background').innerHTML = `
-            ${sh('Research, Patents, and Platform Work')}
+            ${sh('Research','Research, Patents, and Platform Work')}
             <div class="bg-card">
                 <p>${esc(d.career_background.summary)}</p>
-                <p style="margin-top:10px;font-style:italic;color:#9ca3af;font-size:12px;">${esc(d.career_background.key_insight)}</p>
+                <p class="insight">${esc(d.career_background.key_insight)}</p>
                 <div class="stats-row">
-                    <div class="stat"><div class="stat-number">${esc(d.research.stats.patents)}</div><div class="stat-label">Patents</div></div>
-                    <div class="stat"><div class="stat-number">${esc(d.research.stats.papers)}</div><div class="stat-label">Papers</div></div>
-                    <div class="stat"><div class="stat-number">${esc(d.research.stats.citations)}</div><div class="stat-label">Citations</div></div>
+                    <div class="stat"><div class="stat-number">${esc(st.patents)}</div><div class="stat-label">Patents</div></div>
+                    <div class="stat"><div class="stat-number">${esc(st.papers)}</div><div class="stat-label">Papers</div></div>
+                    <div class="stat"><div class="stat-number">${esc(st.citations)}</div><div class="stat-label">Citations</div></div>
+                    <div class="stat"><div class="stat-number">${esc(String(d.person.years_in_tech))}</div><div class="stat-label">Years in tech</div></div>
                 </div>
             </div>
-            <h3 style="font-size:13px;font-weight:600;color:#fbbf24;margin-bottom:6px;">Patents</h3>
+            <div class="subhead">Patents</div>
             <div class="fw-grid">${patHtml}</div>
-            <h3 style="font-size:13px;font-weight:600;color:#7dd3fc;margin:20px 0 6px;">Original Frameworks</h3>
+            <div class="subhead">Original Frameworks</div>
             <div class="fw-grid">${fwHtml}</div>
-            <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
-                ${d.profiles.filter(p=>p.platform==='Google Scholar'||p.platform==='ResearchGate').map(p=>`<a href="${esc(p.url)}" target="_blank" style="font-size:12px;padding:4px 12px;border:1px solid rgba(255,255,255,0.08);border-radius:5px;color:#6b7280;">${esc(p.platform)}</a>`).join('')}
+            <div class="pill-row">
+                ${d.profiles.filter(p=>p.platform==='Google Scholar'||p.platform==='ResearchGate').map(p=>`<a class="pill" href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.platform)}</a>`).join('')}
             </div>`;
 
-        // Book
+        // Book + Bookshelf + research links
         const bookHtml = d.book ? `<div class="book-card"><div class="book-icon">&#128214;</div><div class="book-info"><h3>${esc(d.book.title)}</h3><div class="book-meta">${esc(d.book.edition)}, ${esc(d.book.year)}</div><p>${esc(d.book.description)}</p></div></div>` : '';
-
-        // Bookshelf, Articles and Research
         if (d.bookshelf) {
             const bs = d.bookshelf;
             const cats = (bs.categories||[]).filter(c => c.books && c.books.length);
-
             const shelfTabs = cats.map((c,i)=>
                 `<button class="shelf-tab${i===0?' active':''}" data-target="shelf-${i}">${esc(c.category)} <span class="tab-count">${c.books.length}</span></button>`
             ).join('');
@@ -660,12 +670,11 @@
                     ${c.why?`<p class="shelf-why">${esc(c.why)}</p>`:''}
                     <div class="small-grid">
                         ${c.books.map(b=>{
-                            const t = b.url?`<a href="${esc(b.url)}" target="_blank">${esc(b.title)}</a>`:esc(b.title);
+                            const t = b.url?`<a href="${esc(b.url)}" target="_blank" rel="noreferrer">${esc(b.title)}</a>`:esc(b.title);
                             return `<div class="small-card shelf-book"><h4>${t}</h4>${b.author?`<div class="author">${esc(b.author)}</div>`:''}${b.note?`<p>${esc(b.note)}</p>`:''}</div>`;
                         }).join('')}
                     </div>
                 </div>`).join('');
-
             const shelfHtml = cats.length
                 ? `<div class="shelf-tabs">${shelfTabs}</div>${shelfPanels}`
                 : `<p class="shelf-note">Shelf in progress. The categories are set; the titles are going up as I write the notes for each one.</p>`;
@@ -675,11 +684,11 @@
                 ...(d.research.patents||[]).filter(p=>p.url).map(p=>({t:p.title, m:['Patent',p.year_granted].filter(Boolean).join(' · '), s:p.one_line_summary, u:p.url}))
             ];
             const researchHtml = `<div class="small-grid">${researchLinks.map(r=>
-                `<div class="small-card"><h4><a href="${esc(r.u)}" target="_blank">${esc(r.t)}</a></h4>${r.m?`<div class="meta">${esc(r.m)}</div>`:''}${r.s?`<p>${esc(r.s)}</p>`:''}</div>`
+                `<div class="small-card"><h4><a href="${esc(r.u)}" target="_blank" rel="noreferrer">${esc(r.t)}</a></h4>${r.m?`<div class="meta">${esc(r.m)}</div>`:''}${r.s?`<p>${esc(r.s)}</p>`:''}</div>`
             ).join('')}</div>`;
 
             document.getElementById('books').innerHTML = `
-                ${sh('Bookshelf, Articles and Research', bs.intro||'')}
+                ${sh('Reading list','Bookshelf, Articles and Research', bs.intro||'')}
                 <div class="subhead">Books I Am Writing</div>
                 ${bookHtml}
                 <div class="subhead">The Shelf &mdash; What I Recommend</div>
@@ -697,66 +706,83 @@
             });
         }
 
-        // Speaking & Roadshows
-        const tenseChip = t => t === 'upcoming' ? '<span style="font-size:10px;background:rgba(52,211,153,0.15);color:#34d399;padding:1px 6px;border-radius:3px;margin-left:6px;">upcoming</span>' :
-            t === 'recurring' ? '<span style="font-size:10px;background:rgba(251,191,36,0.15);color:#fbbf24;padding:1px 6px;border-radius:3px;margin-left:6px;">recurring</span>' :
-            '<span style="font-size:10px;background:rgba(255,255,255,0.06);color:#6b7280;padding:1px 6px;border-radius:3px;margin-left:6px;">past</span>';
-        const speakHtml = d.speaking ? d.speaking.map(s=>{
+        // Speaking: featured talks with posters, then the full list
+        const chip = t => t === 'upcoming' ? '<span class="chip chip-upcoming">upcoming</span>' :
+            t === 'recurring' ? '<span class="chip chip-recurring">recurring</span>' : '<span class="chip chip-past">past</span>';
+        const talks = d.speaking || [];
+        const posterTalks = talks.filter(s => s.title && s.url);
+        const posterHtml = posterTalks.map(s => {
+            const visual = s.video_id
+                ? `<img src="https://i.ytimg.com/vi/${esc(s.video_id)}/hqdefault.jpg" alt="${esc(s.title)}" loading="lazy">`
+                : `<div class="talk-poster"><span class="big">AI</span><span class="sub">${esc(s.poster_line || s.title)}</span></div>`;
+            return `<a class="talk-card" href="${esc(s.url)}" target="_blank" rel="noreferrer">${visual}
+                <div class="talk-body"><p class="ev">${esc(s.event)}</p><h3>${esc(s.title)} &rarr;</h3></div></a>`;
+        }).join('');
+        const listHtml = talks.filter(s => !(s.title && s.url)).map(s=>{
             const links = [
-                s.url ? `<a href="${esc(s.url)}" target="_blank">Speaker page</a>` : '',
-                s.slides_url ? `<a href="${esc(s.slides_url)}" target="_blank">Slides</a>` : '',
-                s.announcement_url ? `<a href="${esc(s.announcement_url)}" target="_blank">Announcement</a>` : ''
+                s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">Speaker page</a>` : '',
+                s.slides_url ? `<a href="${esc(s.slides_url)}" target="_blank" rel="noreferrer">Slides</a>` : '',
+                s.announcement_url ? `<a href="${esc(s.announcement_url)}" target="_blank" rel="noreferrer">Announcement</a>` : ''
             ].filter(Boolean).join(' &middot; ');
-            return `<div class="small-card"><h4>${esc(s.event)}${s.tense ? tenseChip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p>${links?`<div class="meta" style="margin-top:6px;">${links}</div>`:''}</div>`;
-        }).join('') : '';
-        document.getElementById('speaking').innerHTML = `${sh('Speaking & Roadshows')}<div class="small-grid">${speakHtml}</div>`;
+            return `<div class="small-card"><h4>${esc(s.event)}${s.tense ? chip(s.tense) : ''}</h4>${s.date?`<div class="meta">${esc(s.date)}</div>`:''}<p>${esc(s.topic)}</p>${links?`<div class="meta" style="margin-top:8px;">${links}</div>`:''}</div>`;
+        }).join('');
+        document.getElementById('speaking').innerHTML = `${sh('Speaking','Speaking & Roadshows')}${posterHtml?`<div class="talk-grid">${posterHtml}</div>`:''}<div class="small-grid">${listHtml}</div>`;
 
         // Writing
         document.getElementById('write').innerHTML = `
-            ${sh('What I Write')}
-            <div class="writing-grid">
+            ${sh('Writing','What I Write')}
+            <div class="small-grid">
                 ${d.writing.filter(w=>w.url).map(w=>{
                     const m=[];if(w.type==='series'&&w.parts)m.push(w.parts+'-part series');if(w.platform)m.push(w.platform);if(w.date)m.push(w.date);
-                    const t=w.url?`<a href="${esc(w.url)}" target="_blank">${esc(w.title)}</a>`:esc(w.title);
-                    return `<div class="small-card"><h4>${t}</h4>${m.length?`<div class="meta">${esc(m.join(' / '))}</div>`:''}<p>${esc(w.summary)}</p></div>`;
+                    return `<div class="small-card"><h4><a href="${esc(w.url)}" target="_blank" rel="noreferrer">${esc(w.title)}</a></h4>${m.length?`<div class="meta">${esc(m.join(' / '))}</div>`:''}<p>${esc(w.summary)}</p></div>`;
                 }).join('')}
             </div>`;
 
         // Now
         document.getElementById('now').innerHTML = `
-            ${sh('Now','Where my head is at right now.')}
-            <div class="now-grid">
-                ${d.now.items.map(n=>`<div class="small-card"><h4 style="color:#7dd3fc;">${esc(n.topic)}</h4><p>${esc(n.detail)}</p></div>`).join('')}
+            ${sh('Now','Where my head is at right now')}
+            <div class="small-grid">
+                ${d.now.items.map(n=>`<div class="small-card"><h4 class="card-head">${esc(n.topic)}</h4><p>${esc(n.detail)}</p></div>`).join('')}
             </div>`;
 
-        // Reading
+        // Reading and interests
         const ri=d.reading_and_interests;
         document.getElementById('read').innerHTML = `
-            ${sh('What I Read and What Moves Me')}
+            ${sh('Influences','What I Read and What Moves Me')}
             <div class="reading-grid">
-                <div class="small-card"><h4 style="color:#7dd3fc;">Thinkers Who Shaped Me</h4><ul class="reading-card">${ri.thinkers.map(t=>`<li><strong>${esc(t.name)}</strong> &mdash; ${esc(t.influence)}</li>`).join('')}</ul></div>
-                <div class="small-card"><h4 style="color:#7dd3fc;">What I Follow</h4><ul class="reading-card">${ri.topics_i_follow.map(t=>`<li><strong>${esc(t.area)}</strong> &mdash; ${esc(t.specifics)}</li>`).join('')}</ul></div>
-                <div class="small-card"><h4 style="color:#7dd3fc;">Interests Beyond Code</h4><ul class="reading-card">${ri.interests.map(i=>`<li><strong>${esc(i.name)}</strong> &mdash; ${esc(i.depth)}</li>`).join('')}</ul></div>
+                <div class="small-card"><h4 class="card-head">Thinkers Who Shaped Me</h4><ul class="reading-card">${ri.thinkers.map(t=>`<li><strong>${esc(t.name)}</strong> &mdash; ${esc(t.influence)}</li>`).join('')}</ul></div>
+                <div class="small-card"><h4 class="card-head">What I Follow</h4><ul class="reading-card">${ri.topics_i_follow.map(t=>`<li><strong>${esc(t.area)}</strong> &mdash; ${esc(t.specifics)}</li>`).join('')}</ul></div>
+                <div class="small-card"><h4 class="card-head">Interests Beyond Code</h4><ul class="reading-card">${ri.interests.map(i=>`<li><strong>${esc(i.name)}</strong> &mdash; ${esc(i.depth)}</li>`).join('')}</ul></div>
             </div>`;
 
         // Tech
         document.getElementById('tech').innerHTML = `
-            ${sh('Tech Stack')}
+            ${sh('Stack','Tech Stack')}
             <div class="tech-grid">
-                ${d.tech_stack.map(t=>`<div class="small-card"><h4 style="color:#7dd3fc;">${esc(t.category)}</h4><p>${t.tools.map(tool=>esc(tool)).join(', ')}</p></div>`).join('')}
+                ${d.tech_stack.map(t=>`<div class="small-card"><h4 class="card-head">${esc(t.category)}</h4><p>${t.tools.map(tool=>esc(tool)).join(', ')}</p></div>`).join('')}
             </div>`;
 
         // Education
         document.getElementById('education').innerHTML = d.education ? `
-            ${sh('Education')}
+            ${sh('Education','Education')}
             <div class="edu-grid">
-                ${d.education.map(e=>`<div class="small-card edu-item"><h4>${esc(e.degree)}</h4><p>${esc(e.institution)}, ${esc(e.location)}</p></div>`).join('')}
+                ${d.education.map(e=>`<div class="small-card"><h4>${esc(e.degree)}</h4><p>${esc(e.institution)}, ${esc(e.location)}</p></div>`).join('')}
             </div>` : '';
+
+        // Contact
+        document.getElementById('contact').innerHTML = `
+            ${sh('Contact')}
+            <h2>Building something in AI? Let&rsquo;s talk.</h2>
+            <p class="contact-sub">Product, fine-tuning, agents, or the full stack around the model. If you have a real problem and want a builder in the room, I would like to hear about it.</p>
+            <div class="contact-actions">
+                <a class="btn btn-accent" href="${esc(contactHref)}">${d.person.email ? 'Email me' : 'Message me on LinkedIn'}</a>
+                ${li && d.person.email ? `<a class="btn" href="${esc(li.url)}" target="_blank" rel="noreferrer">Message me on LinkedIn</a>` : ''}
+            </div>`;
 
         // Footer
         document.getElementById('footer-content').innerHTML = `
-            <p class="footer-text">${esc(d.footer.tagline)} ${esc(d.research.stats.patents)} patents. ${esc(d.research.stats.citations)} citations.</p>
-            <div class="footer-links">${d.profiles.filter(p=>p.platform!=='Linktree').map(p=>`<a href="${esc(p.url)}" target="_blank">${esc(p.platform)}</a>`).join('')}</div>`;
+            <p class="footer-text">&copy; ${esc(d.person.full_name)}. ${esc(d.footer.tagline)}</p>
+            <div class="footer-links">${d.profiles.map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.platform)}</a>`).join('')}</div>`;
     }
     </script>
     <script data-goatcounter="https://brettleehari.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
