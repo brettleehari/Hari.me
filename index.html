@@ -117,7 +117,7 @@
 
         /* Profile wheel: photo in the centre, links orbiting it */
         .hero-visual {
-            --size: 460px; --photo: 224px; --r: 186px; --ring: 44px; --spin: 56s;
+            --size: 560px; --photo: 312px; --r: 236px; --ring: 48px; --spin: 56s;
             position: relative; width: var(--size); height: var(--size); flex-shrink: 0;
             display: grid; place-items: center; margin: 0 auto;
         }
@@ -157,6 +157,9 @@
             .orbit, .orbit-fix { animation: none; }
             .orbit-chip { animation: none; }
             .hero { animation: none; }
+            .float-track { animation: none; flex-wrap: wrap; width: auto; }
+            .float-card { animation: none; }
+            .float-track .float-card.dup { display: none; }
         }
 
         /* Proof strip */
@@ -193,8 +196,35 @@
         .feat-card dl { margin-top: 16px; display: grid; gap: 8px; font-size: 14px; line-height: 1.55; }
         .feat-card dt { display: inline; font-weight: 700; color: var(--fg); }
         .feat-card dd { display: inline; color: var(--muted); }
-        .feat-card .feat-link { margin-top: auto; padding-top: 22px; font-size: 14px; font-weight: 600; color: var(--fg); }
+        .feat-links { margin-top: auto; padding-top: 22px; display: flex; gap: 18px; flex-wrap: wrap; }
+        .feat-card .feat-link { font-size: 14px; font-weight: 600; color: var(--fg); }
         .feat-card .feat-link:hover { color: var(--accent); }
+
+        /* Floating strip of all work */
+        .float-wrap {
+            overflow: hidden; padding: 16px 0 14px; margin-bottom: 26px;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+        }
+        .float-track { display: flex; gap: 16px; width: max-content; animation: float-scroll var(--float-dur, 70s) linear infinite; }
+        .float-wrap:hover .float-track, .float-wrap:focus-within .float-track { animation-play-state: paused; }
+        .float-card {
+            flex: none; width: 272px; display: flex; flex-direction: column; gap: 6px;
+            background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 18px 16px;
+            color: inherit; box-shadow: 0 1px 2px rgba(43,36,32,0.04);
+            animation: float-bob 5.5s ease-in-out infinite; animation-delay: calc(var(--i) * -0.9s);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .float-card:hover { border-color: var(--accent); box-shadow: 0 10px 26px rgba(43,36,32,0.10); color: inherit; }
+        .float-card .fc-top { display: flex; justify-content: space-between; align-items: center; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+        .float-card .fc-top .fc-status { color: var(--faint); font-weight: 600; }
+        .float-card h4 { font-size: 16px; font-weight: 700; color: var(--fg); line-height: 1.25; }
+        .float-card p { font-size: 13px; color: var(--muted); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .float-card .fc-go { margin-top: auto; padding-top: 8px; font-size: 12px; font-weight: 600; color: var(--fg-2); }
+        .float-card:hover .fc-go { color: var(--accent); }
+        .float-hint { font-size: 12px; color: var(--faint); margin: -8px 0 18px; }
+        @keyframes float-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 8px)); } }
+        @keyframes float-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 
         /* Award spotlight */
         .award-banner {
@@ -359,7 +389,7 @@
 
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 36px; }
-            .hero-visual { --size: 340px; --photo: 156px; --r: 134px; --ring: 32px; order: -1; }
+            .hero-visual { --size: 400px; --photo: 210px; --r: 164px; --ring: 34px; order: -1; }
             .hero-visual .orbit::after { display: none; }
             .orbit-chip { font-size: 12px; padding: 6px 11px; }
             .proof-strip { grid-template-columns: repeat(2, 1fr); }
@@ -372,7 +402,7 @@
         }
         @media (max-width: 600px) {
             .header-content { flex-direction: column; align-items: flex-start; gap: 6px; }
-            .hero-visual { --size: 180px; --photo: 164px; }
+            .hero-visual { --size: 220px; --photo: 204px; }
             .orbit { display: none; }
             .hero-links { display: flex; }
         }
@@ -467,7 +497,7 @@
                 <div class="orbit" aria-label="Profiles">
                     ${wheel.map((p,i)=>`<div class="orbit-item" style="--a:${(-90 + i*360/wheel.length).toFixed(2)}deg"><div class="orbit-fix"><a class="orbit-chip" style="--i:${i}" href="${esc(p.url)}" target="_blank" rel="noreferrer"><span class="dot" style="background:${PLATFORM_COLOR[p.platform]||'var(--accent)'}"></span>${esc(p.platform)}</a></div></div>`).join('')}
                 </div>
-                <img class="hero-photo" src="/Hari.me/assets/profile.jpg" width="224" height="224" alt="${esc(d.person.full_name)}">
+                <img class="hero-photo" src="/Hari.me/assets/profile.jpg" width="312" height="312" alt="${esc(d.person.full_name)}">
             </div>`;
 
         // Proof strip
@@ -497,16 +527,31 @@
                     <div><dt>Built. </dt><dd>${esc(pt.built || p.what_it_does)}</dd></div>
                     <div><dt>Result. </dt><dd>${esc(pt.result || p.results)}</dd></div>
                 </dl>
-                ${link ? `<a href="${esc(link)}" target="_blank" rel="noreferrer" class="feat-link">${esc(linkLabel)} &rarr;</a>` : ''}
+                <div class="feat-links">
+                    ${p.video_url ? `<a href="${esc(p.video_url)}" target="_blank" rel="noreferrer" class="feat-link">&#9654;&#xFE0E; Demo video</a>` : ''}
+                    ${link ? `<a href="${esc(link)}" target="_blank" rel="noreferrer" class="feat-link">${esc(linkLabel)} &rarr;</a>` : ''}
+                </div>
             </article>`;
         }).join('');
+        const allWork = d.projects.filter(p => p.name).sort((a,b)=>(a.featured_order||99)-(b.featured_order||99) || a.name.localeCompare(b.name));
+        const workKind = p => p.demo_url ? 'Live app' : p.model_url ? 'Model' : p.video_url ? 'Demo video' : p.repo_url ? 'GitHub' : p.writeup_url ? 'Read' : '';
+        const workHref = p => p.demo_url || p.model_url || p.video_url || p.repo_url || p.writeup_url || '#';
+        const floatCard = (p, i, dup) => `<a class="float-card${dup ? ' dup' : ''}" style="--i:${i}" href="${esc(workHref(p))}" target="_blank" rel="noreferrer"${dup ? ' aria-hidden="true" tabindex="-1"' : ''}>
+                <div class="fc-top"><span>${esc((p.pitch && p.pitch.theme) || (p.award ? 'Award' : 'Project'))}</span><span class="fc-status">${esc(p.status || '')}</span></div>
+                <h4>${esc((p.pitch && p.pitch.title) || p.name.split(' — ')[0])}</h4>
+                <p>${esc(p.one_liner || '')}</p>
+                <span class="fc-go">${esc(workKind(p))} &rarr;</span></a>`;
+        const floatHtml = allWork.map((p,i)=>floatCard(p,i,false)).join('') + allWork.map((p,i)=>floatCard(p,i,true)).join('');
         document.getElementById('work').innerHTML = `
             ${sh('Featured work', '', d.person.hero_motto || '')}
+            <div class="float-wrap"><div class="float-track" style="--float-dur:${Math.max(40, allWork.length * 9)}s">${floatHtml}</div></div>
+            <p class="float-hint">Everything I have shipped, drifting by. Hover to pause, click to open. The four below get the full story.</p>
             <div class="feat-grid">${featuredHtml}</div>`;
 
         // Spotlight: award narrative
         const awardsHtml = (d.awards || []).map(a => {
             const links = [
+                a.video_url ? {label:'Demo video', url:a.video_url} : null,
                 a.url ? {label:'Announcement (MIT Media Lab)', url:a.url} : null,
                 a.demo_url ? {label:'Live application', url:a.demo_url} : null,
                 a.repo_url ? {label:'GitHub', url:a.repo_url} : null,
