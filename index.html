@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hariprasad Sudharshan — Product leader who ships AI</title>
-    <meta name="description" content="Hariprasad Sudharshan. Product leader who ships AI, from patent to production. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. 3 patents, 45+ citations, merged open-source PRs, live demos.">
+    <meta name="description" content="Hariprasad Sudharshan. Product leader who ships AI, from patent to production. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. Granted patents, cited research, merged open-source PRs, live demos.">
     <meta property="og:title" content="Hariprasad Sudharshan — Product leader who ships AI">
     <meta property="og:description" content="Patents, papers, and live demos. I'd rather show than tell. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon.">
     <meta property="og:type" content="profile">
@@ -111,12 +111,52 @@
         .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
         .btn-accent { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
         .btn-accent:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: var(--accent-fg); }
-        .hero-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 24px; }
+        .hero-links { display: none; gap: 12px 18px; flex-wrap: wrap; margin-top: 24px; }
         .hero-links a { font-size: 14px; color: var(--fg-2); text-underline-offset: 4px; }
         .hero-links a:hover { color: var(--accent); text-decoration: underline; }
+
+        /* Profile wheel: photo in the centre, links orbiting it */
+        .hero-visual {
+            --size: 460px; --photo: 224px; --r: 186px; --ring: 44px; --spin: 56s;
+            position: relative; width: var(--size); height: var(--size); flex-shrink: 0;
+            display: grid; place-items: center; margin: 0 auto;
+        }
         .hero-photo {
-            width: 240px; height: 320px; border-radius: 12px; object-fit: cover; object-position: 50% 30%;
-            flex-shrink: 0; box-shadow: 0 1px 2px rgba(43,36,32,0.06), 0 12px 32px rgba(43,36,32,0.10);
+            width: var(--photo); height: var(--photo); border-radius: 50%; object-fit: cover; object-position: 50% 30%;
+            position: relative; z-index: 2; border: 4px solid var(--card);
+            box-shadow: 0 1px 2px rgba(43,36,32,0.06), 0 16px 40px rgba(43,36,32,0.14);
+        }
+        .orbit { position: absolute; inset: 0; animation: orbit-spin var(--spin) linear infinite; }
+        .orbit::before {
+            content: ''; position: absolute; inset: var(--ring); border-radius: 50%;
+            border: 1px dashed var(--border-strong);
+        }
+        .orbit::after {
+            content: ''; position: absolute; inset: calc(var(--ring) + 54px); border-radius: 50%;
+            border: 1px solid var(--border); opacity: 0.7;
+        }
+        .orbit-item { position: absolute; top: 50%; left: 50%; width: 0; height: 0; transform: rotate(var(--a)) translateX(var(--r)) rotate(calc(-1 * var(--a))); }
+        .orbit-fix { position: absolute; top: 0; left: 0; width: 0; height: 0; transform-origin: 0 0; animation: orbit-counter var(--spin) linear infinite; }
+        .orbit-chip {
+            position: absolute; top: 0; left: 0; transform: translate(-50%, -50%);
+            display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+            padding: 8px 14px; border-radius: 999px; background: var(--card); border: 1px solid var(--border-strong);
+            font-size: 13px; font-weight: 600; color: var(--fg-2); letter-spacing: 0.01em;
+            box-shadow: 0 2px 10px rgba(43,36,32,0.08);
+            transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+            animation: chip-in 0.6s cubic-bezier(0.2,0.7,0.2,1) both; animation-delay: calc(0.35s + var(--i) * 90ms);
+        }
+        .orbit-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+        .orbit-chip:hover, .orbit-chip:focus-visible { color: var(--accent); border-color: var(--accent); box-shadow: 0 6px 18px rgba(217,72,26,0.18); }
+        .hero-visual:hover .orbit, .hero-visual:hover .orbit-fix,
+        .hero-visual:focus-within .orbit, .hero-visual:focus-within .orbit-fix { animation-play-state: paused; }
+        @keyframes orbit-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes orbit-counter { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        @keyframes chip-in { from { opacity: 0; } to { opacity: 1; } }
+        @media (prefers-reduced-motion: reduce) {
+            .orbit, .orbit-fix { animation: none; }
+            .orbit-chip { animation: none; }
+            .hero { animation: none; }
         }
 
         /* Proof strip */
@@ -128,6 +168,8 @@
         a.proof-tile:hover { background: var(--soft); color: inherit; }
         .proof-tile .num { font-family: var(--display); font-size: 30px; font-weight: 700; color: var(--fg); line-height: 1.1; }
         .proof-tile .lbl { font-size: 13px; color: var(--muted); margin-top: 4px; }
+        .proof-tile .go { display: inline-block; margin-left: 6px; font-size: 20px; color: var(--accent); transition: transform 0.2s; }
+        a.proof-tile:hover .go { transform: translate(2px, -2px); }
 
         /* Sections */
         section { padding: 64px 0 8px; margin-bottom: 24px; }
@@ -232,6 +274,8 @@
         .stat { text-align: left; }
         .stat-number { font-family: var(--display); font-size: 26px; font-weight: 700; color: var(--fg); }
         .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+        .stat-go { font-family: var(--display); font-size: 17px; font-weight: 700; color: var(--fg); display: inline-block; margin-top: 4px; border-bottom: 2px solid var(--accent); line-height: 1.5; }
+        .stat-go:hover { color: var(--accent); }
         .subhead { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.14em; margin: 28px 0 12px; }
         .subhead:first-of-type { margin-top: 0; }
         .fw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
@@ -278,7 +322,14 @@
         .talk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px; }
         .talk-card { display: flex; flex-direction: column; overflow: hidden; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); color: inherit; transition: border-color 0.2s, box-shadow 0.2s; }
         .talk-card:hover { border-color: var(--border-strong); box-shadow: 0 8px 24px rgba(43,36,32,0.06); color: inherit; }
-        .talk-card img { aspect-ratio: 16/9; width: 100%; object-fit: cover; display: block; }
+        .talk-visual { display: block; overflow: hidden; background: var(--ink); }
+        .talk-card img { aspect-ratio: 16/9; width: 100%; object-fit: cover; object-position: 50% 30%; display: block; transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1); }
+        .talk-visual:hover img { transform: scale(1.03); }
+        .talk-body .talk-topic { font-size: 13px; color: var(--muted); line-height: 1.55; margin-top: 8px; }
+        .talk-body h3 a { color: inherit; }
+        .talk-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+        .talk-links a { font-size: 12px; font-weight: 600; padding: 5px 11px; border: 1px solid var(--border-strong); border-radius: 999px; color: var(--fg-2); }
+        .talk-links a:hover { border-color: var(--accent); color: var(--accent); }
         .talk-poster { aspect-ratio: 16/9; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; background: var(--ink); color: var(--ink-fg); padding: 28px; }
         .talk-poster .big { font-family: var(--display); font-size: 48px; font-weight: 700; color: var(--accent); line-height: 1; }
         .talk-poster .sub { font-family: var(--display); font-size: 22px; font-weight: 700; margin-top: 8px; line-height: 1.2; }
@@ -307,8 +358,10 @@
         .footer-links a:hover { color: var(--accent); }
 
         @media (max-width: 900px) {
-            .hero { grid-template-columns: 1fr; gap: 28px; padding-top: 44px; }
-            .hero-photo { width: 160px; height: 200px; order: -1; }
+            .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 36px; }
+            .hero-visual { --size: 340px; --photo: 156px; --r: 134px; --ring: 32px; order: -1; }
+            .hero-visual .orbit::after { display: none; }
+            .orbit-chip { font-size: 12px; padding: 6px 11px; }
             .proof-strip { grid-template-columns: repeat(2, 1fr); }
             .feat-grid, .talk-grid { grid-template-columns: 1fr; }
             .lane-cards { grid-template-columns: 1fr; }
@@ -319,6 +372,9 @@
         }
         @media (max-width: 600px) {
             .header-content { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .hero-visual { --size: 180px; --photo: 164px; }
+            .orbit { display: none; }
+            .hero-links { display: flex; }
         }
 
         .skip-link { position: absolute; left: -9999px; }
@@ -326,8 +382,9 @@
 
         @media print {
             body { background: #fff; color: #111; }
-            header, footer, nav, .lane-tabs, .skip-link, .hero-links, .hero-cta, .lc-hint, .contact-actions { display: none; }
-            .hero { grid-template-columns: 1fr; }
+            header, footer, nav, .lane-tabs, .skip-link, .hero-links, .hero-cta, .lc-hint, .contact-actions, .orbit { display: none; }
+            .hero { grid-template-columns: 1fr; animation: none; }
+            .hero-visual { --size: 180px; --photo: 164px; }
             .lane-panel { display: block !important; margin-bottom: 24px; }
             .lc, .feat-card, .small-card, .fw-item, .bg-card, .talk-card { border: 1px solid #ddd; break-inside: avoid; }
             .lc .lc-detail { max-height: none !important; }
@@ -376,6 +433,7 @@
     function esc(s){if(!s)return '';const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
     function sh(label,t,sub){return `<div class="section-header"><p class="eyebrow">${esc(label)}</p>${t?`<h2>${esc(t)}</h2>`:''}${sub?`<p class="section-sub">${esc(sub)}</p>`:''}</div>`;}
     const SCHOLAR='https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ';
+    const PLATFORM_COLOR={'GitHub':'#24292F','LinkedIn':'#0A66C2','Substack':'#FF6719','Medium':'#1A1A1A','Hugging Face':'#F5A623','Google Scholar':'#4285F4','ResearchGate':'#00A98F'};
 
     function render(d) {
         document.getElementById('site-name').textContent = d.site.name;
@@ -388,6 +446,8 @@
         const li = d.profiles.find(p=>p.platform==='LinkedIn');
         const gh = d.profiles.find(p=>p.platform==='GitHub');
         const contactHref = d.person.email ? `mailto:${d.person.email}` : (li ? li.url : '#');
+        const rg = d.profiles.find(p=>p.platform==='ResearchGate');
+        const wheel = d.profiles.filter(p=>p.platform!=='Linktree');
 
         // Hero
         document.getElementById('hero-row').innerHTML = `
@@ -400,21 +460,26 @@
                     <a class="btn" href="#contact">Get in touch</a>
                 </div>
                 <div class="hero-links">
-                    ${d.profiles.filter(p=>p.platform!=='Linktree').map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.platform)}</a>`).join('')}
+                    ${wheel.map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.platform)}</a>`).join('')}
                 </div>
             </div>
-            <img class="hero-photo" src="/Hari.me/assets/profile.jpg" width="240" height="320" alt="${esc(d.person.full_name)}">`;
+            <div class="hero-visual">
+                <div class="orbit" aria-label="Profiles">
+                    ${wheel.map((p,i)=>`<div class="orbit-item" style="--a:${(-90 + i*360/wheel.length).toFixed(2)}deg"><div class="orbit-fix"><a class="orbit-chip" style="--i:${i}" href="${esc(p.url)}" target="_blank" rel="noreferrer"><span class="dot" style="background:${PLATFORM_COLOR[p.platform]||'var(--accent)'}"></span>${esc(p.platform)}</a></div></div>`).join('')}
+                </div>
+                <img class="hero-photo" src="/Hari.me/assets/profile.jpg" width="224" height="224" alt="${esc(d.person.full_name)}">
+            </div>`;
 
         // Proof strip
         const st = d.research.stats;
         const tiles = [
-            {v:st.patents, l:'Patents granted', h:SCHOLAR},
-            {v:st.citations, l:'Research citations', h:SCHOLAR},
-            award ? {v:award.placement, l:`MIT NANDAHack, solo, of 230+`, h:award.url} : {v:st.papers, l:'Papers published', h:SCHOLAR},
+            {v:'Patents', go:true, l:'Granted. Read them on Google Scholar', h:SCHOLAR},
+            {v:'Research', go:true, l:'Papers and citations on ResearchGate', h: rg ? rg.url : SCHOLAR},
+            award ? {v:award.placement, l:`MIT NANDAHack, solo, of 230+`, h:award.url} : {v:'Papers', go:true, l:'Published work on Google Scholar', h:SCHOLAR},
             {v:st.merged_prs || '6', l:'Merged open-source PRs', h: gh ? gh.url : '#'},
         ];
         document.getElementById('proof-strip').innerHTML = tiles.map(t =>
-            `<a class="proof-tile" href="${esc(t.h)}" target="_blank" rel="noreferrer"><div class="num">${esc(t.v)}</div><div class="lbl">${esc(t.l)}</div></a>`
+            `<a class="proof-tile" href="${esc(t.h)}" target="_blank" rel="noreferrer"><div class="num">${esc(t.v)}${t.go?'<span class="go">&nearr;</span>':''}</div><div class="lbl">${esc(t.l)}</div></a>`
         ).join('');
 
         // Featured work: Problem / Built / Result
@@ -643,10 +708,10 @@
                 <p>${esc(d.career_background.summary)}</p>
                 <p class="insight">${esc(d.career_background.key_insight)}</p>
                 <div class="stats-row">
-                    <div class="stat"><div class="stat-number">${esc(st.patents)}</div><div class="stat-label">Patents</div></div>
-                    <div class="stat"><div class="stat-number">${esc(st.papers)}</div><div class="stat-label">Papers</div></div>
-                    <div class="stat"><div class="stat-number">${esc(st.citations)}</div><div class="stat-label">Citations</div></div>
                     <div class="stat"><div class="stat-number">${esc(String(d.person.years_in_tech))}</div><div class="stat-label">Years in tech</div></div>
+                    <div class="stat"><div class="stat-label">Patents</div><a class="stat-go" href="${SCHOLAR}" target="_blank" rel="noreferrer">Google Scholar &nearr;</a></div>
+                    <div class="stat"><div class="stat-label">Papers</div><a class="stat-go" href="${esc(rg ? rg.url : SCHOLAR)}" target="_blank" rel="noreferrer">ResearchGate &nearr;</a></div>
+                    <div class="stat"><div class="stat-label">Citations</div><a class="stat-go" href="${SCHOLAR}" target="_blank" rel="noreferrer">Google Scholar &nearr;</a></div>
                 </div>
             </div>
             <div class="subhead">Patents</div>
@@ -710,15 +775,27 @@
         const chip = t => t === 'upcoming' ? '<span class="chip chip-upcoming">upcoming</span>' :
             t === 'recurring' ? '<span class="chip chip-recurring">recurring</span>' : '<span class="chip chip-past">past</span>';
         const talks = d.speaking || [];
-        const posterTalks = talks.filter(s => s.title && s.url);
-        const posterHtml = posterTalks.map(s => {
+        const isPoster = s => s.title && (s.url || s.image || s.video_id);
+        const talkLinks = s => [
+            s.video_id ? `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">Watch</a>` : (s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">${s.url.includes('linkedin.com') ? 'Event post' : 'Speaker page'}</a>` : ''),
+            s.slides_url ? `<a href="${esc(s.slides_url)}" target="_blank" rel="noreferrer">Slides</a>` : '',
+            s.announcement_url ? `<a href="${esc(s.announcement_url)}" target="_blank" rel="noreferrer">Announcement</a>` : ''
+        ].filter(Boolean);
+        const posterHtml = talks.filter(isPoster).map(s => {
+            const href = s.url || s.slides_url || s.announcement_url || '#';
             const visual = s.video_id
                 ? `<img src="https://i.ytimg.com/vi/${esc(s.video_id)}/hqdefault.jpg" alt="${esc(s.title)}" loading="lazy">`
+                : s.image
+                ? `<img src="${esc(s.image)}" alt="${esc(s.image_alt || s.title)}" loading="lazy">`
                 : `<div class="talk-poster"><span class="big">AI</span><span class="sub">${esc(s.poster_line || s.title)}</span></div>`;
-            return `<a class="talk-card" href="${esc(s.url)}" target="_blank" rel="noreferrer">${visual}
-                <div class="talk-body"><p class="ev">${esc(s.event)}</p><h3>${esc(s.title)} &rarr;</h3></div></a>`;
+            const when = [s.date, s.venue].filter(Boolean).map(esc).join(' &middot; ');
+            return `<article class="talk-card"><a class="talk-visual" href="${esc(href)}" target="_blank" rel="noreferrer">${visual}</a>
+                <div class="talk-body"><p class="ev">${esc(s.event)}${when ? ` &middot; <span style="color:var(--muted)">${when}</span>` : ''}${s.tense === 'upcoming' ? chip('upcoming') : ''}</p>
+                <h3><a href="${esc(href)}" target="_blank" rel="noreferrer">${esc(s.title)}</a></h3>
+                ${s.topic ? `<p class="talk-topic">${esc(s.topic)}</p>` : ''}
+                <div class="talk-links">${talkLinks(s).join('')}</div></div></article>`;
         }).join('');
-        const listHtml = talks.filter(s => !(s.title && s.url)).map(s=>{
+        const listHtml = talks.filter(s => !isPoster(s)).map(s=>{
             const links = [
                 s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">Speaker page</a>` : '',
                 s.slides_url ? `<a href="${esc(s.slides_url)}" target="_blank" rel="noreferrer">Slides</a>` : '',

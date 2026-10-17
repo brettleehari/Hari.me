@@ -17,7 +17,7 @@
     "resume_url": "",
     "linktree": "https://linktr.ee/brettleehari",
     "hero_headline": "Product leader who ships AI, from patent to production.",
-    "hero_proof": "Builder PM with 3 patents, 45+ citations, merged open-source PRs, and a solo runner-up finish at MIT Media Lab's agentic AI hackathon.",
+    "hero_proof": "Builder PM with granted patents, cited research, merged open-source PRs, and a solo runner-up finish at MIT Media Lab's agentic AI hackathon.",
     "hero_motto": "Patents, papers, and live demos. I'd rather show than tell."
   },
   "profiles": [
@@ -189,8 +189,8 @@
     },
     {
       "year": 2017,
-      "label": "3 US patents granted + research published",
-      "description": "G.8032 ring protection, MSTP migration, loop prevention. 6+ published papers, 45+ citations across published work. These patents came from the protocol engineering work at Fujitsu, solving real problems in production telecom networks.",
+      "label": "US patents granted + research published",
+      "description": "G.8032 ring protection, MSTP migration, loop prevention. Papers and citations are on Google Scholar. These patents came from the protocol engineering work at Fujitsu, solving real problems in production telecom networks.",
       "category": "research",
       "links": [
         {
@@ -673,7 +673,7 @@
     }
   ],
   "research": {
-    "summary": "3 granted U.S. patents, 6+ published papers, 45+ citations across published work. Research spans protocol innovation, test automation measurement, RAG pipeline optimization, and AI product governance.",
+    "summary": "Granted U.S. patents, published papers, and cited research. Research spans protocol innovation, test automation measurement, RAG pipeline optimization, and AI product governance.",
     "stats": {
       "patents": "3",
       "citations": "45+",
@@ -893,12 +893,16 @@
       "date": "September 24, 2026",
       "topic": "I Have a Model Running on This. One model file, Gemma 3 4B at Q4_K_M, measured across an iPhone, a MacBook, a rented GPU, and Amazon Bedrock. Memory bandwidth divided by file size predicts tokens per second, and the talk finds where that stops being true.",
       "slides_url": "/Hari.me/talks/aws-dfw-model-running-on-this.html",
-      "tense": "upcoming"
+      "tense": "upcoming",
+      "title": "Building Intuition on LLM",
+      "image": "/Hari.me/assets/awsspeaking.jpeg",
+      "image_alt": "AWS User Group Dallas poster: Building Intuition on LLM, Thursday September 24, Frisco Library",
+      "venue": "Frisco Library, Community Room B"
     },
     {
       "event": "AI Engineer New York",
       "date": "",
-      "topic": "I Spent Two Years Building the Median. Stop building the 400th RAG: what the open-source clock taught me about speed and what to build instead.",
+      "topic": "Stop building the 400th RAG: what the open-source clock taught me about speed and what to build instead.",
       "url": "https://www.youtube.com/watch?v=0JZy5AuuQzc&t=380s",
       "video_id": "0JZy5AuuQzc",
       "title": "I Spent Two Years Building the Median",
@@ -907,7 +911,7 @@
     {
       "event": "GDG Chennai · DevFest",
       "date": "",
-      "topic": "Opportunities in AI: Personal Observations on the Culture of the Gold Rush in California.",
+      "topic": "Personal observations on the culture of the AI gold rush in California, for the DevFest audience in Chennai.",
       "url": "https://www.linkedin.com/posts/gdgindia-gdgchennai-devfest-share-7516372293032488960-Exkr/",
       "title": "Opportunities in AI: Personal Observations on the Culture of the Gold Rush in California",
       "tense": "past",
@@ -926,12 +930,16 @@
       "tense": "past"
     },
     {
-      "event": "InfluxDays",
-      "date": "2021",
-      "topic": "Invited speaker. TAQi and developer platform metrics.",
+      "event": "InfluxDays North America 2021",
+      "date": "October 27, 2021",
+      "topic": "Invited speaker. How we instrumented the developer platform and TAQi with InfluxDB 2.0 and used the metrics to drive ML-based engineering decisions.",
       "url": "https://www.influxdays.com/speakers/hari-prasad-sudharshan/",
       "announcement_url": "https://www.influxdata.com/blog/see-you-in-october-influxdays-north-america-2021/",
-      "tense": "past"
+      "tense": "past",
+      "title": "ML-Based Data-Driven Software Development with InfluxDB 2.0",
+      "slides_url": "https://www.slideshare.net/slideshow/hariprasad-sudharshan-fujitsu-network-communications-mlbased-datadriven-software-development-with-influxdb-20-influxdays-na-2021/250506963",
+      "image": "/Hari.me/assets/influxspeaking.jpeg",
+      "image_alt": "InfluxDays North America 2021 speaker card for Hari Prasad Sudharshan"
     },
     {
       "event": "Dallas Python Users Group",
