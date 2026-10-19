@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Don't Build an AI Agent — Hariprasad Sudharshan</title>
+<meta name="description" content="Opportunities in AI: personal observations on the culture of the gold rush in California. The short, sharp version, given at GDG Chennai DevFest at IIT Madras.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="icon" type="image/svg+xml" href="/Hari.me/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Tamil:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d10;
+  --panel:#13161b;
+  --panel-2:#181c23;
+  --line:#272c35;
+  --ink:#ece6d8;
+  --dim:#9a9484;
+  --dimmer:#66615a;
+  /* semantic: gold = the rented thing everyone has, green = the ground, the middle, what is yours */
+  --gold:#e3b04b;
+  --ground:#4ecb9a;
+  --rust:#c2552c;
+  --disp:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --tamil:'Noto Sans Tamil','Space Grotesk',sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--disp);
+  -webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+.deck{scroll-snap-type:y mandatory;overflow-y:scroll;height:100dvh}
+section.slide{
+  scroll-snap-align:start;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;
+  padding:4.5rem 2rem 4.5rem;max-width:1120px;margin:0 auto;position:relative;
+}
+@media(max-width:640px){section.slide{padding:3.5rem 1.15rem 4.5rem}}
+
+/* ---- type ---- */
+h1{font-size:clamp(2.6rem,8vw,5.8rem);line-height:.94;letter-spacing:-.035em;font-weight:700;margin:0 0 1.2rem}
+h2{font-size:clamp(1.7rem,4.2vw,3rem);line-height:1.04;letter-spacing:-.03em;font-weight:700;margin:0 0 1.3rem;max-width:22ch}
+h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin:0 0 .5rem}
+p{font-size:clamp(1rem,1.6vw,1.16rem);line-height:1.62;color:var(--ink);max-width:66ch;margin:0 0 1rem}
+p.sub{color:var(--dim)}
+strong{color:#fff;font-weight:700}
+em{color:var(--ground);font-style:normal;font-weight:500}
+a{color:var(--ground);text-decoration:none;border-bottom:1px solid rgba(78,203,154,.3)}
+a:hover{border-bottom-color:var(--ground)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+.tamil{font-family:var(--tamil)}
+
+.marker{font-family:var(--mono);font-size:.72rem;color:var(--dimmer);letter-spacing:.1em;margin-bottom:1.4rem;text-transform:uppercase}
+.marker b{color:var(--gold);font-weight:500}
+.actslide{background:linear-gradient(160deg,#101317 0%,#0b0d10 70%)}
+.actrule{height:1px;background:var(--line);margin:1.6rem 0}
+.actmeta{font-family:var(--mono);font-size:.78rem;color:var(--dimmer);line-height:1.9}
+.actmeta b{color:var(--ink);font-weight:500}
+
+/* the punch line, repeated */
+.punch{font-family:var(--disp);font-size:clamp(1.3rem,3vw,2rem);line-height:1.3;font-weight:700;
+  color:#fff;border-left:3px solid var(--gold);padding:.5rem 0 .5rem 1.1rem;margin:1.5rem 0;max-width:40ch}
+.punch.g{border-left-color:var(--ground)}
+.takeaway{border-left:2px solid var(--ground);padding:.15rem 0 .15rem 1rem;margin:1.4rem 0;color:var(--dim);
+  font-size:.98rem;line-height:1.6;max-width:70ch}
+.takeaway b{color:var(--ink)}
+.credit{font-family:var(--mono);font-size:.62rem;color:var(--dimmer);margin-top:.9rem;letter-spacing:.02em}
+
+/* ---- grids / panels ---- */
+.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:1.3rem 0}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.grid.five{grid-template-columns:repeat(5,1fr)}
+@media(max-width:820px){.grid.five{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.cell{background:var(--panel);padding:1.15rem 1.2rem}
+.cell p{font-size:.95rem;margin:0;color:var(--dim);max-width:none}
+.cell h3{color:var(--ink)}
+.cell .big{font-family:var(--mono);font-size:1.9rem;color:var(--gold);font-weight:700;line-height:1;margin:.3rem 0 .8rem}
+.tag{font-family:var(--mono);font-size:.64rem;color:var(--dimmer);letter-spacing:.1em;display:block;margin-bottom:.55rem;text-transform:uppercase}
+.tag.g{color:var(--ground)}.tag.y{color:var(--gold)}.tag.r{color:var(--rust)}
+.step{background:var(--panel);padding:1rem 1.1rem}
+.step .n{font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.4rem}
+.step .t{font-size:1rem;font-weight:700;color:var(--ink);line-height:1.3}
+
+/* equation */
+.eq{font-family:var(--mono);font-size:clamp(1.3rem,3.6vw,2.4rem);line-height:1.55;color:var(--ink);margin:.6rem 0 1.6rem;font-weight:500}
+.eq span{display:block}
+.eq .op{color:var(--dimmer)}
+.eq .res{color:var(--gold);font-weight:700;border-top:2px solid var(--line);padding-top:.5rem;margin-top:.4rem;display:inline-block}
+
+/* photos */
+.photo{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--panel)}
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;align-items:center;margin:1rem 0}
+@media(max-width:720px){.photo-row{grid-template-columns:1fr}}
+.lanes{display:grid;grid-template-columns:1.6fr 1fr 1.6fr;gap:1rem;margin:1.2rem 0}
+@media(max-width:720px){.lanes{grid-template-columns:1fr}}
+.lane img{width:100%;height:270px;object-fit:cover;object-position:50% 20%;display:block;border:1px solid var(--line)}
+.lane .nm{font-weight:700;margin-top:.7rem;font-size:1.05rem}
+.lane .ln{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.06em;margin-top:.25rem}
+.lane.hero .nm{color:var(--gold)}
+.cap{font-family:var(--mono);font-size:.7rem;color:var(--dim);margin-top:.5rem;letter-spacing:.04em}
+
+/* video card */
+.vid{display:grid;grid-template-columns:minmax(0,420px) 1fr;gap:1.4rem;align-items:center;border:1px solid var(--line);background:var(--panel);padding:1.2rem;margin:1.2rem 0;color:inherit}
+.vid:hover{border-color:var(--gold)}
+.vid img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.vid h3{font-size:1.3rem;margin-bottom:.4rem}
+.vid p{font-size:.95rem;color:var(--dim);margin:0}
+@media(max-width:720px){.vid{grid-template-columns:1fr}}
+
+/* link panel (the QR slide) */
+.qr{border:1px solid var(--gold);background:rgba(227,176,75,.06);padding:2rem;margin:1.2rem 0;text-align:center}
+.qr a{font-family:var(--mono);font-size:clamp(1.1rem,3.4vw,2rem);color:var(--gold);border-bottom-color:rgba(227,176,75,.4);word-break:break-all}
+.qr p{margin:.8rem auto 0;color:var(--dim);font-size:.95rem}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.86rem;margin:1.1rem 0}
+@media(max-width:640px){table{font-size:.7rem}}
+th{text-align:left;font-weight:500;color:var(--dimmer);padding:.5rem .6rem;border-bottom:1px solid var(--line);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase}
+td{padding:.5rem .6rem;border-bottom:1px solid rgba(39,44,53,.7);font-variant-numeric:tabular-nums;vertical-align:top}
+td.y{color:var(--gold);font-weight:700}
+td.g{color:var(--ground)}
+td.k{color:var(--ink);font-weight:500}
+tr.hl td{background:rgba(227,176,75,.08)}
+tr.hl td.k{color:var(--gold)}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.blank{color:var(--dimmer)}
+
+/* pipeline diagram (slides 12 and 13) */
+.pipe{display:grid;grid-template-columns:1fr auto 1.5fr auto 1fr;gap:.8rem;align-items:stretch;margin:1.2rem 0}
+@media(max-width:820px){.pipe{grid-template-columns:1fr}.pipe .arr{transform:rotate(90deg);justify-self:center}}
+.col{border:1px dashed var(--line);padding:.9rem;display:flex;flex-direction:column;gap:.5rem}
+.col .hd{font-family:var(--mono);font-size:.64rem;color:var(--dimmer);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
+.box{background:#22262d;border:1px solid #30353e;padding:.6rem .8rem;font-size:.92rem;font-weight:500;color:var(--ink);line-height:1.3}
+.box small{display:block;font-weight:400;font-size:.76rem;color:var(--dim);margin-top:.15rem}
+.box.g{background:rgba(78,203,154,.1);border-color:rgba(78,203,154,.45)}
+.box.g small{color:var(--ground)}
+.box.b{background:rgba(90,140,220,.12);border-color:rgba(90,140,220,.45)}
+.box.b small{color:#8fb4ee}
+.box.r{background:rgba(194,85,44,.18);border-color:rgba(194,85,44,.6)}
+.box.r small{color:#e09a7b}
+.box.end{margin-top:auto;text-align:center}
+.arr{font-family:var(--mono);color:var(--dimmer);align-self:center;font-size:1.3rem}
+.dots{display:grid;grid-template-columns:repeat(4,1fr);gap:.3rem;flex:1}
+.dots i{display:block;height:16px;background:rgba(194,85,44,.6);border:1px solid rgba(194,85,44,.9)}
+
+/* moat slide */
+.stat{font-family:var(--mono);font-size:clamp(2.2rem,6vw,4rem);color:var(--gold);font-weight:700;line-height:1}
+.stat-cap{font-size:.9rem;color:var(--dim);margin-top:.5rem;max-width:22ch}
+.row-lab{font-family:var(--mono);font-size:.66rem;color:var(--dimmer);letter-spacing:.12em;text-transform:uppercase;margin:1.2rem 0 .4rem}
+.moat{display:grid;grid-template-columns:3fr 1.1fr;gap:1.2rem;align-items:start}
+@media(max-width:820px){.moat{grid-template-columns:1fr}}
+.moat .grid{margin:0 0 .6rem}
+.cell.rent{outline:1px solid var(--gold);outline-offset:-1px}
+
+/* router slide */
+.router{display:grid;grid-template-columns:1fr 2fr 1fr;gap:.8rem;align-items:center;margin:1.1rem 0}
+@media(max-width:720px){.router{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:.4rem}
+.stack .box{text-align:center;font-family:var(--mono);font-size:.82rem}
+.hub{border:1px solid var(--ground);background:rgba(78,203,154,.07);padding:1rem 1.1rem}
+.hub h3{color:var(--ground);margin-bottom:.4rem}
+.hub p{font-size:.9rem;color:var(--dim);margin:0 0 .5rem}
+
+/* speaker notes */
+details.notes{margin-top:1.6rem;border-top:1px solid var(--line);padding-top:.6rem;max-width:72ch}
+details.notes summary{cursor:pointer;list-style:none;font-family:var(--mono);font-size:.68rem;color:var(--dimmer);letter-spacing:.1em;text-transform:uppercase;display:flex;gap:.6rem;align-items:center}
+details.notes summary::-webkit-details-marker{display:none}
+details.notes summary:before{content:"+";color:var(--gold);font-weight:700}
+details.notes[open] summary:before{content:"−"}
+details.notes p{font-size:.92rem;color:var(--dim);line-height:1.65;margin:.7rem 0 0}
+body.show-notes details.notes{border-top-color:rgba(227,176,75,.35)}
+
+/* rail */
+.rail{position:fixed;left:0;right:0;bottom:0;height:2.5rem;background:rgba(11,13,16,.92);
+  backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;align-items:center;
+  justify-content:space-between;padding:0 1rem;font-family:var(--mono);font-size:.68rem;color:var(--dimmer);z-index:50;gap:1rem}
+.rail .mid{color:var(--dim)}
+.rail .mid b{color:var(--gold);font-weight:500}
+.rail button{font-family:var(--mono);font-size:.66rem;background:transparent;color:var(--dim);border:1px solid var(--line);padding:.3rem .6rem;cursor:pointer;letter-spacing:.06em}
+.rail button[aria-pressed="true"]{color:#12161c;background:var(--gold);border-color:var(--gold)}
+.rail a{border:0;color:var(--dim)}
+@media(max-width:640px){.rail .mid,.rail .keys{display:none}}
+.prog{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:60;width:0}
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+<div class="deck" id="deck">
+
+<!-- 1 -->
+<section class="slide actslide" id="s1">
+  <div class="marker">GDG Chennai DevFest · IIT Madras · <b>Main stage</b></div>
+  <h1>Don’t build<br>an AI agent.</h1>
+  <p class="sub" style="max-width:54ch">Opportunities in AI: personal observations on the culture of the gold rush in California. Twelve minutes to earn that sentence.</p>
+  <div class="actrule"></div>
+  <div class="actmeta"><b>Hariprasad Sudharshan</b><br>Product leader, AI · Dallas, by way of Kannammapettai</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Say the sentence cold, then let the silence do the work.</b></p><p>Don’t build an AI agent.</p><p>I know. Wrong conference. Stay with me for twelve minutes and I will earn that sentence.</p></details>
+</section>
+
+<!-- 2 -->
+<section class="slide" id="s2">
+  <h2>The Build-First Reflex</h2>
+  <div class="grid five">
+    <div class="step"><div class="n">01</div><div class="t">Get a problem</div></div>
+    <div class="step"><div class="n">02</div><div class="t">Open the coding agent</div></div>
+    <div class="step"><div class="n">03</div><div class="t">Demo in two hours</div></div>
+    <div class="step"><div class="n">04</div><div class="t">Launch in four weeks</div></div>
+    <div class="step"><div class="n">05</div><div class="t">Search. Find the twins.</div></div>
+  </div>
+  <div class="punch">Your AI application already has a twin. Or will have one in a week.</div>
+  <p>Building became cheaper than searching. The agent will happily build the 400th RAG-over-PDFs tool. It does not know about the other 399. That is your job.</p>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Everyone in this room builds before they search, me included.</b></p><p>I have a name for what we all do. The Build-First Reflex. Get a problem. Open the coding agent. Demo in two hours. Launch in four weeks. And only then search, and find the twins.</p><p>Your AI application already has a twin. Or it will have one in a week. Not because anyone copied you. Because the model does not care who is typing.</p><p>Building became cheaper than searching. Over a million public repositories on GitHub import an LLM SDK. The agent will happily build the four hundredth RAG-over-PDFs tool. It does not know about the other three hundred and ninety-nine. That is your job. Put a search budget in front of every build budget.</p><p>I did this myself. I built a token calculator over a weekend, called my wife over to the laptop, and found two hundred and forty-four twins four months later. Nobody copied me. We had the same model, the same problem and the same tools.</p></details>
+</section>
+
+<!-- 3 -->
+<section class="slide" id="s3">
+  <div class="marker">The long version</div>
+  <h2>Thirty-six minutes, if you want all of it.</h2>
+  <a class="vid" href="https://www.youtube.com/watch?v=0JZy5AuuQzc" target="_blank" rel="noreferrer">
+    <img src="https://i.ytimg.com/vi/0JZy5AuuQzc/hqdefault.jpg" alt="I Spent Two Years Building the Median, on the AI Engineer channel" loading="lazy">
+    <div>
+      <span class="tag y">AI Engineer · New York · 36:11</span>
+      <h3>I Spent Two Years Building the Median</h3>
+      <p>Stop building the 400th RAG. The whole argument, with the numbers, on the AI Engineer channel. You are getting the short, sharper one here.</p>
+    </div>
+  </a>
+  <details class="notes"><summary>Speaker notes</summary><p><b>The long version exists; this is the short, sharper one.</b></p><p>I gave the whole talk on this at AI Engineer, New York, this week. It is on their channel now. Seven hundred and fifty-one thousand subscribers, and one guy from Kannammapettai in the front row of the For You rail.</p><p>Thirty-six minutes, if you want the long version. You are getting the short one.</p></details>
+</section>
+
+<!-- 4 -->
+<section class="slide" id="s4">
+  <h2>That is my page.</h2>
+  <div class="qr">
+    <a href="https://brettleehari.github.io/Hari.me/">brettleehari.github.io/Hari.me</a>
+    <p>The talk, the apps I am about to mention, the writing, and a way to reach me.</p>
+  </div>
+  <p class="sub">In the hall this was a QR code and ten seconds of silence. Here it is a link.</p>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Ten seconds of silence buys you a hundred follow-ups.</b></p><p>That is my page. The talk, the apps I am about to mention, the writing, and a way to reach me. Take the photo. I will wait.</p><p>Now, back to the twins.</p></details>
+</section>
+
+<!-- 5 -->
+<section class="slide" id="s5">
+  <div class="eq">
+    <span>same model</span>
+    <span><i class="op">×</i> same problem</span>
+    <span><i class="op">×</i> same tools</span>
+    <span class="res">= similar answer</span>
+  </div>
+  <div class="punch">The median is what we are building.</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>The median is not an accident. It is the output.</b></p><p>Same model. Same problem. Same tools. Similar answer. The model does not care who is typing.</p><p>I call that answer the median. It is what a competent engineer gets when they point a frontier model and a harness at a problem. Most of the time it is good. That is the trap. It is good enough to ship, and it is hard to tell apart from what the person next to you shipped.</p><p>Before 2023 the median was expensive. You needed a team, a year and your own stack. Today the median is free. And the median is what we are building. All of us. Me included.</p></details>
+</section>
+
+<!-- 6 -->
+<section class="slide" id="s6">
+  <div class="photo-row">
+    <div><img class="photo" src="/Hari.me/talks/assets/goldrush/vicaut.jpg" alt="A sprinter in the French national kit" loading="lazy"></div>
+    <div><h2>Does anyone know him?</h2></div>
+  </div>
+  <div class="credit">Photo: Erik van Leeuwen (bron: Wikipedia), GFDL</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Nobody knows the eighth-fastest man alive.</b></p><p>Does anyone know him?</p><p>His name is Jimmy. Jimmy Vicaut. He is French. I am a big fan, and he is a superhuman.</p></details>
+</section>
+
+<!-- 7 -->
+<section class="slide" id="s7">
+  <div class="photo-row">
+    <div><img class="photo" src="/Hari.me/talks/assets/goldrush/ramraj.jpg" alt="Vithya Ramraj smiling on the track in an Indian team vest" loading="lazy"></div>
+    <div><h2>And her?</h2></div>
+  </div>
+  <div class="credit">Photo: Ministry of Youth Affairs and Sports, Government of India (SAI), GODL-India</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Her face is unknown and her time equals a national record.</b></p><p>And her?</p><p>Vithya Ramraj. Coimbatore. Hangzhou, 2023: she ran the four hundred metres hurdles in 55.42 and equalled PT Usha’s national record, thirty-nine years after Usha set it. Two relay medals the same week. Her twin sister Nithya runs the hundred-metre hurdles.</p><p>Most of this room did not know her face. One room in France did not know his. Hold that. In this sport, the distance between “nobody knows you” and “the record” is a few hundredths of a second.</p></details>
+</section>
+
+<!-- 8 -->
+<section class="slide" id="s8">
+  <div class="lanes">
+    <div class="lane hero"><img src="/Hari.me/talks/assets/goldrush/vicaut.jpg" alt="Jimmy Vicaut" loading="lazy"><div class="nm">Jimmy Vicaut</div><div class="ln">LANE 1 · 10.00 · 8TH · PB 9.86</div></div>
+    <div class="lane"><img src="/Hari.me/talks/assets/goldrush/bolt.jpg" alt="Usain Bolt" loading="lazy"><div class="nm">Usain Bolt</div><div class="ln">LANE 5 · 9.79 · 1ST</div></div>
+    <div class="lane"><img src="/Hari.me/talks/assets/goldrush/gatlin.jpg" alt="Justin Gatlin" loading="lazy"><div class="nm">Justin Gatlin</div><div class="ln">LANE 7 · 9.80 · 2ND · WORLD LEADER 9.74</div></div>
+  </div>
+  <div class="credit">Photos: Erik van Leeuwen (bron: Wikipedia), GFDL · Brunel University / Flickr, CC BY 2.0 · Erik van Leeuwen (bron: Wikipedia), GFDL</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>The gap between famous and unknown is nine hundredths of a second.</b></p><p>Can you connect the dots now? Here he is next to the two men you do know. Usain Bolt. Justin Gatlin. Jimmy is one of the fastest human beings who has ever lived. Personal best, nine point eight six. Part of the sub-ten club. Two of them you know. All three are superhuman.</p></details>
+</section>
+
+<!-- 9 -->
+<section class="slide" id="s9">
+  <h2>Nine superhumans. Twenty-seven hundredths of a second.</h2>
+  <div class="marker">100 metres men · final · Beijing · 23 Aug 2015 · wind −0.5</div>
+  <div class="scroller"><table>
+    <thead><tr><th>Pos</th><th>Athlete</th><th>Nation</th><th>Mark</th><th>Reaction</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="k">Usain Bolt</td><td>JAM</td><td class="y">9.79</td><td>0.159</td></tr>
+      <tr><td>2</td><td class="k">Justin Gatlin</td><td>USA</td><td class="y">9.80</td><td>0.165</td></tr>
+      <tr><td>3</td><td class="k">Trayvon Bromell</td><td>USA</td><td class="y">9.92</td><td>0.135</td></tr>
+      <tr><td>3</td><td class="k">Andre De Grasse</td><td>CAN</td><td class="y">9.92</td><td>0.136</td></tr>
+      <tr><td>5</td><td class="k">Michael Rodgers</td><td>USA</td><td>9.94</td><td>0.139</td></tr>
+      <tr><td>6</td><td class="k">Tyson Gay</td><td>USA</td><td>10.00</td><td>0.128</td></tr>
+      <tr><td>7</td><td class="k">Asafa Powell</td><td>JAM</td><td>10.00</td><td>0.144</td></tr>
+      <tr class="hl"><td>8</td><td class="k">Jimmy Vicaut</td><td>FRA</td><td>10.00</td><td>0.170</td></tr>
+      <tr><td>9</td><td class="k">Bingtian Su</td><td>CHN</td><td>10.06</td><td>0.175</td></tr>
+    </tbody>
+  </table></div>
+  <div class="takeaway"><b>The difference that matters is between us and them.</b> Not between them. On another night the order is different.</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>The difference that matters is between us and them, not between them.</b></p><p>World Championships, Beijing, 2015. The hundred metres final. Nine superhumans. Twenty-seven hundredths of a second between first and last.</p><p>Jimmy ran ten flat that night and came eighth. Last. Gatlin lost gold by one hundredth of a second, and he was the fastest man that year. On another night the order is different.</p><p>I run a hundred metres in about thirteen seconds. That is the difference between us and these nine. Not the difference between them.</p></details>
+</section>
+
+<!-- 10 -->
+<section class="slide" id="s10">
+  <h2>Six labs. A few dozen Elo points apart.</h2>
+  <img class="photo" src="/Hari.me/talks/assets/goldrush/arena-elo.png" alt="Line chart of Arena Elo scores for top models by provider, May 2023 to January 2026. Eight providers converge toward 1,420 to 1,503 by 2026." loading="lazy">
+  <div class="credit">Source: Arena, 2026 · Chart: 2026 AI Index report</div>
+  <div class="takeaway"><b>The model is rented.</b> The harness and the product are where you can still win. Claude Code versus Codex is not a model comparison. It is Jamaica versus the USA: the athlete, and the training system around the athlete.</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>The model is rented. The harness and the product are where you can still win.</b></p><p>Now the same yardstick on models. Six labs. A few dozen Elo points apart. The leader changes with every release. A year ago the top four spanned ninety-seven points. By March, fewer than twenty-five.</p><p>Which model made you feel smarter this week is a great dinner-table argument. It is not a boardroom argument.</p><p>And here is what we get wrong in most teams. We are not even comparing models. Claude Code versus Codex is not a model comparison. It is Jamaica versus the USA: the athlete, and the training system around the athlete. The model is the engine. The harness is how the engine is used: tools, context, memory, workflow. The product is why anyone should care. Today you can rent the engine, and most of the harness. The model is rented. The same one your competitor rents. Point it at the same problem with the same tools, and it gives the next person what it gave you.</p></details>
+</section>
+
+<!-- 11 -->
+<section class="slide" id="s11">
+  <h2>Three opportunities.</h2>
+  <div class="grid three">
+    <div class="cell"><span class="tag">One · Build the model</span><div class="big">0 → 1</div><p>A few. Training runs, GPUs, deep tech. Billions a year. A capital race.</p></div>
+    <div class="cell"><span class="tag g">Two · Serve the model</span><div class="big" style="color:var(--ground)">1 → N</div><p>One model, the whole world. Every token passes through here. The stack is undefined.</p></div>
+    <div class="cell"><span class="tag r">Three · AI applications</span><div class="big" style="color:var(--rust)">N → N</div><p>Thousands. Cheapest to enter, hardest to defend. Where the twins live.</p></div>
+  </div>
+  <div class="takeaway">Three places to stand. Only one of them is still undecided.</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Three places to stand. Only one of them is still undecided.</b></p><p>So the model is rented. That leaves three places to stand.</p><p>Build the model: zero to one. That is going to belong to a few. Training runs, GPUs, a kind of deep tech that costs billions of dollars a year. It is a billion-dollar ticket to come eighth in a nine eight six final. A capital race. Let them run it.</p><p>Build the application: N to N. N apps for N users. Thousands of them, and they are the cheapest to enter and the hardest to defend. That is where the twins live. That is where the Build-First Reflex puts us by default.</p><p>Serve the model: one to N. Once a model is built, it has to run. One model, N users, and N is the whole world or one corporation. Every token anybody uses passes through that stack. Inference. The part that starts when the training run ends and the bills begin. And that stack is undefined. Nobody has won it. That is the one I find attractive.</p><p>Let me show you both sides of the engine.</p></details>
+</section>
+
+<!-- 12 -->
+<section class="slide" id="s12">
+  <h2>The serving side of the engine.</h2>
+  <div class="pipe">
+    <div class="col"><div class="hd">Models</div><div class="box">Frontier</div><div class="box">Open weights</div><div class="box">Neoclouds</div></div>
+    <div class="arr">→</div>
+    <div class="col"><div class="hd">The middle</div>
+      <div class="box g">Routing &amp; gateways<small>one endpoint, one balance</small></div>
+      <div class="box g">Token cost &amp; efficiency<small>where should this run</small></div>
+      <div class="box g">Security &amp; governance<small>what leaves the building</small></div>
+      <div class="box g">Agent orchestration<small>plan, call, retry</small></div>
+      <div class="box g">Observability &amp; evals<small>did it work, what it cost</small></div>
+    </div>
+    <div class="arr">→</div>
+    <div class="col"><div class="hd">Applications</div>
+      <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="box r end">Thousands here<small>the crowded end</small></div>
+    </div>
+  </div>
+  <div class="takeaway"><b>Applications are the crowded end.</b> The sparse middle is where moats form. Five things every one of those thousands needs and cannot make itself. Sparse. Deterministic. Durable.</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Applications are the crowded end. The sparse middle is where moats form.</b></p><p>Here is the serving side of the engine. Models on the left: frontier, open weights, the neoclouds that host them. On the right, applications. Thousands. Every AI billboard on Highway 101, San Francisco down to San Jose, is one of those small boxes. The crowded end.</p><p>And in the middle, five things every one of those thousands needs and cannot make itself. Routing and gateways. Token cost and efficiency. Security and governance. Agent orchestration. Observability and evals. Sparse. Deterministic. Durable.</p></details>
+</section>
+
+<!-- 13 -->
+<section class="slide" id="s13">
+  <h2>And the other side of the engine.</h2>
+  <div class="pipe">
+    <div class="col"><div class="hd">Data</div><div class="box">Web crawl</div><div class="box">Licensed text</div><div class="box">Synthetic data</div><div class="box">Human feedback</div><div class="box end">Abundant<small>the public end</small></div></div>
+    <div class="arr">→</div>
+    <div class="col"><div class="hd">The build</div>
+      <div class="box b">GPU clusters<small>tens of thousands of accelerators</small></div>
+      <div class="box b">Training runs<small>months and hundreds of millions</small></div>
+      <div class="box b">Data pipelines<small>crawl, clean, dedupe, tokenise</small></div>
+      <div class="box b">Post-training<small>RLHF, DPO, distillation</small></div>
+      <div class="box b">Evals &amp; safety<small>before anything ships</small></div>
+    </div>
+    <div class="arr">→</div>
+    <div class="col"><div class="hd">Models</div><div class="box">Frontier</div><div class="box">Open weights</div><div class="box">Specialised</div><div class="box b end">A handful here<small>the capital end</small></div></div>
+  </div>
+  <div class="takeaway"><b>Building the model is a capital race you do not have to enter.</b> Two sides. One engine. Notice where the deterministic software sits: in both middles.</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Building the model is a capital race you do not have to enter.</b></p><p>And the other side of the engine. Data on the left: abundant, mostly public, already scraped by everyone. The build in the middle: GPU clusters, training runs, data pipelines, post-training, evals and safety. Months and hundreds of millions of dollars per run. A handful of models come out on the right. The capital end.</p><p>Two sides. One engine. And notice where the deterministic software sits. In both middles.</p></details>
+</section>
+
+<!-- 14 -->
+<section class="slide" id="s14">
+  <h2>This is cloud in 2008. Same playbook.</h2>
+  <div class="scroller"><table>
+    <thead><tr><th>The job</th><th>Cloud, 2008 → named in hindsight</th><th>Inference, 2026 → still unnamed</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Deploy it</td><td class="y">Docker 2013 · Kubernetes 2014</td><td class="g">Serving and routing · <span class="blank">______</span></td></tr>
+      <tr><td class="k">Watch it</td><td class="y">Datadog 2010 · Grafana 2014</td><td class="g">LLM observability and evals · <span class="blank">______</span></td></tr>
+      <tr><td class="k">Feed it</td><td class="y">Kafka 2011 · Snowflake 2012</td><td class="g">Context, caching, memory · <span class="blank">______</span></td></tr>
+      <tr><td class="k">Secure it</td><td class="y">Okta 2009 · Vault 2015</td><td class="g">Security and governance · <span class="blank">______</span></td></tr>
+      <tr><td class="k">Pay for it</td><td class="y">CloudHealth 2012 · FinOps</td><td class="g">Token cost and efficiency · <span class="blank">______</span></td></tr>
+      <tr><td class="k">Coordinate it</td><td class="y">Airflow 2014 · Terraform 2014</td><td class="g">Agent orchestration · <span class="blank">______</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="takeaway">In 2008 nobody on the stage could say a single name in the left column. None of them existed. The right column gets its names in hindsight too. <b>Which means the names are still available.</b></div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>In 2008 nobody could say Kubernetes. In 2026 nobody can name the inference stack. Same playbook.</b></p><p>The serving middle is the one I call opportunistic. Here is why.</p><p>We are in 2008. AWS is two years old. Every job in the left column already existed: deploy it, watch it, feed it, secure it, pay for it, coordinate it. And nobody on the stage when the cloud was announced could say a single one of those names. Kubernetes did not exist for six more years. Datadog, Snowflake, Okta: not founded. Every piece of middleware that now bills every engineering team on earth got its name in hindsight.</p><p>Same playbook, eighteen years later. The jobs on the right already exist. Serve and route the model. Watch it and evaluate it. Feed it context, cache it, give it memory. Secure it. Pay for it, by the token. Coordinate agents. And the right column is still blank. You will only be able to name those companies in hindsight. Which means the names are still available, and some of them could be yours.</p><p>The occupations are the same story. New jobs only get their names in hindsight. The ones I am watching for: people overseeing agents, people watching orchestration, people doing new kinds of evaluation. All on the serving side. Google’s own numbers say adoption today is two billion people wide and about a fifth of a job deep. Wide and shallow. The depth is missing, and the depth is the stack.</p><p>In 1849 the people who got rich in California sold shovels to the miners. This is the shovel nobody has sold yet.</p></details>
+</section>
+
+<!-- 15 -->
+<section class="slide" id="s15">
+  <h2>Deterministic software is the moat.</h2>
+  <div class="moat">
+    <div>
+      <div class="row-lab">Without AI · the last seventy years</div>
+      <div class="grid three">
+        <div class="cell"><span class="tag">Hired · judgment</span><h3>The engineer</h3><p>Taste, scars, the last bug shipped.</p></div>
+        <div class="cell"><span class="tag g">Owned · deterministic</span><h3>The toolchain</h3><p>Compilers, editors, CI, cloud. Rules all the way down.</p></div>
+        <div class="cell"><span class="tag g">Owned · deterministic</span><h3>The software</h3><p>Same thing every time. The foundation.</p></div>
+      </div>
+      <div class="row-lab">With AI · today</div>
+      <div class="grid three">
+        <div class="cell rent"><span class="tag y">Rented · probabilistic</span><h3>The model + engineer</h3><p>Decides at inference. Identical for everyone on a given day.</p></div>
+        <div class="cell"><span class="tag g">Owned · deterministic</span><h3>The harness</h3><p>Agents, tools, MCP, routers, evals. When a rule needs a judgment, it calls the model.</p></div>
+        <div class="cell"><span class="tag g">Owned · deterministic</span><h3>The software</h3><p>Still the same thing every time. Still the foundation.</p></div>
+      </div>
+    </div>
+    <div>
+      <div class="stat">$125T</div>
+      <div class="stat-cap">The modern world runs on it. Every dollar of world GDP stops without it.</div>
+      <div class="credit">Navigation · banking · healthcare · grid · space · IMF WEO 2026</div>
+    </div>
+  </div>
+  <div class="takeaway"><b>One card changed. The output did not.</b> The only rented, probabilistic thing in the picture is the thing everyone has.</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>The only probabilistic thing in the picture is the one thing everyone rents.</b></p><p>Here is the part that should make this room sit up.</p><p>A hundred and twenty-five trillion dollars of world economy runs on software. Not the AI kind. The traditional, deterministic, rule-based kind that does the same thing every time, reliably, at scale, handcrafted over seventy years. Navigation, banking, the hospital, the grid, the space station. If it stops, it is catastrophic. You can trust it with a pacemaker and a 747, and that reliability is the product running the world.</p><p>Top row, the last seventy years. The engineer, hired, the source of judgment: taste, scars, the last bug shipped. The toolchain, owned and deterministic, rules all the way down; when a rule needs a judgment it waits for the engineer. Out of it comes the software that runs the world.</p><p>Bottom row, today. One card changed. The engineer is now assisted, or driven, by a rented model. Rented, and probabilistic: it decides at inference, and it is identical for everyone on a given day. Everything around it, the harness, the agents, the tools, MCP, the routers, the evals, is still old-school deterministic software. And what comes out the other end did not change at all. The world still runs on software that does the same thing every time.</p><p>So look at the moat. The model is probabilistic. Ask it the same thing twice and the answer can change. You cannot build a moat on that, and everybody rents it anyway. The only rented, probabilistic thing in the picture is the thing everyone has. The moat is the deterministic software around it: routers, schedulers, caches, evals, the plumbing that makes a probabilistic thing behave in production. It is going to be deterministic software that gives durability and moat. And deterministic software is what this city has been building for twenty-five years. We did not need a gold rush to learn it.</p><p>Two small receipts. My calculator, the second time: what it costs to serve an open model yourself against renting it. None of the two hundred and forty-four had touched it, because it is a serving problem, not a model problem. And the phone in my pocket, running Arivu, an app I built: a model served to N equals one, with no internet at all. Both are inference. Neither needed a GPU cluster.</p></details>
+</section>
+
+<!-- 16 -->
+<section class="slide" id="s16">
+  <h2>A router. Reportedly seven billion dollars.</h2>
+  <div class="router">
+    <div class="stack"><div class="box">App 1</div><div class="box">App 2</div><div class="box">App 3</div><div class="box">App N</div></div>
+    <div class="hub">
+      <h3>One API. One key. One bill.</h3>
+      <p>Routes every request to the right model. Falls back when one fails. Picks by price or latency. Sees who uses which model, for what.</p>
+      <span class="tag g" style="margin:0">Traditional software · no model · no training run</span>
+    </div>
+    <div class="stack"><div class="box">Model A</div><div class="box">Model B</div><div class="box">Model C</div><div class="box">Model N</div></div>
+  </div>
+  <div class="grid two">
+    <div class="cell"><span class="tag y">What I saw, 2023</span><p>A weekend project. A classifier in front of three endpoints, because we were rate-limited. “Why would anyone pay five percent for this.”</p></div>
+    <div class="cell"><span class="tag g">What they saw</span><p>Every app will talk to many models. Nobody wants N keys and N bills. And the map of who uses which model is worth more than the fee.</p></div>
+  </div>
+  <div class="takeaway">I had the same model, the same problem and the same tools. I had the wrong problem statement: I solved my rate limit. They solved everyone’s. <b>Deterministic software, read backwards.</b> <a href="https://openrouter.ai" target="_blank" rel="noreferrer">openrouter.ai</a></div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Same tools, wrong problem statement. The right one was worth seven billion dollars.</b></p><p>One use case, and I have to declare an interest.</p><p>A company that writes traditional software to route requests across models was acquired by Stripe, reportedly for more than seven billion dollars. No foundation model. No training run. A router. Deterministic software.</p><p>Look at what it is. N apps on the left, N models on the right, and in the middle: one API, one key, one bill. It routes every request to the right model, falls back when one fails, picks by price or latency, and, this is the part that matters, it sees who uses which model, for what. The map of the whole market, drawn by the traffic.</p><p>I built one of these in 2023. We were rate limited, I needed a fallback path, so I wrote a crude router with a small classifier in front of three endpoints. It worked fine. When OpenRouter turned up, my reaction was immediate and confident: weekend project, already built it, why would anybody pay five percent for a hosted version of this. So this is not an analysis of somebody else’s mistake.</p><p>Same model, same problem, same tools. What was different was the problem statement. I solved my rate limit. They solved everyone’s. Nobody wants N keys and N bills. That is a serving problem, not a model problem, and it is deterministic software, read backwards from a sale. The QR takes you to it; look at the usage rankings on that site tonight and ask who else can see that map.</p></details>
+</section>
+
+<!-- 17 -->
+<section class="slide actslide" id="s17">
+  <h2 style="max-width:26ch">Build the next agent? Or build what it takes to build and serve the model?</h2>
+  <p>Thousands at the crowded end. A handful at the capital end. The middle is open.</p>
+  <div class="punch g">Be a function of who you are. Not of where you are.</div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>Build what it takes to serve the model, and be a function of who you are.</b></p><p>So here is the question for this room.</p><p>Everyone is building. Building the next agent has become insanely easy; the agent will build it for you in two hours. So. Should you build the next agent? Or should you build what it takes to build and serve the model? The crowded end is the gold. The middle is the shovel. I know which one I am picking.</p><p>Now the uncomfortable sentence. The best engineers in this hall are going to leave. Some of you have the ticket in your bag already. I had mine. The pitch “stay and compete” does not work on a twenty-four-year-old. The only pitch that works is a problem worth staying for. The inference stack is that problem, and it is not decided yet. Nobody on the 101 has a head start on deterministic software.</p><p>I have a line I use on myself, and I think it is true of a city. Growth is the movement from being a function of where you are, to being a function of who you are. Chennai has spent twenty years being a function of where it is. Capable, affordable, far away. It is time to be a function of who it is.</p></details>
+</section>
+
+<!-- 18 -->
+<section class="slide actslide" id="s18">
+  <h2><span class="tamil">கண்ணம்மாபேட்டை</span> → California</h2>
+  <div class="photo-row">
+    <div><img class="photo" src="/Hari.me/talks/assets/goldrush/kannammapettai.jpg" alt="Chennai Central railway station under a blue sky" loading="lazy"><div class="cap"><span class="tamil">கண்ணம்மாபேட்டை</span> · Chennai</div></div>
+    <div><img class="photo" src="/Hari.me/talks/assets/goldrush/california.jpg" alt="The Golden Gate Bridge from Baker Beach, California" loading="lazy"><div class="cap">California</div></div>
+  </div>
+  <div class="punch">The gold is rented. The ground is yours. Dig here. <span class="tamil">நன்றி</span></div>
+  <div class="credit">Photos: Arian Zwegers, CC BY 2.0 · Christian Mehlführer, CC BY 3.0 · Wikimedia Commons</div>
+  <div class="actrule"></div>
+  <div class="actmeta"><b>Hariprasad Sudharshan</b> · <a href="https://brettleehari.github.io/Hari.me/">brettleehari.github.io/Hari.me</a> · <a href="https://www.youtube.com/watch?v=0JZy5AuuQzc" target="_blank" rel="noreferrer">the long version on AI Engineer</a></div>
+  <details class="notes"><summary>Speaker notes</summary><p><b>The gold is rented. The ground is yours. Dig here.</b></p><p>I started in Kannammapettai. I ended up on the 101. Here is what the road taught me.</p><p>The gold is rented. Every model, every token: rented, by everybody, at the same price. The ground is yours. The problems you can see from here, that nobody can see from a billboard on the 101.</p><p>Dig here.</p><p>நன்றி.</p></details>
+</section>
+
+</div><!-- /deck -->
+
+<div class="rail">
+  <span id="railPos">01 / 18</span>
+  <span class="mid">the gold is rented · <b>the ground is yours</b></span>
+  <span style="display:flex;gap:.6rem;align-items:center"><button id="notesBtn" aria-pressed="false" title="Show the speaker notes on every slide (N)">notes</button><span class="keys">← → navigate · F fullscreen</span><a href="/Hari.me/#speaking">← Hari’s Corner</a></span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var deck = document.getElementById('deck');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var pos = document.getElementById('railPos'), prog = document.getElementById('prog');
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function current(){
+    var best = 0, min = Infinity;
+    slides.forEach(function(s, i){
+      var d = Math.abs(s.getBoundingClientRect().top);
+      if(d < min){ min = d; best = i; }
+    });
+    return best;
+  }
+  function sync(){
+    var i = current();
+    pos.textContent = pad(i + 1) + ' / ' + pad(slides.length);
+    prog.style.width = (i / (slides.length - 1) * 100) + '%';
+  }
+  deck.addEventListener('scroll', function(){
+    window.clearTimeout(deck._t); deck._t = window.setTimeout(sync, 60);
+  });
+  sync();
+  function go(d){
+    var i = Math.max(0, Math.min(slides.length - 1, current() + d));
+    slides[i].scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  }
+  /* speaker notes toggle */
+  var notesBtn = document.getElementById('notesBtn');
+  var allNotes = Array.prototype.slice.call(document.querySelectorAll('details.notes'));
+  function setNotes(on){
+    allNotes.forEach(function(d){ d.open = on; });
+    notesBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    document.body.classList.toggle('show-notes', on);
+  }
+  notesBtn.addEventListener('click', function(){ setNotes(notesBtn.getAttribute('aria-pressed') !== 'true'); });
+  document.addEventListener('keydown', function(e){
+    var tag = (e.target.tagName || '').toLowerCase();
+    if(tag === 'input' || tag === 'textarea') return;
+    if(e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); go(1); }
+    if(e.key === 'ArrowLeft'  || e.key === 'PageUp'){ e.preventDefault(); go(-1); }
+    if(e.key === 'Home'){ e.preventDefault(); slides[0].scrollIntoView(); }
+    if(e.key === 'End'){ e.preventDefault(); slides[slides.length-1].scrollIntoView(); }
+    if(e.key === 'n' || e.key === 'N'){ setNotes(notesBtn.getAttribute('aria-pressed') !== 'true'); }
+    if(e.key === 'f' || e.key === 'F'){
+      if(document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+    }
+  });
+})();
+</script>
+</body>
+</html>

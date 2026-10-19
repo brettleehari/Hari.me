@@ -828,7 +828,7 @@
             s.announcement_url ? `<a href="${esc(s.announcement_url)}" target="_blank" rel="noreferrer">Announcement</a>` : ''
         ].filter(Boolean);
         const posterHtml = talks.filter(isPoster).map(s => {
-            const href = s.url || s.slides_url || s.announcement_url || '#';
+            const href = s.video_id ? s.url : (s.slides_url || s.url || s.announcement_url || '#');
             const visual = s.video_id
                 ? `<img src="https://i.ytimg.com/vi/${esc(s.video_id)}/hqdefault.jpg" alt="${esc(s.title)}" loading="lazy">`
                 : s.image

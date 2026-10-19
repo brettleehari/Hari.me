@@ -104,6 +104,9 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | --- | --- |
 | https://dallas-ai.org | Dallas AI — community/organization |
 | /Hari.me/talks/aws-dfw-model-running-on-this.html | AWS User Group DFW — "I Have a Model Running on This" slide deck (internal page) |
+| /Hari.me/talks/goldrush-in-california.html | GDG Chennai DevFest, IIT Madras — "Don't Build an AI Agent" (Gold Rush in California) slide deck (internal page) |
+| https://www.youtube.com/watch?v=0JZy5AuuQzc | AI Engineer New York talk, linked from the Gold Rush deck as the long version |
+| https://openrouter.ai | OpenRouter, the router example in the Gold Rush deck |
 | https://www.influxdays.com/speakers/hari-prasad-sudharshan/ | InfluxDays 2021 — speaker profile |
 | https://www.influxdata.com/blog/see-you-in-october-influxdays-north-america-2021/ | InfluxData blog — InfluxDays North America 2021 announcement |
 | https://www.slideshare.net/slideshow/hariprasad-sudharshan-fujitsu-network-communications-mlbased-datadriven-software-development-with-influxdb-20-influxdays-na-2021/250506963 | InfluxDays 2021 slides — "ML-Based Data-Driven Software Development with InfluxDB 2.0" (SlideShare) |

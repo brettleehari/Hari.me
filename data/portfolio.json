@@ -925,11 +925,13 @@
     {
       "event": "GDG Chennai · DevFest",
       "date": "",
-      "topic": "Personal observations on the culture of the AI gold rush in California, for the DevFest audience in Chennai.",
+      "topic": "Opportunities in AI: personal observations on the culture of the gold rush in California. The short, sharp version of the AI Engineer talk, for the DevFest audience: the median, the sprinters, the three places to stand, and why the middle is still unnamed.",
       "url": "https://www.linkedin.com/posts/gdgindia-gdgchennai-devfest-share-7516372293032488960-Exkr/",
       "title": "Opportunities in AI: Personal Observations on the Culture of the Gold Rush in California",
       "tense": "past",
-      "poster_line": "The Gold Rush, seen up close."
+      "poster_line": "Don't build an AI agent.",
+      "venue": "IIT Madras, Chennai",
+      "slides_url": "/Hari.me/talks/goldrush-in-california.html"
     },
     {
       "event": "OFC 2026 (Optical Fiber Communication Conference)",
