@@ -301,7 +301,7 @@
     {
       "year": 2026,
       "label": "Runner-Up at MIT Media Lab's NANDAHack, entered solo. Shipped 7 projects in 4 months. Book published. Dallas AI Meetup speaker.",
-      "description": "Runner-Up at NANDAHack, the Agentic AI Hackathon hosted by MIT Media Lab (June 13 to July 11), with '2036 Agentic Town - AI Constitution (Civil Ledger)'. Entered solo against 230+ submissions from 400+ builders who registered globally. Went in to exercise the full PM loop in one place, build it, package it, market the right problem, and make it runnable for a stranger, and to feel how time shrinks in the open source world. Shipped CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, IntelliYANG (YANG model chatbot), Metabolistic Storyteller (full-stack rewrite with causal discovery), TokenCalci (self-host vs neocloud TCO planner with a live price feed and a public API). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
+      "description": "Runner-Up at NANDAHack, the Agentic AI Hackathon hosted by MIT Media Lab (June 13 to July 11), with '2036 Agentic Town - AI Constitution (Civil Ledger)'. Entered solo against 230+ submissions from 400+ builders who registered globally. Went in to exercise the full PM loop in one place, build it, package it, market the right problem, and make it runnable for a stranger, and to feel how time shrinks in the open source world. Shipped CricketMind (fine-tuned LLM on $5 compute), Visual Learning (context management), Smart-Review v2 (7-year arc from 2019 Marketplace app to full-stack rebuild), GraspRepo web dashboard, Arivu (a language model that runs entirely on the phone, iOS and Android), Metabolistic Storyteller (full-stack rewrite with causal discovery), TokenCalci (self-host vs neocloud TCO planner with a live price feed and a public API). Published 'Thinking in Analogies: A Generative AI Playbook' 2nd edition. Speaker at Dallas AI Meetup (April 9). This is what is available in the open. The enterprise work at Fujitsu, 6 Tier-1 deployments, EU AI Act compliance, and the internal AI platform, sits behind NDA. What you see here is the public portfolio of a builder who also leads products inside the enterprise.",
       "category": "product",
       "links": [
         {
@@ -341,8 +341,8 @@
           "url": "https://your-metabolic-story-teller.onrender.com"
         },
         {
-          "label": "IntelliYANG: GitHub",
-          "url": "https://github.com/brettleehari/intelliyang"
+          "label": "Arivu: GitHub",
+          "url": "https://github.com/brettleehari/arivu"
         },
         {
           "label": "Visual Learning: live demo",
@@ -554,7 +554,7 @@
       "year_ended": "",
       "status": "production",
       "pinned": false,
-      "featured_order": 5,
+      "featured_order": 6,
       "one_liner": "Enterprise-grade crypto intelligence platform. Real-time streaming, multi-tier caching, full observability.",
       "problem": "Crypto intelligence requires real-time data aggregation from multiple sources, low-latency delivery to thousands of concurrent clients, and enterprise-grade reliability. Most crypto tools are either toy demos or closed-source platforms.",
       "what_it_does": "Intelligence Broker pattern for routing data to AI agents. Agent Registry for coordination. Dual Memory System: Redis (short-term) + PostgreSQL (long-term). Multi-tier caching (L1 Memory + L2 Redis = 96% faster). WebSocket streaming to 10K+ concurrent clients. JWT auth + API keys + per-endpoint rate limiting. Full observability: Prometheus metrics, Grafana dashboards, Sentry errors, structured logging.",
@@ -620,31 +620,40 @@
       }
     },
     {
-      "id": "intelliyang",
-      "name": "IntelliYANG",
+      "id": "arivu",
+      "name": "Arivu: a language model that runs on your phone",
       "year_started": "2026",
       "year_ended": "",
-      "status": "production",
+      "status": "beta",
       "pinned": false,
-      "featured_order": 7,
-      "one_liner": "AI-powered chatbot for querying OpenROADM YANG network models. Hybrid RAG with multi-stage validation.",
-      "problem": "OpenROADM YANG models are complex, deeply nested, and hard to navigate. Network engineers need fast answers about model structure, constraints, and relationships without reading thousands of lines of YANG.",
-      "what_it_does": "Parses .yang files and extracts semantic chunks (containers, groupings, identities). Hybrid retrieval: vector search + BM25 keyword search. Multi-stage validation pipeline (syntax, semantics, optical constraints, confidence threshold at 0.90). Rich CLI interface with session management.",
-      "why_it_matters": "Bridges the gap between AI capabilities and domain-specific network modeling. RAG applied to a structured, hierarchical data format, not just flat text. Validation pipeline ensures answers are grounded in actual YANG model definitions.",
-      "what_i_learned": "RAG on structured data (YANG models) requires semantic chunking, not naive text splitting. The validation pipeline is the product. Without it, the chatbot hallucinates plausible-sounding but incorrect network configurations.",
+      "featured_order": 5,
+      "one_liner": "A fully offline LLM app for iPhone and Android. The whole model ships inside the app, so it works in aeroplane mode and nothing you type ever leaves the device.",
+      "problem": "For a teacher in Enugu or a clerk in Manila, AI assistants fail twice: the data bundle runs out by the 20th, and nobody can say where the words go once typed. Cloud inference is priced in dollars and privacy; a capable adult with a mid-range phone and text to write or understand gets neither.",
+      "what_it_does": "Bundles Qwen3-1.7B (Q4_K_M, about 1.1 GB) inside the app and runs it on-device over llama.cpp through a shared C++ core, with Swift and Kotlin shells on top. No account, no sign-in, no model download, no network code linked at all. Positioned as an offline writing and comprehension assistant, not an oracle: rewrite, shorten, explain, summarise, translate, draft. Every reply shows its token cost, opens to reveal the exact prompt the model saw, and the system prompt is editable so you can watch the behaviour change.",
+      "why_it_matters": "Local inference is the only AI that is free at the margin and private by construction. Arivu is a product built from that constraint rather than around it: what the app can do is chosen by what the device can carry, never by which platform it is. It also doubles as a way to see how such a thing works, with a live tokenizer and the full prompt disclosed on every turn.",
+      "what_i_learned": "Memory bandwidth divided by model file size predicts tokens per second until it suddenly doesn't, and the only honest measurements come from the modest phone the user actually owns, not the flagship on my desk. Running the repo on a one-file Spine with traceability tags on every feature and test, and refusing some features by design, kept a two-platform codebase from becoming two products. The AWS User Group DFW talk came out of this work.",
       "tech_stack": [
-        "Python",
-        "OpenAI API",
-        "Vector DB",
-        "BM25",
-        "Rich CLI"
+        "llama.cpp",
+        "C++ core",
+        "Swift / SwiftUI",
+        "Kotlin",
+        "Qwen3-1.7B Q4_K_M",
+        "GGUF"
       ],
-      "architecture_notes": "YANG processor (semantic chunking), dual retrieval (vector + BM25), LLM generation, multi-stage validation (syntax, semantics, optical constraints, confidence gate at 0.90), Rich CLI output.",
-      "results": "Processes full OpenROADM YANG model suite. 0.90 confidence threshold for answer escalation.",
-      "repo_url": "https://github.com/brettleehari/intelliyang",
+      "architecture_notes": "Shared C++ core (CMake, unit-tested without a model or platform SDK) wrapping llama.cpp; ArivuKit Swift package for the iOS logic with 118 tests and twelve end-to-end journeys; Android app with 57 unit tests. Model weights fetched sha256-verified at build time and bundled. Spine/Leaf documentation discipline with generated traceability and sequencing.",
+      "results": "iOS app built, tested on a handset, and in TestFlight. Android prototype behind iOS. Apache-2.0 including the model weights. Open for contributors.",
+      "repo_url": "https://github.com/brettleehari/arivu",
       "demo_url": "",
-      "writeup_url": "",
-      "related_writing": ""
+      "writeup_url": "https://brettleehari.github.io/arivu/",
+      "related_writing": "",
+      "pitch": {
+        "theme": "Local inference",
+        "problem": "Cloud AI costs data and privacy that a mid-range phone user cannot spend.",
+        "built": "An offline LLM app with the model inside it, on iOS and Android, over a shared llama.cpp core.",
+        "result": "On a handset and in TestFlight. Apache-2.0, weights included.",
+        "cta": "GitHub",
+        "title": "Arivu"
+      }
     }
   ],
   "open_source": [

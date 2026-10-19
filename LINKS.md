@@ -50,6 +50,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://your-metabolic-story-teller.onrender.com | Metabolistic Storyteller — live application |
 | https://huggingface.co/brettleehari/cricketmind-nemotron-mini | CricketMind — fine-tuned model on Hugging Face |
 | https://huggingface.co/datasets/brettleehari/cricketbench-v1 | CricketBench v1 — evaluation dataset on Hugging Face |
+| https://brettleehari.github.io/arivu/ | Arivu — project site (GitHub Pages) |
 
 ## Project Repositories
 
@@ -61,7 +62,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://github.com/brettleehari/grasprepo | GraspRepo — source repo |
 | https://github.com/brettleehari/tokencalci | TokenCalci — source repo |
 | https://github.com/brettleehari/cricketmind | CricketMind — source repo |
-| https://github.com/brettleehari/intelliyang | IntelliYang — source repo |
+| https://github.com/brettleehari/arivu | Arivu — offline on-device LLM app, source repo |
 | https://github.com/brettleehari/BTCExpert | BTCExpert / CIAL platform — source repo |
 | https://github.com/pitchdarkdata/MVP1 | Pitchdarkdata MVP1 — source repo |
 
