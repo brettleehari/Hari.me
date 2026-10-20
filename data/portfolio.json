@@ -947,7 +947,7 @@
     },
     {
       "event": "GDG Chennai · DevFest",
-      "date": "",
+      "date": "October 17, 2026",
       "topic": "Opportunities in AI: personal observations on the culture of the gold rush in California. The short, sharp version of the AI Engineer talk, for the DevFest audience: the median, the sprinters, the three places to stand, and why the middle is still unnamed.",
       "url": "https://www.linkedin.com/posts/gdgindia-gdgchennai-devfest-share-7516372293032488960-Exkr/",
       "title": "Opportunities in AI: Personal Observations on the Culture of the Gold Rush in California",
@@ -955,7 +955,9 @@
       "poster_line": "Don't build an AI agent.",
       "venue": "IIT Madras, Chennai",
       "slides_url": "/Hari.me/talks/goldrush-in-california.html",
-      "video_url": "https://www.youtube.com/watch?v=Kbtd8grrn6Y"
+      "video_url": "https://www.youtube.com/watch?v=Kbtd8grrn6Y",
+      "image": "/Hari.me/assets/gdgspeaking.jpeg",
+      "image_alt": "Hariprasad Sudharshan on the main stage at GDG Chennai DevFest, IIT Madras, mid-sentence with the \"same model, same problem, same tools\" slide behind him"
     },
     {
       "event": "OFC 2026 (Optical Fiber Communication Conference)",

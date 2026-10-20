@@ -114,6 +114,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://www.slideshare.net/slideshow/hariprasad-sudharshan-fujitsu-network-communications-mlbased-datadriven-software-development-with-influxdb-20-influxdays-na-2021/250506963 | InfluxDays 2021 slides — "ML-Based Data-Driven Software Development with InfluxDB 2.0" (SlideShare) |
 | /Hari.me/assets/influxspeaking.jpeg | InfluxDays 2021 speaker card (internal image, Speaking section) |
 | /Hari.me/assets/awsspeaking.jpeg | AWS User Group DFW Sep 24 2026 talk poster (internal image, Speaking section) |
+| /Hari.me/assets/gdgspeaking.jpeg | GDG Chennai DevFest, IIT Madras, Oct 17 2026, main-stage photo (internal image, Speaking section) |
 | https://www.youtube.com/watch?v=0JZy5AuuQzc&t=380s | AI Engineer New York talk — "I Spent Two Years Building the Median" (video) |
 | https://i.ytimg.com/vi/0JZy5AuuQzc/hqdefault.jpg | YouTube thumbnail for the AI Engineer talk (poster image, built from `video_id`) |
 | https://www.linkedin.com/posts/gdgindia-gdgchennai-devfest-share-7516372293032488960-Exkr/ | GDG Chennai DevFest — "Opportunities in AI" talk announcement |
