@@ -26,16 +26,16 @@
       },
       {
         "platform": "Instagram",
-        "handle": "@brettleehari",
-        "url": "https://www.instagram.com/brettleehari/",
+        "handle": "@harilearnai",
+        "url": "https://www.instagram.com/harilearnai/",
         "blurb": "Life outside the terminal. Chennai, Dallas, and the occasional build log in pictures.",
         "cta": "Follow along"
       },
       {
         "platform": "YouTube",
-        "handle": "Talks on video",
-        "url": "https://www.youtube.com/watch?v=0JZy5AuuQzc",
-        "blurb": "Start with the AI Engineer New York talk. More talks land here as they go online.",
+        "handle": "@hariprasadsudharsan",
+        "url": "https://www.youtube.com/@hariprasadsudharsan",
+        "blurb": "Talks and shorts. Start with the one-minute cut of the DevFest Chennai talk at IIT Madras.",
         "cta": "Watch"
       }
     ],
@@ -954,7 +954,8 @@
       "tense": "past",
       "poster_line": "Don't build an AI agent.",
       "venue": "IIT Madras, Chennai",
-      "slides_url": "/Hari.me/talks/goldrush-in-california.html"
+      "slides_url": "/Hari.me/talks/goldrush-in-california.html",
+      "video_url": "https://www.youtube.com/watch?v=Kbtd8grrn6Y"
     },
     {
       "event": "OFC 2026 (Optical Fiber Communication Conference)",

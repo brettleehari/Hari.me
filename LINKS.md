@@ -14,7 +14,8 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ | Google Scholar profile (patents, papers, citations) |
 | https://www.researchgate.net/profile/Hariprasad-Sudharsan | ResearchGate profile |
 | https://github.com/pitchdarkdata | Pitchdarkdata — business/org GitHub account |
-| https://www.instagram.com/brettleehari/ | Instagram profile (Reach out section) |
+| https://www.instagram.com/harilearnai/ | Instagram profile (Reach out cards under the hero) |
+| https://www.youtube.com/@hariprasadsudharsan | YouTube channel (Reach out cards under the hero) |
 
 ## Patents (Google Scholar citation pages)
 
@@ -116,6 +117,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://www.youtube.com/watch?v=0JZy5AuuQzc&t=380s | AI Engineer New York talk — "I Spent Two Years Building the Median" (video) |
 | https://i.ytimg.com/vi/0JZy5AuuQzc/hqdefault.jpg | YouTube thumbnail for the AI Engineer talk (poster image, built from `video_id`) |
 | https://www.linkedin.com/posts/gdgindia-gdgchennai-devfest-share-7516372293032488960-Exkr/ | GDG Chennai DevFest — "Opportunities in AI" talk announcement |
+| https://www.youtube.com/watch?v=Kbtd8grrn6Y | GDG Chennai DevFest talk, one-minute Short on Hari's channel (Watch pill) |
 
 ---
 

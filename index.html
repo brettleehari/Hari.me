@@ -380,7 +380,10 @@
         #contact h2 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.05; max-width: 16ch; }
         .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
         .contact-sub { font-size: 15px; color: var(--muted); margin-top: 18px; max-width: 40rem; }
-        .reach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 36px; }
+        .reach-top { margin: 6px 0 0; }
+        .reach-top .eyebrow { margin-bottom: 12px; }
+        .reach-top + .proof-strip { margin-top: 24px; }
+        .reach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
         .reach-card { --brand: var(--accent); position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px 22px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 18px; color: var(--fg); text-decoration: none; overflow: hidden; isolation: isolate; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .35s; animation: reach-in .6s both; animation-delay: calc(var(--i) * 110ms); }
         .reach-card::before { content: ''; position: absolute; inset: -40%; z-index: -1; background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 22%, transparent), transparent 70%); opacity: 0; transform: translate(30%, 30%) scale(.6); transition: opacity .45s, transform .6s cubic-bezier(.2,.8,.2,1); }
         .reach-card:hover, .reach-card:focus-visible { transform: translateY(-6px); border-color: var(--brand); box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--brand) 60%, transparent); outline: none; }
@@ -450,6 +453,7 @@
 
     <div class="wide">
         <section class="hero" id="hero-row"></section>
+        <div class="reach-top" id="reach-top"></div>
         <div class="proof-strip" id="proof-strip"></div>
     </div>
 
@@ -488,7 +492,7 @@
         document.getElementById('site-name').textContent = d.site.name;
         document.title = `${d.person.full_name} — ${(d.person.hero_headline || d.person.headline).replace(/\.$/,'')}`;
 
-        const nav=[['work','Work'],['journey','Journey'],['believe','Beliefs'],['background','Research'],['books','Bookshelf'],['speaking','Speaking'],['write','Write'],['now','Now'],['tech','Stack'],['contact','Reach out']];
+        const nav=[['work','Work'],['journey','Journey'],['believe','Beliefs'],['background','Research'],['books','Bookshelf'],['speaking','Speaking'],['write','Write'],['now','Now'],['tech','Stack'],['contact','Contact']];
         document.getElementById('nav-links').innerHTML=nav.map(([id,l])=>`<a href="#${id}">${l}</a>`).join('');
 
         const award = (d.awards || [])[0];
@@ -842,6 +846,7 @@
         const isPoster = s => s.title && (s.url || s.image || s.video_id);
         const talkLinks = s => [
             s.video_id ? `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">Watch</a>` : (s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">${s.url.includes('linkedin.com') ? 'Event post' : 'Speaker page'}</a>` : ''),
+            s.video_url && !s.video_id ? `<a href="${esc(s.video_url)}" target="_blank" rel="noreferrer">Watch</a>` : '',
             s.slides_url ? `<a href="${esc(s.slides_url)}" target="_blank" rel="noreferrer">Slides</a>` : '',
             s.announcement_url ? `<a href="${esc(s.announcement_url)}" target="_blank" rel="noreferrer">Announcement</a>` : ''
         ].filter(Boolean);
@@ -918,14 +923,17 @@
         };
         const REACH_COLOR = { 'LinkedIn': '#0A66C2', 'Instagram': '#E1306C', 'YouTube': '#FF0000' };
         const reach = (d.person.reach || []).filter(r => r.url);
+        document.getElementById('reach-top').innerHTML = reach.length ? `
+            <p class="eyebrow">Reach out</p>
+            <div class="reach-grid">${reach.map((r,i)=>`<a class="reach-card" style="--i:${i};--brand:${REACH_COLOR[r.platform]||'var(--accent)'}" href="${esc(r.url)}" target="_blank" rel="noreferrer"><div class="reach-head"><span class="reach-icon">${REACH_ICON[r.platform]||''}</span><div><h3>${esc(r.platform)}</h3><div class="reach-handle">${esc(r.handle||'')}</div></div></div><p>${esc(r.blurb||'')}</p><span class="reach-go">${esc(r.cta||'Open')}</span></a>`).join('')}</div>` : '';
         document.getElementById('contact').innerHTML = `
-            ${sh('Reach out')}
+            ${sh('Contact')}
             <h2>Building something in AI? Let&rsquo;s talk.</h2>
-            <p class="contact-sub">Product, fine-tuning, agents, or the full stack around the model. If you have a real problem and want a builder in the room, I would like to hear about it. Pick whichever door you like.</p>
-            <div class="reach-grid">${reach.map((r,i)=>`<a class="reach-card" style="--i:${i};--brand:${REACH_COLOR[r.platform]||'var(--accent)'}" href="${esc(r.url)}" target="_blank" rel="noreferrer"><div class="reach-head"><span class="reach-icon">${REACH_ICON[r.platform]||''}</span><div><h3>${esc(r.platform)}</h3><div class="reach-handle">${esc(r.handle||'')}</div></div></div><p>${esc(r.blurb||'')}</p><span class="reach-go">${esc(r.cta||'Open')}</span></a>`).join('')}</div>
+            <p class="contact-sub">Product, fine-tuning, agents, or the full stack around the model. If you have a real problem and want a builder in the room, I would like to hear about it.</p>
             <div class="contact-actions">
                 <a class="btn btn-accent" href="${esc(contactHref)}">${d.person.email ? 'Email me' : 'Message me on LinkedIn'}</a>
-                ${li && d.person.email && !reach.some(r => r.platform === 'LinkedIn') ? `<a class="btn" href="${esc(li.url)}" target="_blank" rel="noreferrer">Message me on LinkedIn</a>` : ''}
+                ${li && d.person.email ? `<a class="btn" href="${esc(li.url)}" target="_blank" rel="noreferrer">Message me on LinkedIn</a>` : ''}
+                ${reach.length ? `<a class="btn" href="#reach-top">Instagram and YouTube are up top</a>` : ''}
             </div>`;
 
         // Footer
