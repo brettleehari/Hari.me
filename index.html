@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hariprasad Sudharshan — Product leader who ships AI</title>
-    <meta name="description" content="Hariprasad Sudharshan. Product leader who ships AI, from patent to production. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. Granted patents, cited research, merged open-source PRs, live demos.">
+    <meta name="description" content="Hariprasad Sudharshan. Product leader who ships AI, from patent to production. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon. Granted patents, cited research, a merged LlamaIndex contribution, live demos.">
     <meta property="og:title" content="Hariprasad Sudharshan — Product leader who ships AI">
     <meta property="og:description" content="Patents, papers, and live demos. I'd rather show than tell. Runner-Up (solo) at MIT Media Lab's NANDAHack Agentic AI Hackathon.">
     <meta property="og:type" content="profile">
@@ -486,7 +486,7 @@
     function esc(s){if(!s)return '';const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
     function sh(label,t,sub){return `<div class="section-header"><p class="eyebrow">${esc(label)}</p>${t?`<h2>${esc(t)}</h2>`:''}${sub?`<p class="section-sub">${esc(sub)}</p>`:''}</div>`;}
     const SCHOLAR='https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ';
-    const PLATFORM_COLOR={'GitHub':'#24292F','LinkedIn':'#0A66C2','Substack':'#FF6719','Medium':'#1A1A1A','Hugging Face':'#F5A623','Google Scholar':'#4285F4','ResearchGate':'#00A98F'};
+    const PLATFORM_COLOR={'GitHub':'#24292F','LinkedIn':'#0A66C2','Substack':'#FF6719','Medium':'#1A1A1A','Hugging Face':'#F5A623','Google Scholar':'#4285F4','ResearchGate':'#00A98F','Instagram':'#E1306C','YouTube':'#FF0000'};
 
     function render(d) {
         document.getElementById('site-name').textContent = d.site.name;
@@ -525,11 +525,12 @@
 
         // Proof strip
         const st = d.research.stats;
+        const llama = (d.open_source || []).find(o => /llamaindex/i.test(o.project));
         const tiles = [
             {v:'Patents', go:true, l:'Granted. Read them on Google Scholar', h:SCHOLAR},
             {v:'Research', go:true, l:'Papers and citations on ResearchGate', h: rg ? rg.url : SCHOLAR},
             award ? {v:award.placement, l:`MIT NANDAHack, solo, of 230+`, h:award.url} : {v:'Papers', go:true, l:'Published work on Google Scholar', h:SCHOLAR},
-            {v:st.merged_prs || '6', l:'Merged open-source PRs', h: gh ? gh.url : '#'},
+            {v:'LlamaIndex', go:true, l:'Open-source contribution. Merged PR in core RAG loading', h: llama ? llama.url : (gh ? gh.url : '#')},
         ];
         document.getElementById('proof-strip').innerHTML = tiles.map(t =>
             `<a class="proof-tile" href="${esc(t.h)}" target="_blank" rel="noreferrer"><div class="num">${esc(t.v)}${t.go?'<span class="go">&nearr;</span>':''}</div><div class="lbl">${esc(t.l)}</div></a>`
