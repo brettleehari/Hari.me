@@ -16,6 +16,29 @@
     "email": "hariprasadsudharsan@gmail.com",
     "resume_url": "",
     "linktree": "https://linktr.ee/brettleehari",
+    "reach": [
+      {
+        "platform": "LinkedIn",
+        "handle": "in/haripm4ai",
+        "url": "https://linkedin.com/in/haripm4ai",
+        "blurb": "The fastest way to reach me. Messages open for product, inference, hiring, and speaking.",
+        "cta": "Message me"
+      },
+      {
+        "platform": "Instagram",
+        "handle": "@brettleehari",
+        "url": "https://www.instagram.com/brettleehari/",
+        "blurb": "Life outside the terminal. Chennai, Dallas, and the occasional build log in pictures.",
+        "cta": "Follow along"
+      },
+      {
+        "platform": "YouTube",
+        "handle": "Talks on video",
+        "url": "https://www.youtube.com/watch?v=0JZy5AuuQzc",
+        "blurb": "Start with the AI Engineer New York talk. More talks land here as they go online.",
+        "cta": "Watch"
+      }
+    ],
     "hero_headline": "Product leader who ships AI, from patent to production.",
     "hero_proof": "Builder PM with granted patents, cited research, merged open-source PRs, and a solo runner-up finish at MIT Media Lab's agentic AI hackathon.",
     "hero_motto": "Patents, papers, and live demos. I'd rather show than tell."

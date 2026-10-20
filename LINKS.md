@@ -14,6 +14,7 @@ Every external URL used in the portfolio (`index.html` + `data/portfolio.json`),
 | https://scholar.google.com/citations?hl=en&user=0ifJK1sAAAAJ | Google Scholar profile (patents, papers, citations) |
 | https://www.researchgate.net/profile/Hariprasad-Sudharsan | ResearchGate profile |
 | https://github.com/pitchdarkdata | Pitchdarkdata — business/org GitHub account |
+| https://www.instagram.com/brettleehari/ | Instagram profile (Reach out section) |
 
 ## Patents (Google Scholar citation pages)
 
