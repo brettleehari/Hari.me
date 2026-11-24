@@ -40,7 +40,7 @@
       }
     ],
     "hero_headline": "Product leader who ships AI, from patent to production.",
-    "hero_proof": "Builder PM with granted patents, cited research, a merged LlamaIndex contribution, and a solo runner-up finish at MIT Media Lab's agentic AI hackathon.",
+    "hero_proof": "Engineer who dives deep, with a product background. I started in QA, so everything I build takes a systems approach to reducing variance in the final output.",
     "hero_motto": "Patents, papers, and live demos. I'd rather show than tell."
   },
   "profiles": [
@@ -730,6 +730,22 @@
     },
     "papers": [
       {
+        "title": "Right at Diagnosis, Wrong at Action: Can Your Agent Manage a Live Network That Keeps Changing?",
+        "venue": "OFC Demo Zone",
+        "year": "2026",
+        "one_line_summary": "Live demonstration of an agent that diagnoses correctly and still acts wrongly when the network moves underneath it.",
+        "url": "",
+        "citations": ""
+      },
+      {
+        "title": "Assumption-Aware Context Reconciliation and Execution-Window Gating for LLM-Assisted Optical-Network Troubleshooting",
+        "venue": "OFC, submitted",
+        "year": "2026",
+        "one_line_summary": "Gating LLM actions: reconcile what the model assumes with what the network currently is, and only allow execution inside a window where the two agree.",
+        "url": "",
+        "citations": ""
+      },
+      {
         "title": "Upstream Intervention for RAG Accuracy",
         "venue": "",
         "year": "",
@@ -802,13 +818,33 @@
         "year_granted": "2018",
         "one_line_summary": "Network loop detection and prevention mechanism.",
         "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=0ifJK1sAAAAJ&citation_for_view=0ifJK1sAAAAJ:u5HHmVD_uO8C"
+      },
+      {
+        "title": "Context engineering for network applications",
+        "patent_number": "",
+        "year_filed": "2026",
+        "year_granted": "",
+        "one_line_summary": "Two AI patents filed. How an assistant on live network infrastructure is given, reconciles, and is gated by context.",
+        "url": ""
       }
     ],
     "frameworks_created": [
       {
         "name": "TAQi (Test Automation Quality Index)",
-        "description": "Original composite index for measuring what test automation is actually doing. Not pass/fail rates, the quality and effectiveness of the automation itself. Adopted by 50+ engineering teams.",
+        "description": "Original composite index for what test automation is actually doing: the quality and effectiveness of the automation itself, not pass/fail rates. One of three metrics I researched and coined that exposed hidden developer-productivity bottlenecks. Adopted by 50+ engineering teams.",
         "published_on": "LinkedIn",
+        "url": ""
+      },
+      {
+        "name": "DDF",
+        "description": "Second of the three original developer-productivity metrics. Built to surface where delivery effort was leaking inside a 250-developer platform. Adopted alongside TAQi by 50+ teams.",
+        "published_on": "",
+        "url": ""
+      },
+      {
+        "name": "Merge Conflict Coefficient",
+        "description": "Third of the three. Measures the merge pain a codebase pays for parallel branching. The empirical thread that led to The Hidden Cost of Early Branching, a cost framework validated by Monte Carlo simulation of 10,000 synthetic organizations, which changed the branching strategy across the organization.",
+        "published_on": "",
         "url": ""
       },
       {
@@ -944,7 +980,8 @@
       "title": "Building Intuition on LLM",
       "image": "/Hari.me/assets/awsspeaking.jpeg",
       "image_alt": "AWS User Group Dallas poster: Building Intuition on LLM, Thursday September 24, Frisco Library",
-      "venue": "Frisco Library, Community Room B"
+      "venue": "Frisco Library, Community Room B",
+      "glance": "AWS User Group DFW"
     },
     {
       "event": "AI Engineer New York",
@@ -953,7 +990,8 @@
       "url": "https://www.youtube.com/watch?v=0JZy5AuuQzc&t=380s",
       "video_id": "0JZy5AuuQzc",
       "title": "I Spent Two Years Building the Median",
-      "tense": "past"
+      "tense": "past",
+      "glance": "AI Engineer New York"
     },
     {
       "event": "GDG Chennai · DevFest",
@@ -967,7 +1005,8 @@
       "slides_url": "/Hari.me/talks/goldrush-in-california.html",
       "video_url": "https://www.youtube.com/watch?v=Kbtd8grrn6Y",
       "image": "/Hari.me/assets/gdgspeaking.jpeg",
-      "image_alt": "Hariprasad Sudharshan on the main stage at GDG Chennai DevFest, IIT Madras, mid-sentence with the \"same model, same problem, same tools\" slide behind him"
+      "image_alt": "Hariprasad Sudharshan on the main stage at GDG Chennai DevFest, IIT Madras, mid-sentence with the \"same model, same problem, same tools\" slide behind him",
+      "glance": "GDG DevFest Chennai, IIT Madras"
     },
     {
       "event": "OFC 2026 (Optical Fiber Communication Conference)",
@@ -991,7 +1030,8 @@
       "title": "ML-Based Data-Driven Software Development with InfluxDB 2.0",
       "slides_url": "https://www.slideshare.net/slideshow/hariprasad-sudharshan-fujitsu-network-communications-mlbased-datadriven-software-development-with-influxdb-20-influxdays-na-2021/250506963",
       "image": "/Hari.me/assets/influxspeaking.jpeg",
-      "image_alt": "InfluxDays North America 2021 speaker card for Hari Prasad Sudharshan"
+      "image_alt": "InfluxDays North America 2021 speaker card for Hari Prasad Sudharshan",
+      "glance": "InfluxDays"
     },
     {
       "event": "Dallas Python Users Group",
@@ -1042,8 +1082,12 @@
   ],
   "now": {
     "_description": "Where my head is at right now. Updated periodically.",
-    "_last_updated": "2026-04-26",
+    "_last_updated": "2026-11-25",
     "items": [
+      {
+        "topic": "LLM-judge reliability for AI toy safety",
+        "detail": "Contributing to NITA, the NEST Interactive Toy Arena, an AI toy safety testing platform in the Foundation for Agentic Networks. Persona-driven adversarial child simulations, scored by an LLM judge. My focus: how far to trust the judge, and statistical methods for measuring adversarial scenario coverage."
+      },
       {
         "topic": "Model Context Protocol (MCP)",
         "detail": "Deep-diving into how MCP solves the MxN integration problem I fought for 18 years. 6-part series on Substack. Built interactive learning tools for the protocol."
@@ -1249,9 +1293,20 @@
       "Delivery pipeline management for telecom products",
       "13-person cross-functional team, 250+ developers, 24 teams, 2 business units",
       "99.99% uptime, monthly to daily release cadence"
+    ],
+    "shipped": [
+      "Coding-agent equivalents for network operators, on layer-0 and layer-1 infrastructure that runs at five nines. Shipping AI into it since before LLMs.",
+      "A telecom domain-specific language model built end to end: data curation, distillation, evaluation rubrics, inference economics, and the go-to-market.",
+      "A multi-factor failure-analysis agent with confidence-scored recommendations. Mean time to repair went from days or weeks to minutes or hours."
     ]
   },
   "footer": {
     "tagline": "Building since 2016. Writing since 2020. From Chennai. In Dallas."
+  },
+  "book_in_progress": {
+    "title": "A children's book on AI",
+    "with": "Written with my daughter",
+    "status": "In progress",
+    "description": "It forces me to make AI and safety concepts explainable to the people most affected by them. If a ten-year-old cannot follow the idea, I do not understand it well enough yet."
   }
 }

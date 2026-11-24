@@ -376,6 +376,17 @@
         .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
         .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
 
+        .glance { font-size: 14px; color: var(--muted); margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
+        .glance .glance-k { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.14em; margin-right: 4px; }
+        .glance a { color: var(--fg); font-weight: 600; border-bottom: 1px solid var(--border); }
+        .glance a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+        .glance .sep { color: var(--border); }
+        .bg-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+        .bg-list li { font-size: 14.5px; line-height: 1.6; color: var(--fg-2); padding-left: 18px; position: relative; }
+        .bg-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+        .bg-card .subhead { margin: 22px 0 4px; }
+        .book-card.wip { background: var(--card); border-color: var(--border); }
+        .book-card.wip .book-meta { color: var(--accent); }
         /* Contact / Reach out */
         #contact h2 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.05; max-width: 16ch; }
         .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
@@ -455,6 +466,7 @@
         <section class="hero" id="hero-row"></section>
         <div class="reach-top" id="reach-top"></div>
         <div class="proof-strip" id="proof-strip"></div>
+        <p class="glance" id="glance"></p>
     </div>
 
     <div class="wide">
@@ -535,6 +547,11 @@
         document.getElementById('proof-strip').innerHTML = tiles.map(t =>
             `<a class="proof-tile" href="${esc(t.h)}" target="_blank" rel="noreferrer"><div class="num">${esc(t.v)}${t.go?'<span class="go">&nearr;</span>':''}</div><div class="lbl">${esc(t.l)}</div></a>`
         ).join('');
+
+        // On stage, at a glance
+        const stageOrder = ['AI Engineer New York', 'GDG DevFest Chennai, IIT Madras', 'AWS User Group DFW', 'InfluxDays'];
+        const stage = d.speaking.filter(s => s.glance).map(s => ({ n: s.glance, h: s.video_id ? s.url : (s.slides_url || s.video_url || s.url || '#') })).sort((a,b)=>stageOrder.indexOf(a.n)-stageOrder.indexOf(b.n));
+        document.getElementById('glance').innerHTML = stage.length ? `<span class="glance-k">On stage</span>` + stage.map(s=>`<a href="${esc(s.h)}" target="_blank" rel="noreferrer">${esc(s.n)}</a>`).join('<span class="sep">&middot;</span>') : '';
 
         // Featured work: Problem / Built / Result
         const featured = d.projects.filter(p=>p.pinned).sort((a,b)=>a.featured_order-b.featured_order).slice(0,4);
@@ -770,12 +787,14 @@
 
         // Research
         const fwHtml = d.research.frameworks_created.map(f=>`<div class="fw-item"><h4>${esc(f.name)}</h4><p>${esc(f.description)}</p></div>`).join('');
-        const patHtml = d.research.patents.filter(p=>p.title).map(p=>`<div class="fw-item"><h4>${esc(p.title)}</h4><p>Granted ${esc(p.year_granted)}. ${esc(p.one_line_summary)}</p></div>`).join('');
+        const patHtml = d.research.patents.filter(p=>p.title).map(p=>`<div class="fw-item"><h4>${esc(p.title)}</h4><p>${p.year_granted ? 'Granted ' + esc(p.year_granted) : 'Filed' + (p.year_filed ? ' ' + esc(p.year_filed) : '')}. ${esc(p.one_line_summary)}</p></div>`).join('');
+        const paperHtml = d.research.papers.filter(p=>p.title && p.one_line_summary).map(p=>`<div class="fw-item"><h4>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.title)}</a>` : esc(p.title)}</h4><p>${[p.venue,p.year].filter(Boolean).map(esc).join(' &middot; ')}${p.venue||p.year ? '. ' : ''}${esc(p.one_line_summary)}</p></div>`).join('');
         document.getElementById('background').innerHTML = `
             ${sh('Research','Research, Patents, and Platform Work')}
             <div class="bg-card">
                 <p>${esc(d.career_background.summary)}</p>
                 <p class="insight">${esc(d.career_background.key_insight)}</p>
+                ${(d.career_background.shipped||[]).length ? `<div class="subhead">Shipped behind the firewall</div><ul class="bg-list">${d.career_background.shipped.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>` : ''}
                 <div class="stats-row">
                     <div class="stat"><div class="stat-number">${esc(String(d.person.years_in_tech))}</div><div class="stat-label">Years in tech</div></div>
                     <div class="stat"><div class="stat-label">Patents</div><a class="stat-go" href="${SCHOLAR}" target="_blank" rel="noreferrer">Google Scholar &nearr;</a></div>
@@ -785,14 +804,18 @@
             </div>
             <div class="subhead">Patents</div>
             <div class="fw-grid">${patHtml}</div>
-            <div class="subhead">Original Frameworks</div>
+            <div class="subhead">Papers</div>
+            <div class="fw-grid">${paperHtml}</div>
+            <div class="subhead">Original frameworks and metrics</div>
             <div class="fw-grid">${fwHtml}</div>
             <div class="pill-row">
                 ${d.profiles.filter(p=>p.platform==='Google Scholar'||p.platform==='ResearchGate').map(p=>`<a class="pill" href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.platform)}</a>`).join('')}
             </div>`;
 
         // Book + Bookshelf + research links
-        const bookHtml = d.book ? `<div class="book-card"><div class="book-icon">&#128214;</div><div class="book-info"><h3>${esc(d.book.title)}</h3><div class="book-meta">${esc(d.book.edition)}, ${esc(d.book.year)}</div><p>${esc(d.book.description)}</p></div></div>` : '';
+        const wip = d.book_in_progress;
+        const bookHtml = (d.book ? `<div class="book-card"><div class="book-icon">&#128214;</div><div class="book-info"><h3>${esc(d.book.title)}</h3><div class="book-meta">${esc(d.book.edition)}, ${esc(d.book.year)}</div><p>${esc(d.book.description)}</p></div></div>` : '')
+            + (wip ? `<div class="book-card wip"><div class="book-icon">&#9998;&#xFE0E;</div><div class="book-info"><h3>${esc(wip.title)}</h3><div class="book-meta">${esc(wip.status)}. ${esc(wip.with)}</div><p>${esc(wip.description)}</p></div></div>` : '');
         if (d.bookshelf) {
             const bs = d.bookshelf;
             const cats = (bs.categories||[]).filter(c => c.books && c.books.length);
